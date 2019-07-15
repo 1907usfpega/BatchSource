@@ -28,5 +28,13 @@ public class Driver {
 		 * String []args- parameter utilized in this method
 		 */
 		System.out.println("Goodbye,earth");
+		/*
+		 * Members of a class- can have different forms
+		 * Instance variables- property that belongs to a specific object
+		 * Static variables-belongs to class/all instances
+		 * Instance methods-behavior related to a specific object
+		 * Static methods- relative to the entire class
+		 * Constructors-instantiates the class using the keyword "new"
+		 */
 	}
 }
