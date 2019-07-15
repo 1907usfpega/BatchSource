@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 Roll tide!
 Hello World!
+=======
+Roll tide! WOO!
+>>>>>>> b246529f4a56f6b42102241f57914eb20224e62f
