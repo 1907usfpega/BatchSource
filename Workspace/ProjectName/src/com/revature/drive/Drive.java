@@ -1,4 +1,7 @@
 package com.revature.drive;
+
+import com.revature.beans.Person;
+
 public class Drive {
 // namespace to organize related classesäüö
 /*
@@ -22,6 +25,10 @@ public class Drive {
 		 * instantiation; belongs to the class
 		 * 	String[] args - parameter utilized in this method
 		 */
+		Person a = new Person("Leo", 23, 70);
+		Person c = new Person("Lea", 223, 0);
+		Person b = new Person("Leu", 231, 370);
+		System.out.println(a.toString());
 		System.out.println("KTHXBYE");	
 	}
 }
