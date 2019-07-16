@@ -13,8 +13,8 @@ public class driver {
 	 *  */
 	public static void main(String[] args) {
 		/* public - access modifier, anyone can see
-		 * static- belongs t class, does not need to be instantiated
-		 * String [] args -parameter utilized in this method
+		 * static- belongs to the class, does not need to be instantiated
+		 * String[] args -parameter utilized in this method
 		 * 
 		 * */
 		System.out.println("Goodbye Earth");
