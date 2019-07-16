@@ -1,4 +1,7 @@
 package com.revature.driver;
+
+import com.revature.beans.Person;
+
 //package- namespace to organize related class/interfaces,etc
 public class Driver {
 	//single line comment
@@ -22,6 +25,13 @@ public class Driver {
 	 */
 	//Main Method is the entry point
 	public static void main(String[] args) {
+		
+		Person a =new Person("Matt",33,270);
+		Person b =new Person("Jackson",56,199);
+		Person c =new Person("Hann",12,1728);
+		Person d =new Person("Deonta",128,10);
+		Person e =new Person("Andrew",22,-11);
+		System.out.println(a.toString());
 		/*
 		 * public- access modifiers, anything can see it
 		 * static- belongs to class, does not need to be instantiated
