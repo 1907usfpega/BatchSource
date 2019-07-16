@@ -1,8 +1,13 @@
 package com.revature.driver;
 
+import java.sql.Date;
+
 import com.revature.beans.Person;
 
 //package- namespace to organize related class/interfaces,etc
+//Import- access stuff from another package
+// import static ...- this will only import static members
+//import all the things!! import com.revature.coolstuff.*
 public class Driver {
 	//single line comment
 	/*
@@ -25,7 +30,10 @@ public class Driver {
 	 */
 	//Main Method is the entry point
 	public static void main(String[] args) {
-		
+		/*
+		 * @SuppressWarnings("deprecation") Date d= new Date(1,2,3); java.util.Date a=
+		 * new Date(3);
+		 */
 		Person a =new Person("Matt",33,270);
 		Person b =new Person("Jackson",56,199);
 		Person c =new Person("Hann",12,1728);

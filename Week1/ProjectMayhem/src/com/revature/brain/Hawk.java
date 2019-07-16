@@ -9,7 +9,7 @@ class Bird{
     static { System.out.println("b3");  }  	 
 }
 
-class Raptor extends Bird {
+ class Raptor extends Bird {
     static { System.out.println("r1"); }
     
     public Raptor() {
