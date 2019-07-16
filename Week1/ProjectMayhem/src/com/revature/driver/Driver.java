@@ -1,4 +1,5 @@
 package com.revature.driver;
+import com.revature.beans.Person;
 	//Package- namespace in which to organize affiliated classes
 public class Driver {
 	//comment
@@ -25,6 +26,11 @@ public class Driver {
 		 * protected- can be accessed by child classes
 		 * private- can only be accessed by class
 		 */
+		
+		Person myPerson = new Person("Homer", 39, Integer.MAX_VALUE);
+		
+		System.out.println(myPerson.toString() + "\n");
+		
 		System.out.print("Goodbye, Earth!\n");
 	}
 }
