@@ -1,6 +1,15 @@
 package com.revature.driver;
+/*
+ * Package declaration must be on first line
+ * import-access things from other packages
+ * 	not absolutely necessary
+ * 
+ * com.revature.beans.person mary = new person(....
+ */
 import com.revature.beans.Person;
 	//Package- namespace in which to organize affiliated classes
+	//Import- access stuff from another package
+	//import static- this will only import static members
 public class Driver {
 	//comment
 	/*
@@ -28,8 +37,16 @@ public class Driver {
 		 */
 		
 		Person myPerson = new Person("Homer", 39, Integer.MAX_VALUE);
+		Person yourPerson = new Person("Bart", 10, 80);
+		Person hisPerson = new Person("Lisa", 8, 60);
+		Person herPerson = new Person("Marge", 37, 120);
+		Person theirPerson = new Person("Maggie", 1, 20);
 		
-		System.out.println(myPerson.toString() + "\n");
+		System.out.println(myPerson.toString());
+		System.out.println(yourPerson.toString());
+		System.out.println(hisPerson.toString());
+		System.out.println(herPerson.toString());
+		System.out.println(theirPerson.toString() + "\n");
 		
 		System.out.print("Goodbye, Earth!\n");
 	}

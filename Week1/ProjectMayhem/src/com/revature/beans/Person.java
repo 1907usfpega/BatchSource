@@ -6,6 +6,9 @@ public class Person {
 	private int age;
 	private int weight;
 	
+	{System.out.println(this.getName()+ " is an instance of ");}
+
+	static {System.out.println(" is an instance of ");}
 	//constructor w/ args
 	public Person(String name, int age, int weight) {
 		this.name = name;
