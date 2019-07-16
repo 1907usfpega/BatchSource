@@ -1,4 +1,7 @@
 package com.revature.driver;
+
+import com.revature.driver.beans.Person;
+
 //packages are namespaces to organize related classes, interfaces, etc
 public class Driver 
 {
@@ -35,7 +38,18 @@ public class Driver
 		 * static: belongs to the class (not the object), and does not need to be instantiated
 		 * String[] args: a parameter utilized in this methods  
 		 */
-		System.out.println("Goodbye, cruel world!");
+		System.out.println("Goodbye, cruel world!\n");
+		
+		Person a = new Person("Matt", 33, 270);
+		Person b = new Person("Jackson", 56, 199);
+		Person c = new Person("Hann", 12, 1728);
+		Person d = new Person("Deonta", 128, 10);
+		Person e = new Person("Andrew", 22, -11);
+		System.out.println(a.toString());
+		System.out.println(b.toString());
+		System.out.println(c.toString());
+		System.out.println(d.toString());
+		System.out.println(e.toString());
 	}
 
 }
