@@ -44,6 +44,11 @@ public class Person {
 	public String toString() {
 		return "Person [name=" + name + ", age=" + age + ", weight=" + weight + "]";
 	}
-	
+	public void increasAgeBy(int x) throws IncreasedByNegativeNumberException {
+		if(x<0) {
+			throw new IncreasedByNegativeNumberException();
+		
+		}
+	}
 	
 }
