@@ -2,9 +2,13 @@ package com.revature.drive;
 
 import com.revature.beans.Person;
 
+
 public class Drive {
 // namespace to organize related classesäüö
-/*
+/* Import = access stuff from another package
+ * "import static" - only imports the static members
+ * import java.util.*;
+ * 
  * comment here~~
  * 
   OR HERE
