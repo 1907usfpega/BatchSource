@@ -41,19 +41,25 @@ public class CoreJavaAssignmentQuestions {
 		
 		//////////Question 4//////////
 		System.out.println("********** Q4 **********\n");
-		
+		System.out.println("Factorials of 0 through 20: ");
+		for(int exampleInt = 0; exampleInt <= 20; exampleInt++) {
+			System.out.println(exampleInt + "! = " + factorial(exampleInt));
+		}
 		System.out.println("\n\n");
-		/*
+
 		//////////Question 5//////////
 		System.out.println("********** Q5 **********\n");
-		
+		String startString = "This part should remain.|This part should be removed.";
+		System.out.println("Initial String:\n" + startString);
+		String endString = subStringMaker(startString, 24);
+		System.out.println("Sub-String:\n" + endString);
 		System.out.println("\n\n");
 		
 		//////////Question 6//////////
 		System.out.println("********** Q6 **********\n");
 		
 		System.out.println("\n\n");
-		
+		/*
 		//////////Question 7//////////
 		System.out.println("********** Q7 **********\n");
 		
@@ -167,6 +173,15 @@ public class CoreJavaAssignmentQuestions {
 						inString.substring(inString.length() - i, inString.length()));
 		}
 		return inString;
+	}
+	public static long factorial(int intIn) {
+		return intIn == 0 ? 1 : intIn * factorial(intIn - 1);
+	}
+	public static String subStringMaker(String inString, int length) {
+		String outString = String.valueOf(inString.charAt(0));
+		for(int i = 1; i < length; i++)
+			outString += String.valueOf(inString.charAt(i));
+		return outString;
 	}
 	public CoreJavaAssignmentQuestions() {
 		
