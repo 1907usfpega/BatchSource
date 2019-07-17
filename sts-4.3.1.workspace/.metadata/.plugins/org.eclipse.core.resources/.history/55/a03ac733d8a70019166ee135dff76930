@@ -1,0 +1,18 @@
+package com.revature.drive;
+
+//Ctrl+Shift+O
+import com.revature.beans.Person;
+
+public class Drive {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Goodbye!");
+		
+		
+		Person a = new Person("Matt", 33, 270);
+
+		
+	}
+
+}

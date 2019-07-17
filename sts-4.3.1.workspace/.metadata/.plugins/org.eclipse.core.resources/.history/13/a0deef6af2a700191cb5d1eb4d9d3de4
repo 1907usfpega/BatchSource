@@ -1,0 +1,36 @@
+package com.revature.constructors;
+
+public class Hawk extends Raptor {
+
+	public Hawk() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		System.out.println("init");
+		new Hawk();
+		System.out.println("hawk");
+	}
+}
+
+class Raptor extends Bird{
+	
+	static { System.out.println("r1");} 
+	
+	public Raptor() {System.out.println("h2");}
+	
+	{ System.out.println("h3"); }
+	
+	static { System.out.println("r4");}
+}
+
+class Bird{
+	
+	{ System.out.println("b1"); }
+	
+	Bird(){ System.out.println("b2");}
+	
+	static { System.out.println("b3");}
+	
+}
+

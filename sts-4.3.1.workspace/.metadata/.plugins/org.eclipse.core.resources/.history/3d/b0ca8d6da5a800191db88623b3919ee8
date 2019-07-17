@@ -1,0 +1,18 @@
+package com.revature.flow;
+
+public class LoopyLoops {
+
+	public static void main(String[] args) {
+		/* SWITCH CASES
+		 * multiple paths of execution based on an integer numeric, string,
+		 * char, boolean or enum
+		 */
+		
+		static String color;
+		public static void whatColor(String color) {
+			
+		}
+
+	}
+
+}

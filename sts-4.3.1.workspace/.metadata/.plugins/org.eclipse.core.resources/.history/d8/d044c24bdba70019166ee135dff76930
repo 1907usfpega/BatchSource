@@ -1,0 +1,12 @@
+package com.revature.constructors;
+
+public class Mouse {
+	private int numTeeth;
+	private int numWhiskers;
+	private int weight;
+
+	public static void main(String[] args) {
+
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.revature.varargs;
+/* Variable Length Argument
+ Method will take a variable # of args
+ Automates and hides the process of creating and saving the 
+ values in an array prior to invoking the method
+ can be any type 
+ 
+ */
+
+public class FunWithArgs {
+
+	public static void main(String[] args) { 
+		varTest(30);
+	}
+	
+	static void vaTest(int ... v) {
+		System.out.println("# of args is: "+ v.length +"Contents: ");
+		
+		for(int x: v) {
+			System.out.println(x+ ", ");
+		}
+	}
+
+}
