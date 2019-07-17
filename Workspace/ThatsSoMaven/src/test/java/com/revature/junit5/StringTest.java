@@ -49,6 +49,22 @@ class StringTest {
 		assertEquals("ABC",result);
 	}
 	
-	
+	@Nested
+	 @DisplayName("For an empty string")
+	 class EmptyStringTests{
+		 @BeforeEach
+		 void setToEmpty() {
+			 str="";
+		 }
+		 @Test
+		 void lengthIsZero() {
+			 assertEquals(0,str.length());
+		 }
+		 @Test
+		 void uppercaseIsEmpty() {
+			 assertEquals("",str.toUpperCase());
+		 }
+		 
+	 }
 	
 }
