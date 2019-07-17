@@ -41,6 +41,10 @@ public class Driver {
 		Person hisPerson = new Person("Lisa", 8, 60);
 		Person herPerson = new Person("Marge", 37, 120);
 		Person theirPerson = new Person("Maggie", 1, 20);
+		System.out.println(hisPerson.getAge());
+		//try{hisPerson.increaseAgeBy(-4);}
+//		/catch{IncreaseByNegativeNumberException();}
+		System.out.println(hisPerson.getAge());
 		
 		System.out.println(myPerson.toString());
 		System.out.println(yourPerson.toString());

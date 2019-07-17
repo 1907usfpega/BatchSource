@@ -20,7 +20,9 @@ public class Person {
 	public Person() {
 		//implicitly we get super();
 	}
-	
+	public void increaseAgeBy(int x) {
+		this.age += x;
+	}
 	//getters and setters
 	public void setName(String name) {
 		this.name = name;
