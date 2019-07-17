@@ -1,5 +1,7 @@
 package com.revature.beans;
 
+import com.revature.exceptions.IncreasedByNegativeNumberException;
+
 public class Person {
 	//POJO- plain ol java object
 	private String name;
@@ -44,6 +46,11 @@ public class Person {
 	public String toString() {
 		return "Person [name=" + name + ", age=" + age + ", weight=" + weight + "]";
 	}
-	
+	 public void increaseAgeBy(int x) throws IncreasedByNegativeNumberException {
+		if(x<0) {
+			throw new IncreasedByNegativeNumberException();
+		}
+		 this.age+=x;
+	 }
 	
 }
