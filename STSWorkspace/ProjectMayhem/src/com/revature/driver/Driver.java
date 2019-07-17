@@ -45,11 +45,13 @@ public class Driver
 		Person c = new Person("Hann", 12, 1728);
 		Person d = new Person("Deonta", 128, 10);
 		Person e = new Person("Andrew", 22, -11);
-		System.out.println(a.toString());
-		System.out.println(b.toString());
-		System.out.println(c.toString());
-		System.out.println(d.toString());
-		System.out.println(e.toString());
+		System.out.println(c.getAge());
+		c.increaseAgeBy(-4);
+		//System.out.println(a.toString());
+		//System.out.println(b.toString());
+		System.out.println(c.getAge());
+		//System.out.println(d.toString());
+		//System.out.println(e.toString());
 	}
 
 }

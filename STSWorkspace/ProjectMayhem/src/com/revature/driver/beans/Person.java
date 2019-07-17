@@ -1,5 +1,7 @@
 package com.revature.driver.beans;
 
+import com.revature.exceptions.IncreasedByNegativeNumberException;
+
 public class Person 
 {
 	//this is a POJO: plain ol java object
@@ -68,6 +70,15 @@ public class Person
 	static //static code block runs before constructor
 	{
 		System.out.println("Im a static code block!");
+	}
+	
+	public void increaseAgeBy(int x) throws IncreasedByNegativeNumberException
+	{
+		if(x < 0)
+		{
+			throw new IncreasedByNegativeNumberException();
+		}
+		this.age+=x;
 	}
 	
 	//toString override
