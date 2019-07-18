@@ -15,6 +15,9 @@ public class Person {
 		this.age = age;
 		this.weight = weight;
 	}
+	public void findPrey() {
+		System.out.println("I go to walmart.");
+	}
 	
 	//constructor w/out args
 	public Person() {

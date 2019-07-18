@@ -7,6 +7,7 @@ package com.revature.driver;
  * com.revature.beans.person mary = new person(....
  */
 import com.revature.beans.Person;
+import com.revature.classtypes.Shark;
 	//Package- namespace in which to organize affiliated classes
 	//Import- access stuff from another package
 	//import static- this will only import static members
@@ -35,7 +36,15 @@ public class Driver {
 		 * protected- can be accessed by child classes
 		 * private- can only be accessed by class
 		 */
+		Shark myShark = new Shark();
+		myShark.breathe();
+		myShark.findPrey();
+		myShark.swim();
+		Person p = new Person();
+		p.findPrey();
 		
+		/*
+		 * 
 		Person myPerson = new Person("Homer", 39, Integer.MAX_VALUE);
 		Person yourPerson = new Person("Bart", 10, 80);
 		Person hisPerson = new Person("Lisa", 8, 60);
@@ -52,6 +61,6 @@ public class Driver {
 		System.out.println(herPerson.toString());
 		System.out.println(theirPerson.toString() + "\n");
 		
-		System.out.print("Goodbye, Earth!\n");
+		System.out.print("Goodbye, Earth!\n");*/
 	}
 }
