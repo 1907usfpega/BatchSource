@@ -6,6 +6,7 @@ package com.revature.driver;
  * com.revature.beans.Person mary = new com.revature.beans.Person.Person
  */
 import com.revature.beans.Person;
+import com.revature.exceptions.IncreasedByNegativeNumberException;
 
 /*
  * import static ... - this will only import static members
@@ -29,6 +30,12 @@ public class Driver {
 		Person c = new Person("Hann",12,1728);
 		Person d = new Person("Deonta",128,10);
 		Person e = new Person("Andrew",22,-11);
+		try {
+			c.increaseAgeBy(-4);
+		} catch (IncreasedByNegativeNumberException exc) {
+			System.out.println("Cannot increase age by a negative number.");
+		}
+		System.out.println(c.getAge());
 		System.out.println(a.toString());
 		System.out.println(b.toString());
 		System.out.println(c.toString());
