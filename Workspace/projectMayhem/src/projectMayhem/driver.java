@@ -1,5 +1,7 @@
 package projectMayhem;
 
+import com.revature.beans.Person;
+
 public class driver {
 	//single line comment
 	/*this is
@@ -18,6 +20,18 @@ public class driver {
 		 * 
 		 * */
 		System.out.println("Goodbye Earth");
+		//ctl /shift /o to import Person
+		Person a = new Person("Matt", 33, 270);
+		Person b = new Person ("Bob", 22, 130);
+		Person c = new Person ("Robert", 22, 450);
+		c.increaseAgeBy(-4);
+		System.out.println(c.getAge());
+		
+		
+		
+		
+		System.out.println(a.toString());
+		
 	}
 	
 	
