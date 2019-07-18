@@ -1,5 +1,8 @@
 package com.revature.MoneyFolder;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class MoneyFolder {
@@ -11,7 +14,6 @@ public class MoneyFolder {
 		String userName;
 		String password;
 		String verifyPassword;
-		
 		System.out.print("Welcome to the Money Folder Electronic Banking System!\n\nAre you a new customer? (y/n): ");
 		
 		// Determining if a customer is new
@@ -32,6 +34,15 @@ public class MoneyFolder {
 					System.out.print("Please re-enter your password: ");
 					verifyPassword = keyboardScanner.nextLine();
 				}
+				try {
+					FileWriter passwords = new FileWriter("passwords.txt");
+					PrintWriter pw = new PrintWriter(passwords);
+					pw.println(userName + "|" + password);
+					pw.close();
+				} catch (IOException e) {
+					System.out.println("ERROR!");
+				}
+				
 				System.out.println("Account has been successfully created, you will now be redirected to user log in.");
 			// Checking for valid input
 			} else if (!newCustomer.equals("n")) {
