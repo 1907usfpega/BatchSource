@@ -1,6 +1,6 @@
 package com.jackson.homeworkone;
 
-public class Question4 
+public class Q4Factorial
 {
 	public int factorial(int number)
 	{

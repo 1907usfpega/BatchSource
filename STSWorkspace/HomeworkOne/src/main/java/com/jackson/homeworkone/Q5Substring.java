@@ -1,6 +1,6 @@
 package com.jackson.homeworkone;
 
-public class Question5 
+public class Q5Substring 
 {
 	public String mySubstring(String str, int idx)
 	{

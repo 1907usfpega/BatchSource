@@ -1,15 +1,14 @@
 package com.revature.driver.beans;
 
+import com.revature.classtypes.Hunt;
 import com.revature.exceptions.IncreasedByNegativeNumberException;
 
-public class Person 
+public class Person implements Hunt
 {
 	//this is a POJO: plain ol java object
 	public String name;
 	public int age;
-	private int weight;
-	
-	
+	private int weight;	
 	
 	//default constructor
 	public Person()
@@ -79,6 +78,12 @@ public class Person
 			throw new IncreasedByNegativeNumberException();
 		}
 		this.age+=x;
+	}
+	
+	@Override
+	public void findPrey() 
+	{
+		System.out.println("I go to Walmart, meeeeeegh");
 	}
 	
 	//toString override
