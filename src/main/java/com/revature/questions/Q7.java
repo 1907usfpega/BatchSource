@@ -19,7 +19,8 @@ public class Q7 {
 						new Employee("Chesnut", "Sales", 34),
 						new Employee("Leo", "tech", 24),
 				}));
-
+	}
+	public static void compareByName
 		Collections.sort(employeeList,new EmployeeAgeComparator());
 		System.out.println("Sorted by age:");
 		for(Employee emp:employeeList) {
@@ -38,7 +39,7 @@ public class Q7 {
 			System.out.println(emp.department);
 		}
 
-	}
+
 
 }
 
