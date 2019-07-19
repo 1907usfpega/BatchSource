@@ -1,26 +1,26 @@
 package com.revature.constructors;
 
 public class ConstructorDemo {
-
-	public static void main(String[] ogre) {
-		C c = new C();
+	public static void main(String [] args) {
+		C c= new C();
 	}
 }
-class A  {
+class A{
 	A(){
-		super();
-		System.out.println("Inside A's Constructor");
+		System.out.println("Inside A's constructor");
 	}
 }
-class B extends A {
+
+class B extends A{
 	B(){
-		super();
-		System.out.println("Inside B's Constructor");
+		System.out.println("Inside B's constructor");
 	}
 }
-class C extends B {
+
+class C extends B{
 	C(){
-		
-		System.out.println("Inside C's Constructor");
+		System.out.println("Inside C's constructor");
 	}
 }
+
+
