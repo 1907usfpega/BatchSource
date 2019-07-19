@@ -1,9 +1,15 @@
 package com.revature.beans;
 
+import java.io.Serializable;
+
 import com.revature.classtypes.Hunt;
 import com.revature.exceptions.IncreasedByNegativeNumberException;
 
-public class Person implements Hunt{
+public class Person implements Hunt,Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4986267534723049849L;
 	//POJO- plain ol java object
 	private String name;
 	private int age;

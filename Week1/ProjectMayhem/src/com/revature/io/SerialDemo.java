@@ -1,5 +1,7 @@
 package com.revature.io;
 
+import com.revature.beans.Person;
+
 public class SerialDemo {
 
 	public static void main(String[] args) {
@@ -15,7 +17,16 @@ public class SerialDemo {
 		 * " Roll Tide. Woo!");
 		 */
 		//Read from a file
-		System.out.println(io.readInputStreamContents());
+		//System.out.println(io.readInputStreamContents());
+		/*
+		 * Person p1= new Person("Matt",573,4400); Person p2= new Person("Leo",24,110);
+		 * Person p3= new Person("Brad",770,7000); IOWithCollections.personList.add(p1);
+		 * IOWithCollections.personList.add(p2); IOWithCollections.personList.add(p3);
+		 */
+		
+		//IOWithCollections.writePersonFile();
+		IOWithCollections.readPersonFile();
+		System.out.println(IOWithCollections.personList.toString());
 	}
 
 }
