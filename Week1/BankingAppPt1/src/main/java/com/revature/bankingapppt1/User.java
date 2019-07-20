@@ -9,7 +9,18 @@ public class User {
 	private String clearanceLevel;
 	private List<String> accounts;
 	
-	//public void addAccount(Str)
+	public void addAccount(String id) {
+		this.accounts.add(id);
+	}
+	public boolean removeAccount(String id) {
+		if(!this.accounts.contains(id))
+			return false;
+		this.accounts.remove(id);
+		return true;
+	}
+	public void changePassword(String newPass) {
+		this.password = newPass;
+	}
 	
 	
 	
