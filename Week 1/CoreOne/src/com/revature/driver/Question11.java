@@ -4,7 +4,7 @@ import com.revature.anotherPackage.diffClassForQ11;
 
 public class Question11 {
 
-	protected float[] run() {
+	public float[] run() {
 		diffClassForQ11 diff = new diffClassForQ11();
 		float[] gimme = {diff.getOne(), diff.getTwo()};
 		return gimme;

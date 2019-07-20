@@ -1,12 +1,12 @@
 package com.revature.driver;
 
 public class Question6 {
-	protected void run(String even) {
+	public void run(String even) {
 				
 		System.out.println("Solution: " + "Is " + even + " an even number? " + isIntEven(even));
 		
 	}
-	private static boolean isIntEven(String n) {
+	public static boolean isIntEven(String n) {
 		if(validInput(n)) {
 		return (int) Double.parseDouble(n)/2 == Double.parseDouble(n)/2 ? true:false;
 		}
@@ -17,12 +17,8 @@ public class Question6 {
 	}
 	protected static boolean validInput(String s) {
 		try {
-			double a = Double.parseDouble(s);
-			if (a > -1) {
-				return true;
-			} else {
-				System.out.println("Input is not valid");
-			}
+			Double.parseDouble(s);
+			return true;
 		} catch (NumberFormatException e) {
 			System.out.println("Input is not valid");
 		}

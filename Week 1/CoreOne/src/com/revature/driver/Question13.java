@@ -1,15 +1,17 @@
 package com.revature.driver;
 
 public class Question13 {
-	protected void printTriangle() {
+	public static String printTriangle() {
 		int k = 0;
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < 4; i++) {
 			for (int j = 0; j <= i; j++) {
-				System.out.print(k + " ");
+				sb.append(k + " ");
 				k = (k == 1) ? 0 : 1;
 			}
-			System.out.println();
+			sb.append("\n");
 		}
+		return sb.toString().trim();
 	}
 	protected void prompt() {
 		System.out.println("Question 13: ");

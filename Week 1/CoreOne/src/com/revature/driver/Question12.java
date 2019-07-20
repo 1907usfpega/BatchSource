@@ -3,19 +3,22 @@ package com.revature.driver;
 public class Question12 {
 	protected static int[] nums = new int[100];
 
-	protected void init() {
+	private void init() {
 		for (int i = 1; i < 101; i++) {
 			nums[i - 1] = i;
 		}
 	}
 
-	protected void printEvens() {
+	public String getEvens() {
+		this.init();
+		StringBuilder sb = new StringBuilder();
 		for (int i : nums) {
 			if (i % 2 == 0) {
-				System.out.print(i + " ");
+				sb.append(i + " ");
 			}
 		}
-		System.out.println();
+		
+		return sb.toString().trim();
 	}
 
 	protected void prompt() {

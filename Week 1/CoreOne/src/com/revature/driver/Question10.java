@@ -2,7 +2,7 @@ package com.revature.driver;
 
 public class Question10 {
 
-	protected double getMin(String one, String two) {
+	public static double getMin(String one, String two) {
 		if (validInput(one) && validInput(two)) {
 			return Double.parseDouble(one) < Double.parseDouble(two) ? Double.parseDouble(one) : Double.parseDouble(two);
 		}

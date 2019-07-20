@@ -66,7 +66,7 @@ public class Driver {
 		String min1 = in.nextLine();
 		q10.prompt2();
 		String min2 = in.nextLine();
-		System.out.println("Solution:" + q10.getMin(min1, min2));
+		System.out.println("Solution:" + Question10.getMin(min1, min2));
 
 		// Question 11
 		Question11 q11 = new Question11();
@@ -77,13 +77,12 @@ public class Driver {
 		// Question 12
 		Question12 q12 = new Question12();
 		q12.prompt();
-		q12.init();
-		q12.printEvens();
+		System.out.println(q12.getEvens());
 
 		// Question 13
 		Question13 q13 = new Question13();
 		q13.prompt();
-		q13.printTriangle();
+		System.out.println(Question13.printTriangle());
 
 		// Question 14
 		Question14 q14 = new Question14();
@@ -98,6 +97,13 @@ public class Driver {
 
 		// Question 16
 		Question16.main(args);
+		
+		//Question 17
+		Question17.run();
+		
+		//Question 18
+		Question18 q18 = new Question18();
+		q18.prompt();
 		// in.close();
 
 	}

@@ -10,7 +10,7 @@ class Question4Test {
 
 	
 	@Test
-	void test() {
+	void FactorialTest() {
 		int fac = 1;
 		Question4 q4 = new Question4();
 		for(int i = 1; i < 100; i++) {

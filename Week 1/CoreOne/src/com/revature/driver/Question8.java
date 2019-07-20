@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Question8 {
 	
-	protected void run() {
+	public void run() {
 		System.out.println("Question 8:");
 		ArrayList<String> arrList = new ArrayList<String>();
 		String[] str = {"karan", "madam", "tom", "civic", "radar", "jimmy", "kayak", "john",  "refer", "billy", "did"};
@@ -15,7 +15,7 @@ public class Question8 {
 		
 	}
 	
-	private static ArrayList<String> pali(ArrayList <String> in) {
+	public static ArrayList<String> pali(ArrayList <String> in) {
 		ArrayList<String> out = new ArrayList<String>();
 		for(String s: in) {
 			if(pali(s)) {

@@ -7,7 +7,7 @@ import com.revature.driver.Question5;
 class Question5Test {
 
 	@Test
-	void test() {
+	void substringTest() {
 		Question5 q5 = new Question5();
 		q5.run(4, "worlds").equals("worlds".substring(4));
 	}

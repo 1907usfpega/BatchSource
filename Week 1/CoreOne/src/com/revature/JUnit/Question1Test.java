@@ -8,8 +8,9 @@ import com.revature.driver.Question1;
 
 class Question1Test {
 	public int[] arr = { 1, 0, 5, 6, 3, 2, 3, 7, 9, 8, 4 };
-	public int[] sorted = { 0, 1, 2, 3, 3, 4, 5, 6, 7, 8 };
-
+	public int[] sorted = { 0, 1, 2, 3, 3, 4, 5, 6, 7, 8 , 9};
+	
+	//checking if array in q1 is initializes as not sorted
 	@Test
 	void testNotSorted() {
 		Question1 q1 = new Question1();
@@ -17,11 +18,11 @@ class Question1Test {
 			assertEquals(arr[i], q1.arr[i]);
 		}
 	}
-	
+	//checks if array in q1 is sorted and save into arr. compare to sorted array
 	@Test
 	void testSorted() {
 		arr = Question1.bubbleSort(arr);
-		for(int i = 0; i < arr.length - 1; i++) {
+		for(int i = 0; i < arr.length; i++) {
 			assertEquals(sorted[i], arr[i]);
 		}
 	}

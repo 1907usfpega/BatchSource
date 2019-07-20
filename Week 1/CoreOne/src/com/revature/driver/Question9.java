@@ -1,6 +1,7 @@
 package com.revature.driver;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Question9 {
 	protected void run() {
@@ -10,16 +11,18 @@ public class Question9 {
 			nums.add(i);
 		}
 		System.out.print("Solution: ");
-		printPrimes(nums);
+		System.out.println(getPrimes(nums));
 	}
 	
-	private static void printPrimes(ArrayList<Integer> in) {
-		for(int i: in) {
+	public static String getPrimes(List<Integer> ali) {
+		StringBuilder sb = new StringBuilder();
+		for(int i: ali) {
 			if(isPrime(i)) {
-				System.out.print(i + " ");
+				sb.append(i + " ");
 			}
 		}
-		System.out.println();
+		sb.append("\n");
+		return sb.toString().trim();
 	}
 	
 	private static boolean isPrime(Integer a) {

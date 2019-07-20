@@ -8,7 +8,7 @@ public class EmployeeComparatorsByDepartment implements Comparator<EmployeeForQ7
 
 	@Override
 	public int compare(EmployeeForQ7 o1, EmployeeForQ7 o2) {		
-		return o1.getDepartment().compareTo(o2.getName());
+		return o1.getDepartment().compareTo(o2.getDepartment());
 	}
 
 }
