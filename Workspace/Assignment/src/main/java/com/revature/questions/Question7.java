@@ -27,21 +27,18 @@ public class Question7 {
 		);
 		System.out.println("=======================");
 		System.out.println("Sorted by age, the employees are: ");
-		//Collections.sort(employees, new AgeComparator());
 		employees = sortBy(employees, 'a');
 		for (Employee employee : employees) {
 			System.out.println(employee);
 		}
 		System.out.println("=======================");
 		System.out.println("Sorted by name, the employees are: ");
-		//Collections.sort(employees, new NameComparator());
 		employees = sortBy(employees, 'n');
 		for (Employee employee : employees) {
 			System.out.println(employee);
 		}
 		System.out.println("=======================");
 		System.out.println("Sorted by department, the employees are: ");
-		//Collections.sort(employees, new DepartmentComparator());
 		employees = sortBy(employees, 'd');
 		for (Employee employee : employees) {
 			System.out.println(employee);
