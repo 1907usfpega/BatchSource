@@ -12,6 +12,7 @@ public class FunScan {
 		System.out.println(contents);
 		String s2 = "12";
 		//contents = sc.nextLine();
+		sc = new Scanner(System.in);
 		s2 = sc.nextLine();
 		int intc2 = Integer.parseInt(s2);
 		System.out.println(intc2 + 1);
@@ -19,10 +20,10 @@ public class FunScan {
 		
 		
 		
-		while(!contents.contentEquals("stop")) {
-			System.out.println(contents);
-			contents = sc.next();	
-		}
+		/*
+		 * while(!contents.contentEquals("stop")) { System.out.println(contents);
+		 * contents = sc.next(); }
+		 */
 		System.out.println("stopped");
 		
 	}

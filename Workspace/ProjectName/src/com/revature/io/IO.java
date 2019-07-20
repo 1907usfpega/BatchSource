@@ -11,25 +11,25 @@ import java.io.OutputStream;
 public class IO {
 
 	private static final String outFile = "output.txt";
-	private static final String inFile = "input.txt";
+	private static final String inFile = "inputData.txt";
 
 	// write method
 	public void writeOutputStreamContents(String contents) {
-		OutputStream os = null;
+		OutputStream outstream = null;
 		File file = new File(outFile);
 		// false will override, true will append
 		try {
-			os = new FileOutputStream(file, true);
-			os.write(contents.getBytes());
+			outstream = new FileOutputStream(file, true);
+			outstream.write(contents.getBytes());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
-		if (os != null) {
+		if (outstream != null) {
 			try {
-				os.close();
+				outstream.close();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
