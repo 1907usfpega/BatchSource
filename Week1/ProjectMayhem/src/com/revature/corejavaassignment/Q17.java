@@ -19,6 +19,9 @@ public class Q17 {
 						Double.parseDouble(time))));
 		System.out.println("Total balance including "
 				+ "principal amount + interest = " + total);
+		System.out.println("Press enter to continue.");
+		userIn.nextLine();
+		System.out.println("\n\n");
 	}
 
 }

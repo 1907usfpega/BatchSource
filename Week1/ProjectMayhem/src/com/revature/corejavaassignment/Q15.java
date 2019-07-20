@@ -10,10 +10,21 @@ public interface Q15 {
 class Q15Class implements Q15{
 	Q15Class() {
 		System.out.println("********** Q15 **********\n");
-		System.out.println("5.0 + 6.3 = " + parseInput("5.0+6.3"));
-		System.out.println("5.6 - 346.2 = " + parseInput("5.6- 346.2"));
-		System.out.println("29.34445 * 89.22 = " + parseInput("29.34445 *89.22"));
-		System.out.println("5.035 / 246.3 = " + parseInput("5.035 / 246.3"));
+		int i = 0;
+		double correctAns[] = {11.3, -340.59999999999997, 
+								2618.111829, 0.020442549736094193};
+		double tempD = parseInput("5.0+6.3");
+		Q15Test tester1 = new Q15Test(tempD, correctAns[i++]);
+		System.out.println("5.0 + 6.3 = " + tempD);
+		tempD = parseInput("5.6- 346.2");
+		Q15Test tester2 = new Q15Test(tempD, correctAns[i++]);
+		System.out.println("5.6 - 346.2 = " + tempD);
+		tempD = parseInput("29.34445 *89.22");
+		Q15Test tester3 = new Q15Test(tempD, correctAns[i++]);
+		System.out.println("29.34445 * 89.22 = " + tempD);
+		tempD = parseInput("5.035 / 246.3");
+		Q15Test tester4 = new Q15Test(tempD, correctAns[i]);
+		System.out.println("5.035 / 246.3 = " + tempD);
 		System.out.println("\n\n");
 	}
 	public double parseInput(String inString) {

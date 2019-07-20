@@ -7,6 +7,9 @@ public class Q8 {
 	public Q8() {
 		// TODO Auto-generated constructor stub
 		System.out.println("********** Q8 **********\n");
+		ArrayList<String> correctAnswer = new ArrayList();
+		correctAnswer.add("madam");	correctAnswer.add("civic");	correctAnswer.add("radar");
+		correctAnswer.add("kayak");	correctAnswer.add("refer");	correctAnswer.add("did");
 		ArrayList<String> testAL = new ArrayList();
 		testAL.add("karan");	testAL.add("madam");	testAL.add("tom");
 		testAL.add("civic");	testAL.add("radar");	testAL.add("jimmy");
@@ -21,6 +24,7 @@ public class Q8 {
 			if(!tempString.equals(reverseString(tempString)))
 				testAL.remove(i);
 		}
+		Q8Test tester = new Q8Test(correctAnswer, testAL);
 		System.out.println("Palindromes Only:\n" + testAL);
 		System.out.println("\n\n");
 	}

@@ -16,7 +16,9 @@ public class Q18 extends Q18Abstract{
 		return testStr.toUpperCase();
 	};
 	public int addTen(String testStr) {
-		return Integer.parseInt(testStr) + 10;
+		Integer temp = Integer.parseInt(testStr) + 10;
+		Q18Test tester = new Q18Test(temp, 136);
+		return 0;
 		
 	};
 

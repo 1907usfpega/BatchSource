@@ -9,6 +9,7 @@ public class Q5 {
 		String startString = "This part should remain.|This part should be removed.";
 		System.out.println("Initial String:\n" + startString);
 		String endString = subStringMaker(startString, 24);
+		Q5Test tester = new Q5Test(endString, "This part should remain.");
 		System.out.println("Sub-String:\n" + endString);
 		System.out.println("\n\n");
 	}
