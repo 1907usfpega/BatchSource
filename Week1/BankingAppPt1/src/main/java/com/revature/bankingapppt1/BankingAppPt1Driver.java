@@ -1,16 +1,20 @@
-package com.revature.bankingapp1;
+package com.revature.bankingapppt1;
 
+import com.revature.bankingapppt1.AccountDatabase;
 
-public class BankingApp1Driver {
+public class BankingAppPt1Driver {
 
-	public BankingApp1Driver() {
+	public BankingAppPt1Driver() {
 		// TODO Auto-generated constructor stub
 	}
 	public static void main(String args[]) {
-		AccountsDatabase acctDB = 
-				new AccountsDatabase("123456789", "Checking", "LeviApplebaum");
+		AccountDatabase acctDB = 
+				new AccountDatabase("123456789", "Checking", "LeviApplebaum");
+		acctDB.printDatabase();
 		acctDB.addAccount("987654321", "Savings", "EddieHeredia");
+		acctDB.printDatabase();
 		acctDB.getAccount("987654321").approve();
+		acctDB.printDatabase();
 		acctDB.getAccount("123456789").updateBalance(3.75);
 		acctDB.printDatabase();
 		acctDB.addUser("987654321", "BradleyCampbell");

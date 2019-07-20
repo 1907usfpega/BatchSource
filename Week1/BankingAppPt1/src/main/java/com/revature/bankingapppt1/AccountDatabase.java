@@ -1,11 +1,11 @@
-package com.revature.bankingapp1;
+package com.revature.bankingapppt1;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public class AccountsDatabase {
+public class AccountDatabase implements java.io.Serializable{
 	
 	SortedMap<String, Account> acctDB = new TreeMap<String, Account>();
 	public void printDatabase() {
@@ -73,10 +73,12 @@ public class AccountsDatabase {
 		return this.acctDB.get(id).getUsers();
 	}
 	
-	public AccountsDatabase() {
+	public AccountDatabase() {
 		this.addAccount("0000000000000000", "Checking", "RevatureAcct0");
 	}
-	public AccountsDatabase(String initID, String initType, String initUser) {
+	public AccountDatabase(String initID, String initType, String initUser) {
+		if(initType != "Checking" && initType != "Savings")
+			return;
 		this.addAccount(initID, initType, initUser);
 		this.getAccount(initID).approve();
 	}
