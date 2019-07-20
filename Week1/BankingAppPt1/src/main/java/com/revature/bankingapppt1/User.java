@@ -8,7 +8,16 @@ public class User {
 	private String password;
 	private String clearanceLevel;
 	private List<String> accounts;
+	private String status;
 	
+	public static 
+	
+	public String getStatus() {
+		return this.status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public void addAccount(String id) {
 		this.accounts.add(id);
 	}
@@ -22,7 +31,9 @@ public class User {
 		this.password = newPass;
 	}
 	
-	
+	public void printUser() {
+		System.out.println(this.toString());
+	}
 	
 
 	@Override
@@ -61,6 +72,7 @@ public class User {
 		this.userName = name;
 		this.password = pass;
 		this.clearanceLevel = clearance;
+		this.status = "pending";
 		
 	}
 
