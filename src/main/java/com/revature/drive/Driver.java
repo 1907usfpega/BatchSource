@@ -1,5 +1,6 @@
 package com.revature.drive;
 
+import com.revature.questions.Q11;
 import com.revature.questions.Q12;
 import com.revature.questions.Q13;
 import com.revature.questions.Q14;
@@ -14,7 +15,9 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-		Q12.printEven();
+		Q11.accessVariable();
+		
+//		Q12.printEven();
 
 //		Q13.printTriagle();
 		
