@@ -4,6 +4,7 @@ import com.revature.questions.Q13;
 import com.revature.questions.Q14;
 import com.revature.questions.Q15;
 import com.revature.questions.Q16;
+import com.revature.questions.Q17;
 
 public class Driver {
 
@@ -21,7 +22,9 @@ public class Driver {
 //		q15.printMultiplication(3, 14);
 //		q15.printDivision(12, 3);
 		
-		Q16.countInput(args);
+//		Q16.countInput(args);
+		
+		Q17.calcInterest();
 
 	}
 
