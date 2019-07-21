@@ -6,6 +6,7 @@ import com.revature.questions.Q15;
 import com.revature.questions.Q16;
 import com.revature.questions.Q17;
 import com.revature.questions.Q18;
+import com.revature.questions.Q19;
 
 public class Driver {
 
@@ -32,7 +33,11 @@ public class Driver {
 //		q18.convertToUppercase_print("Hello there");
 //		q18.addTen_print();
 		
-		System.out.println("The End");
+		Q19.showArray();
+		Q19.sumOdd();
+		Q19.sumEven();
+		
+//		System.out.println("\nThe End");
 
 	}
 
