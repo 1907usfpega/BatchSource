@@ -63,7 +63,7 @@ public class Question20 {
 		}
 		return formated.toString();
 	}
-	
+
 	public static void prompt() {
 		System.out.println("Question 20:\nSolution:");
 	}

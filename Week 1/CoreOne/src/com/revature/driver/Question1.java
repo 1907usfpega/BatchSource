@@ -14,7 +14,7 @@ public class Question1 {
 		System.out.println();
 	}
 
-	// QUESTION 1
+	// Bubble sort
 	public static int[] bubbleSort(int[] arr) {
 		int arrayLength = arr.length - 1;
 		for (int i = 0; i < arrayLength; i++) {
@@ -26,15 +26,8 @@ public class Question1 {
 		}
 		return arr;
 	}
-	public int[] getArr() {
-		return arr;
-	}
 
-	public void setArr(int[] arr) {
-		this.arr = arr;
-	}
-
-	//Little helper method that can swap to integers in an array
+	// Little helper method that can swap to integers in an array
 	private static void swap(int[] arr, int idx1, int idx2) {
 		int temp = arr[idx1];
 		arr[idx1] = arr[idx2];

@@ -13,6 +13,7 @@ public class Question13 {
 		}
 		return sb.toString().trim();
 	}
+
 	protected void prompt() {
 		System.out.println("Question 13: ");
 		System.out.println("Solution: ");

@@ -2,6 +2,7 @@ package com.revature.driver;
 
 public class Question3 {
 
+	// returns the reverse of String s
 	public String run(String s) {
 		for (int i = s.length() - 1; i > -1; i--) {
 			s += s.charAt(i);

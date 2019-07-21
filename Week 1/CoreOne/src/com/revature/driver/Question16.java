@@ -11,6 +11,8 @@ public class Question16 {
 		System.out.println(c);
 	}
 
+	// returns the addes legths for all the strings in
+	// a string[]
 	public int length(String[] test) {
 		int c = 0;
 		for (String a : test) {

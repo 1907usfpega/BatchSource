@@ -25,7 +25,8 @@ public class Question5 {
 	protected void prompt2() {
 		System.out.println("Question 5: Please enter your String to make a sub string.");
 	}
-	//checks if it is a valid index
+
+	// checks if it is a valid index
 	public boolean validIndex(String s) {
 		try {
 			double a = Double.parseDouble(s);
