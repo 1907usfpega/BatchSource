@@ -1,5 +1,6 @@
 package com.revature.drive;
 
+import com.revature.questions.Q12;
 import com.revature.questions.Q13;
 import com.revature.questions.Q14;
 import com.revature.questions.Q15;
@@ -12,6 +13,8 @@ import com.revature.questions.Q20;
 public class Driver {
 
 	public static void main(String[] args) {
+		
+		Q12.printEven();
 
 //		Q13.printTriagle();
 		
@@ -38,7 +41,7 @@ public class Driver {
 //		Q19.sumOdd();
 //		Q19.sumEven();
 		
-		Q20.readAll();
+//		Q20.readAll();
 		
 //		System.out.println("\nThe End");
 
