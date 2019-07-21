@@ -11,20 +11,20 @@ Interest = Principal* Rate* Time
 
 public class Q17 {
 
-	//obj to receive user inputs
+	// obj to receive user inputs
 	private static Scanner sc = new Scanner(System.in);
 
 	public static void calcInterest() {
 		calcInterest(getRate(), getPrincipal(), getTime());
 	}
-	
-	//implements the logic of calculation
+
+	// implements the logic of calculation
 	private static void calcInterest(double rate, double principal, double time) {
 		double interest = principal * rate * time;
 		System.out.println(interest);
 	}
 
-	//verify if user inputs a valid value
+	// verify if user inputs a valid value
 	private static double verifyInput(String s) {
 		try {
 			return Double.parseDouble(s);
@@ -34,7 +34,7 @@ public class Q17 {
 			return 0;
 		}
 	}
-	
+
 	private static double getRate() {
 		double rate;
 		do {
