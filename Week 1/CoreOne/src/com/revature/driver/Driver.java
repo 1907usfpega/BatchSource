@@ -104,6 +104,18 @@ public class Driver {
 		//Question 18
 		Question18 q18 = new Question18();
 		q18.prompt();
+		
+		//Question 19
+		Question19 q19 = new Question19();
+		q19.prompt();
+		System.out.println("Evens added up are: " + Question19.addIntegerInArrList(q19.getAllEven()));
+		System.out.println("Odds added up are: " + Question19.addIntegerInArrList(q19.getAllOdd()));
+		System.out.println("All the non primes are: " + q19.getNotPrimes().toString());
+		
+		//Question 20
+		System.out.println(Question20.formatFile());
+
+
 		// in.close();
 
 	}
