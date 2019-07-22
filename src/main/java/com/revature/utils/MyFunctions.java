@@ -30,4 +30,17 @@ public class MyFunctions {
 			return true;
 		}
 	}
+	
+	public static boolean isPalindrome(String str) {
+		int backward = str.length()-1;
+		//iterate through the first half of the string
+		for (int i = 0; i < str.length()/2 ; i++) {
+			//verify if backwards is the same of foward
+			if(str.charAt(i) != str.charAt(backward)) {
+				return false;
+			}	
+			backward--;
+		}		
+		return true;
+	}
 }

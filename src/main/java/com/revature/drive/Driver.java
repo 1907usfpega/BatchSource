@@ -11,13 +11,17 @@ import com.revature.questions.Q17;
 import com.revature.questions.Q18;
 import com.revature.questions.Q19;
 import com.revature.questions.Q20;
+import com.revature.questions.Q8;
 import com.revature.questions.Q9;
+import com.revature.utils.MyFunctions;
 
 public class Driver {
 
 	public static void main(String[] args) {
 		
-		Q9.printPrime();
+		Q8.movePalindromes();		
+		
+//		Q9.printPrime();
 		
 //		Q10.printMin(93, 67);
 		
