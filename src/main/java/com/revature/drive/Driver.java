@@ -45,13 +45,13 @@ public class Driver {
 //		Q5.substring("dayana", 5);
 //		printLine();
 //
-		System.out.println("Question 6");
-		Q6.isEven(18);
-		printLine();
-//
-//		System.out.println("Question 7");
-//		Q7.sortEmployees();
+//		System.out.println("Question 6");
+//		Q6.isEven(18);
 //		printLine();
+//
+		System.out.println("Question 7");
+		Q7.sortEmployees();
+		printLine();
 //
 //		System.out.println("Question 8");
 //		Q8.movePalindromes();		
