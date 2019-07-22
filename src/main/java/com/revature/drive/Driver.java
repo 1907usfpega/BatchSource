@@ -11,12 +11,15 @@ import com.revature.questions.Q17;
 import com.revature.questions.Q18;
 import com.revature.questions.Q19;
 import com.revature.questions.Q20;
+import com.revature.questions.Q9;
 
 public class Driver {
 
 	public static void main(String[] args) {
 		
-		Q10.printMin(93, 67);
+		Q9.printPrime();
+		
+//		Q10.printMin(93, 67);
 		
 //		Q11.accessVariable();
 		
