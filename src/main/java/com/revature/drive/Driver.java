@@ -106,15 +106,14 @@ public class Driver {
 //		q18.addTen_print();
 //		printLine();
 //
-		System.out.println("Question 19");
-		Q19 q19 = new Q19();
-		Q19.sumOdd(q19.listArray);
-		Q19.sumEven(q19.listArray);
-		printLine();
-//
-//		System.out.println("Question 20");
-//		Q20.readAll();
+//		System.out.println("Question 19");
+//		Q19 q19 = new Q19();
+//		Q19.sumOdd(q19.listArray);
+//		Q19.sumEven(q19.listArray);
 //		printLine();
+//
+		System.out.println("Question 20");
+		Q20 q20 = new Q20();
 //		
 //		System.out.println("\nThe End");
 

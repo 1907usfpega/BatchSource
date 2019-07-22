@@ -4,6 +4,11 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.revature.utils.Employee;
+import com.revature.utils.FicCharacter;
 
 /*Create a notepad file called Data.txt and enter the following:
  
@@ -24,8 +29,12 @@ public class Q20 {
 	private static final String myFile = "src/main/java/com/revature/files/Data.txt";
 	private static BufferedReader reader;
 	private static String line = "";
+	
+	public List<FicCharacter> characterList;
 
-	public static void readAll() {
+	public Q20() {
+		characterList = new ArrayList<FicCharacter>();
+		//read file as instantiate class
 		startReader();
 		line = readLine();
 		// iterate inside the file
@@ -34,6 +43,7 @@ public class Q20 {
 			//read each line and load Object Character
 			String array[] = line.split(":");
 			FicCharacter character = new FicCharacter(array[0], array[1], array[2], array[3]);
+			characterList.add(character);
 			System.out.println(character.toString() + "\n");
 
 			line = readLine();
@@ -63,25 +73,3 @@ public class Q20 {
 	}
 }
 
-//Create a entity to receive data
-class FicCharacter {
-	private String firstName;
-	private String lastName;
-	private String state;
-	private String age;
-
-	protected FicCharacter(String firstName, String lastName, String age, String state) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.state = state;
-		this.age = age;
-	}
-
-	// print on given format
-	@Override
-	public String toString() {
-		return "Name:  " + firstName + " " + lastName + "\nAge: " + age + " years" + "\nState: " + state + " State";
-	}
-
-}
