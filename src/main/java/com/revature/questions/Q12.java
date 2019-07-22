@@ -18,15 +18,17 @@ public class Q12 {
 		}
 	}
 	
-	public static void printEven() {
+	public static String printEven() {
 		loadArray();
+		String s = "";
 		//using foreach loop to print even #s
 		for(int i : array) {
 			if(MyFunctions.isEven(i)) {
-				System.out.print(i + " ");
+				s += i + " ";
 			}
 		}
-		System.out.println();
+		System.out.println(s);
+		return s;
 	}
 
 }
