@@ -9,7 +9,7 @@ public class Question1 {
 	public static int[] doTask(int[] ints) {
 		
 		swapMade = false;
-		for (int i = 0; i < ints.length-1; i++) {
+		for (int i = 0; i < ints.length-1; i++) {							//traveses the array, compares current and next int, swaps with temp variable if swap is needed & if no swap was made, the array is sorted already.
 			if(ints[i]>ints[i+1]) {
 				cache = ints[i];
 				ints[i] = ints[i+1];
