@@ -4,6 +4,7 @@ public class Q13ConsoleTriangle
 {
 	public String printTriangle(int h)
 	{
+		//declaring the height of our triangle
 		int height = h-1;
 		int printVal = 1;
 		String output = "";
