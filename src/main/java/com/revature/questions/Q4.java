@@ -3,9 +3,8 @@ package com.revature.questions;
 
 public class Q4 {
 
-	public static void main(String[] args) {
-		//define factorial #
-		int factorial = 9;		
+	public static int calcFactorial(int factorial) {
+	
 		int next = factorial-1;
 		
 		//multiply decrementing -1 each iteraction
@@ -15,7 +14,9 @@ public class Q4 {
 		}
 		
 		//should print 362880
-		System.out.println(factorial);
+		System.out.println("\n"+factorial);
+		
+		return factorial;
 
 	}
 
