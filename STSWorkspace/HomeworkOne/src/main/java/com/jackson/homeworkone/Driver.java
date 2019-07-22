@@ -11,13 +11,16 @@ public class Driver
 	public static void main(String[] args) 
 	{
 		Scanner s = new Scanner(System.in);
-		Q16StringArgs q16 = new Q16StringArgs();
+		//int for choosing an assignment to run
 		int choice = 0;
+		//boolean to read if we exit the do while loop
 		boolean quit = false;
 		do
 		{
-			System.out.println("Enter what problem you would like to see executed(1-20, enter 21 to quit): ");
+			//prompt for input
+			System.out.print("\nEnter what problem you would like to see executed(1-20, enter 21 to quit): ");
 			choice = s.nextInt();
+			//choose asignment baased in entered int
 			switch(choice)
 			{
 				case 1:
@@ -66,7 +69,7 @@ public class Driver
 					question15();
 					break;
 				case 16:
-					System.out.println(args[0]+" has "+q16.numChars(args[0])+" characters");
+					question16(args[0]);
 					break;
 				case 17:
 					question17();
@@ -81,6 +84,7 @@ public class Driver
 					question20();
 					break;
 				case 21:
+					//if we type 21, we set quit = true, which will end the do while loop, and thusly end the program
 					quit = true;
 					break;
 				default:
@@ -88,56 +92,64 @@ public class Driver
 					break;
 			}
 		}while(quit == false);
-		s.close();
+		System.out.println("Program Terminated, Have A Nice Day!");
+		//s.close();
 	}
+	
+	//Question Methods Section
 	
 	public static void question1()
 	{
 		Q1BubbleSort q1 = new Q1BubbleSort();
 		int[] array = {1,0,5,6,3,2,3,7,9,8,4};
+		System.out.print("Array before sort: ");
 		printArray(array);
 		q1.bubbleSort(array);
+		System.out.print("Array after sort: ");
 		printArray(array);
 	}
 	
 	public static void question2()
 	{
 		Q2Fibonacci q2 = new Q2Fibonacci();
+		System.out.println("Fibonacci Numbers List: ");
 		q2.fibonacci(25);
 	}
 	
 	public static void question3()
 	{
 		Q3ReverseString q3 = new Q3ReverseString();
-		System.out.println(q3.reverseString("Apple"));
+		System.out.println("Original String: Apple\nReversed String: "+q3.reverseString("Apple"));
 	}
 	
 	public static void question4()
 	{
 		Q4Factorial q4 = new Q4Factorial();
-		System.out.println(q4.factorial(5));
+		System.out.println("5! = "+q4.factorial(5));
 	}
 	
 	public static void question5()
 	{
 		Q5Substring q5 = new Q5Substring();
-		System.out.println(q5.mySubstring("Apple", 3));
+		System.out.println("Original String: Apple\nSubstring to index 3: "+q5.mySubstring("Apple", 3));
 	}
 	
 	public static void question6()
 	{
 		Q6EvenNum q6 = new Q6EvenNum();
-		System.out.println(q6.isEven(40));
-		System.out.println(q6.isEven(3));
+		System.out.println("Is 40 even?: "+q6.isEven(40));
+		System.out.println("Is 3 even?: "+q6.isEven(3));
 	}
 	
 	public static void question7()
 	{
-		Employee e1 = new Employee("John Doe", "Accounting", 23);
-		Employee e2 = new Employee("Bill Murray", "Marketing", 45);
+		Employee e1 = new Employee("Bill Murray", "Marketing", 45);
+		Employee e2 = new Employee("Ash Ketchem", "Security", 70);
+		Employee e3 = new Employee("John Doe", "Research & Development", 23);
 		ArrayList<Employee> employeeList = new ArrayList<Employee>();
 		employeeList.add(e1);
 		employeeList.add(e2);
+		employeeList.add(e3);
 		System.out.println("Employee List before sorting: ");
 		printArray(employeeList);
 		System.out.println("\nEmployee List after sort by name: ");
@@ -155,19 +167,21 @@ public class Driver
 	{
 		Q8Palindromes q8 = new Q8Palindromes();
 		ArrayList<String> list = q8.savePalindromes("karan", "madam", "tom", "civic", "radar", "jimmy", "kayak", "john", "refer", "billy", "did");
+		System.out.print("Palindromes List: ");
 		printArray(list);
 	}
 	
 	public static void question9()
 	{
 		Q9PrimeNums q9 = new Q9PrimeNums();
+		System.out.print("Prime Numbers List(from 1-100): ");
 		printArray(q9.findPrimes());
 	}
 	
 	public static void question10()
 	{
 		Q10Ternary q10 = new Q10Ternary();
-		System.out.println(q10.minValue(24, 35));
+		System.out.println("Min value of 24 and 35: "+q10.minValue(24, 35));
 	}
 	
 	public static void question11()
@@ -179,6 +193,7 @@ public class Driver
 	public static void question12()
 	{
 		Q12EvenNums q12 = new Q12EvenNums();
+		System.out.println("Even Numbers List: ");
 		q12.evenNums();
 		//System.out.println(Arrays.toString(q12.evenNums()));
 	}
@@ -194,7 +209,7 @@ public class Driver
 		Scanner s = new Scanner(System.in);
 		System.out.print("Choose an Option: \n  1. Square Root\n  2. Get Current Date\n  3. String Split\n>:");
 		int choice = s.nextInt();
-		s.close();
+		//s.close();
 		q14.switchExample(choice);
 	}
 	
@@ -207,9 +222,10 @@ public class Driver
 		System.out.println("1 / 2 = "+q15.division(1, 2));
 	}
 	
-	public static void question16()
+	public static void question16(String arg)
 	{
-		
+		Q16StringArgs q16 = new Q16StringArgs();
+		System.out.println(arg+" has "+q16.numChars(arg)+" characters");
 	}
 	
 	public static void question17()
@@ -222,7 +238,7 @@ public class Driver
 		double interestRate = s.nextDouble();
 		System.out.print("Enter the number of years: ");
 		int years = s.nextInt();
-		s.close();
+		//s.close();
 		System.out.printf("Interest is $%.2f.%n", q17.simpleInterest(principal, interestRate, years));
 		
 	}
@@ -246,6 +262,8 @@ public class Driver
 		Q20ReadFile q20 = new Q20ReadFile();
 		q20.readFromFile();
 	}
+	
+	//Printing Arrays/ArrayList methods
 	
 	public static void printArray(int[] array)
 	{

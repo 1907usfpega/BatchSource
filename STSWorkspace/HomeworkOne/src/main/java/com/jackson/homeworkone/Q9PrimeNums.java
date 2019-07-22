@@ -6,21 +6,23 @@ public class Q9PrimeNums
 {
 	public ArrayList<Integer> findPrimes()
 	{
+		//declaring our list
 		ArrayList<Integer> nums = new ArrayList<Integer>();
+		//add all natural numbers
 		for(int i = 1; i <= 100; i++)
 		{
 			nums.add(new Integer(i));
 		}
+		//make a new list to hold the prime numbers
 		ArrayList<Integer> primes = new ArrayList<Integer>();
+		//loop through the list 
 		for(int i = 0; i < 100; i++)
 		{
-			/*if(nums.get(i) % 2 != 0 && nums.get(i) % 3 != 0 && nums.get(i) % 5 != 0 && nums.get(i) % 7 != 0)
-			{
-				primes.add(nums.get(i));
-			}*/
+			//grab the int num from the full list and check if it's prime
 			Integer num = nums.get(i);
 			if(isPrime(num))
 			{
+				//if it's prime, we add it to the list
 				primes.add(num);
 			}
 		}
@@ -29,17 +31,16 @@ public class Q9PrimeNums
 	
 	public static boolean isPrime(int num)
 	{
-		if(num == 2)
-		{
-			return true;
-		}
-		if(num % 2 == 0 || num == 0 || num == 1)
+		//if our number is not equal to 2, and is divisible by two, OR if it's less than or equal to 1
+		if((num != 2 && num % 2 == 0) || num <= 1)
 		{
 			return false;
 		}
-		for(int j = 3; j*j<=num; j+=2)
+		//loop through until we hit num
+		for(int j = 3; j < num; j++)
 		{
-			if(num % j == 0)
+			//if we are divisible by j and num is not equal to j
+			if(num % j == 0 && num != j)
 			{
 				return false;
 			}
