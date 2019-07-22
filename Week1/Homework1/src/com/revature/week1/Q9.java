@@ -9,15 +9,21 @@ public class Q9 {
 	static ArrayList<Integer> numbers = new ArrayList<Integer>();
 	static ArrayList <Integer> numberPrime = new ArrayList <Integer>();
 	
+	public static int isPrime() {
+		//TODO
+	}
+	
 	public static ArrayList <Integer> test() {
 		for(int i=1;i <=100; i++) {
 			numbers.add(i);
 		}
 		for (Integer integer: numbers) {
-			if(numberPrime(integer)) {
+			if(isPrime(integer)) {
 				numberPrime.add(integer);
 			}
 		}
 	}
+	
+	
 	
 }

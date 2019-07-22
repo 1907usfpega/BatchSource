@@ -5,7 +5,7 @@ import java.util.List;
 public class Q1 {
 	public int[] bubbleList = { 1, 0, 5, 6, 3, 2, 3, 7, 9, 8, 4 };
 	
-	public static int [] bubbleSort=(int[] List)
+	public static int [] bubbleSort(int[] List)
 	{
 		int i = 0; // outer loop
 		int j = 0; // inner loop
@@ -21,7 +21,7 @@ public class Q1 {
 			}
 		}
 		
+		return List;
 	}
 	
-	return list;
 }

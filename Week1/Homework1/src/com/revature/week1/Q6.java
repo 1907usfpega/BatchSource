@@ -9,9 +9,9 @@ public class Q6 {
 		for (int i = 1; i < x; i++) {
 			isItEven = !isItEven;
 
-			return isItEven;
 
 		}
+		return isItEven;
 
 	}
 
