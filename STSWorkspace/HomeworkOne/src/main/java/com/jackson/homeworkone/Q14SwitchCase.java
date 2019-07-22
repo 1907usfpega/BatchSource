@@ -11,7 +11,11 @@ public class Q14SwitchCase
 		switch(choice)
 		{
 			case 1:
-				squareRoot();
+				Scanner s = new Scanner(System.in);
+				System.out.print("Enter a number: ");
+				double d = s.nextDouble();
+				s.close();
+				System.out.println("Square Root: "+squareRoot(d));
 				break;
 			case 2:
 				displayDate();
@@ -24,27 +28,23 @@ public class Q14SwitchCase
 				break;	
 		}
 	}
-	public static void squareRoot()
+	public static double squareRoot(double d)
 	{
-		Scanner s = new Scanner(System.in);
-		System.out.print("Enter a number: ");
-		double d = s.nextDouble();
-		d = Math.sqrt(d);
-		System.out.println("Square Root: "+d);
-		s.close();
+		return Math.sqrt(d);
 	}
 	
 	public static void displayDate()
 	{
-		Date current = new Date();
-		System.out.printf("%s %tB %<te, %<tY", "Current Date: ", current);
+		Date d = new Date();
+		System.out.printf("%s %tB %<te, %<tY", "Current Date: ", d);
 		//System.out.println("The current date is: "+current);
 	}
 	
-	public static void splitString()
+	public static String[] splitString()
 	{
 		String str = "I am learning Core Java";
 		String[] splitVer = str.split("");
 		System.out.println(Arrays.toString(splitVer));
+		return splitVer;
 	}
 }

@@ -43,6 +43,7 @@ class StringTest
 		String result = str.toUpperCase();
 		assertEquals("ABCD", result);
 	}
+	
 	@Test
 	@DisplayName("Check for Exception")
 	void lengthException()

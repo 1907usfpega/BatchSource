@@ -1,10 +1,13 @@
 package com.revature.driver.beans;
 
+import java.io.Serializable;
+
 import com.revature.classtypes.Hunt;
 import com.revature.exceptions.IncreasedByNegativeNumberException;
 
-public class Person implements Hunt
+public class Person implements Hunt, Serializable
 {
+	private static final long serialVersionUID = -4547273283330422844L;
 	//this is a POJO: plain ol java object
 	public String name;
 	public int age;
@@ -89,7 +92,7 @@ public class Person implements Hunt
 	//toString override
 	public String toString()
 	{
-		return "Name: "+name+"\nAge: "+age+"\nWeight: "+weight+"\n";
+		return "Name: "+name+" Age: "+age+" Weight: "+weight+"\n";
 	}
 
 }

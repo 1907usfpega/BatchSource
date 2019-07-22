@@ -2,7 +2,7 @@ package com.jackson.homeworkone;
 
 public class Q13ConsoleTriangle 
 {
-	public void printTriangle(int h)
+	public String printTriangle(int h)
 	{
 		int height = h-1;
 		int printVal = 1;
@@ -40,5 +40,6 @@ public class Q13ConsoleTriangle
 			}
 			System.out.println(output);
 		}
+		return output;
 	}
 }
