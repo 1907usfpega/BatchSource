@@ -1,4 +1,17 @@
+package com.package1;
+
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+import java.util.Random;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import java.text.SimpleDateFormat;
+
+
 
 public class RevAssignment1 {
 	
@@ -110,10 +123,10 @@ public class RevAssignment1 {
 	 ***********************/
 	public static boolean isPalindrome(String str) {
 		int front = 0;
-		int back = s.length-1;
+		int back = str.length()-1;
 		while (back > front) {
-			char fChar = s.charAt(front++);
-			char bChar = s.charAt(back++);
+			char fChar = str.charAt(front++);
+			char bChar = str.charAt(back++);
 			if (fChar != bChar) return false;
 		}
 		return true;
@@ -203,7 +216,7 @@ public class RevAssignment1 {
 			for (int j = 0; j <= i ; i++) {
 				sb.append( isZero ? 0 : 1 );
 				sb.append(" ");
-				isZero != isZero;
+				isZero = !isZero;
 
 			}
 			sb.append("\n");
@@ -234,7 +247,8 @@ public class RevAssignment1 {
 				break;
 			case(3):
 				// split and store in string array "I am learning core java"
-				String[] strings = String.split("I am learning Core Java");
+				String s = "I am learning Core Java";
+				String[] strings = s.split(" ");
 				break;
 		}
 	}
@@ -243,28 +257,7 @@ public class RevAssignment1 {
 	/***********************
 	 * QUESTION 15
 	 ***********************/
-	public class MyInterfaceTester implements MyMath{
-		public static int addition(int a, int b) {
-			return a + b;
-		}
-
-    	public static int subtraction(int a, int b) {
-			return a - b;
-		}
-
-    	public static int multiplication(int a, int b) {
-			return a * b;
-		}
-
-    	public static int division(int a, int b);  {
-			return a / b;
-		}
-
-		public static main(String[] args) {
-			System.out.println("Testing addition, expecting 10\nReceived: " + MyInterfaceTester.addition(6,4));
-			System.out.println("Testing subtraction, expecting 2\nReceived: " + MyInterfaceTester.subtraction(6,4));
-		}
-	}
+	
 
 
 	/***********************
@@ -284,37 +277,9 @@ public class RevAssignment1 {
 	/***********************
 	 * QUESTION 18
 	 ***********************/
-	public class MySuper {
-		public abstract static boolean checkForUpper(String s);
+	
 
-		public abstract static String makeUpper(String s);
-
-		public abstract static int addTen(String s);
-
-	}
-
-	public class MyChild extends MySuper {
-		public static boolean checkForUpper(String s) {
-			for (char c : s.toCharArray()) {
-				if (Character.isUpperCase(c)) {
-					return true;
-				}
-			}
-			return false;
-		}
-
-		public static String makeUpper(String s) {
-			StringBuilder sb = new StringBuilder();
-			for (char c : s.toCharArray()) {
-				sb.append(Character.toUpperCase(c));
-			}
-			return sb.toString();
-		}
-
-		public static int addTen(String s) {
-			return 10 + Integer.valueOf(s);
-		}
-	}
+	
 
 
 	/***********************
@@ -363,36 +328,27 @@ public class RevAssignment1 {
 	/***********************
 	 * QUESTION 20
 	 ***********************/
-	class Person {
-		String firstName;
-		String lastName;
-		int age;
-		String homeState;
+	
 
-		public Person(String firstName, String lastName, int age, String homeState) {
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.age = age;
-			this.homeState = homeState;			
+	public static ArrayList<Person> dataNames() {
+		ArrayList<Person> list = new ArrayList<Person>();
+		Scanner inFile = null;
+		try {
+			inFile = new Scanner(new File("Data.txt"));
+		} catch (FileNotFoundException e) {
+			System.out.println("Data.txt not found.");
+			System.exit(1);
 		}
-
-		public String toString() {
-			return "Name: " + firstName + " " + lastName + "\n" + "Age: " + age + " years\n" + "State: " + homeState + "State\n";
-		}
-	}
-
-	public static String dataNames() {
-		ArrayList<String> list = ArrayList<String>();
-		Scanner inFile = new Scanner(new File("Data.txt"));
-		while(inFile.hasNextLine()) {
+		while(inFile.hasNextLine() && inFile != null) {
 			Scanner sc = new Scanner(inFile.nextLine());
 			sc.useDelimiter(":");
-			list.add(new Person(sc.next(), sc.next(), sc.next(), sc.next()));
+			list.add(new Person(sc.next(), sc.next(), Integer.parseInt(sc.next()), sc.next()));
 		}
 
 		for (Person p : list) {
 			System.out.println(p);
 		}
+		return list;
 	}
 
 
@@ -422,7 +378,10 @@ public class RevAssignment1 {
 		System.out.println();
 		printReverse("This is a String!");
 
-
+		//Q15
+		MyInterfaceTester m = new MyInterfaceTester();
+        System.out.println("Testing addition, expecting 10\nReceived: " + m.addition(6,4));
+        System.out.println("Testing subtraction, expecting 2\nReceived: " + m.subtraction(6,4));
 
 	}
 
