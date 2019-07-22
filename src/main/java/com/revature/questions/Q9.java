@@ -11,7 +11,9 @@ import com.revature.utils.MyFunctions;
 */
 public class Q9 {
 
-	public static void printPrime() {
+	private static String primes = "";
+
+	public static String printPrime() {
 		List<Integer> myArray = new ArrayList<Integer>();
 
 		for (int i = 0; i < 100; i++) {
@@ -24,11 +26,12 @@ public class Q9 {
 		while (itr.hasNext()) {
 			int element = itr.next();
 			// CHECK PRIMES
-			if (MyFunctions.isPrime(element)&& element != 1) {
-				System.out.print(element + " ");
+			if (MyFunctions.isPrime(element) && element != 1) {
+				primes = primes + element + " ";
 			}
 		}
-
+		System.out.println(primes);
+		return primes;
 	}
 
 }

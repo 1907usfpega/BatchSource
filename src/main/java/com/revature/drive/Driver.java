@@ -53,13 +53,13 @@ public class Driver {
 //		Q7.sortEmployees();
 //		printLine();
 //
-		System.out.println("Question 8");
-		Q8.savePalindromes();		
-		printLine();
-//
-//		System.out.println("Question 9");
-//		Q9.printPrime();
+//		System.out.println("Question 8");
+//		Q8.savePalindromes();		
 //		printLine();
+//
+		System.out.println("Question 9");
+		Q9.printPrime();
+		printLine();
 //
 //		System.out.println("Question 10");
 //		Q10.printMin(93, 67);
