@@ -10,6 +10,7 @@ import com.revature.questions.Q16;
 import com.revature.questions.Q17;
 import com.revature.questions.Q18;
 import com.revature.questions.Q19;
+import com.revature.questions.Q2;
 import com.revature.questions.Q20;
 import com.revature.questions.Q3;
 import com.revature.questions.Q4;
@@ -24,7 +25,9 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-		Q3.reverseString("Framework");
+		Q2.displayFibonacci();
+		
+//		Q3.reverseString("Framework");
 		
 //		Q4.calcFactorial(9);
 		
