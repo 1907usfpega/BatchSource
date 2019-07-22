@@ -11,7 +11,8 @@ import java.util.List;
 
 public class Q7 {
 
-	public static void main(String[] args) {
+	public static void sortEmployees() {
+		// TODO Auto-generated method stub
 		List<Employee> employeeList= new ArrayList<Employee>();
 		employeeList.addAll(Arrays.asList(
 				new Employee[] {
@@ -19,27 +20,26 @@ public class Q7 {
 						new Employee("Chesnut", "Sales", 34),
 						new Employee("Leo", "tech", 24),
 				}));
-	}
-	public static void compareByName
+
 		Collections.sort(employeeList,new EmployeeAgeComparator());
 		System.out.println("Sorted by age:");
 		for(Employee emp:employeeList) {
 			System.out.println(emp.age);
 		}
-		
+
 		Collections.sort(employeeList,new EmployeeNameComparator());
 		System.out.println("\nSorted by name:");
 		for(Employee emp:employeeList) {
 			System.out.println(emp.name);
 		}
-		
+
 		Collections.sort(employeeList,new EmployeeDepComparator());
 		System.out.println("\nSorted by Dep:");
 		for(Employee emp:employeeList) {
 			System.out.println(emp.department);
 		}
 
-
+	}
 
 }
 

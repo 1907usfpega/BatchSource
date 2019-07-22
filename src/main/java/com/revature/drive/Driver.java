@@ -11,6 +11,7 @@ import com.revature.questions.Q17;
 import com.revature.questions.Q18;
 import com.revature.questions.Q19;
 import com.revature.questions.Q20;
+import com.revature.questions.Q7;
 import com.revature.questions.Q8;
 import com.revature.questions.Q9;
 import com.revature.utils.MyFunctions;
@@ -19,7 +20,9 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-		Q8.movePalindromes();		
+		Q7.sortEmployees();
+		
+//		Q8.movePalindromes();		
 		
 //		Q9.printPrime();
 		
