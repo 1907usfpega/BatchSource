@@ -25,14 +25,14 @@ import com.revature.utils.MyFunctions;
 public class Driver {
 
 	public static void main(String[] args) {
-		System.out.println("Question 1");
-		Q1.bubbleSort();
-		printLine();
-//
-//		System.out.println("Question 2");
-//		Q2.displayFibonacci();
+//		System.out.println("Question 1");
+//		Q1.bubbleSort();
 //		printLine();
-//
+
+		System.out.println("Question 2");
+		Q2.displayFibonacci();
+		printLine();
+
 //		System.out.println("Question 3");
 //		Q3.reverseString("Framework");
 //		printLine();
