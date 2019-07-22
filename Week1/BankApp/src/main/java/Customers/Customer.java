@@ -3,21 +3,34 @@
  */
 package Customers;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import Application.Application;
 
 
 /**
  * @author MajorKey
  *
  */
-public class Customer {
+public class Customer implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7450933814758381572L;
+
 	private static List<Customer> customers = new ArrayList<Customer>();
 	
 	private String name;
 	private String account_id;
 	private double funds;
+	
+	public Customer(Application app) {
+		this.name = app.getName();
+		this.account_id = app.getAccount_id();
+	}
 	/**
 	 * @param name
 	 * @param account_id
@@ -51,6 +64,7 @@ public class Customer {
 	public Customer() {
 		super();
 	}
+	
 	/**
 	 * @return the customers
 	 */
@@ -63,6 +77,21 @@ public class Customer {
 	public static void setCustomers(List<Customer> customers) {
 		Customer.customers = customers;
 	}
+	public static void addCustomer(Customer cust) {
+		Customer.customers.add(cust);
+	}
+	public static void removeCustomer(Customer cust) {
+		Customer.customers.remove(cust);
+	}
+	public static Customer findCustomer(String name) {
+		for (int i = 0; i < Customer.customers.size(); i++) {
+			if(Customer.customers.get(i).getName().equalsIgnoreCase(name)) {
+				return Customer.customers.get(i);
+			}
+		}
+		return null;
+	}
+	
 	/**
 	 * @return the name
 	 */
