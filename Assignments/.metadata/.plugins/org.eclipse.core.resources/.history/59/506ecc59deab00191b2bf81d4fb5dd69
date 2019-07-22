@@ -1,0 +1,26 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 10
+ *Find the minimum of two numbers using ternary operators.
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class TernaryOperators {
+
+	public TernaryOperators() {
+		System.out.println("TernaryOperators Object Created!");
+	}
+	
+	public int findMinimum(int a, int b) {
+		return b;
+		
+	}
+	
+	public double findMinimum(double a, double b) {
+		return b;
+		
+	}
+}

@@ -1,0 +1,43 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 12
+ *Write a program to store numbers from 1 to 100 in an array. Print out all the even numbers
+ *from the array. Use the enhanced FOR loop for printing out the numbers.
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class EnhancedForLoop {
+	
+	//Data Variables
+	private int [] array;
+	
+	/**
+	 * Default Constructor
+	 */
+	public EnhancedForLoop() {	
+		
+	}
+	
+
+	public void createArray(int numberStart, int numberEnd) { 
+		array = new int[numberEnd - (numberEnd - numberStart)];
+		for(int i = 0; i < numberEnd; i++) {
+			array[i] = numberStart; 
+			numberStart++;
+		}	
+	}
+	
+	/**
+	 * 
+	 */
+	public void printEvenNumbers() {
+		for (int number : array) {
+			if(number % 2 == 0) { //if divisible by 2 then the number is even and will be printed to the console
+				System.out.println(number);
+			}
+		}
+	}
+}

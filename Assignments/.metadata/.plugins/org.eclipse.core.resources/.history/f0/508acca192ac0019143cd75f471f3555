@@ -1,0 +1,39 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 2
+ * Write a program to display the first 25 Fibonacci numbers beginning at 0.
+ * 
+ * @author Kyle Kolstad
+ *
+ *
+ */
+public class FibonacciSequence {
+	
+	//Data Variables
+	private int first = 0, second = 1;
+	
+	/**
+	 * Default Constructor.
+	 */
+	public FibonacciSequence() {
+		System.out.println("FibonacciSequence Object Created!");
+	}
+	
+	/**
+	 * method used to calculate and display sequence
+	 */
+	public void calculateSequence() {
+		int sum;
+		for (int x = 0; x < 25; x++) {
+			if (x == 24) {
+				System.out.print(first); //doesn't insert a comma after the last element in the array
+			} else {
+				System.out.print(first + ", ");	
+			}
+			sum = first + second;
+			first = second;
+			second = sum;	
+		}
+	}	
+}

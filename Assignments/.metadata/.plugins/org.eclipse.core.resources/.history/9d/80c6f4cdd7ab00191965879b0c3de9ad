@@ -1,0 +1,35 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 9
+ *Create an ArrayList which stores numbers from 1 to 100 and prints out all the prime
+ *numbers to the console.
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class PrimeNumbers {
+	int result;
+	boolean isPrime;
+	
+	public void checkForPrime(int number) {
+		
+		//result = number / 2;
+		
+		if (number <= 1) {
+			isPrime = false;
+		} else {
+			for(int i = 2; i < number; i++) {
+				if(number % i == 0) {
+					isPrime = false;
+				} else {
+					isPrime = true;
+				}
+			}
+		}
+		if(isPrime == true) {
+			System.out.println(number + " is a prime number!");
+		}
+	}
+}

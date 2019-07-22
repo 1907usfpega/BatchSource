@@ -1,0 +1,24 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 6
+ * Write a program to determine if an integer is even without using the modulus operator (%)
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class EvenInteger {
+
+	public EvenInteger() {
+
+		System.out.println("EvenInteger Object Created!");
+	}
+	
+	public static void isEven(int number) {
+		
+		
+		
+	}
+
+}

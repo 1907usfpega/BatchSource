@@ -1,0 +1,30 @@
+package com.revature.assignment1;
+
+import java.util.ArrayList;
+
+/**
+ * Assignment #1 Question 8
+ * Write a program that stores the following strings in an ArrayList and saves all the
+ * palindromes in another ArrayList.
+ * “karan”, “madam”, ”tom”, “civic”, “radar”, “jimmy”, “kayak”, “john”, “refer”, “billy”, “did”
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class Palindromes {
+	
+	ArrayList<String> strings = new ArrayList<String>();
+	ArrayList<String> palindromes = new ArrayList<String>();
+	StringBuilder reverse = new StringBuilder();
+	
+	public void checkForPalindromes() {
+		for (int i = 0; i < strings.size(); i++) {
+			reverse.append(strings.get(i));
+			if (strings.get(i).equals(reverse)) {
+				
+			}
+		}
+		
+	}
+}

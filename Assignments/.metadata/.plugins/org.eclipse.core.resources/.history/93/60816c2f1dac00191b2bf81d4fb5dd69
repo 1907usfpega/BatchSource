@@ -1,0 +1,11 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 18
+ *
+ * @author Kyle Kolstad
+ *
+ */
+public class ConcreteSuperclass {
+
+}

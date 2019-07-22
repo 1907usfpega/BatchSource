@@ -1,0 +1,32 @@
+package com.revature.assignment1;
+
+import java.util.ArrayList;
+
+/**
+ * Assignment #1 Question 19
+ *Create an ArrayList and insert integers 1 through 10. Display the ArrayList. Add all the
+ *even numbers up and display the result. Add all the odd numbers up and display the result.
+ *Remove the prime numbers from the ArrayList and print out the remaining ArrayList.
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class IntegerArrayList {
+
+	public void displayArrayList() {
+		
+	}
+	
+	public void addEvenNumbers() {
+		
+	}
+	
+	public void addOddNumbers() {
+		
+	}
+	
+	public ArrayList<Integer> removePrimeNumbers(ArrayList<Integer> arrayList){
+		return null;	
+	}
+}

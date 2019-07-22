@@ -1,0 +1,54 @@
+package com.revature.assignment1;
+
+import java.util.ArrayList;
+
+/**
+ * Assignment #1 Question 19
+ *Create an ArrayList and insert integers 1 through 10. Display the ArrayList. Add all the
+ *even numbers up and display the result. Add all the odd numbers up and display the result.
+ *Remove the prime numbers from the ArrayList and print out the remaining ArrayList.
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class IntegerArrayList {
+
+	private boolean isPrime;
+	public void displayArrayList() {
+		
+	}
+	
+	public void addEvenNumbers() {
+		
+	}
+	
+	public void addOddNumbers() {
+		
+	}
+	
+	public ArrayList<Integer> removePrimeNumbers(ArrayList<Integer> arrayList){
+		int size = arrayList.size();
+		for(int i = 0; i < size; i++) {
+			if (arrayList.get(i) <= 1) { // prime numbers are positive so they cannot be negative numbers. Also 0 or 1 can't be prime numbers because their only factors are themselves 
+				isPrime = false;
+			} else {
+				for(int j = 2; j < arrayList.get(i); j++) { 
+					if(arrayList.get(i) % j == 0) { //Modulus Operator checks to see if a number has a remainder.  If there is no remainder the number is not prime.
+						isPrime = false;
+						break;
+					} else {
+						isPrime = true;
+					}
+				}
+			}
+			if(isPrime == true) {
+				System.out.println(arrayList.get(i) + " is a prime number!");
+				arrayList.remove(i);
+				size--;
+				//i--;
+			}
+		}	
+		return arrayList;	
+	}
+}

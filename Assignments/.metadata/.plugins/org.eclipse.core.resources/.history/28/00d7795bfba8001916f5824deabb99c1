@@ -1,0 +1,27 @@
+package com.revature.assignment1;
+/**
+ * Assignment #1 Question 2
+ * Write a program to display the first 25 Fibonacci numbers beginning at 0.
+ * xn = xn-1 + xn-2
+ * @author Kyle Kolstad
+ *
+ */
+public class FibonacciSequence {
+	private int first = 0, second = 1;
+
+	public FibonacciSequence() {
+				
+	}
+	
+	public void calculateSequence() {
+		int sum;
+		for (int x = 0; x < 25; x++) {
+			System.out.println(first);
+			sum = first + second;
+			first = second;
+			second = sum;
+			
+		}
+	}
+	
+}

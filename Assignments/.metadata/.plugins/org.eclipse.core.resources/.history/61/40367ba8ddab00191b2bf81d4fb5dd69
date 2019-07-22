@@ -1,0 +1,13 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 10
+ *Find the minimum of two numbers using ternary operators.
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class TernaryOperators {
+
+}

@@ -1,0 +1,14 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 9
+ *Create an ArrayList which stores numbers from 1 to 100 and prints out all the prime
+ *numbers to the console.
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class PrimeNumbers {
+
+}

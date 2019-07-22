@@ -1,0 +1,18 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 4
+ * Write a program to compute N factorial.
+ * 
+ * @author Kyle Kolstad
+ *
+ */
+public class nFactorial {
+
+	/**
+	 * 
+	 */
+	public nFactorial() {
+		
+	}
+}
