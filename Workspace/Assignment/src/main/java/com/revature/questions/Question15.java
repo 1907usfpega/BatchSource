@@ -1,7 +1,7 @@
 package com.revature.questions;
 
 public class Question15 implements Mathy15{
-
+	// Object extends Mathy and implements its methods; prints out 2 of them.
 	public int multiplication(int a, int b) {
 		// TODO Auto-generated method stub
 		return a*b;

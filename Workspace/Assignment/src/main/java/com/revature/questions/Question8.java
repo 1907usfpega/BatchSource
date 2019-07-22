@@ -18,7 +18,7 @@ public class Question8 {
 		return palis;
 	}
 
-	private static boolean isPali(String s) {
+	public static boolean isPali(String s) {
 		for (int i = 0; i < s.toCharArray().length; i++) {
 			if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
 				System.out.println("The string "+ s + " is not a palindrom, since " + s.charAt(i) + " != " + s.charAt(s.length()-i-1));

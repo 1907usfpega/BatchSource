@@ -19,8 +19,8 @@ public class Driver {
 
 		/*
 		 * Question1.doTask(question1Ints); // bubblesort //
-		 * System.out.println(Arrays.toString(Question2.doTask())); // fibos //
-		 * System.out.println(Question3.doTask("Opera")); // Stringreversal //
+		 */ Question2.doTask(); // fibos //
+		 /* System.out.println(Question3.doTask("Opera")); // Stringreversal //
 		 * System.out.println(Question4.doTask(question4Int)); // factorial //
 		 * System.out.println(Question5.doTask(question5String, question5Int)); //
 		 * System.out.println(Question6.doTask(question6Int)); // Question7.doTask(); //

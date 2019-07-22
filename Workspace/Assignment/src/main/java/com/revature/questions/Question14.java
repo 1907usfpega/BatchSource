@@ -7,7 +7,7 @@ public class Question14 {
 	public static int number = 27;
 	public static String string = "I am learning Core Java";
 
-	public static void doTask(int x) {
+	public static void doTask(int x) { 			//In different cases of x, different outputs are being created. I don't get the Date myself and refer to the documentation here.
 		switch (x) {
 		case (1):
 			System.out.println("The square-root of " + number + " is " + getSqrt(number));
