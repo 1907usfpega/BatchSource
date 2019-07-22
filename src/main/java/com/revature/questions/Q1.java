@@ -5,9 +5,13 @@ package com.revature.questions;
  */
 public class Q1 {
 
-	static int[] array = { 1, 0, 5, 6, 3, 2, 3, 7, 9, 8, 4 };
-
 	public static String bubbleSort() {
+		int[] array = { 1, 0, 5, 6, 3, 2, 3, 7, 9, 8, 4 };
+		
+		return printArray(bubbleSort(array));
+		 
+	}
+	public static int[] bubbleSort(int[] array) {
 
 		// Set # of iterations
 		int numIterations = array.length / 2;
@@ -25,10 +29,10 @@ public class Q1 {
 			}
 			numIterations--;
 		}
-		return printArray();
+		return array;
 	}
 
-	private static String printArray() {
+	private static String printArray(int[] array) {
 		String myArray = "";
 		for (int i = 0; i < array.length; i++) {
 			//format to display
