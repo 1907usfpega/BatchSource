@@ -14,27 +14,26 @@ Case 3: Split the following string and store it in a string array.
 */
 public class Q14 {
 
-	public static void doSwitch(int x) {
+	public static String doSwitch(int x) {
 		switch (x) {
 		case 1:
-			findSquareRoot(64);
-			break;
+			return findSquareRoot(64);
 		case 2:
-			displayDate();
-			break;
+			return displayDate();
 		case 3:
-			splitString();
-			break;
+			return splitString();
 		default:
-			break;
+			return null;
 		}
 	}
 
-	private static void findSquareRoot(double num) {
-		System.out.println(Math.sqrt(num));		
+	private static String findSquareRoot(double num) {
+		String s = Double.toString(Math.sqrt(num));
+		System.out.println(s);	
+		return s;
 	}
 
-	private static void splitString() {
+	private static String splitString() {
 
 		String str = "I am learning Core Java";
 		String strArray[];
@@ -42,11 +41,12 @@ public class Q14 {
 		//uses splin function built in String
 		strArray = str.split("");
 		System.out.println(strArray.length);
+		return Integer.toString(strArray.length);
 		
 	}
 
 	//display today's date
-	private static void displayDate() {
+	private static String displayDate() {
 		//format month, day, year
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		
@@ -54,6 +54,8 @@ public class Q14 {
 		Date today = new Date();
 		
 		//print instance formated
-		System.out.println(dateFormat.format(today)); 
+		String s = dateFormat.format(today);
+		System.out.println(s); 
+		return s;
 	}
 }
