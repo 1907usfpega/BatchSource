@@ -4,11 +4,13 @@ import java.util.Scanner;
 
 public class Interest {
 	public static float simpleInterest(int a,float b, int c) {
+		//takes actual parameters for testing purposes
 		return a*b*c;
 	}
 	
 	
 	public static float simpleInterest() {
+		//accepts input for driver
 		Scanner sc=new Scanner (System.in);
 		System.out.println("input principle");
 		String s= sc.nextLine();

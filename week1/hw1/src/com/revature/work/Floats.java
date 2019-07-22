@@ -1,6 +1,7 @@
 package com.revature.work;
 
 public class Floats {
+	//needed a class with floats in it
 	private float a;
 	private float b;
 	public Floats(float a, float b) {
@@ -8,6 +9,7 @@ public class Floats {
 		this.a = a;
 		this.b = b;
 	}
+	//added getters and setters because the floats are private
 	public float getA() {
 		return a;
 	}

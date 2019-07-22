@@ -10,6 +10,7 @@ import com.revature.comp.EmployeeComp;
 
 public class EmployeeMain {
 
+	//prints all the configurations of employee
 	public static List<Employee> sorts() {
 		// TODO Auto-generated method stub
 		List<Employee> attendance=new ArrayList<Employee>();

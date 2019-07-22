@@ -13,6 +13,7 @@ public class FromFile {
 	public static void read() {
 		File file= new File(INFILE);
 		hold=new ArrayList<String>();
+		//read in file
 		try {
 			String in;
 			Scanner sc = new Scanner (file);
@@ -24,6 +25,7 @@ public class FromFile {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+		//prints the file in the correct format
 		for(String i:hold) {
 			String[] meow= i.split(":");
 			System.out.println("Name: "+meow[0]+" "+meow[1]);

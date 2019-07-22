@@ -32,6 +32,7 @@ import com.revature.work.SubString;
 import com.revature.work.Ternary;
 import com.revature.work.Triangle;
 
+//tests for all classes
 class Tests {
 
 	@Test

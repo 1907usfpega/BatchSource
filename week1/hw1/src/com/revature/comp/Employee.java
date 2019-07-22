@@ -45,6 +45,7 @@ public class Employee implements Comparable<Employee>{
 		return "Employee [department=" + department + ", name=" + name + ", age=" + age + "]";
 	}
 
+	//makes employee comparable
 	@Override
 	public int compareTo(Employee arg0) {
 		

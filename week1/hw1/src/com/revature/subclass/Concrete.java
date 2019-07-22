@@ -16,6 +16,7 @@ public class Concrete extends Cloudy{
 		this.s = s;
 	}
 
+	//checks the string to see if there are any uppercase letters
 	@Override
 	public boolean checkUpper() {
 		String n=s.toLowerCase();
@@ -26,12 +27,13 @@ public class Concrete extends Cloudy{
 			return false;
 	}
 
+	//converts the class string to uppercase
 	@Override
 	public String convertUpper() {
 		String n=s.toUpperCase();
 		return n;
 	}
-
+	//changes the class string to an integer and adds 10
 	@Override
 	public int convertInt() {
 		int i=0;

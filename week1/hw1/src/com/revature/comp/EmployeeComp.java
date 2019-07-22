@@ -2,6 +2,7 @@ package com.revature.comp;
 
 import java.util.Comparator;
 
+//makes employee comparable by more than just age
 public class EmployeeComp implements Comparator<Employee> {
 
 	@Override

@@ -6,6 +6,7 @@ import java.util.Iterator;
 public class Palindromes {
 
 	public static ArrayList<String> makePals() {
+		//makes the array list bc it was ugly in the driver
 		ArrayList<String> a = new ArrayList<String>();
 		a.add("karan");
 		a.add("madam");
@@ -25,6 +26,8 @@ public class Palindromes {
 		boolean pal;
 		ArrayList<String> b=new ArrayList<String>();
 		Iterator<String> it= al.iterator();
+		//checks if any element of al is a palindrome
+		//and if it is, saves it in b
 		while(it.hasNext()) {
 			String a=it.next();
 			int i=0; int j=a.length()-1;
@@ -42,13 +45,14 @@ public class Palindromes {
 				j--;
 			}
 		}
+		//prints original list
 		System.out.println("Original List: ");
 		it=al.iterator();
 		while(it.hasNext()) {
 			String element=it.next();
 			System.out.print(element+" ");
 		}
-		
+		//removes palindromes
 		al.removeAll(b);
 		
 		System.out.println("\nNonPalindromes:");
@@ -57,6 +61,7 @@ public class Palindromes {
 			String element=it.next();
 			System.out.print(element+" ");
 		}
+		//prints palindromes
 		System.out.println("\nPalendromes:");
 		it=b.iterator();
 		while(it.hasNext()) {

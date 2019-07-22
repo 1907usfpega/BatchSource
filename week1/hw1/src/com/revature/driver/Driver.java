@@ -25,6 +25,7 @@ import com.revature.work.Triangle;
 
 public class Driver {
 
+	//main driver where every function is run
 	public static void main(String[] args) {
 		//Q1
 		System.out.println("QUESTION 1");
