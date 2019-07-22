@@ -12,7 +12,7 @@ public class Question9 {
 			numberArray.add(i);
 		}
 		for (Integer integer : numberArray) {
-			if(isPrime(integer)) {
+			if(isPrime(integer)) {								//primes get added to the primes-ArrayList
 				primes.add(integer);
 			}
 		}
@@ -20,7 +20,7 @@ public class Question9 {
 		return primes;
 	}
 
-	public static boolean isPrime(Integer i) {
+	public static boolean isPrime(Integer i) {					// it the number is dividable by any other number below it, without a rest, it is not a prime 
 		for (int j = 2; j < i / 2; j++) {
 			if (i % j == 0) {
 				System.out.println("no prime: " + i);

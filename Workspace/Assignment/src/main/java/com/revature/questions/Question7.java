@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Question7 {
+public class Question7 {					//the variablenames comment themselves here
 	public static void doTask() {
 		List<Employee> employees = new ArrayList<Employee>();
 		employees.addAll(Arrays.asList(new Employee[] {

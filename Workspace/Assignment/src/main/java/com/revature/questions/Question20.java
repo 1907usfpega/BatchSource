@@ -10,7 +10,7 @@ public class Question20 {
 	public static final File file = new File("src/main/resources/inputData.txt");
 	static ArrayList<Person> persons = new ArrayList<Person>();
 
-	public static void doTask() {			//Readies to open the file
+	public static boolean doTask() {			//Readies to open the file
 
 		System.out.println(file);
 		FileInputStream is = null;
@@ -38,12 +38,11 @@ public class Question20 {
 		return file.exists();
 	}
 
-	public static ArrayList<Person> interpretBytestream(FileInputStream is, int b) throws IOException {
 	
 	//reads through the inputStream and appends to a string. in case of a colon or \n-char, changes the variable that string is written into.
 	//every newline, or at the end of reading, the current personObject will be saved into a PersonArrayList and the reset, to be overwritten 
 	//by the next line.
-	public static ArrayList<Person> readPersons(FileInputStream is, int b) throws IOException {
+	public static ArrayList<Person> interpretBytestream(FileInputStream is, int b) throws IOException {
 		Person person = new Person();
 		int currentState = 0;
 		StringBuilder str = new StringBuilder();

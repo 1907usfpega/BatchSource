@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class Question3 {
 
-	public static String doTask(String str) {
+	public static String doTask(String str) {			//adds from the back of the string, to the string and then returns the second substring
 
 		for (int i = 0; i < str.toCharArray().length - i; i++) {
 			System.out.println(i + "  " + str);
