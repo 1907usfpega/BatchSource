@@ -37,13 +37,13 @@ public class Driver {
 //		Q3.reverseString("Framework");
 //		printLine();
 //
-		System.out.println("Question 4");
-		Q4.calcFactorial(9);
-		printLine();
-//
-//		System.out.println("Question 5");
-//		Q5.substring("dayana", 5);
+//		System.out.println("Question 4");
+//		Q4.calcFactorial(9);
 //		printLine();
+//
+		System.out.println("Question 5");
+		Q5.substring("dayana", 5);
+		printLine();
 //
 //		System.out.println("Question 6");
 //		Q6.isEven(18);
