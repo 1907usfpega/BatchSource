@@ -1,5 +1,9 @@
 package com.revature.questions;
-
+/*Write a program that stores the following strings in an 
+ * ArrayList and saves all the palindromes in another ArrayList.
+“karan”, “madam”, ”tom”, “civic”, “radar”, “jimmy”, “kayak”, 
+“john”, “refer”, “billy”, “did”
+*/
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
