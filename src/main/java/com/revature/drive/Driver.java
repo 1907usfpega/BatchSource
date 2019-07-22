@@ -1,5 +1,6 @@
 package com.revature.drive;
 
+import com.revature.questions.Q1;
 import com.revature.questions.Q10;
 import com.revature.questions.Q11;
 import com.revature.questions.Q12;
@@ -25,7 +26,10 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-		Q2.displayFibonacci();
+		Q1.bubbleSort();
+		printLine();
+		
+//		Q2.displayFibonacci();
 		
 //		Q3.reverseString("Framework");
 		
@@ -76,6 +80,10 @@ public class Driver {
 		
 //		System.out.println("\nThe End");
 
+	}
+	
+	private static void printLine() {
+		System.out.println("\n===================================\n");
 	}
 
 }
