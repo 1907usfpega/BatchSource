@@ -1,7 +1,5 @@
 package com.revature.bankingapppt1;
 
-import com.revature.bankingapppt1.AccountDatabase;
-
 public class BankingAppPt1Driver {
 
 	public BankingAppPt1Driver() {
@@ -26,5 +24,15 @@ public class BankingAppPt1Driver {
 		acctDB.getAccount("123456789").printAccount();
 		System.out.println(acctDB.getBalance("987654321"));
 		System.out.println(acctDB.getUsers("123456789"));
+		
+		System.out.println("\n\n");
+		
+		UserDatabase userDB = 
+				new UserDatabase("LeviApplebaum", "password123", "Admin");
+		userDB.printDatabase();
+		userDB.addAccount("LeviApplebaum", "growthAccount");
+		userDB.printDatabase();
+		System.out.println(userDB.getAllPending());
+		
 	}
 }

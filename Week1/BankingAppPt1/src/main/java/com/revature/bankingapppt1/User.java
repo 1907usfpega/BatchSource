@@ -1,5 +1,6 @@
 package com.revature.bankingapppt1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -7,10 +8,15 @@ public class User {
 	private String userName;
 	private String password;
 	private String clearanceLevel;
-	private List<String> accounts;
+	private List<String> accounts = new ArrayList<String>();
 	private String status;
 	
-	public static 
+	public void approve() {
+		this.status = "Approved";
+	}
+	public void deny() {
+		this.status = "Denied";
+	}
 	
 	public String getStatus() {
 		return this.status;
@@ -39,7 +45,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "| " + userName + " | " + password + " | " + clearanceLevel
-				+ " | " + accounts;
+				+ " | " + status + " | " + accounts;
 	}
 	public String getUserName() {
 		return userName;
@@ -48,19 +54,19 @@ public class User {
 		this.userName = userName;
 	}
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
 	public String getClearanceLevel() {
-		return clearanceLevel;
+		return this.clearanceLevel;
 	}
 	public void setClearanceLevel(String clearanceLevel) {
 		this.clearanceLevel = clearanceLevel;
 	}
 	public List<String> getAccounts() {
-		return accounts;
+		return this.accounts;
 	}
 	public void setAccounts(List<String> accounts) {
 		this.accounts = accounts;
@@ -72,8 +78,7 @@ public class User {
 		this.userName = name;
 		this.password = pass;
 		this.clearanceLevel = clearance;
-		this.status = "pending";
+		this.status = "Pending";
 		
 	}
-
 }
