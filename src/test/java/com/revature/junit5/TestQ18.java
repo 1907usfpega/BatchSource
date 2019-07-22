@@ -23,7 +23,8 @@ class TestQ18 {
 	@Test
 	void testAddTen() {
 		Q18 q18 = new Q18();
-		assertEquals(17,q18.addTen());//given user typed 7
+		assertEquals(17,q18.addTen(7));
+		//assertEquals(17,q18.addTen());//given user typed 7
 	}
 
 }

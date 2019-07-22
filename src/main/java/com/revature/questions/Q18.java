@@ -43,8 +43,14 @@ public class Q18 extends Q18_Abstract{
 	@Override
 	public int addTen() {
 		System.out.print("Choose int number: ");
-		return MyScanner.getInteger()+10;
+		return addTen(MyScanner.getInteger());
 	}
+	
+	public int addTen(int x) {		
+		return x + 10;
+	}
+	
+	
 	
 	public void addTen_print() {
 		System.out.println("Added 10 = "+addTen());
