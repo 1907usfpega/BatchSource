@@ -11,9 +11,9 @@ import java.util.List;
 import com.revature.utils.MyFunctions;
 
 public class Q8 {
-	public static List<String> palindromesList;
+	private static List<String> palindromesList;
 	
-	public static void movePalindromes() {
+	public static String savePalindromes() {
 		//create inicial list
 		List<String> myArray = new ArrayList<String>();
 		
@@ -45,6 +45,7 @@ public class Q8 {
 		}
 		
 		System.out.println(palindromesList);
+		return palindromesList.toString();
 	}
 
 }

@@ -49,13 +49,13 @@ public class Driver {
 //		Q6.isEven(18);
 //		printLine();
 //
-		System.out.println("Question 7");
-		Q7.sortEmployees();
-		printLine();
-//
-//		System.out.println("Question 8");
-//		Q8.movePalindromes();		
+//		System.out.println("Question 7");
+//		Q7.sortEmployees();
 //		printLine();
+//
+		System.out.println("Question 8");
+		Q8.savePalindromes();		
+		printLine();
 //
 //		System.out.println("Question 9");
 //		Q9.printPrime();
