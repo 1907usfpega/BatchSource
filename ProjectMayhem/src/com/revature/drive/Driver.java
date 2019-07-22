@@ -33,13 +33,14 @@ public class Driver {
 		Person d = new Person("Deonta",128,10);
 		Person e = new Person("Andrew",22,-11);
 		Person f = new Person("Ren",420,69);
-		System.out.println(a.toString());
-		System.out.println(b.toString());
-		System.out.println(c.toString());
-		System.out.println(d.toString());
-		System.out.println(e.toString());
-		System.out.println(f.toString());
-		
+		/*
+		 * System.out.println(a.toString()); System.out.println(b.toString());
+		 * System.out.println(c.toString()); System.out.println(d.toString());
+		 * System.out.println(e.toString()); System.out.println(f.toString());
+		 */
+		System.out.println(c.getAge());
+		c.increaseAgeBy(-4);
+		System.out.println(c.getAge());
 		
 	}
 }

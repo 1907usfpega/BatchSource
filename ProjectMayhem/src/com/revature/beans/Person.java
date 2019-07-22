@@ -1,15 +1,20 @@
 package com.revature.beans;
 
-public class Person {
+import java.io.Serializable;
+
+import com.revature.classtypes.Hunt;
+import com.revature.exceptions.IncreasedByNegativeNumberException;
+
+public class Person implements Hunt, Serializable{
 	//POJO - plain ol java object
 	private String name;
 	private int age;
 	private int weight;
 	
 		//instance code block
-		{System.out.println(this.name+" is in an instance code block!");}
+		//{System.out.println(this.name+" is in an instance code block!");}
 		//static code block
-		static {System.out.println("I'm in a static code block.");}
+		//static {System.out.println("I'm in a static code block.");}
 	
 	//constructors
 	public Person() {
@@ -46,5 +51,20 @@ public class Person {
 		return "Person [name = " + name + ", age = " + age + ", weight = " + weight + "]";
 	}
 	
+	public boolean equals(Person p) {
+		return( this.name == p.name && this.age==p.age && this.weight == p.weight);
+	}
+	
+	public void increaseAgeBy(int x) throws IncreasedByNegativeNumberException {
+		if(x<0) {
+			throw new IncreasedByNegativeNumberException();
+		}
+		this.age+=x;
+	}
+	@Override
+	public void findPrey() {
+		System.out.println("I go grocery shopping");
+		
+	}
 	
 }
