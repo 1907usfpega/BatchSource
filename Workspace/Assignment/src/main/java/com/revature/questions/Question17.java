@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Question17 {
 	
-	public static int doTask() {
+	public static int doTask() { //with commentaro to the user, he may enter his information. It get's checked and then mathed together
 		Scanner cs = new Scanner(System.in);
 		System.out.println("To calculate Interest, first enter your prinicipal now: ");
 		String nextLine = cs.nextLine();

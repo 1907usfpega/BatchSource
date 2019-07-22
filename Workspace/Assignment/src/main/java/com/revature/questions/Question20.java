@@ -10,7 +10,7 @@ public class Question20 {
 	public static final File file = new File("src/main/resources/inputData.txt");
 	static ArrayList<Person> persons = new ArrayList<Person>();
 
-	public static void doTask() {
+	public static void doTask() {			//Readies to open the file
 		System.out.println(file);
 		FileInputStream is = null;
 		try {
@@ -22,13 +22,13 @@ public class Question20 {
 		}
 		int b = 0;
 		try {
-			readLine(is, b);
+			interpretBytestream(is, b);				//File-reading starts here - is closed when finished.
 			is.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 
 		}
-		for (Person person : persons) {
+		for (Person person : persons) {		//persons were created in interpretBytestream()
 			System.out.println("Name: " + person.firstName + " " + person.lastName);
 			System.out.println("Age: " + person.age);
 			System.out.println("State: " + person.location);
@@ -36,7 +36,7 @@ public class Question20 {
 		}
 	}
 
-	public static ArrayList<Person> readLine(FileInputStream is, int b) throws IOException {
+	public static ArrayList<Person> interpretBytestream(FileInputStream is, int b) throws IOException {
 		Person person = new Person();
 		int currentState = 0;
 		StringBuilder str = new StringBuilder();
@@ -44,9 +44,9 @@ public class Question20 {
 		while ((b = is.read()) != -1) {
 			System.out.println((char)b);
 			switch (c = (char) b) {
-			case (':'):
+			case (':'):													// in case of a char being a colon, a new variable is being written into.
 				switch (currentState) {
-				case (0):
+				case (0):									
 					currentState = 1;
 					person.firstName = str.toString();
 					str.delete(0, str.length());

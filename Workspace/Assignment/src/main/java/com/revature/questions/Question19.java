@@ -45,7 +45,7 @@ public class Question19 {
 				continue;
 			}
 			isPrime = true;
-			for (Integer prime : primes) {
+			for (Integer prime : primes) { 		//if the number is dividable by any prime smaller than it, it is not a prime. Else it is one. Optimal runtime?
 				if (integer % prime == 0) {
 					System.out.println(integer + " is not a prime, as you can divide it by " + prime);
 					isPrime = false;
