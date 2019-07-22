@@ -61,13 +61,13 @@ public class Driver {
 //		Q9.printPrime();
 //		printLine();
 //
-		System.out.println("Question 10");
-		Q10.findMin(93, 67);
-		printLine();
-//
-//		System.out.println("Question 11");
-//		Q11.accessVariable();
+//		System.out.println("Question 10");
+//		Q10.findMin(93, 67);
 //		printLine();
+//
+		System.out.println("Question 11");
+		Q11.accessVariable();
+		printLine();
 //
 //		System.out.println("Question 12");
 //		Q12.printEven();
