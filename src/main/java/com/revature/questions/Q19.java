@@ -9,11 +9,11 @@ import java.util.Iterator;
 
 public class Q19 {
 	
-	static ArrayList<Integer> listArray =
-			new ArrayList<Integer>();
+	public static ArrayList<Integer> listArray;
 	
 	//Fill and show array
-	public static void showArray() {
+	public Q19() {
+		listArray =	new ArrayList<Integer>();
 		listArray.add(1);
 		listArray.add(2);
 		listArray.add(3);
@@ -25,13 +25,13 @@ public class Q19 {
 		listArray.add(9);
 		listArray.add(10);
 		
-		System.out.println("Display the ArrayList: ");
+		System.out.print("\nDisplay the ArrayList: ");
 		System.out.println(listArray);
 		
 	}
 	
 	//iterate throught the ArrayList
-	public static void sumOdd() {
+	public static int sumOdd(ArrayList<Integer> listArray) {
 		int sum = 0;
 
 		System.out.print("\nSum ODD numbers: ");
@@ -43,10 +43,11 @@ public class Q19 {
 		}
 		
 		System.out.println(sum);
+		return sum;
 	}
 	
 	//iterate throught the ArrayList
-	public static void sumEven() {
+	public static int sumEven(ArrayList<Integer> listArray) {
 		int sum = 0;
 
 		System.out.print("\nSum EVEN numbers: ");
@@ -58,6 +59,7 @@ public class Q19 {
 		}
 		
 		System.out.println(sum);
+		return sum;
 	}
 	
 	//return if it's even
