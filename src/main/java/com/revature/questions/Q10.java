@@ -4,11 +4,8 @@ package com.revature.questions;
 public class Q10 {
 	
 	public static double findMin(double num1, double num2) {
-		return (num1<num2)? num1 : num2;
+		double min = (num1<num2)? num1 : num2;
+		System.out.println(min);
+		return min;
 	}
-	
-	public static void printMin(double num1, double num2) {
-		System.out.println(findMin(num1,num2));
-	}
-
 }

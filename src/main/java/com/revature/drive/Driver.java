@@ -57,13 +57,13 @@ public class Driver {
 //		Q8.savePalindromes();		
 //		printLine();
 //
-		System.out.println("Question 9");
-		Q9.printPrime();
-		printLine();
-//
-//		System.out.println("Question 10");
-//		Q10.printMin(93, 67);
+//		System.out.println("Question 9");
+//		Q9.printPrime();
 //		printLine();
+//
+		System.out.println("Question 10");
+		Q10.findMin(93, 67);
+		printLine();
 //
 //		System.out.println("Question 11");
 //		Q11.accessVariable();
