@@ -32,14 +32,14 @@ public class Driver {
 //		System.out.println("Question 2");
 //		Q2.displayFibonacci();
 //		printLine();
-
-		System.out.println("Question 3");
-		Q3.reverseString("Framework");
-		printLine();
-
-//		System.out.println("Question 4");
-//		Q4.calcFactorial(9);
+//
+//		System.out.println("Question 3");
+//		Q3.reverseString("Framework");
 //		printLine();
+//
+		System.out.println("Question 4");
+		Q4.calcFactorial(9);
+		printLine();
 //
 //		System.out.println("Question 5");
 //		Q5.substring("dayana", 5);
