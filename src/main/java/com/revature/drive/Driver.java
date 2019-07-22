@@ -99,12 +99,12 @@ public class Driver {
 //		Q17.calcInterest();
 //		printLine();
 //
-		System.out.println("Question 18");
-		Q18 q18 = new Q18();
-		q18.checkUppercase_print("daYana");
-		q18.convertToUppercase_print("Hello there");
-		q18.addTen_print();
-		printLine();
+//		System.out.println("Question 18");
+//		Q18 q18 = new Q18();
+//		q18.checkUppercase_print("daYana");
+//		q18.convertToUppercase_print("Hello there");
+//		q18.addTen_print();
+//		printLine();
 //
 //		System.out.println("Question 19");
 //		Q19.showArray();
@@ -112,9 +112,9 @@ public class Driver {
 //		Q19.sumEven();
 //		printLine();
 //
-//		System.out.println("Question 20");
-//		Q20.readAll();
-//		printLine();
+		System.out.println("Question 20");
+		Q20.readAll();
+		printLine();
 //		
 //		System.out.println("\nThe End");
 

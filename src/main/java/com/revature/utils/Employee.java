@@ -37,8 +37,15 @@ public class Employee {// implements Comparable<Employee>{
 		this.age = age;
 	}
 
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + ", department=" + department + ", age=" + age + "]";
+	}
+
 //		public int compareTo(Employee arg0) {
 //			return this.age-arg0.age;
 //		}
+	
+	
 
 }

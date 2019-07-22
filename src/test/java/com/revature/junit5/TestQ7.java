@@ -18,28 +18,59 @@ class TestQ7 {
 	
 	@Test
 	void testSortByAge() {
-		List<Employee> input = new ArrayList<Employee>();
-		input.addAll(Arrays.asList(new Employee[] { 
+		List<Employee> original = new ArrayList<Employee>();
+		original.addAll(Arrays.asList(new Employee[] { 
 				new Employee("Matt", "RH", 59),
 				new Employee("Chesnut", "Sales", 34), 
 				new Employee("Leo", "tech", 24) }));
 		
-		List<Employee> output = new ArrayList<Employee>();
-		output.addAll(Arrays.asList(new Employee[] { 
+		String output = Q7.sortByAge(original).toString();
+		
+		List<Employee> answer = new ArrayList<Employee>();
+		answer.addAll(Arrays.asList(new Employee[] { 
 				new Employee("Leo", "tech", 24),
 				new Employee("Chesnut", "Sales", 34),
 				new Employee("Matt", "RH", 59) }));
-		assertTrue(output.equals(Q7.sortByAge(input)));
+		
+		assertEquals(answer.toString(),output);
 	}
-//
-//	@Test
-//	void testSortByName() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	void testSortByDepartment() {
-//		fail("Not yet implemented");
-//	}
+
+	@Test
+	void testSortByName() {
+		List<Employee> original = new ArrayList<Employee>();
+		original.addAll(Arrays.asList(new Employee[] { 
+				new Employee("Matt", "RH", 59),
+				new Employee("Chesnut", "Sales", 34), 
+				new Employee("Leo", "tech", 24) }));
+		
+		String output = Q7.sortByName(original).toString();
+		
+		List<Employee> answer = new ArrayList<Employee>();
+		answer.addAll(Arrays.asList(new Employee[] { 
+				new Employee("Chesnut", "Sales", 34),
+				new Employee("Leo", "tech", 24),
+				new Employee("Matt", "RH", 59) }));
+		
+		assertEquals(answer.toString(),output);
+	}
+
+	@Test
+	void testSortByDepartment() {
+		List<Employee> original = new ArrayList<Employee>();
+		original.addAll(Arrays.asList(new Employee[] { 
+				new Employee("Matt", "RH", 59),
+				new Employee("Chesnut", "Sales", 34), 
+				new Employee("Leo", "tech", 24) }));
+		
+		String output = Q7.sortByDepartment(original).toString();
+		
+		List<Employee> answer = new ArrayList<Employee>();
+		answer.addAll(Arrays.asList(new Employee[] { 
+				new Employee("Matt", "RH", 59),
+				new Employee("Chesnut", "Sales", 34),
+				new Employee("Leo", "tech", 24) }));
+		
+		assertEquals(answer.toString(),output);
+	}
 
 }
