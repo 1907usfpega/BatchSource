@@ -4,7 +4,9 @@ public class JavaQ5Substring {
 
 	public static void main(String[] args) {
 		String str1="Go Revature";
-		System.out.println(str1.substring(0,1));
+		for(int i=0; i < 5; i++)
+			
+		System.out.print(str1.charAt(i)+" ");
 		
 
 	}
