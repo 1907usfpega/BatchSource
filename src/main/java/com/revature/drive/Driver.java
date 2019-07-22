@@ -11,6 +11,7 @@ import com.revature.questions.Q17;
 import com.revature.questions.Q18;
 import com.revature.questions.Q19;
 import com.revature.questions.Q20;
+import com.revature.questions.Q6;
 import com.revature.questions.Q7;
 import com.revature.questions.Q8;
 import com.revature.questions.Q9;
@@ -20,7 +21,9 @@ public class Driver {
 
 	public static void main(String[] args) {
 		
-		Q7.sortEmployees();
+		Q6.isEven(18);
+		
+//		Q7.sortEmployees();
 		
 //		Q8.movePalindromes();		
 		
