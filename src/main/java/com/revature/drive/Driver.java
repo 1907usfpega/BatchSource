@@ -91,13 +91,13 @@ public class Driver {
 //		q15.printDivision(12, 3);
 //		printLine();
 //
-		System.out.println("Question 16");
-		Q16.countInput(args);
-		printLine();
-//
-//		System.out.println("Question 17");
-//		Q17.calcInterest();
+//		System.out.println("Question 16");
+//		Q16.countInput(args);
 //		printLine();
+//
+		System.out.println("Question 17");
+		Q17.calcInterest();
+		printLine();
 //
 //		System.out.println("Question 18");
 //		Q18 q18 = new Q18();
