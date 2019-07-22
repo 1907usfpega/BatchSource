@@ -10,21 +10,23 @@ package com.revature.questions;
 public class Q13 {
 	static int x = 1;
 
-	public static void printTriagle() {
+	public static String printTriagle() {
 
+		String s = "";
 		int lanes = 1;
 		while (lanes <= 4) { //loop through the lanes
 			for (int i = 0; i < lanes; i++) {//print incrementaly on the same lane
-				System.out.print(printNext());
+				s+=printNext();
 			}
 			lanes++;
-			System.out.println();
+			s+="\n";			
 		}
-
+		System.out.println(s);
+		return s;
 	}
 
 	//decide the next character to print
-	static int printNext() {
+	private static int printNext() {
 		if (x == 0) {
 			x = 1;
 			return 1;

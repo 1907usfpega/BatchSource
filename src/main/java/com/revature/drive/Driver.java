@@ -69,13 +69,13 @@ public class Driver {
 //		Q11.accessVariable();
 //		printLine();
 //
-		System.out.println("Question 12");
-		Q12.printEven();
-		printLine();
-//
-//		System.out.println("Question 13");
-//		Q13.printTriagle();
+//		System.out.println("Question 12");
+//		Q12.printEven();
 //		printLine();
+//
+		System.out.println("Question 13");
+		Q13.printTriagle();
+		printLine();
 //
 //		System.out.println("Question 14");
 //		Q14.doSwitch(1);
