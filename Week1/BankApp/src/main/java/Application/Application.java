@@ -19,8 +19,8 @@ import Accounts.Account;
 import Driver.Test;
 
 /**
- * @author MajorKey
- *
+ *  @author Deonta Kilpatrick
+ *  @author Justin Hua
  */
 public class Application implements Serializable {
 
@@ -50,14 +50,14 @@ public class Application implements Serializable {
 			String nam = keyboard.nextLine();
 			setName(nam);
 			System.out.println();
-			
+
 			String user;
 			do {
-			System.out.println("User Name(Will try again if username already exists): ");
-			user = keyboard.nextLine();
-			//System.out.println();
-			}while(checkUser(user));
-			
+				System.out.println("User Name(Will try again if username already exists): ");
+				user = keyboard.nextLine();
+				// System.out.println();
+			} while (checkUser(user));
+
 			String pass;
 			do {
 				System.out.println("Password(Must be 5-8 characters long): ");
@@ -69,10 +69,34 @@ public class Application implements Serializable {
 		}
 	}
 
-	public void startJointApplication() {
+	public Account startJointApplication(Test test, String user) {
+
+		System.out.println("I need you to fillout the following application.");
+		System.out.println(
+				"We will first need the owner of the account to login to their account for security purposes.");
+		System.out.println("Account id: ");
+		String id = keyboard.nextLine();
+		Account app = Account.findAccount(id);
+		if (app == null) {
+			System.out.println("I'm sorry, but we don't have an account by that account id.");
+			test.stop();
+		}
+		System.out.println("Username: ");
+		String username = keyboard.nextLine();
+		System.out.println("Password: ");
+		String password = keyboard.nextLine();
+		if (app.checkLogin(username, password)) {
+			System.out.println(
+					"Just so you know this information is what is used to gain access to the account so remember it or write it down.");
+			System.out.println("Okay, here you go. Please fill this out.");
+			System.out.println("Full Name: ");
+			String nam = keyboard.nextLine();
+			setName(nam);
+		}
+		return app;
 
 	}
-	
+
 	public boolean checkUser(String user) {
 		return Account.checkUserNames(user);
 	}
@@ -83,8 +107,8 @@ public class Application implements Serializable {
 		}
 		return true;
 	}
-	
-	//static getters & setters
+
+	// static getters & setters
 
 	/**
 	 * @return the open
@@ -116,8 +140,8 @@ public class Application implements Serializable {
 		}
 		return null;
 	}
-	
-	//non-static getters & setters
+
+	// non-static getters & setters
 
 	/**
 	 * @return the login

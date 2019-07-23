@@ -3,8 +3,6 @@
  */
 package Employees;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 import Accounts.Account;
@@ -13,15 +11,16 @@ import Customers.Customer;
 import Driver.Test;
 
 /**
- * @author MajorKey
- *
+ * @author Deonta Kilpatrick
+ * @author Justin Hua
  */
 public class Employee {
 
+	protected Account customerAccount;
+	protected Customer myCustomer;
+	
 	private Test test;
 	private Scanner keyboard = new Scanner(System.in);
-	private Account customerAccount;
-	private Customer myCustomer;
 
 	private String name;
 
@@ -32,13 +31,6 @@ public class Employee {
 		super();
 		this.name = name;
 		this.test = test;
-	}
-
-	/**
-	 * 
-	 */
-	public Employee() {
-		super();
 	}
 
 	public void start() {
@@ -57,32 +49,45 @@ public class Employee {
 			response = keyboard.nextLine();
 
 			if (response.equalsIgnoreCase("new")) {
+
 				isChecked = true;
-				if (!returningCustomers(userName)) {
+
+				if (!checkIfReturning(userName)) {
 					newCustomer(userName);
 				} else {
 					System.out.println("The system shows that you already have an account with us.");
-					returningCustomer();
-				}
-			} else if (response.equalsIgnoreCase("returning")) {
-				isChecked = true;
-
-				if (returningCustomers(userName)) {
-					System.out.println("Hello! My name is " + this.name);
 
 					do {
 						returningCustomer();
 						System.out.println("Do you have anything else we can help you with? (yes/no)");
 						response = keyboard.nextLine();
 					} while (response.equalsIgnoreCase("yes"));
+
+				}
+			} else if (response.equalsIgnoreCase("returning")) {
+
+				isChecked = true;
+
+				if (checkIfReturning(userName)) {
+
+					do {
+						returningCustomer();
+						System.out.println("Do you have anything else we can help you with? (yes/no)");
+						response = keyboard.nextLine();
+					} while (response.equalsIgnoreCase("yes"));
+
 				} else {
-					System.out.println("The system is not pulling up any accounts that belong to your name.");
+					System.out.println(
+							"The system is not pulling up any accounts that belong to your name. We need you to make a new account.");
 					newCustomer(userName);
 				}
 			} else if (response.equalsIgnoreCase("open application")) {
+
 				System.out.println("One second let me look for your application.");
 				waiting();
+
 				Application app = Application.findCustomer(userName);
+
 				if (app != null) {
 					initialDeposit(app);
 				} else {
@@ -119,6 +124,7 @@ public class Employee {
 	}
 
 	public void newCustomer(String userName) {
+
 		System.out.println("Okay, that is fine. Would you like to create a 'new' account with us?");
 		System.out.println("Or would you like to apply for a 'joint' account with one of our returning customers?");
 		System.out.println("(new/joint/no)");
@@ -139,9 +145,12 @@ public class Employee {
 
 			} else if (response.equalsIgnoreCase("joint")) {
 				isChecked = true;
+				System.out.println("Okay, I will have to send you to my manage...");
+				waiting();
+
+				new Admin("Bob", this.test).joint(userName);
 
 			} else if (response.equalsIgnoreCase("no")) {
-				isChecked = true;
 				stop();
 
 			} else {
@@ -158,29 +167,32 @@ public class Employee {
 	}
 
 	public void returningCustomer() {
-		System.out.println("How may I help you today?(Deposit/Withdraw/Transfer/See Balance)");
 
-		String response = keyboard.nextLine();
-		if (response.equalsIgnoreCase("deposit")) {
-			System.out.println("How much money would you like to deposit?");
+		if (checkLogin()) {
 
-			response = keyboard.nextLine();
-			double amount = 0.0;
-			try {
-				if (response.subSequence(0, 1).equals("$")) {
-					amount = Double.parseDouble(response.substring(1));
-				} else {
-					amount = Double.parseDouble(response);
+			System.out.println("How may I help you today?(Deposit/Withdraw/Transfer/See Balance/Cancel Account)");
+
+			String response = keyboard.nextLine();
+			if (response.equalsIgnoreCase("deposit")) {
+				System.out.println("How much money would you like to deposit?");
+
+				response = keyboard.nextLine();
+				double amount = 0.0;
+				try {
+					if (response.subSequence(0, 1).equals("$")) {
+						amount = Double.parseDouble(response.substring(1));
+					} else {
+						amount = Double.parseDouble(response);
+					}
+				} catch (Exception e) {
+					System.out.println("Okay, just come back another time.");
+					stop();
 				}
-			} catch (Exception e) {
-				System.out.println("Okay, just come back another time.");
-				stop();
-			}
 
-			this.customerAccount.deposit(amount);
+				this.customerAccount.deposit(amount);
 
-		} else if (response.equalsIgnoreCase("withdraw")) {
-			if (checkLogin()) {
+			} else if (response.equalsIgnoreCase("withdraw")) {
+
 				System.out.println("How much money would you like to withdraw?");
 
 				response = keyboard.nextLine();
@@ -197,9 +209,9 @@ public class Employee {
 				}
 
 				this.customerAccount.withdraw(amount);
-			}
-		} else if (response.equalsIgnoreCase("transfer")) {
-			if (checkLogin()) {
+
+			} else if (response.equalsIgnoreCase("transfer")) {
+
 				System.out.println("How much money would you like to tranfer?");
 
 				response = keyboard.nextLine();
@@ -218,19 +230,22 @@ public class Employee {
 				System.out.println("What is the account id of the account you are transferring money to?");
 				response = keyboard.nextLine();
 				Account a = Account.findAccount(response);
-				if(a != null)
-					this.customerAccount.transfer(amount, a );
+				if (a != null)
+					this.customerAccount.transfer(amount, a);
 				else {
 					System.out.println("We could not find an account with the corresponding id.");
 				}
 
+			} else if (response.equalsIgnoreCase("see balance")) {
+				System.out.println("Your balance is $" + checkBalance());
+
+			} else if (response.equalsIgnoreCase("cancel account")) {
+				System.out.println("Okay, I'll have to send you to me manager for that....");
+				waiting();
+				new Admin("Bob", this.test).cancelAccount();
+			} else {
+				stop();
 			}
-		} else if (response.equalsIgnoreCase("see balance")) {
-			if (checkLogin()) {
-				System.out.println("Your balance is " + checkBalance());
-			}
-		} else {
-			stop();
 		}
 	}
 
@@ -238,8 +253,9 @@ public class Employee {
 		System.out.println("Okay, let me look at your application.");
 		System.out.println("I will tell you if you are approved or denied in a second.");
 		waiting();
+		
 		if (!userName.equalsIgnoreCase(app.getName())) {
-			deny(app);
+			deny();
 		} else {
 			approve(app);
 		}
@@ -254,7 +270,7 @@ public class Employee {
 		initialDeposit(app);
 	}
 
-	public void deny(Application app) {
+	public void deny() {
 		System.out.println("I'm sorry but your application has been denied.");
 		stop();
 
@@ -263,11 +279,13 @@ public class Employee {
 	public void initialDeposit(Application app) {
 		System.out.println("Do you have enough for the initial deposit?(yes/no)");
 		String response = keyboard.nextLine();
+		
 		if (response.equalsIgnoreCase("yes")) {
 			System.out.println("Okay, how much money would you like to deposit?");
 			System.out.println("Remember that the minimum initial deposit is $50.00");
 			System.out.println(
 					"Your account will NOT be activated and you will have to come finish your application another time if you try to deposit less than the minimum amount.");
+			
 			response = keyboard.nextLine();
 			double amount = 0.0;
 			try {
@@ -299,7 +317,7 @@ public class Employee {
 		}
 	}
 
-	public boolean returningCustomers(String name) {
+	public boolean checkIfReturning(String name) {
 		// if name is in customers list return true
 		// also set checkedAccount = Account.findAccount(customer.getAccount_id)
 		// else false
@@ -325,6 +343,10 @@ public class Employee {
 	public double checkBalance() {
 		return customerAccount.getBalance();
 	}
+	
+	public String checkCustomerInfo() {
+		return myCustomer.toString();
+	}
 
 	// non-static getters & setters
 
@@ -340,6 +362,53 @@ public class Employee {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return the test
+	 */
+	public Test getTest() {
+		return test;
+	}
+
+	/**
+	 * @param test the test to set
+	 */
+	public void setTest(Test test) {
+		this.test = test;
+	}
+
+	/**
+	 * @return the customerAccount
+	 */
+	public Account getCustomerAccount() {
+		return customerAccount;
+	}
+
+	/**
+	 * @param customerAccount the customerAccount to set
+	 */
+	public void setCustomerAccount(Account customerAccount) {
+		this.customerAccount = customerAccount;
+	}
+
+	/**
+	 * @return the myCustomer
+	 */
+	public Customer getMyCustomer() {
+		return myCustomer;
+	}
+
+	/**
+	 * @param myCustomer the myCustomer to set
+	 */
+	public void setMyCustomer(Customer myCustomer) {
+		this.myCustomer = myCustomer;
+	}
+
+	@Override
+	public String toString() {
+		return "Employee [name=" + name + "]";
 	}
 
 }
