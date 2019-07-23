@@ -50,11 +50,11 @@ public class Admin extends Employee{
 		System.out.println("Make sure you an you keep the login information and the account id safe and handy.");
 	}
 	
-	public void cancelAccount() { 
+	public void cancelAccount(Account acc, Customer cust) { 
 		
 		System.out.println("Hello. My name is " + this.getName() + ". I was told you want cancel your account, so let's get started.");
 		
-		Account.removeAccount(this.getCustomerAccount());
-		Customer.removeCustomer(this.getMyCustomer());
+		Account.removeAccount(acc);
+		Customer.removeCustomer(cust);
 	}
 }

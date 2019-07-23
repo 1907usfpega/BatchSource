@@ -59,7 +59,7 @@ public class Employee {
 
 					do {
 						returningCustomer();
-						System.out.println("Do you have anything else we can help you with? (yes/no)");
+						System.out.println("Do you have anything I can help you with? (yes/no)");
 						response = keyboard.nextLine();
 					} while (response.equalsIgnoreCase("yes"));
 
@@ -72,7 +72,7 @@ public class Employee {
 
 					do {
 						returningCustomer();
-						System.out.println("Do you have anything else we can help you with? (yes/no)");
+						System.out.println("Do you have anything I can help you with? (yes/no)");
 						response = keyboard.nextLine();
 					} while (response.equalsIgnoreCase("yes"));
 
@@ -242,7 +242,7 @@ public class Employee {
 			} else if (response.equalsIgnoreCase("cancel account")) {
 				System.out.println("Okay, I'll have to send you to me manager for that....");
 				waiting();
-				new Admin("Bob", this.test).cancelAccount();
+				new Admin("Bob", this.test).cancelAccount(this.customerAccount, this.myCustomer);
 			} else {
 				stop();
 			}
