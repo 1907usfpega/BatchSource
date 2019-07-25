@@ -39,7 +39,11 @@ public class Driver {
 		Person c =new Person("Hann",12,1728);
 		Person d =new Person("Deonta",128,10);
 		Person e =new Person("Andrew",22,-11);
-		System.out.println(a.toString());
+		System.out.println(c.getAge());
+		
+		c.increaseAgeBy(-4);
+		
+		System.out.println(c.getAge());
 		/*
 		 * public- access modifiers, anything can see it
 		 * static- belongs to class, does not need to be instantiated
