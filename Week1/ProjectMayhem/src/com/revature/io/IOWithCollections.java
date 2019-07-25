@@ -18,7 +18,8 @@ public class IOWithCollections {
 	public static void writePersonFile() {
 		ObjectOutputStream objectOut;
 		try {
-			objectOut = new ObjectOutputStream( new FileOutputStream(personFile));
+			objectOut = new ObjectOutputStream
+					( new FileOutputStream(personFile));
 			objectOut.writeObject(personList);
 			objectOut.close();
 		} catch (IOException e) {
