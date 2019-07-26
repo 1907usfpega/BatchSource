@@ -79,7 +79,7 @@ SELECT * FROM EMPLOYEE
 WHERE HIREDATE BETWEEN 01-JUN-03 AND 01-MAR-04;
 
 DESC EMPLOYEE;
-
+-----------------
 /*
 DELETE
 Task – Delete a record in Customer table where the name is Robert Walter (There may be constraints that rely on this, find out how to resolve them).
@@ -87,6 +87,71 @@ DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
 */
 DELETE FROM CUSTOMER 
 WHERE FIRSTNAME='Robert' AND LASTNAME ='Walter';
+--------------
+
+/*SQL Functions
+3.1 System Defined Functions
+Task – Create a function that returns the current time.
+Task – create a function that returns the length of name in MEDIATYPE table
+CREATE OR REPLACE FUNCTION [name]
+([parameter list] VarName VarType, )
+RETURN [VarType] AS
+BEGIN
+--logic;
+RETURN ...;
+END;
+/
+*/
+
+--CREATE OR REPLACE FUNCTION CURRENTIME
+
+
+/*7.1 INNER
+Task – Create an inner join that joins customers and orders(invoice) and specifies the name of the customer and the invoiceId.
+ joins the similarities between the customer and invoice tables based on customer name and invoiceID. CUSTOMERID overlapps on both.
+ invoiceID is a number, customer names are words.
+SELECT Orders.OrderID, Customers.CustomerName
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
+*/
+SELECT CUSTOMER.CUSTOMERID, INVOICE.CUSTOMERID
+FROM CUSTOMER
+INNER JOIN INVOICE ON CUSTOMER.CUSTOMERID=INVOICE.CUSTOMERID;
+
+/*7.2 OUTER
+Task – Create an outer join that joins the customer and invoice table, specifying the CustomerId, firstname, lastname, invoiceId, and total.
+join everything on customer and invoice table based on customerid, firstname, lastname, invoiceid, and total.
+*/
+SELECT CUSTOMER.CUSTOMERID, CUSTOMER.FIRSTNAME,CUSTOMER.LASTNAME, INVOICE.INVOICEID, INVOICE.TOTAL
+FROM CUSTOMER
+FULL OUTER JOIN INVOICE ON CUSTOMER.CUSTOMERID=INVOICE.CUSTOMERID;
+
+/*7.3 RIGHT
+Task – Create a right join that joins album and artist specifying artist name and title.
+between the album and artist tables, join the similarities and everything on the right table based on artist name and title. 
+ARTISTID overlapps on both tables.
+*/
+SELECT ALBUM.TITLE, ARTIST.NAME 
+FROM ARTIST
+RIGHT JOIN ALBUM ON ALBUM.ARTISTID=ARTIST.ARTISTID;
+
+/*
+7.4 CROSS
+Task – Create a cross join that joins album and artist and sorts by artist name in ascending order.
+SELECT * 
+FROM table1 
+CROSS JOIN table2;
+*/
+SELECT * FROM ALBUM
+CROSS JOIN
+ARTIST
+ORDER BY ARTIST.NAME ASC;
+
+/*
+7.5 SELF
+Task – Perform a self-join on the employee table, joining on the reportsto column.
+*/
+
 
 
 
