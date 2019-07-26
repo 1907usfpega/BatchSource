@@ -1,6 +1,15 @@
 package com.revature.beans;
 
-public class Person {
+import java.io.Serializable;
+
+import com.revature.classtypes.Hunt;
+import com.revature.exceptions.IncreasedByNegativeNumberException;
+
+public class Person implements Hunt,Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4986267534723049849L;
 	//POJO- plain ol java object
 	private String name;
 	private int age;
@@ -44,6 +53,16 @@ public class Person {
 	public String toString() {
 		return "Person [name=" + name + ", age=" + age + ", weight=" + weight + "]";
 	}
-	
+	 public void increaseAgeBy(int x) throws IncreasedByNegativeNumberException {
+		if(x<0) {
+			throw new IncreasedByNegativeNumberException();
+		}
+		 this.age+=x;
+	 }
+	@Override
+	public void findPrey() {
+		System.out.println("I go to WalMart, meeeeeegh");
+		
+	}
 	
 }
