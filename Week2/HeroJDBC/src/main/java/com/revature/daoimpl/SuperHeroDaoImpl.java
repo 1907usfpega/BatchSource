@@ -1,5 +1,6 @@
 package com.revature.daoimpl;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,9 +15,12 @@ import com.revature.util.ConnFactory;
 public class SuperHeroDaoImpl implements SuperHeroDao{
 	public static ConnFactory cf= ConnFactory.getInstance();
 	
-	public void createSuperHero(String heroName) throws SQLException {
-		// TODO Auto-generated method stub
-		
+	public void createSuperHero(String heroName)throws SQLException{
+		Connection conn = cf.getConnection();
+		String sql= "{ call INSERTSUPERHERO(?)";
+		CallableStatement call= conn.prepareCall(sql);
+		call.setString(1, heroName);
+		call.execute();
 	}
 
 	public List<SuperHero> getSuperHeroList() throws SQLException {
