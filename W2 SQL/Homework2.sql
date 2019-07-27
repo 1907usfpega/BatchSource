@@ -76,7 +76,7 @@ SELECT * FROM INVOICE
 WHERE TOTAL BETWEEN 15 AND 50;
 
 SELECT * FROM EMPLOYEE
-WHERE HIREDATE BETWEEN 01-JUN-03 AND 01-MAR-04;
+WHERE HIREDATE BETWEEN '01-JUN-03' AND '01-MAR-04';
 
 DESC EMPLOYEE;
 -----------------
@@ -104,7 +104,42 @@ END;
 */
 
 --CREATE OR REPLACE FUNCTION CURRENTIME
+CREATE OR REPLACE FUNCTION CURTIME
+RETURN TIMESTAMP
+AS
+BEGIN
+RETURN CURTIME;
+END;
 
+SELECT CURTIME FROM DUAL;
+/*
+4.1 Basic Stored Procedure
+Task – Create a stored procedure that selects the first and last names of all the employees.
+4.2 Stored Procedure Input Parameters
+Task – Create a stored procedure that updates the personal information of an employee.
+Task – Create a stored procedure that returns the managers of an employee .
+4.3 Stored Procedure Output Parameters
+Task – Create a stored procedure that returns the name and company of a customer.
+*/ 
+
+CREATE OR REPLACE PROCEDURE spFnameLname
+AS
+BEGIN
+SELECT FIRSTNAME, LASTNAME FROM EMPLOYEE;
+END;
+
+
+/*UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;*/
+
+CREATE OR REPLACE PROCEDURE spUpdateEmp 
+AS
+BEGIN
+UPDATE EMPLOYEE SET EMPLOYEEID=p1, ADDRESS= p2 WHERE EMPLOYEEID=p1;
+END;
+
+SELECT * FROM EMPLOYEE;
 
 /*7.1 INNER
 Task – Create an inner join that joins customers and orders(invoice) and specifies the name of the customer and the invoiceId.
