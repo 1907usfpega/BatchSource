@@ -2,6 +2,7 @@ package com.revature.hw1;
 
 public class PrintZeroesAndOnes {
 
+	// Uses modular math to print a string of alternating 1's and 0's
 	public static String print() {
 		String output = "";
 		String finalOutput = "";
