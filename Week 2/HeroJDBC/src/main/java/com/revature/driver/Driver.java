@@ -17,8 +17,9 @@ public class Driver {
 //		}
 		PowersDaoImpl pdi = new PowersDaoImpl();
 		try {
-//			pdi.createPowers("laser eyes");
-			shdi.createSuperHero("Iron Man");
+//			pdi.createPowers("Shoot Web");
+//			shdi.createSuperHero("Iron Man");
+			shdi.createNewHeroAndPower("Thor", "Conjure Lightning");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

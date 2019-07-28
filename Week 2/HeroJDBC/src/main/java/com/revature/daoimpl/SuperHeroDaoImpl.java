@@ -21,6 +21,15 @@ public class SuperHeroDaoImpl implements SuperHeroDao {
 		super();
 	}
 
+	public void createNewHeroAndPower(String heroName, String power) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "{ call NEWHEROANDPOWER(?,?)";
+		CallableStatement call = conn.prepareCall(sql);
+		call.setString(1, heroName);
+		call.setString(2, power);
+		call.execute();
+	}
+	
 	public void createSuperHero(String heroName) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{ call INSERTSUPERHERO(?)";
@@ -45,7 +54,6 @@ public class SuperHeroDaoImpl implements SuperHeroDao {
 		
 		return superHeroList;
 	}
-
 	
 	
 }
