@@ -44,6 +44,5 @@ public class IOWithCollections {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		
 	}
 }
