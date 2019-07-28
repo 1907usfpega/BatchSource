@@ -79,19 +79,54 @@ end;
 select current_timestamp from dual;
 
 --Task – create a function that returns the length of name in MEDIATYPE table
+--create or replace function mediatypeLength(idinput in int)
+--return int as
+--begin
+--return
+--(select name into
+--length(name)
+--from mediatype
+--where mediatypeid=idinput);
+--end;
+--/ doesnt work
 
+select name, length(name) from mediatype;   
 
 --3.2 System Defined Aggregate Functions
 --Task – Create a function that returns the average total of all invoices 
+
+--create or replace function getAverage()
+--returns int
+--as
+--begin
+--return
+--(select avg
+--doesnt work
+select avg(total) from invoice;
+
 --Task – Create a function that returns the most expensive track
 --3.3 User Defined Scalar Functions
+
+select name,unitprice from track
+where unitprice = (select max(unitprice) from track)
+order by unitprice desc;
+
 --Task – Create a function that returns the average price of invoiceline items in the invoiceline table
+select avg(unitprice) 
+from invoiceline
+
 --3.4 User Defined Table Valued Functions
 --Task – Create a function that returns all employees who are born after 1968.
+
+select * from employee 
+where birthdate > '31-DEC-68';
+
 --4.0 Stored Procedures
 -- In this section you will be creating and executing stored procedures. You will be creating various types of stored procedures that take input and output parameters.
 --4.1 Basic Stored Procedure
 --Task – Create a stored procedure that selects the first and last names of all the employees.
+
+
 --4.2 Stored Procedure Input Parameters
 --Task – Create a stored procedure that updates the personal information of an employee.
 --Task – Create a stored procedure that returns the managers of an employee .
