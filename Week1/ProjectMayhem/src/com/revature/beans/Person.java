@@ -1,8 +1,16 @@
 package com.revature.beans;
 
-public class Person {
+import com.revature.classtypes.Hunt;
+
+public class Person implements Hunt {
 	//POJO - plain ol java object
 	
+	@Override
+	public void findPrey() {
+		// TODO Auto-generated method stub
+		System.out.println("I go to Walmart)!!!");
+	}
+
 	private String name;
 	private int age, weight;
 	
