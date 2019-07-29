@@ -127,34 +127,102 @@ where birthdate > '31-DEC-68';
 --Task – Create a stored procedure that selects the first and last names of all the employees.
 
 
+create or replace procedure stpr_first_last_emp
+(vc_cursor out SYS_REFCURSOR)
+as
+begin
+open vc_cursor for
+select firstname,lastname from employee;
+end;
+
 --4.2 Stored Procedure Input Parameters
 --Task – Create a stored procedure that updates the personal information of an employee.
+
+CREATE PROCEDURE  spUpdate EmployeeData
+       @employeeId  INT
+  AS
+    BEGIN
+     UPDATE employee
+     SET status='Y' 
+     WHERE employee_Code = @employeeID
+    END
+Exec spUpdate EmployeeData  employeeId  
+
 --Task – Create a stored procedure that returns the managers of an employee .
 --4.3 Stored Procedure Output Parameters
 --Task – Create a stored procedure that returns the name and company of a customer.
+
+create or replace procedure stpr_name_company_emp
+(vc_cursor out SYS_REFCURSOR)
+as
+begin
+open vc_cursor for
+select company from customer;
+end;
 --5.0 Transactions
 --In this section you will be working with transactions. Transactions are usually nested within a stored procedure.
 --Task – Create a transaction that given a invoiceId will delete that invoice (There may be constraints that rely on this, find out how to resolve them).
 --Task – Create a transaction nested within a stored procedure that inserts a new record in the Customer table
+
+
 --6.0 Triggers
 --In this section you will create various kinds of triggers that work when certain DML statements are executed on a table.
 --6.1 AFTER/FOR
 --Task - Create an after insert trigger on the employee table fired after a new record is inserted into the table.
+create trigger employee_insert
+    after insert on employee
+    for each row
+    execute procedure example_function();
+
+
 --Task – Create an after update trigger on the album table that fires after a row is inserted in the table
+create trigger customer_update
+    after update on customer
+    for each row
+    execute procedure example_function();
+    
 --Task – Create an after delete trigger on the customer table that fires after a row is deleted from the table.
+create trigger customer_delete
+    after delete on customer
+    for each row
+    execute procedure example_function();
+
 --7.0 JOINS
 --In this section you will be working with combining various tables through the use of joins. You will work with outer, inner, right, left, cross, and self joins.
 --7.1 INNER
 --Task – Create an inner join that joins customers and orders and specifies the name of the customer and the invoiceId.
+
+select firstname, lastname, invoiceid 
+from customer 
+inner join invoice 
+on customer.customerid = invoice.customerid;
+
 --7.2 OUTER
 --Task – Create an outer join that joins the customer and invoice table, specifying the CustomerId, firstname, lastname, invoiceId, and total.
+
+select customer.customerid, firstname, lastname, invoiceid, total
+from customer 
+full outer join invoice 
+on customer.customerid = invoice.customerid;
+
+
 --7.3 RIGHT
 --Task – Create a right join that joins album and artist specifying artist name and title.
+
+select name, title from album right join artist on album.artistid = artist.artistid;
+
 --7.4 CROSS
 --Task – Create a cross join that joins album and artist and sorts by artist name in ascending order.
+select name as artist, title as album from artist 
+cross join album where artist.artistid = album.artistid 
+order by artist.name asc;
+
 --7.5 SELF
 --Task – Perform a self-join on the employee table, joining on the reportsto column.
---
+select A.firstname as firstname, A.lastname as lastname, A.title, B.lastname
+as reportsto 
+from employee A, employee B 
+where A.reportsto = B.employeeid;
 --
 --
 --
