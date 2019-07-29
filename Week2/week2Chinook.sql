@@ -162,9 +162,33 @@ end;
 --5.0 Transactions
 --In this section you will be working with transactions. Transactions are usually nested within a stored procedure.
 --Task – Create a transaction that given a invoiceId will delete that invoice (There may be constraints that rely on this, find out how to resolve them).
+
+DELETE FROM INVOICE WHERE INVOICEID = ‘invoiceid’;
+
+COMMIT;
+
 --Task – Create a transaction nested within a stored procedure that inserts a new record in the Customer table
 
+Create procedure insert_customer
 
+(
+      IN c_customer_id       int(11),
+      IN c_first_name         varchar(20),
+      IN c_last_name          varchar(20),
+      IN c_order             varchar(20)
+)
+
+Begin
+      Insert into CUSTOMER
+      (CUSTOMERID,FIRSTNAME,LASTNAME)
+    ORDER
+      Values(c_customer_id,
+            c_first_name,
+            c_last_name,
+            c_order)
+
+      END;
+      /
 --6.0 Triggers
 --In this section you will create various kinds of triggers that work when certain DML statements are executed on a table.
 --6.1 AFTER/FOR
@@ -172,20 +196,22 @@ end;
 create trigger employee_insert
     after insert on employee
     for each row
-    execute procedure example_function();
+    execute procedure employee_function();
 
 
 --Task – Create an after update trigger on the album table that fires after a row is inserted in the table
 create trigger customer_update
     after update on customer
     for each row
-    execute procedure example_function();
+    execute procedure customer_update();
+    
+    
     
 --Task – Create an after delete trigger on the customer table that fires after a row is deleted from the table.
 create trigger customer_delete
     after delete on customer
     for each row
-    execute procedure example_function();
+    execute procedure customer_delete();
 
 --7.0 JOINS
 --In this section you will be working with combining various tables through the use of joins. You will work with outer, inner, right, left, cross, and self joins.
