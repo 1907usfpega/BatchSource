@@ -42,7 +42,7 @@ public class Application implements Serializable {
 			do {
 				System.out.println("User Name(Will try again if username already exists): ");
 				user = keyboard.nextLine();
-				// System.out.println();
+				       
 			} while (checkUser(user));
 
 			String pass;

@@ -85,3 +85,62 @@ function makeHuman2(name,age) {
     }
     return p;
 }
+
+//Arrays
+var arr=[10,20,30];
+arr[9]=5;
+arr[1000]="why";
+
+//funtions- 3 innovations 
+//function form- "this" refers to the global object.
+//in browser it is "window"
+function divideByZero(kitty,kat) {
+console.log("hey kitty kitty");
+return (kitty-kat);
+}
+//Constructor form- "this" refers to the object being created
+var conFunc=new function(a,b){
+    return a*b;
+
+}
+//method- "this" refers to person
+person.getInfo=function(){
+    return this.age;
+
+}
+crazy =function(at, least, three){
+    console.log(at);
+    console.log(least);
+    console.log(three);
+}
+
+//closure- an inner function that has access to the outer function's variable(scope chain)
+//closure mimics encapsulation
+//has 3 scopes
+//1. it has access to its own scope
+//2. it has access to the out function's variables
+//3. it has access to the global variables
+//var count=0;
+//function add(){
+    //count++;
+    //return count;
+
+//}
+
+// function add(){
+//     var count=0;
+//     function plus (){
+//         count +=1;
+//         return count;
+//     }
+// }
+//with closure
+var add= (function(){
+    var count=0;
+    return function(){
+        count+=1;
+        return count;
+
+    }
+
+})
