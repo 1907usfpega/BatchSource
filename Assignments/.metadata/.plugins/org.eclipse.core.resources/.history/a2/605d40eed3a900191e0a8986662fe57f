@@ -1,0 +1,28 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 4
+ * Write a program to compute N factorial.
+ * 
+ * @author Kyle Kolstad
+ *
+ *
+ */
+public class nFactorial {
+
+	private int factorial;
+	/**
+	 * Default Constructor.
+	 */
+	public nFactorial() {
+		System.out.println("nFactorial Object Created!");
+	}
+	
+	public int calculateNFactorial(int factorial) {
+		this.factorial = 1;
+		for(double i = factorial; i > 0; i--) {
+				this.factorial = this.factorial * i;
+		}
+		return this.factorial;	
+	}
+}

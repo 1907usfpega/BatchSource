@@ -2943,6 +2943,7 @@ java.lang.InterruptedException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-07-22 16:45:21.630
 !MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.ZHgWajaV => OK
+<<<<<<< HEAD
 !SESSION 2019-07-26 10:41:24.765 -----------------------------------------------
 eclipse.buildId=4.3.1.201907120711-RELEASE
 java.version=1.8.0_221
@@ -3163,3 +3164,5 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY org.eclipse.ui 2 2 2019-07-26 10:48:07.551
 !MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+=======
+>>>>>>> f7b19dcaa6cebef0f5c1df75a3bbf8b7a849b374

@@ -12,6 +12,7 @@
 		<list key="textArray">
 		</list>
 	</section>
+<<<<<<< HEAD
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="632"/>
 		<item key="DIALOG_Y_ORIGIN" value="138"/>
@@ -28,4 +29,6 @@
 			<item value="D:\Users\kylek\Downloads\theme-24587.epf"/>
 		</list>
 	</section>
+=======
+>>>>>>> f7b19dcaa6cebef0f5c1df75a3bbf8b7a849b374
 </section>

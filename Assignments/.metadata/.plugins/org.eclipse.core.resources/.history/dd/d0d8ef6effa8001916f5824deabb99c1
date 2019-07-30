@@ -1,0 +1,19 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 3
+ * Reverse a string without using a temporary variable. Do NOT use reverse() in the StringBuffer or the StringBuilder APIs.
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class reverseString {
+	
+	/**
+	 * 
+	 */
+	public reverseString() {
+		
+	}
+}
