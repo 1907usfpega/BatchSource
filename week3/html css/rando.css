@@ -1,0 +1,11 @@
+div{color: red}
+
+.c1{background-color: seagreen}
+
+.demo{background-color: springgreen; text-align: right;}
+
+#a{font-family: Verdana, Geneva, Tahoma, sans-serif}
+#b{font-family: Georgia, 'Times New Roman', Times, serif; text-align: center;}
+#c{font-family: cursive}
+
+div.c1{background-color: purple}
