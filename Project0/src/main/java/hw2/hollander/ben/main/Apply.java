@@ -5,9 +5,10 @@ import java.sql.SQLException;
 import hw2.hollander.ben.daoimpl.AccountManagementDaoImpl;
 import hw2.hollander.ben.exceptions.AccountExists;
 import hw2.hollander.ben.exceptions.BadValueException;
+import hw2.hollander.ben.exceptions.WrongCredentialsException;
 
 public class Apply {
-    public static void Application() throws AccountExists, BadValueException {
+    public static void Application() throws AccountExists, BadValueException, WrongCredentialsException {
         System.out.println("Username");
         String usr = Driver.input.nextLine();
         usr = Driver.input.nextLine();

@@ -3,11 +3,11 @@ package hw2.hollander.ben.main;
 import java.util.Scanner;
 
 import hw2.hollander.ben.exceptions.BadValueException;
+import hw2.hollander.ben.exceptions.WrongCredentialsException;
 
-//commit after each transaction
-public class Driver {
+ class Driver {
     public static Scanner input = new Scanner (System.in);
-    public static void main(String[] args) {
+    public static void main(String[] args) throws WrongCredentialsException {
         try {
 			LoginMenu.Menu();
 		} catch (BadValueException e) {

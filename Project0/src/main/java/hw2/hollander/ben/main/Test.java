@@ -8,7 +8,7 @@ import hw2.hollander.ben.exceptions.BadValueException;
 import hw2.hollander.ben.exceptions.NSFException;
 
 public class Test {
-
+	//this class is only used to test methods while in dev
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		BankTransactionsDaoImpl b = new BankTransactionsDaoImpl();

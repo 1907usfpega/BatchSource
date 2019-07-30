@@ -10,6 +10,7 @@ import hw2.hollander.ben.dao.AccountManagementDao;
 import hw2.hollander.ben.exceptions.AccountExists;
 import hw2.hollander.ben.exceptions.AccountNotEmptyException;
 import hw2.hollander.ben.exceptions.BadValueException;
+import hw2.hollander.ben.exceptions.WrongCredentialsException;
 import hw2.hollander.ben.util.ConnFactory;
 import hw2.hollander.ben.main.*;
 
@@ -17,7 +18,7 @@ public class AccountManagementDaoImpl implements AccountManagementDao {
 	public static ConnFactory cf= ConnFactory.getInstance();
 	
 	@Override
-	public void Create(String usr, String pswd) throws AccountExists, SQLException, BadValueException {
+	public void Create(String usr, String pswd) throws AccountExists, SQLException, BadValueException, WrongCredentialsException {
 		Connection conn= cf.getConnection();
 		String sql= "{ call acct_creation(?, ?)";
 		CallableStatement call= conn.prepareCall(sql);
