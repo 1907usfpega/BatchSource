@@ -12,6 +12,8 @@ import com.jackson.beans.BankAccount;
 import com.jackson.dao.BankAccountDao;
 import com.jackson.util.ConnFactory;
 
+import cam.jackson.exceptions.OverdraftException;
+
 public class BankAccountDaoImpl implements BankAccountDao 
 {
 	public static ConnFactory cf = ConnFactory.getInstance();
@@ -27,7 +29,7 @@ public class BankAccountDaoImpl implements BankAccountDao
 		call.execute();
 	}
 	
-	public void depositFunds(int acctID) throws SQLException 
+	public void depositFunds(int acctID) throws SQLException
 	{
 		double amount = 0;
 		Scanner s = new Scanner(System.in);
@@ -42,13 +44,27 @@ public class BankAccountDaoImpl implements BankAccountDao
 		call.execute();
 	}
 
-	public void withdrawFunds(int acctID) throws SQLException 
+	public void withdrawFunds(int acctID) throws SQLException, OverdraftException
 	{
 		double amount = 0;
 		Scanner s = new Scanner(System.in);
-		System.out.println("Enter the amount you wish to withdraw: ");
-		amount = s.nextDouble();
-		s.nextLine();
+		BankAccountDaoImpl bankDao = new BankAccountDaoImpl();
+		BankAccount b = new BankAccount();
+		do
+		{
+			System.out.println("Enter the amount you wish to withdraw: ");
+			amount = s.nextDouble();
+			s.nextLine();
+			
+			for(BankAccount current : bankDao.getAccountsList())
+			{
+				if(current.getBankacctID() == acctID)
+				{
+					b = current;
+				}
+			}
+		}while(amount > b.getFunds());
+		
 		Connection conn = cf.getConnection();
 		String sql = "{ call WITHDRAW(?, ?)";
 		CallableStatement call = conn.prepareCall(sql);

@@ -243,7 +243,11 @@ public class BankingConsole
 		}
 		catch(SQLException e)
 		{
-			System.out.println(e.getStackTrace());
+			e.printStackTrace();
+		}
+		catch(OverdraftException e)
+		{
+			e.printStackTrace();
 		}
 	}
 	
@@ -456,11 +460,11 @@ public class BankingConsole
 						break;
 					case 3:
 						userChoice = promptForUserAcct();
-						
+						userDao.updateUser(userChoice);
 						break;
 					case 4:
 						userChoice = promptForUserAcct();
-						
+						userDao.deleteUser(userChoice);
 						break;
 					case 5:
 						userChoice = promptForUserAcct();
@@ -470,13 +474,13 @@ public class BankingConsole
 						printUserAccounts();
 						userChoice = promptForUserAcct();
 						userSecondChoice = promptForBankAcct(userChoice);
-						bankDao.depositFunds(userChoice);
+						bankDao.depositFunds(userSecondChoice);
 						break;
 					case 7:
 						printUserAccounts();
 						userChoice = promptForUserAcct();
 						userSecondChoice = promptForBankAcct(userChoice);
-						bankDao.withdrawFunds(userChoice);
+						bankDao.withdrawFunds(userSecondChoice);
 						break;
 					case 8:
 						userChoice = promptForUserAcct();
@@ -491,7 +495,10 @@ public class BankingConsole
 		{
 			e.printStackTrace();
 		}
+		catch(OverdraftException e)
+		{
+			e.printStackTrace();
+		}
 	}
-	
-	
+
 }
