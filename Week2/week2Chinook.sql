@@ -172,7 +172,7 @@ COMMIT;
 Create procedure insert_customer
 
 (
-      IN c_customer_id       int(11),
+      IN c_customer_id       int(20),
       IN c_first_name         varchar(20),
       IN c_last_name          varchar(20),
       IN c_order             varchar(20)

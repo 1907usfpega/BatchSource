@@ -1,11 +1,4 @@
-/**
- * If approved the information inside 
- * the  application will be used to create an account
- * or add to an account
- * and gives a name to a new customer along with the foreign 
- * key of an account_id to know which account he/she
- * is connected to
- */
+
 package Application;
 
 import java.io.Serializable;
@@ -18,15 +11,9 @@ import java.util.Scanner;
 import Accounts.Account;
 import Driver.Test;
 
-/**
- *  @author Deonta Kilpatrick
- *  @author Justin Hua
- */
+
 public class Application implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 4760524870134914257L;
 
 	private static List<Application> openApplications = new ArrayList<Application>();
@@ -108,18 +95,12 @@ public class Application implements Serializable {
 		return true;
 	}
 
-	// static getters & setters
-
-	/**
-	 * @return the open
-	 */
+	
 	public static List<Application> getOpenApplications() {
 		return openApplications;
 	}
 
-	/**
-	 * @param open the open to set
-	 */
+	
 	public static void setOpenApplications(List<Application> open) {
 		Application.openApplications = open;
 	}
@@ -141,18 +122,13 @@ public class Application implements Serializable {
 		return null;
 	}
 
-	// non-static getters & setters
 
-	/**
-	 * @return the login
 	 */
 	public Map<String, String> getLogin() {
 		return login;
 	}
 
-	/**
-	 * @param login the login to set
-	 */
+	
 	public void setLogin(Map<String, String> login) {
 		this.login = login;
 	}
@@ -163,30 +139,22 @@ public class Application implements Serializable {
 		}
 	}
 
-	/**
-	 * @return the name
-	 */
+	
 	public String getName() {
 		return name;
 	}
 
-	/**
-	 * @param name the name to set
-	 */
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	/**
-	 * @return the account_id
-	 */
+	
 	public String getAccount_id() {
 		return account_id;
 	}
 
-	/**
-	 * @param account_id the account_id to set
-	 */
+	
 	public void setAccount_id(String account_id) {
 		this.account_id = account_id;
 	}
