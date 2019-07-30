@@ -24,6 +24,11 @@ instruction for the browser about what version of html we are using-->
                          on the top of the browser window/tab)
         -->
         <title>HTML basics:Structure Roll Tide</title>
+        <style>
+        body{background-color: green}
+        h1{color:yellow}
+        </style>
+        <link rel="stylesheet" href="random.css">
     </head>
     <body>
                 <!-- 
@@ -62,7 +67,10 @@ instruction for the browser about what version of html we are using-->
             Headings
                 h1 to h6 (smallest largest)
         -->
-        <h1>This is a main heading</h1>
+        <div>
+            <p>This is in a dumb div</p>
+        </div>
+        <h1 class="c1">This is a main heading</h1>
         <p>
             This text might be used to introduce the rest of the page. ROLL TIDE!
         </p>
@@ -87,6 +95,7 @@ instruction for the browser about what version of html we are using-->
         -->
         <div id="a"class="c1">
             <h1>I'm a header!</h1>
+             <!-- span tag is used to apply css in the middle of an element-->
             <p>This is a really <span class="demo"> kewl </span>  p tag!</p>
         </div>
         <div id="b">
@@ -94,6 +103,14 @@ instruction for the browser about what version of html we are using-->
                 <p>this is madness!</p>
             </div>
         </div>
+<!--CSS Cascading Style Sheet
+    3 ways to include:
+        inline- on the element itself
+        internal- style tag in head
+        external- separate .css file specified in the head. can be local or a url
+-->
+        <h1 style="color:bisque">BISQUE is an h1 tag</h1>
+        <h1> this is voodoo</h1>
     </body>
 </html>
 
