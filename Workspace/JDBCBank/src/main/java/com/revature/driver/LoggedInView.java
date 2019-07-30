@@ -18,7 +18,7 @@ public class LoggedInView {
 	public static void UserMainMenu() {
 		curUser = Driver.getLoggedInUser();
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Welcome, " + curUser.getName());
+		System.out.println("\n\n\n\n\n\n" + "Welcome, " + curUser.getName());
 		System.out.println("You currently are logged in. If you want to display your accounts and make "
 				+ "deposits or withdrawls, please enter \"a\". If you want to log out, enter x");
 		String input = "";
@@ -27,7 +27,7 @@ public class LoggedInView {
 			input = sc.nextLine();
 			if (input.length() > 1) {
 				System.out.println(
-						"Please enter a valid option consisting of one character only. a to view show your accounts, or x to log out again.");
+						"\n\n\n\n\n\n" + "Please enter a valid option consisting of one character only. a to view show your accounts, or x to log out again.");
 				continue;
 			}
 			switch (input.charAt(0)) {
@@ -40,7 +40,7 @@ public class LoggedInView {
 			case ('x'):
 				curUser = null;
 				Driver.setLoggedInUser(curUser);
-				System.out.println("You logged out. \n");
+				System.out.println("\n\n\n\n\n\n" + "You logged out. \n");
 				stopped = true;
 			}
 		} while (!stopped);
@@ -62,12 +62,12 @@ public class LoggedInView {
 		int[] accountIds = new int[curUserAccounts.size()];
 		if (curUserAccounts.size() < 1) {
 			System.out.println(
-					"You do not have any accounts at this moment. To create one, please enter c. If you want to return, please enter x.");
+					"\n\n\n\n\n\n" + "You do not have any accounts at this moment. To create one, please enter c. If you want to return, please enter x.");
 
 		} else {
 
 			System.out.println(
-					"Here are your Accounts: Please enter the corresponding number on its left, if you want to make changes to it. "
+					"\n\n\n\n\n\n" + "Here are your Accounts: Please enter the corresponding number on its left, if you want to make changes to it. "
 							+ "You can also type x to return to your main menu, or c to create a new account.");
 			for (int i = 0; i < accountIds.length; i++) {
 				System.out.println((i + 1) + " " + curUserAccounts.get(i));
@@ -84,20 +84,16 @@ public class LoggedInView {
 			}
 			if (input.length() == 1 && (input.charAt(0) == 'c')) {
 				adi.createAccount(curUser.getId());
-				System.out.println("You created a brand new account! \n \n");
+				System.out.println("\n\n\n\n\n\n" + "You created a brand new account! \n \n");
 				return true;
 			}
 			Integer accountId = -1;
 			try {
-				System.out.println("Input is: " + input);
 				accountId = Integer.parseInt(input);
 				accountId--;
-				System.out.println("AccountId = " + accountId + "AccountAmount: " + accountIds.length
-						+ "   AND THE ACCOUNTS ARE: " + accountIds[0]);
-				System.out.println("AccountIndexDatabase = " + accountIds[accountId]);
-
 			} catch (Exception e) {
-				System.out.println("did not parse the int into an accountId");
+				System.out.println("\n\n\n\n\n\n" + "Not a correct input");
+				return true;
 			}
 			if (accountId < 0 || !(accountId < accountIds.length)) {
 				System.out.println(
@@ -112,7 +108,7 @@ public class LoggedInView {
 	}
 
 	public static void withdrawOrDeposit(Account account) {
-		System.out.println("You chose to take further action with your " + account);
+		System.out.println("\n\n" + "You chose to take further action with your " + account);
 		Scanner sc = new Scanner(System.in);
 
 		String input = "";
@@ -123,7 +119,7 @@ public class LoggedInView {
 
 			if (input.length() != 1) {
 				System.out.println(
-						"Please enter just one letter. x to chose another account, d/w to deposit or withdraw from your chosen account. With q you may qelete your "
+						"\n\n\n\n\n\n" + "Please enter just one letter. x to chose another account, d/w to deposit or withdraw from your chosen account. With q you may qelete your "
 								+ "account, assuming it is empty! We can't just burn the money you created from nothing.");
 				return;
 			}
@@ -146,7 +142,7 @@ public class LoggedInView {
 					return;
 				} else
 					System.out.println(
-							"You still got funds that need to be used. Please do not just try and delete this account :/");
+							"\n\n" + "You still got funds that need to be used. Please do not just try and delete this account :/");
 			}
 		} while (input.charAt(0) != ('x'));
 		return;
@@ -155,24 +151,25 @@ public class LoggedInView {
 	public static void deleteAccount(int accountId) {
 		AccountDaoImpl adi = new AccountDaoImpl();
 		adi.deleteAccount(accountId);
+		System.out.println("Account was deleted.");
 		Driver.userList = Driver.getUsers();
 	}
 
 	public static boolean deposit(Account account) {
 		Scanner sc = new Scanner(System.in);
 		AccountDaoImpl adi = new AccountDaoImpl();
-		System.out.println("Enter the amount which you want to deposit, keeping in mind it can only be positive!");
+		System.out.println("\n\n\n\n\n\n" + "Enter the amount which you want to deposit, keeping in mind it can only be positive!");
 		String input = sc.nextLine();
 		int amount;
 		try {
 			amount = Integer.parseInt(input);
 		} catch (NumberFormatException e) {
-			System.out.println("Not a valid number! Please try again.");
+			System.out.println("\n\n" + "Not a valid number! Please try again.");
 			return false;
 		}
 		if (amount < 0) {
 			System.out.println(
-					"You can write down any number. But you chose to deposit a negative one? Why would you in a world where you can create free money, delete your own? Retry!");
+					"\n\n\n\n\n\n" + "You can write down any number. But you chose to deposit a negative one? Why would you in a world where you can create free money, delete your own? Retry!");
 			return false;
 		}
 		try {
