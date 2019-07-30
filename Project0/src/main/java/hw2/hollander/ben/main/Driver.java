@@ -11,7 +11,6 @@ import hw2.hollander.ben.exceptions.WrongCredentialsException;
         try {
 			LoginMenu.Menu();
 		} catch (BadValueException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}  
     }
