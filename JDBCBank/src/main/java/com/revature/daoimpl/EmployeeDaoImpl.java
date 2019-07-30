@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.beans.Admin;
 import com.revature.beans.Customer;
 import com.revature.beans.Employee;
 import com.revature.dao.EmployeeDao;
@@ -17,7 +16,7 @@ import com.revature.util.ConnFactory;
 
 /*
  * Implementation of EmployeeDao.
- * TODO: Begin fleshing out removeEmployee & getEmployeeList methods(time permitting).
+ * TODO: Begin fleshing out removeEmployee & removeCustomer methods(time permitting).
  */
 
 public class EmployeeDaoImpl implements EmployeeDao {

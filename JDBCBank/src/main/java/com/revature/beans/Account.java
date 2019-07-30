@@ -1,11 +1,5 @@
 package com.revature.beans;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Scanner;
-
 /*
  * Version of Account class from BankApp modified for use w/SQL.
  * AUTHOR: redc
@@ -18,6 +12,11 @@ public class Account {
 	private Integer acctNo;
 	private Integer userId;
 	private String acctType;
+	
+	public Account()
+	{
+		
+	}
 	
 	public Account(int acctNum, int userNum, double bal, String type) {
 		acctNo = acctNum;
@@ -53,6 +52,14 @@ public class Account {
 		System.out.println("Your balance is $" + this.getBalance());
 	}
 	
+	
+
+	@Override
+	public String toString() {
+		return "Account [acctNo=" + acctNo + ", balance=" + balance + ", userId=" + userId + ", acctType=" + acctType
+				+ "]";
+	}
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

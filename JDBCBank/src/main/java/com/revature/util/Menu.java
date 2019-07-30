@@ -21,7 +21,7 @@ public class Menu {
 			case 1: 
 			{
 				//Go to customer menu.
-				CustomerMenu.logon();
+				CustomerMenu.login();
 				break;
 			}
 			case 2:
@@ -33,6 +33,7 @@ public class Menu {
 			case 3:
 			{
 				//Go to admin menu.
+				AdminMenu.login();
 				break;
 			}
 			case 4:

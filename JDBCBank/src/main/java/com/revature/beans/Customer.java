@@ -1,5 +1,11 @@
 package com.revature.beans;
 
+/* Altered version of Customer object.
+ * TODO: Consider removing getPassword function for privacy purposes. (Same goes for Employee)
+ * AUTHOR: redc
+ * DATE: 28JUL2019 
+ */
+
 public class Customer {
 	private int userId;
 	private String firstname;
@@ -70,6 +76,14 @@ public class Customer {
 
 	public String getPw() {
 		return pw;
+	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Customer [userId=" + userId + ", firstname=" + firstname + ", lastname=" + lastname + ", emailAddr="
+				+ emailAddr + ", addr=" + addr + ", cityName=" + cityName + ", stateName=" + stateName + "]";
 	}
 
 	public static void main(String[] args) {

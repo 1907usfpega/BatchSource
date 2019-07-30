@@ -14,6 +14,10 @@ import com.revature.beans.Customer;
 import com.revature.dao.AccountDao;
 import com.revature.util.ConnFactory;
 
+/*
+ * Implementation of bank account related things. Potential issues: Multiple account shared by same user ID when called. May look to address this later.
+ */
+
 public class AccountDaoImpl implements AccountDao {
 	
 	public static ConnFactory cf = ConnFactory.getInstance();
@@ -30,11 +34,12 @@ public class AccountDaoImpl implements AccountDao {
 	}
 
 	//Should only be allowed by customer if bal = 0.00. Should always be available to admins.
-	public void closeAccount(Integer userId) throws SQLException {
+	public void closeAccount(Integer accountId) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{ call delete_account(?)";
 		CallableStatement call = conn.prepareCall(sql);
-		
+		call.setInt(1, accountId);
+		call.execute();
 	}
 
 	public Account getAccount(Integer userId) throws SQLException {
@@ -84,6 +89,7 @@ public class AccountDaoImpl implements AccountDao {
 		return accountList;
 	}
 
+	//Issues with returning 0.0. Considering Account object already has a functional getBalance method, may delete.
 	public Double getBal(Integer accountId) throws SQLException{
 		Double acctBal = 0.0;
 		Connection conn = cf.getConnection();

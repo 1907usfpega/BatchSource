@@ -1,10 +1,12 @@
 package com.revature.util;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.revature.beans.Account;
 import com.revature.beans.Customer;
+import com.revature.beans.Transaction;
 import com.revature.daoimpl.AccountDaoImpl;
 import com.revature.daoimpl.TransactionDaoImpl;
 import com.revature.daoimpl.UserDaoImpl;
@@ -21,7 +23,7 @@ public class CustomerMenu extends Menu {
 	
 	
 	//Initial logon page for customers. To be directed to before moving on to other account related issues.
-	public static void logon()
+	public static void login()
 	{
 		UserDaoImpl udi = new UserDaoImpl();
 		Scanner in = new Scanner(System.in);
@@ -81,11 +83,12 @@ public class CustomerMenu extends Menu {
 		
 		Scanner in = new Scanner(System.in);
 		System.out.println("Transaction menu");
-		System.out.println("1. Deposit \n2. Withdrawal \n3. Transfer \n4. Balance Inquiry \n5. Close account \n6. Return to main menu");
+		System.out.println("1. Deposit \n2. Withdrawal \n3. Transfer \n4. Balance Inquiry \n5. Transaction history \n6. Close account \n7. Return to main menu");
 		int sel = in.nextInt();
 		
 		switch (sel)
 		{
+			//Deposits
 			case 1:
 			{
 				System.out.println("How much would you like to deposit today?");
@@ -99,6 +102,7 @@ public class CustomerMenu extends Menu {
 				System.out.println("Returning to top menu.");
 				transactionMenu(cust);
 			}
+			//Withdrawals
 			case 2:
 			{
 				System.out.println("How much will you withdraw today?");
@@ -112,6 +116,7 @@ public class CustomerMenu extends Menu {
 				System.out.println("Don't spend it all in one place. :D \nReturning to top menu.");
 				transactionMenu(cust);
 			}
+			//Transfers
 			case 3:
 			{
 				System.out.println("How much will you be transferring today?");
@@ -127,6 +132,7 @@ public class CustomerMenu extends Menu {
 				System.out.println("Transfer complete. Returning to top menu.");
 				transactionMenu(cust);
 			}
+			//Gets balance.
 			case 4:
 			{
 				Double bal = acct.getBalance();
@@ -135,8 +141,36 @@ public class CustomerMenu extends Menu {
 				System.out.println("Returning to top menu.");
 				transactionMenu(cust);
 			}
+			//Returns transaction history.
 			case 5:
 			{
+				try {
+					System.out.println("TRANSACTION HISTORY");
+					ArrayList<Transaction> transList = new ArrayList<Transaction>(tdi.transactionList(acct.getAcctNo()));
+					for (int i = 0; i < transList.size(); i++)
+					{
+						System.out.println(transList.get(i).toString());
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				finally
+				{
+					transactionMenu(cust);
+				}
+			}
+			//Removes account iff balance = 0.00
+			case 6:
+			{
+				System.out.println("What is the account number?");
+				int acctNo = in.nextInt();
+				try {
+					acct = adi.getAccountbyNo(acctNo);
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				System.out.println("Are you sure you want to close your account? (y/n)");
 				String ans = in.next();
 				if (ans.equals("y"))
@@ -144,7 +178,7 @@ public class CustomerMenu extends Menu {
 					if (acct.getBalance() == 0.0)
 					{
 						try {
-							adi.closeAccount(cust.getUserId());
+							adi.closeAccount(acct.getAcctNo());
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -162,9 +196,15 @@ public class CustomerMenu extends Menu {
 					transactionMenu(cust);
 				}
 			}
-			case 6:
+			//Returns to main menu.
+			case 7:
 			{
 				mainMenu(cust);
+			}
+			//If other input is given, repeats menu.
+			default:
+			{
+				transactionMenu(cust);
 			}
 		}
 	}

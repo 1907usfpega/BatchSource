@@ -44,6 +44,14 @@ public class Employee {
 		return firstname + " " + lastname;
 	}
 
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
 	public String getEmailAddr() {
 		return emailAddr;
 	}
@@ -59,5 +67,14 @@ public class Employee {
 	public String getType() {
 		return type;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee [emplId=" + emplId + ", firstname=" + firstname + ", lastname=" + lastname + ", emailAddr="
+				+ emailAddr + ", addr=" + addr + ", cityName=" + cityName + ", stateName=" + stateName + ", type="
+				+ type + "]";
+	}
+	
+	
 
 }
