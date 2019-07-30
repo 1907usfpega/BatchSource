@@ -1,0 +1,6 @@
+package com.revature.assignment1;
+
+public interface MathInterface {
+
+	public void addition();
+}

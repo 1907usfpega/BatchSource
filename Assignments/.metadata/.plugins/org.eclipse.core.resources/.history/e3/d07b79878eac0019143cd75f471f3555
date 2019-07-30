@@ -1,0 +1,59 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 1
+ * Perform a bubble sort on the following integer array: 1,0,5,6,3,2,3,7,9,8,4
+ * 
+ * @author Kyle Kolstad
+ *
+ *       Bubble Sort takes a set of a variable number of elements of an array
+ *       and compares each element one by one. if the first element in the array
+ *       is greater than the second then the elements will swap places. This
+ *       continues to compare the remaining elements in the array. This process
+ *       is repeated for (n-1) times where n is the number of elements in the
+ *       array.
+ */
+public class BubbleSort {
+	
+	private int[] array;
+	/**
+	 * Default Constructor.
+	 */
+	public BubbleSort() {
+		System.out.println("BubbleSort Object Created!");
+	}
+
+	/**
+	 * Method used to sort the elements by comparing two elements at a time and
+	 * swapping them if the first value is larger. Repeats until all elements are
+	 * sorted.
+	 */
+	public int [] Sort(int [] array) {
+		this.array = array;
+		int temp;
+		for (int x = 0; x < this.array.length; x++) {
+			for (int y = 0; y < this.array.length - x - 1; y++) {
+				if (this.array[y] > this.array[y + 1]) {
+					temp = this.array[y];
+					this.array[y] = this.array[y + 1];
+					this.array[y + 1] = temp;
+				}
+			}
+		}
+		return this.array;
+	}
+	
+	/**
+	 * Method used to display the contents of an array.
+	 */
+	public void displayArray(int [] array) {
+		System.out.println("***Contents of Array***");
+		for (int x = 0; x < array.length; x++) {
+			if (x == array.length - 1) {
+				System.out.print(array[x]); //doesn't insert a comma after the last element in the array
+			} else {
+				System.out.print(array[x] + ", ");
+			}
+		}
+	}
+}

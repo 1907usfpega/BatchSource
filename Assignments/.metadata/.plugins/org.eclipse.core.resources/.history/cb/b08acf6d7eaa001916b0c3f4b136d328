@@ -1,0 +1,34 @@
+package com.revature.assignment1;
+
+import java.util.Comparator;
+
+/**
+ * Assignment #1 Question 7
+ * Sort two employees based on their name, department, and age using the Comparator interface.
+ * 
+ * @author Kyle Kolstad
+ *
+ * 
+ */
+public class Employee implements Comparator<Employee> {
+
+	private String name, department;
+	private int age;
+	
+	/**
+	 * 
+	 */
+	public Employee() {	
+		
+	}
+
+	/**
+	 * 
+	 */
+	@Override
+	public int compare(Employee o1, Employee o2) {
+		
+		return 0;
+	}
+
+}

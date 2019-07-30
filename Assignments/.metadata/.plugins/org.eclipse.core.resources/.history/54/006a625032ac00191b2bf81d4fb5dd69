@@ -1,0 +1,19 @@
+package com.revature.assignment1;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class BubbleSortTest {
+
+	@Test
+	void testSort() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testDisplayArray() {
+		fail("Not yet implemented");
+	}
+
+}

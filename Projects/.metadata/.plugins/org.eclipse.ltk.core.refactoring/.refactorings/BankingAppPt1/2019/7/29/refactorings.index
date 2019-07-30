@@ -1,0 +1,6 @@
+1563646965643	Rename type 'Customers'
+1563655525844	Encapsulate field 'username'
+1563658635408	Encapsulate field 'jointAccount'
+1563658664458	Encapsulate field 'jointAccount'
+1563658676016	Encapsulate field 'isApproved'
+1563658729585	Encapsulate field 'accountNumber'

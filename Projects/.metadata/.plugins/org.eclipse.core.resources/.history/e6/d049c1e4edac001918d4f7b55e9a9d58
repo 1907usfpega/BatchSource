@@ -1,0 +1,66 @@
+package com.revature.bank;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		String username, password, option, name;
+		int phoneNumber;
+		ArrayList<Customer> customers = new ArrayList<Customer>();
+		Administrator admin = new Administrator(); // Administrator Object created to test Administrator interaction
+		Employee employee = new Employee(); // Employee Object created to test Employee interaction
+		Scanner sc = new Scanner(System.in);
+		// create a customer object
+		// define that customers username, password and personal info
+		// Mark the account as pending for approval or denial
+		// store that object into an ArrayList that can be accessed or modified by an
+		// Employee or Admin
+		/**
+		 * Customer Portal
+		 */
+
+		// System.out.println("What Action Would You Like To Perform?....\nEnter 1 to
+		// Login.\nEnter 2 to Create An Account.");
+		
+
+		System.out.println("What Action Would You Like To Perform?....\nEnter 1 to Login.\nEnter 2 to Create An Account.");
+
+		option = sc.nextLine();
+			
+			while(true) {
+				//Log In
+			if (option.equals("1")) {
+				System.out.println("What Action Would You Like To Perform?....\nEnter 1 for Customer Login.\nEnter 2 for Employee Login.\nEnter 3 for Administrator Login");
+				switch(sc.nextInt()) {
+				case 1:
+					System.out.println("in customer login");
+					
+				}
+				break;
+				//Create Account
+			} else if (option.equals("2")) { // If 2 is input then the following code is ran to create a customer account
+				System.out.println("Enter Username!");
+				username = sc.nextLine(); // stores the username
+				System.out.println("Enter Password!");
+				password = sc.nextLine();  // Stores the password
+				Customer c1 = new Customer(); // Creates a new Customer Object
+				customers.add(c1); //Adds the Customer Object to the ArrayList of Customers
+				c1.createAccount(username, password); // Creates the Customer Account
+				System.out.println("What is your name?");
+				name = sc.nextLine();
+				c1.setName(name);
+				System.out.println("What is your phone number?");
+				phoneNumber = sc.nextInt();
+				c1.setPhoneNumber(phoneNumber);
+				break;
+				//Invalid Input
+			} else {
+				System.out.println("Invalid Input, Try Again! What Action Would You Like To Perform?....\nEnter 1 to Login.\nEnter 2 to Create An Account.");
+				option = sc.nextLine();
+			}
+		}
+	}
+
+}

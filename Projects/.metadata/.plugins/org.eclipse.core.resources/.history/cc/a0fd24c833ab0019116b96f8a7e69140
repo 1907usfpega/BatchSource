@@ -1,0 +1,20 @@
+package com.revature.bank;
+
+public class Employee {
+	//data variables
+	public Employee() {
+		
+	}
+	
+	public void approve(Customer account) {
+		account.processApplication(true);
+	}
+	
+	public void deny(Customer account) {
+		account.processApplication(false);
+	}
+	
+	public void veiwPersonalInfo() {
+		
+	}
+}

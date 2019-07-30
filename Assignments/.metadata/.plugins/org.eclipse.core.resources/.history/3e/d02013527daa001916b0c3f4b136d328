@@ -1,0 +1,23 @@
+package com.revature.assignment1;
+
+import java.util.Comparator;
+
+public class ComparatorSort implements Comparator<Employee> {
+
+	@Override
+	public int compare(Object arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
+
+class Employee implements Comparator<Employee>{
+
+	@Override
+	public int compare(Employee o1, Employee o2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+}

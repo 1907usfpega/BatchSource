@@ -1,0 +1,33 @@
+package com.revature.assignment1;
+
+import static org.junit.jupiter.api.Assertions.fail;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
+
+class BubbleSortTest {
+
+	@BeforeAll
+	static void beforeAllofem() {
+		System.out.println("JUnit Test For BubbleSort");
+	}
+	
+	@BeforeEach
+	void beforeEach(TestInfo info) {
+		System.out.println("Initialize Test Data for "+
+	info.getDisplayName());
+	}
+	
+	@Test
+	void testSort() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testDisplayArray() {
+		fail("Not yet implemented");
+	}
+
+}

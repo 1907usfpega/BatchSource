@@ -1,0 +1,14 @@
+package com.revature.assignment1;
+
+/**
+ * Assignment #1 Question 18
+ *
+ * @author Kyle Kolstad
+ *
+ */
+public abstract class ConcreteSuperclass {
+
+	public abstract boolean checkForUppercase(String string);
+	public abstract String changeToUpperCase(String string);
+	public abstract void stringToInteger(String string);
+}

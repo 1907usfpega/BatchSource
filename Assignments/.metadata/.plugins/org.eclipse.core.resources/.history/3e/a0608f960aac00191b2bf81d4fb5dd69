@@ -1,0 +1,9 @@
+package com.revature.assignment1;
+
+public interface MathInterface {
+
+	public abstract void addition();
+	public abstract void subtraction();
+	public abstract void multiplication();
+	public abstract void division();
+}

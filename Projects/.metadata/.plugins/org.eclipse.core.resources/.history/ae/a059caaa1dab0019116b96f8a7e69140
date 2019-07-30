@@ -1,0 +1,8 @@
+package com.revature.bank;
+
+public class Customer {
+
+	public void Customer(String username, String password) {
+		
+	}
+}

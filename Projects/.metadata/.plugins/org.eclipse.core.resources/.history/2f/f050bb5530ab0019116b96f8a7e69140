@@ -1,0 +1,62 @@
+package com.revature.bank;
+
+import java.util.Scanner;
+
+public class Customer {
+
+	private String username, password, name;
+	private int  phoneNumber;
+	
+	
+	public Customer() {
+		
+	}
+	
+	public void createAccount(String username, String password) {
+		
+		this.username = username;
+		this.password = password;
+		Account account = new Account();
+		account.processApplication(false);
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("What is your name?");
+		name = sc.nextLine();
+		
+		System.out.println("What is your phone number?");
+		name = sc.nextLine();
+	}
+	
+	public void setPersonalInfo(String name, String address, int zipcode, int phoneNumber) {
+		
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+}

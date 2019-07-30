@@ -1,0 +1,15 @@
+package com.revature.bank;
+
+public class Customer {
+
+	String username, password, name, address;
+	int accountnumber;
+	
+	public void Customer() {
+		
+	}
+	
+	public void createAccount(String username, String password) {
+		
+	}
+}

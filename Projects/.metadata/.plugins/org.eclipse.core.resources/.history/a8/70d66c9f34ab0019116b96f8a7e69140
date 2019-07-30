@@ -1,0 +1,25 @@
+package com.revature.bank;
+
+public class Administrator extends Employee {
+	
+	public Administrator() {
+		
+	}
+	
+	public void withdraw(double ammount) {
+		
+	}
+	
+	public void deposit(double ammount) {
+		
+	}
+	
+	public void transfer(Account transfer, double ammount) {
+		
+	}
+	
+	public void cancelAccount(int accountNumber) {
+		
+	}
+}
+

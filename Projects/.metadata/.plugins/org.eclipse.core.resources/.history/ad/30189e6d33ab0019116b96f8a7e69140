@@ -1,0 +1,35 @@
+package com.revature.bank;
+
+
+public class Account {
+
+	private int accountNumber;
+	private double balance;
+	private Boolean jointAccount, isApproved = false;
+
+	public Account() {
+
+	}
+
+	public void withdraw(double amount) {
+		if (amount >= 0) {
+			if (this.balance - amount >= 0) {
+				this.balance = this.balance - amount;
+				System.out.println("New Balance is: $" + this.balance);
+			} else {
+				System.out.println("Not enough funds.  You tried to Withdraw $" + amount + ", Current balance is: $" + this.balance);
+			}
+		} else {
+			System.out.println("you tried to withdraw a negative amount.  Please try again!");
+		}
+	}
+
+	public void processApplication(boolean decision) {
+		
+		isApproved = decision;
+	}
+	
+	public double getBalance() {
+		return balance;
+	}
+}

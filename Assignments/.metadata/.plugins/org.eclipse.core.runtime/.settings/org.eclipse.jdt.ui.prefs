@@ -1,0 +1,25 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"/>
+content_assist_number_of_computers=15
+eclipse.preferences.version=1
+java_comment_task_tag=98,98,98
+java_doc_default=98,98,98
+java_keyword=221,40,103
+java_keyword_return=221,40,103
+java_multi_line_comment=98,98,98
+java_single_line_comment=98,98,98
+org.eclipse.jdt.ui.formatterprofiles.version=16
+org.eclipse.jdt.ui.text.code_templates_migrated=true
+org.eclipse.jdt.ui.text.custom_code_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.custom_templates=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><templates/>
+org.eclipse.jdt.ui.text.templates_migrated=true
+pf_coloring_comment=98,98,98
+semanticHighlighting.annotation.color=191,191,191
+semanticHighlighting.class.bold=true
+semanticHighlighting.deprecatedMember.color=171,31,54
+semanticHighlighting.localVariable.color=255,191,38
+semanticHighlighting.localVariableDeclaration.color=237,127,72
+semanticHighlighting.methodDeclarationName.color=167,236,33
+semanticHighlighting.typeArgument.color=215,131,127
+spelling_locale_initialized=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

@@ -1,0 +1,14 @@
+package com.revature.assignment1;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class FibonacciSequenceTest {
+
+	@Test
+	void testCalculateSequence() {
+		fail("Not yet implemented");
+	}
+
+}

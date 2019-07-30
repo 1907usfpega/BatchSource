@@ -1,0 +1,17 @@
+package com.revature.bank;
+
+public class Employee {
+	//data variables
+	
+	public Employee() {
+		
+	}
+	//method to check the current account and return the balance
+	public void checkBalance(int accountNumber) {
+		/*if (this.accountNumber == accountNumber) {
+			System.out.println("Account balance is: $" + getBalance());
+		} else {
+			System.out.println("Account does not exist!");
+		}*/
+	}
+}
