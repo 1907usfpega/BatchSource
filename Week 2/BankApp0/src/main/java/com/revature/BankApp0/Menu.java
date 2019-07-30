@@ -29,33 +29,92 @@ public class Menu {
 	}
 	
 	public static void deposit1() {
-		System.out.print("Enter the amount you would like to deposit: ");
+		System.out.print("Enter the amount you would like to deposit: $");
 	}
 	
 	public static void deposit2() {
 		System.out.print("Enter the nickname of the account: ");
 	}
 	
-	public static void deposit3(int depositAmount, String nickname) {
-		System.out.println("You have added " + depositAmount + " to " + nickname + "\n");
+	public static void deposit3(double depositAmount, String nickname) {
+		System.out.println("You have added $" + depositAmount + " to " + nickname + "\n");
 	}
 	
 	public static void withdraw1() {
-		System.out.print("Enter the amount you would like to withdraw: ");
+		System.out.print("Enter the amount you would like to withdraw: $");
 	}
 	
 	public static void withdraw2() {
 		System.out.print("Enter the nickname of the account: ");
 	}
 	
-	public static void withdraw3(int withdrawAmount, String nickname) {
-		System.out.println("You have removed " + withdrawAmount + " from " + nickname);
+	public static void withdraw3(double withdrawAmount, String nickname) {
+		System.out.println("You have removed $" + withdrawAmount + " from " + nickname);
 	}
 	
 	public static void logout(String username) {
 		System.out.println("Goodbye  " + username);
 	}
+	
+	public static void adminMenu() {
+		System.out.println("Please select an item from the following menu:\n"
+				+ "1. View User\n"
+				+ "2. Create New User\n"
+				+ "3. Update User Password\n"
+				+ "4. Withdraw for User\n"
+				+ "5. Deposit for User\n"
+				+ "6. Remove User\n"
+				+ "7. Logout\n");
+	}
+	
+	public static void viewUser() {
+		System.out.println("Enter the Username\n");
+	}
+	
+	public static void adminAcctCreation1() {
+		System.out.println("Enter Username\n");
+	}
+	
+	public static void adminAcctCreation2() {
+		System.out.println("Enter Password\n");
+	}
+	
+	public static void updatePassword1() {
+		System.out.println("Enter Username");
+	}
+	
+	public static void updatePassword2() {
+		System.out.println("Enter New Password");
+	}
+	
+	public static void withdrawForUser1() {
+		System.out.println("Enter Username\n");
+	}
 
+	public static void withdrawForUser2() {
+		System.out.println("Enter amount to withdraw\n");
+	}
+	
+	public static void withdrawForUser3() {
+		System.out.println("Enter account nickname\n");
+	}
+	
+	public static void depositForUser1() {
+		System.out.println("Enter Username\n");
+	}
+	
+	public static void depositForUser2() {
+		System.out.println("Enter amount to deposit\n");
+	}
+	
+	public static void depositForUser3() {
+		System.out.println("Enter account nickname\n");
+	}
+	
+	public static void removeUser() {
+		System.out.println("Enter the name of the user to be deleted.");
+	}
+	
 	public static void puar() {
 		System.out.println("                                    ,$$.       ,$$.      \n" + 
 				"                                   ,$'`$.     ,$'`$.     \n" + 

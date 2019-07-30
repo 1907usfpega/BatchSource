@@ -27,19 +27,21 @@ public class Driver {
 			}
 		}
 
-		if (username.equals("Goku")) {
+		Menu.cls();
+		Menu.puar();
+		System.out.println("Welcome back " + username + "!");
 
-		} else {
-			Menu.cls();
-			Menu.puar();
-			System.out.println("Welcome back " + username + "!");
+		if (username.equals("Goku")) {
 			int inToInt = 0;
+			double inToDouble = 0.0;
 			String input = "";
-			while (inToInt != 6) {
-				Menu.mainMenu();
+			String un = "";
+			String pw = "";
+			while (inToInt != 7) {
+				Menu.adminMenu();
 				System.out.print("> ");
 				input = sc.nextLine();
-				if(Util.isInteger(input)) {
+				if (Util.isInteger(input)) {
 					inToInt = Integer.parseInt(input);
 				} else {
 					Menu.cls();
@@ -47,8 +49,171 @@ public class Driver {
 					System.out.println("Invalid Input: You must enter a number!");
 					continue;
 				}
-				switch(inToInt) {
+				switch (inToInt) {
 				case 1:
+					Menu.viewUser();
+					System.out.print("> ");
+					input = sc.nextLine();
+					try {
+						UserDaoImpl udi = new UserDaoImpl();
+						AccountDaoImpl adi = new AccountDaoImpl();
+						Menu.cls();
+						Menu.puar();
+						adi.getAllAccounts(udi.getUID(input));
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case 2:
+					Menu.cls();
+					Menu.puar();
+					Menu.adminAcctCreation1();
+					System.out.print("> ");
+					un = sc.nextLine();
+					Menu.adminAcctCreation2();
+					System.out.print("> ");
+					pw = sc.nextLine();
+					try {
+						UserDaoImpl udi = new UserDaoImpl();
+						udi.createUser(un, pw);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Menu.cls();
+					Menu.puar();
+					System.out.println("User named " + un + " created.");
+					break;
+				case 3:
+					Menu.cls();
+					Menu.puar();
+					Menu.updatePassword1();
+					System.out.print("> ");
+					un = sc.nextLine();
+					Menu.updatePassword2();
+					System.out.print("> ");
+					pw = sc.nextLine();
+					try {
+						UserDaoImpl udi = new UserDaoImpl();
+						udi.updatePassword(un, pw);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Menu.cls();
+					Menu.puar();
+					System.out.println("Password Updated!");
+					break;
+				case 4:
+					Menu.cls();
+					Menu.puar();
+					Menu.withdrawForUser1();
+					System.out.print("> ");
+					un = sc.nextLine();
+					Menu.withdrawForUser2();
+					System.out.print("> $");
+					input = sc.nextLine();
+					inToDouble = 0.0;
+					if (!Util.isValidDouble(input)) {
+						System.out.println("That is not a valid dollar amount.\n");
+						break;
+					} else
+						inToDouble = Double.parseDouble(input);
+					Menu.withdrawForUser3();
+					System.out.print("> ");
+					input = sc.nextLine();
+					try {
+						AccountDaoImpl adi = new AccountDaoImpl();
+						UserDaoImpl udi = new UserDaoImpl();
+						adi.withdraw(input, inToInt, udi.getUID(un));
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case 5:
+					Menu.cls();
+					Menu.puar();
+					Menu.depositForUser1();
+					System.out.print("> ");
+					un = sc.nextLine();
+					Menu.depositForUser2();
+					System.out.print("> $");
+					input = sc.nextLine();
+					inToDouble = 0.0;
+					if (!Util.isValidDouble(input)) {
+						System.out.println("That is not a valid dollar amount.\n");
+						break;
+					} else
+						inToDouble = Double.parseDouble(input);
+					Menu.depositForUser3();
+					System.out.print("> ");
+					input = sc.nextLine();
+					try {
+						AccountDaoImpl adi = new AccountDaoImpl();
+						UserDaoImpl udi = new UserDaoImpl();
+						adi.deposit(un, inToDouble, udi.getUID(un));
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					break;
+				case 6:
+					Menu.cls();
+					Menu.puar();
+					Menu.removeUser();
+					System.out.print("> ");
+					un = sc.nextLine();
+					try {
+						UserDaoImpl udi = new UserDaoImpl();
+						udi.delUser(un);
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Menu.cls();
+					Menu.puar();
+					System.out.println(un + " deleted from User Database");
+					break;
+				case 7:
+					Menu.cls();
+					Menu.puar();
+					break;
+				default:
+					Menu.cls();
+					Menu.puar();
+					System.out.println("Hey! Are you trying to push the odds in favor of Krillin!?\n");
+					break;
+				}
+			}
+		} else {
+			int inToInt = 0;
+			double inToDouble = 0.0;
+			String input = "";
+			while (inToInt != 6) {
+				Menu.mainMenu();
+				System.out.print("> ");
+				input = sc.nextLine();
+				if (Util.isInteger(input)) {
+					inToInt = Integer.parseInt(input);
+				} else {
+					Menu.cls();
+					Menu.puar();
+					System.out.println("Invalid Input: You must enter a number!");
+					continue;
+				}
+				switch (inToInt) {
+				case 1:
+					try {
+						AccountDaoImpl adi = new AccountDaoImpl();
+						UserDaoImpl udi = new UserDaoImpl();
+						Menu.cls();
+						Menu.puar();
+						adi.getAllAccounts(udi.getUID(username));
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
 					break;
 				case 2:
 					Menu.createAccountMenu();
@@ -62,7 +227,7 @@ public class Driver {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-					
+
 					Menu.cls();
 					Menu.puar();
 					System.out.println("Successfully Created Account!");
@@ -83,14 +248,52 @@ public class Driver {
 					System.out.println("Successfully Deleted Account!");
 					break;
 				case 4:
+					inToDouble = 0.0;
 					Menu.deposit1();
 					input = sc.nextLine();
 					// TODO: Check for Double Value (i.e., %#.##)
-					if(!Util.isValidDouble(input)) System.out.println("That is not a valid dollar amount.\n");
+					if (!Util.isValidDouble(input)) {
+						System.out.println("That is not a valid dollar amount.\n");
+						break;
+					} else
+						inToDouble = Double.parseDouble(input);
 					Menu.deposit2();
-					
+					input = sc.nextLine();
+					try {
+						AccountDaoImpl adi = new AccountDaoImpl();
+						UserDaoImpl udi = new UserDaoImpl();
+						adi.deposit(input, inToDouble, udi.getUID(username));
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Menu.cls();
+					Menu.puar();
+					Menu.deposit3(inToDouble, input);
 					break;
 				case 5:
+					inToDouble = 0.0;
+					Menu.withdraw1();
+					input = sc.nextLine();
+					if (!Util.isValidDouble(input)) {
+						System.out.println("That is not a valid dollar amount.\n");
+						break;
+					}
+					else
+						inToDouble = Double.parseDouble(input);
+					Menu.deposit2();
+					input = sc.nextLine();
+					try {
+						AccountDaoImpl adi = new AccountDaoImpl();
+						UserDaoImpl udi = new UserDaoImpl();
+						adi.withdraw(input, inToDouble, udi.getUID(username));
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					Menu.cls();
+					Menu.puar();
+					Menu.withdraw3(inToDouble, input);
 					break;
 				case 6:
 					Menu.cls();

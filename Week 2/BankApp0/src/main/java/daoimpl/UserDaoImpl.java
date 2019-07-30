@@ -1,5 +1,6 @@
 package daoimpl;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -64,5 +65,24 @@ public class UserDaoImpl implements UserDao {
 		}
 		return qresult;
 	}
+
+	public void updatePassword(String un, String pw) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "UPDATE BANKUSERS SET PASSWORD = ? WHERE USER_NAME = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, pw);
+		ps.setString(2, un);
+		ps.executeUpdate();
+	}
+
+	public void delUser(String un) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "{ call DELUSER(?)";
+		CallableStatement call = conn.prepareCall(sql);
+		call.setString(1, un);
+		call.execute();
+	}
+	
+	
 	
 }

@@ -4,7 +4,7 @@ public class Util {
 	
 	public static String substr(String s, int idx, int idy) {
 		String output = "";
-		for(int i = idx;idx<idy;idx++) {
+		for(int i = idx;i<idy;i++) {
 			output = output + s.charAt(i);
 		}
 		return output;
