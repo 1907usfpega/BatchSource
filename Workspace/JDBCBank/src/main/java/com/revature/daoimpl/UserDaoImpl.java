@@ -81,11 +81,12 @@ public class UserDaoImpl implements UserDao {
 		return userList;
 	}
 	
-	public ArrayList<Account> getAccountList() throws SQLException {
+	public ArrayList<Account> getAccountList(int userid) throws SQLException {
 		ArrayList<Account> accountList = new ArrayList<Account>();
 		Connection conn = cf.getConnection();
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery(" ");
+		String sql = "SELECT * FROM ACCOUNT WHERE user_id=" + userid;
+		ResultSet rs = stmt.executeQuery(sql);
 		Account ac = null;
 		while (rs.next()) {
 			ac = new Account(rs.getInt(1), rs.getDouble(2), rs.getInt(3));
