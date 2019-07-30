@@ -3,6 +3,11 @@
  */
 package account;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import daoimpl.AccountDaoImpl;
+
 /**
  * @author MajorKey
  *
@@ -103,8 +108,37 @@ public class Account {
 
 	@Override
 	public String toString() {
-		return "Account [accountid=" + accountid + ", balance=" + balance + ", loginid=" + loginid + ", userid="
-				+ userid + "]";
+		return "Account [accountid=" + accountid + ", balance=" + balance + "]";
+	}
+	
+	public static List<Account> viewAccounts(int userid) throws SQLException{
+		AccountDaoImpl acc = new AccountDaoImpl();
+		return acc.getAccounts(userid);
+	}
+	
+	public static void createAccount(int userid, int loginid) throws SQLException {
+		AccountDaoImpl acc = new AccountDaoImpl();
+		acc.createAccount(userid, loginid);
+	}
+	
+	public static void deleteAccount(int accountid) throws SQLException {
+		AccountDaoImpl acc = new AccountDaoImpl();
+		acc.deleteAccount(accountid);
+	}
+	
+	public static void depositToAccount(int accountid, double amount) throws SQLException {
+		AccountDaoImpl acc = new AccountDaoImpl();
+		acc.deposit(accountid, amount);
+	}
+	public static void withdrawFromAccount(int accountid, double amount) throws SQLException {
+		AccountDaoImpl acc = new AccountDaoImpl();
+		acc.withdraw(accountid, amount);
+	}
+	
+	public static Account checkAccount(int accountid, int userid) throws SQLException {
+		//returns an account account exists and belongs to user
+		AccountDaoImpl acc = new AccountDaoImpl();
+		return acc.checkAccount(accountid, userid);
 	}
 	
 	

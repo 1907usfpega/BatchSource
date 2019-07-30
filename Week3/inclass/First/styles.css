@@ -1,0 +1,35 @@
+* {
+    margin: auto;
+}
+body{
+    background-color: brown
+}
+
+#letus{
+    color: red;
+}
+
+#play {
+    color:black;
+}
+
+#a{
+    color: gold;
+}
+#game{
+    color: green;
+}
+
+#type{
+    font-size: 125%;
+
+}
+
+.center{
+    display: block;
+    width: 50%;
+}
+
+.blue {
+    background-color: blue;
+}

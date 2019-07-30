@@ -19,4 +19,5 @@ public interface IAccountDao {
 	void deposit(int accountid, double balance) throws SQLException;
 	void withdraw(int accountid, double balance) throws SQLException;
 	void deleteAccount(int accountid) throws SQLException;
+	Account checkAccount(int accountid, int userid) throws SQLException;
 }

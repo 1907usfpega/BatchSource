@@ -14,9 +14,5 @@ import admin.Admin;
  */
 public interface IAdminDao {
 	
-	//plan for only one admin in the db
-	Admin getCurrentAdmin() throws SQLException;
-	//use sequence.currval to select current admin
 	Admin getAdmin(int id) throws SQLException;
-	void updateAdmin(String firstname, String lastname) throws SQLException;
 }
