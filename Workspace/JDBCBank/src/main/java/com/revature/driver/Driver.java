@@ -1,5 +1,9 @@
 package com.revature.driver;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -25,6 +29,7 @@ public class Driver {
 	public static void main(String[] args) {
 		userList = getUsers();
 		boolean cont = true;
+		catReader();
 		while (cont) {
 			cont = MainMenu.loginOrRegister();
 		}
@@ -42,6 +47,26 @@ public class Driver {
 			e.printStackTrace();
 		}
 		return userList;
-
+	}
+	
+	public static void catReader() {
+		String path = "src/main/resources/lazyCat.txt";
+		FileInputStream is = null;
+		StringBuilder sb= new StringBuilder();
+		int b = 0;
+		try {
+			File file = new File(path);
+			is = new FileInputStream(file);
+			while ((b = is.read()) != -1) {
+				char c = (char) b;
+					sb.append(c);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			System.out.println(sb);
 	}
 }
