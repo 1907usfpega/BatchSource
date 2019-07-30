@@ -1,5 +1,9 @@
 package com.jackson.driver;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -19,11 +23,12 @@ public class BankingConsole
 	public static BankAccountDaoImpl bankDao = new BankAccountDaoImpl();
 	
 	public static UserAccount loggedIn;
-	public static ArrayList<BankAccount> currentAccounts = new ArrayList<BankAccount>();
-	public static ArrayList<Transaction> currentTransactions = new ArrayList<Transaction>();
+	public static ArrayList<UserAccount> currentUsers = new ArrayList<UserAccount>();
+	public static ArrayList<BankAccount> loggedInAccounts = new ArrayList<BankAccount>();
+	public static ArrayList<Transaction> loggedInTransactions = new ArrayList<Transaction>();
 	public static Properties prop = new Properties();
-	public static String adminUser = prop.getProperty("user"); 
-	public static String adminPass = prop.getProperty("password");
+	public static String adminUser; 
+	public static String adminPass;
 	
 	public static void main(String[] args)
 	{
@@ -31,12 +36,24 @@ public class BankingConsole
 		{
 			//userDao.createNewUser("Hello World", "hworld", "earthy");
 			//bankDao.createNewAccount(1, "Checking", 120.0);
+			currentUsers = userDao.getUserList();
 			System.out.println(userDao.getUserList());
 			System.out.println(bankDao.getAccountsList());
+			prop.load(new FileReader("database.properties"));
+			adminUser = prop.getProperty("user");
+			adminPass = prop.getProperty("password");
 		}
 		catch(SQLException e)
 		{
 			System.out.println("damn that didnt work. ");
+		}
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+		} 
+		catch (IOException e) 
+		{
+			e.printStackTrace();
 		}
 		
 		Scanner s = new Scanner(System.in);
@@ -94,25 +111,22 @@ public class BankingConsole
 		System.out.print("Enter your password: ");
 		String passwordInput = s.nextLine();
 		boolean b = false;
+		if (userNameInput.equals(adminUser) && passwordInput.equals(adminPass))
+		{
+			b = true;
+			//loggedIn = allAccounts.get(i);
+			System.out.println("Admin Login Successful!");
+			mainAdminMenu();
+		}
 		for(int i = 0; i < allAccounts.size(); i++)
 		{
 			if(userNameInput.equals(allAccounts.get(i).getUsername()) && passwordInput.equals(allAccounts.get(i).getPassword()))
 			{
-				if (userNameInput.equals(adminUser) && passwordInput.equals(adminPass))
-				{
-					b = true;
-					loggedIn = allAccounts.get(i);
-					System.out.println("Admin Login Successful!");
-					mainAdminMenu();
-				}
-				else
-				{
-					b = true;
-					loggedIn = allAccounts.get(i);
-					addAccountsToList();
-					System.out.println("Login Successful!");
-					mainCustomerMenu();
-				}
+				b = true;
+				loggedIn = allAccounts.get(i);
+				addAccountsToList();
+				System.out.println("Login Successful!");
+				mainCustomerMenu();
 			}
 		}
 		if(b == false)
@@ -138,7 +152,7 @@ public class BankingConsole
 	{
 		try
 		{
-			ArrayList<UserAccount> allAccounts = new ArrayList<UserAccount>();
+			ArrayList<UserAccount> allAccounts = userDao.getUserList();
 			Scanner s = new Scanner(System.in);
 			String firstNameInput = "", lastNameInput = "", userNameInput = "", passwordInput = "";
 			System.out.print("Enter your first name: ");
@@ -149,6 +163,7 @@ public class BankingConsole
 			userNameInput = s.next();
 			System.out.print("Enter your password: ");
 			passwordInput = s.next();
+			s.nextLine();
 			
 			for(int i = 0; i < allAccounts.size(); i++)
 			{
@@ -167,6 +182,7 @@ public class BankingConsole
 				}
 				else
 				{
+					System.out.println("New User Account Created!");
 					userDao.createNewUser(userNameInput, passwordInput, firstNameInput, lastNameInput);
 				}
 			}
@@ -177,7 +193,6 @@ public class BankingConsole
 		}
 		catch(InvalidLoginException e)
 		{
-			
 			System.out.println("That username and password already exist");
 		}
 	}
@@ -198,23 +213,27 @@ public class BankingConsole
 				switch(input)
 				{
 					case 1:
-						printAccounts();
+						printBankAccounts(loggedIn.getAccountID());
 						break;
 					case 2:
-						createBankAccount();
+						createBankAccount(loggedIn.getAccountID());
+						addAccountsToList();
 						break;
 					case 3:
-						deleteBankAccount();
+						deleteBankAccount(loggedIn.getAccountID());
+						addAccountsToList();
 						break;
 					case 4:
 						System.out.println("Choose an account to deposit funds to:");
-						choice = promptForAccount();
+						choice = promptForBankAcct(loggedIn.getAccountID());
 						bankDao.depositFunds(choice);
+						addAccountsToList();
 						break;
 					case 5:
 						System.out.println("Choose an account to withdraw funds from:");
-						choice = promptForAccount();
+						choice = promptForBankAcct(loggedIn.getAccountID());
 						bankDao.withdrawFunds(choice);
+						addAccountsToList();
 						break;
 					case 6:
 						q = true;
@@ -230,6 +249,7 @@ public class BankingConsole
 	
 	public static void addAccountsToList()
 	{
+		loggedInAccounts.removeAll(loggedInAccounts);
 		ArrayList<BankAccount> allAccounts = new ArrayList<BankAccount>();
 		try 
 		{
@@ -243,44 +263,141 @@ public class BankingConsole
 		{
 			if(allAccounts.get(i).getCustID() == loggedIn.getAccountID())
 			{
-				currentAccounts.add(allAccounts.get(i));
-			}
-		}
-	}
-
-	public static void printAccounts()
-	{
-		for(int i = 0; i < currentAccounts.size(); i++)
-		{
-			if(currentAccounts.get(i).getCustID() == loggedIn.getAccountID())
-			{
-				System.out.println(currentAccounts.get(i).getAccountName()+"\n ID: "+currentAccounts.get(i).getBankacctID()+"\n Balance: $"+currentAccounts.get(i).getFunds());
+				loggedInAccounts.add(allAccounts.get(i));
 			}
 		}
 	}
 	
-	public static int promptForAccount()
+	public static int getUserIndexInList(int userID)
+	{
+		for(int i = 0; i < currentUsers.size(); i++)
+		{
+			if(currentUsers.get(i).getAccountID() == userID)
+			{
+				return i;
+			}
+		}
+		return 0;
+	}
+	
+	public static int getAcctIndexInList(int acctID)
+	{
+		for(int i = 0; i < loggedInAccounts.size(); i++)
+		{
+			if(loggedInAccounts.get(i).getBankacctID() == acctID)
+			{
+				return i;
+			}
+		}
+		return 0;
+	}
+	
+	public static int promptForUserAcct()
 	{
 		int input = 0;
-		Scanner s1 = new Scanner(System.in);
-		printAccounts();
+		Scanner s = new Scanner(System.in);
+		printUserAccounts();
 		System.out.print("Enter the accountID: ");
-		input = s1.nextInt();
-		s1.nextLine();
+		input = s.nextInt();
+		s.nextLine();
 		return input;
 	}
 	
-	public static void createBankAccount()
+	public static int promptForBankAcct(int userID)
+	{
+		int input = 0;
+		Scanner s = new Scanner(System.in);
+		printBankAccounts(userID);
+		System.out.print("Enter the accountID: ");
+		input = s.nextInt();
+		s.nextLine();
+		return input;
+	}
+	
+	/*public static void printAccounts()
+	{
+		for(int i = 0; i < loggedInAccounts.size(); i++)
+		{
+			if(loggedInAccounts.get(i).getCustID() == loggedIn.getAccountID())
+			{
+				System.out.println(loggedInAccounts.get(i).getAccountName()+"\n ID: "+loggedInAccounts.get(i).getBankacctID()+"\n Balance: $"+loggedInAccounts.get(i).getFunds());
+			}
+		}
+	}*/
+	
+	public static void printBankAccounts(int userID)
+	{
+		try
+		{
+			ArrayList<BankAccount> list = bankDao.getAccountsList();
+			for(int i = 0; i < list.size(); i++)
+			{
+				if(list.get(i).getCustID() == userID)
+				{
+					System.out.println(list.get(i).getAccountName()+"\n ID: "+list.get(i).getBankacctID()+"\n Balance: $"+list.get(i).getFunds());
+				}
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public static void printUserAccounts()
+	{
+		try
+		{
+			ArrayList<UserAccount> list = userDao.getUserList();
+			for(int i = 0; i < list.size(); i++)
+			{
+				System.out.println(list.get(i).getFullName()+"\n ID: "+list.get(i).getAccountID()+"\n Username: "+list.get(i).getUsername()+"\n Password: "+list.get(i).getPassword());
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}
+
+	/*public static void createBankAccount()
 	{
 		try 
 		{
 			Scanner s = new Scanner(System.in);
 			System.out.print("Enter the name of the account: ");
 			String acctNameInput = s.nextLine();
-			System.out.print("Please deposit a minimum of $25 into this account: ");
-			double acctFundsInput = s.nextDouble();
-			s.nextLine();
+			double acctFundsInput = 0.0;
+			do
+			{
+				System.out.print("Please deposit a minimum of $25 into this account: ");
+				acctFundsInput = s.nextDouble();
+				s.nextLine();
+			}while(acctFundsInput < 25.0);
 			bankDao.createNewAccount(loggedIn.getAccountID(), acctNameInput, acctFundsInput);
+			System.out.println("New Account "+acctNameInput+" Created!");
+		} 
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+	}*/
+	
+	public static void createBankAccount(int userID)
+	{
+		try 
+		{
+			Scanner s = new Scanner(System.in);
+			System.out.print("Enter the name of the account: ");
+			String acctNameInput = s.nextLine();
+			double acctFundsInput = 0.0;
+			do
+			{
+				System.out.print("Please deposit a minimum of $25 into this account: ");
+				acctFundsInput = s.nextDouble();
+				s.nextLine();
+			}while(acctFundsInput < 25.0);
+			bankDao.createNewAccount(userID, acctNameInput, acctFundsInput);
 			System.out.println("New Account "+acctNameInput+" Created!");
 		} 
 		catch (SQLException e) //throw new exceptions too
@@ -289,16 +406,24 @@ public class BankingConsole
 		}
 	}
 	
-	public static void deleteBankAccount()
+	public static void deleteBankAccount(int userID)
 	{
 		try
 		{
 			Scanner s = new Scanner(System.in);
+			printBankAccounts(userID);
 			System.out.print("Enter the id of the account you wish to delete: ");
-			printAccounts();
 			int acctIDInput = s.nextInt();
 			s.nextLine();
-			bankDao.deleteAccount(acctIDInput);
+			if(loggedInAccounts.get(getAcctIndexInList(acctIDInput)).getFunds() > 0.0)
+			{
+				System.out.println("Account must be empty in order to be deleted");
+			}
+			else
+			{
+				System.out.println("Account Deleted");
+				bankDao.deleteAccount(acctIDInput);
+			}
 		} 
 		catch (SQLException e) //throw new exceptions too
 		{
@@ -308,39 +433,65 @@ public class BankingConsole
 	
 	public static void mainAdminMenu()
 	{
-		Scanner s = new Scanner(System.in);
-		boolean q = false;
-		do
+		try
 		{
-			System.out.println("\nWelcome back, "+loggedIn.getFullName()+"! What would you like to do? \n\t1. View Current User Accounts\n\t2. Create a New User Account\n\t3. Delete User Account\n\t4. Deposit Funds\n\t5. Withdraw Funds\n\t6. Logout");
-			System.out.print("Enter your input: ");
-			int input = s.nextInt();
-			s.nextLine();
-			switch(input)
+			Scanner s = new Scanner(System.in);
+			boolean q = false;
+			do
 			{
-				case 1:
-					printAccounts();
-					break;
-				case 2:
-					createBankAccount();
-					break;
-				case 3:
-					deleteBankAccount();
-					break;
-				case 4:
-					System.out.println("Choose an account:");
-					//BankAccount b1 = promptAccount(customerLoggedIn);
-					//b1.deposit();
-					break;
-				case 5:
-					System.out.println("Choose an account:");
-					//BankAccount b2 = promptAccount(customerLoggedIn);
-					//b2.withdraw();
-					break;
-				case 6:
-					q = true;
-					break;
-			}
-		}while(q == false);
+				System.out.println("\nWelcome back, Admin! What would you like to do? \n\t1. View Current User Accounts\n\t2. Create a New User Account\n\t3. Update User Account\n\t4. Delete User Account\n\t5. Add New Bank Account\n\t6. Deposit Funds\n\t7. Withdraw Funds\n\t8. Delete Bank Account\n\t9. Logout");
+				System.out.print("Enter your input: ");
+				int input = s.nextInt();
+				s.nextLine();
+				int userChoice = 0, userSecondChoice = 0;
+				switch(input)
+				{
+					case 1:
+						printUserAccounts();
+						userChoice = promptForUserAcct();
+						printBankAccounts(userChoice);
+						break;
+					case 2:
+						createUserAccount();
+						break;
+					case 3:
+						userChoice = promptForUserAcct();
+						
+						break;
+					case 4:
+						userChoice = promptForUserAcct();
+						
+						break;
+					case 5:
+						userChoice = promptForUserAcct();
+						createBankAccount(userChoice);
+						break;
+					case 6:
+						printUserAccounts();
+						userChoice = promptForUserAcct();
+						userSecondChoice = promptForBankAcct(userChoice);
+						bankDao.depositFunds(userChoice);
+						break;
+					case 7:
+						printUserAccounts();
+						userChoice = promptForUserAcct();
+						userSecondChoice = promptForBankAcct(userChoice);
+						bankDao.withdrawFunds(userChoice);
+						break;
+					case 8:
+						userChoice = promptForUserAcct();
+						deleteBankAccount(userChoice);
+					case 9:
+						q = true;
+						break;
+				}
+			}while(q == false);
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
+	
+	
 }
