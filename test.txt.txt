@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Go Tigers!
+=======
+Roll tide! WOO!
+>>>>>>> 0a9b7f690da935daefecdbf30dfc932c8ec1af91

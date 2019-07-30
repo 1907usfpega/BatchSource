@@ -191,7 +191,6 @@ public class User implements Serializable {
 	static final int TRUST = 3;
 
 	private void createNewAccount() {
-		//TODO apply for joint account
 		System.out.println(CHECKING + ".\t Create a new checking account");
 		System.out.println(SAVINGS + ".\t Create a new savings account");
 		System.out.println(TRUST + ".\t Create a new trust? account");
@@ -351,7 +350,6 @@ public class User implements Serializable {
 	private static final int DENY = 2;
 	
 	private void viewRequests() {
-		// TODO Auto-generated method stub
 
 		boolean quit = false;
 		String input;
