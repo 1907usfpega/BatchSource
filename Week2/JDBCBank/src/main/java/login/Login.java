@@ -88,7 +88,9 @@ public class Login {
 	
 	public Admin adminLogin() throws SQLException {
 		keyboard = new Scanner(System.in);
+		
 		boolean finished = false;
+		
 		do {
 			System.out.println("Username: ");
 			String username = keyboard.nextLine();
@@ -109,6 +111,7 @@ public class Login {
 			System.out.println("Do you want to try again?(yes/no)");
 			
 			String response = keyboard.nextLine();
+			
 			if (response.equalsIgnoreCase("yes")) {
 				continue;
 			}else {
@@ -120,7 +123,9 @@ public class Login {
 	
 	public User userLogin() throws SQLException {
 		keyboard = new Scanner(System.in);
+		
 		boolean finished = false;
+		
 		do {
 			System.out.println("Username: ");
 			String username = keyboard.nextLine();

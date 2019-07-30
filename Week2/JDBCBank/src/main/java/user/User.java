@@ -263,8 +263,12 @@ public class User {
 	}
 	public void deposit(User u) throws SQLException {
 		System.out.println("Please enter the account id of the account you are trying to deposit to.");
+		
 		keyboard = new Scanner(System.in);
+		
 		int accountid = keyboard.nextInt();
+		keyboard.nextLine();
+		
 		Account a = null;
 		
 		if (accountid > 0) {
@@ -272,6 +276,7 @@ public class User {
 			if(a != null) {
 				System.out.println("How much would you like to deposit?");
 				double amount = keyboard.nextDouble();
+				keyboard.nextLine();
 				if (amount > 0) {
 					Account.depositToAccount(accountid, amount);
 				} else {
@@ -287,8 +292,12 @@ public class User {
 	}
 	public void withdraw(User u) throws SQLException {
 		System.out.println("Please enter the account id of the account you are trying to withdraw from.");
+		
 		keyboard = new Scanner(System.in);
+		
 		int accountid = keyboard.nextInt();
+		keyboard.nextLine();
+		
 		Account a = null;
 		
 		if (accountid > 0) {
@@ -296,6 +305,7 @@ public class User {
 			if(a != null) {
 				System.out.println("How much would you like to withdraw?");
 				double amount = keyboard.nextDouble();
+				keyboard.nextLine();
 				if (amount >= 0 && amount <= a.getBalance()) {
 					Account.withdrawFromAccount(accountid, amount);
 				} else {
@@ -312,8 +322,12 @@ public class User {
 		//check if givenaccountid == dbaccountid && actualuserid==useridtothataccount
 		System.out.println("Please enter the account id of the account you are trying to delete.");
 		System.out.println("You can only delete empty accounts, so if you need to withdraw first enter 0 for the account id.");
+		
 		keyboard = new Scanner(System.in);
+		
 		int accountid = keyboard.nextInt();
+		keyboard.nextLine();
+		
 		Account a = null;
 		if (accountid > 0) {
 			a = Account.checkAccount(accountid, u.getUserid());

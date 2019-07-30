@@ -157,6 +157,7 @@ public class Admin {
 		keyboard = new Scanner(System.in);
 		System.out.println("What is the userid of the user you want to see?");
 		int userid = keyboard.nextInt();
+		keyboard.nextLine();
 		
 		User user = User.viewUser(userid);
 		
@@ -181,6 +182,7 @@ public class Admin {
 		keyboard = new Scanner(System.in);
 		System.out.println("What is the userid of the user you want to update.");
 		int userid = keyboard.nextInt();
+		keyboard.nextLine();
 		System.out.println("What will be this user's new name?");
 		System.out.println("First Name: ");
 		String firstname = keyboard.nextLine();
@@ -193,6 +195,7 @@ public class Admin {
 		keyboard = new Scanner(System.in);
 		System.out.println("What is the userid of the user you want to delete.");
 		int userid = keyboard.nextInt();
+		keyboard.nextLine();
 		User.deleteUser(userid);
 	}
 	
