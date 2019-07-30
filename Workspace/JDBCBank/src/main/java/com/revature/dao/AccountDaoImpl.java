@@ -50,6 +50,8 @@ public class AccountDaoImpl implements AccountDao {
 		} else {
 			balance = getBalance(accountId) + amount;
 		}
+		if(balance < 0 || amount < 0)
+			throw new NegativeNumberException();
 		sql = "{call WithdrawOrDeposit(" + accountId + ", " + balance + ")}";
 		CallableStatement call = conn.prepareCall(sql);
 		call.execute();

@@ -8,6 +8,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+import com.revature.driver.Driver;
+
 public class ConnFactory {
 	// Singleton factory
 	private static ConnFactory cf = new ConnFactory();
@@ -28,6 +30,9 @@ public class ConnFactory {
 			prop.load(new FileReader("database.properties"));
 			Class.forName(prop.getProperty("driver"));
 			conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
+			Driver.admin.setName(prop.getProperty("admin"));
+			Driver.admin.setPassword(prop.getProperty("adminpass"));
+			Driver.admin.setId(-1);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

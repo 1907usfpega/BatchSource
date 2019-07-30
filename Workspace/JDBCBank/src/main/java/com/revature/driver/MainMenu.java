@@ -35,9 +35,10 @@ public class MainMenu {
 	
 
 	public static void loginView() {
+		System.out.println(Driver.admin);
 		Scanner sc = new Scanner(System.in);
 		System.out.println(
-				"Welcome to the login view! Please enter your username now, or enter stop to return to the main menu!");
+				"Login view is what you chose! Please enter your username now, or enter stop to return to the main menu!");
 		String input = "";
 		sc = new Scanner(System.in);
 		input = sc.nextLine();
@@ -48,29 +49,53 @@ public class MainMenu {
 			return;
 		} else {
 			ArrayList<User> users = Driver.userList;
-			for (User user : users) {
-				if (user.getName().equals(input)/*TODO ADMIN*/ ) {
-
-					String username = input;
-					System.out.println(username + " exists! Please now enter your password, or enter stop to return to the main menu!");
-					sc = new Scanner(System.in);
-					input = sc.nextLine();
-					if (input.length() < 3) {
-						System.out.println("Please use more than 2 characters for your password.");
-						return;
-					}if (input.equals("stop"))
-						return;
-					if(user.getPassword().equals(input))
-					System.out.println("You now are logged in. Welcome " + username);
-					Driver.setLoggedInUser(user);
-					LoggedInView.UserMainMenu();
+			if (Driver.admin.getName().equals(input)) {
+				System.out.println(
+						"Aha! Trying to log in as the admin, I see. Well, good luck with that... Maybe enter stop if are having second thoughts.");
+				sc = new Scanner(System.in);
+				input = sc.nextLine();
+				if (input.length() < 3) {
+					System.out.println("Please use more than 2 characters for your password.");
 					return;
-
 				}
-			}
-			System.out.println("Your username was not found in our database! Please login wiht your registered username or register a new account.");
+				if (input.equals("stop"))
+					return;
+				if (Driver.admin.getPassword().equals(input)) {
+					System.out.println("You logged in as the admin. Wow! You are an amazing person! =) ");
+					Driver.setLoggedInUser(Driver.admin);
+					LoggedInView.adminMainMenu();
+					return;
+				}
+
+			} else
+				for (User user : users) {
+					if (user.getName().equals(input)/* TODO ADMIN */ ) {
+						String username = input;
+						System.out.println(username
+								+ " exists! Please now enter your password, or enter stop to return to the main menu!");
+						sc = new Scanner(System.in);
+						input = sc.nextLine();
+						if (input.length() < 3) {
+							System.out.println("Please use more than 2 characters for your password.");
+							return;
+						}
+						if (input.equals("stop"))
+							return;
+						if (user.getPassword().equals(input)) {
+							System.out.println("You now are logged in. Welcome " + username);
+							Driver.setLoggedInUser(user);
+							LoggedInView.UserMainMenu();
+							return;
+						}
+						System.out.println("not the right password, eh? :/");
+
+					}
+				}
+			System.out.println(
+					"Your username was not found in our database! Please login with your registered username or register a new account.");
 			return;
-		}	}
+		}
+	}
 
 	
 	public static void registerView() {
@@ -87,9 +112,13 @@ public class MainMenu {
 			return;
 		} else {
 			ArrayList<User> users = Driver.userList;
+			if(input.equals(Driver.admin.getName())) {
+				System.out.println("You better not take our admins name, boi!");
+				return;
+			}
 			for (User user : users) {
-				if (user.getName().equals(input)/*TODO ADMIN*/ ) {
-					System.out.println("Your name is already taken. Maybe try loggin in instead!");
+				if (user.getName().equals(input)) {
+					System.out.println("That name is already taken. Maybe try loggin in instead!");
 					return;
 				}
 			}

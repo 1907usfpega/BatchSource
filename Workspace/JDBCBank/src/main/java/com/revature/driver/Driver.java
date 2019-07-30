@@ -12,6 +12,7 @@ public class Driver {
 	static AccountDaoImpl adi = new AccountDaoImpl();
 	static ArrayList<User> userList;
 	private static User loggedInUser = null;
+	public static User admin = new User();
 
 	public static User getLoggedInUser() {
 		return loggedInUser;
@@ -27,17 +28,6 @@ public class Driver {
 		while (cont) {
 			cont = MainMenu.loginOrRegister();
 		}
-
-		// register or login method
-
-		// if login returned true
-
-		// call bank app start (bank homepage)
-		// if return is equal 0
-
-		// System.exit(0);
-
-		//
 	}
 
 	public static ArrayList<User> getUsers() {
@@ -55,17 +45,3 @@ public class Driver {
 
 	}
 }
-/*
- * udi.createUser("Leo", "qwertz"); udi.createUser("Terry", "catz");
- * udi.createUser("Nic", "CupOfJava"); udi.deleteUser(1); adi.createAccount(2);
- * System.out.println("account created!");
- */
-
-/*
- * try { ArrayList<Account> accs = udi.getAccounts(2); for(Account a : accs) {
- * System.out.println(a); } adi.depoOrWithdraw(1, 0, false);
- * System.out.println(accs.get(0)); } catch (SQLException e) { // TODO
- * Auto-generated catch block e.printStackTrace(); } catch
- * (NegativeNumberException e) { // TODO Auto-generated catch block
- * e.printStackTrace(); }
- */
