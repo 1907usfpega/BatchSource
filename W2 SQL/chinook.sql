@@ -1,63 +1,15 @@
---scalar! uppercase. return many results. 
-SELECT UPPER (NAME) FROM ARTIST;
-
---aggregate, returns one result
-SELECT AVG(UNITPRICE) FROM TRACK;
-
---complete query! how many people are from Canada and the city. 
-SELECT COUNT(EMPLOYEEID), COUNTRY, CITY 
-FROM
-EMPLOYEE
-GROUP BY COUNTRY, CITY
-HAVING COUNT(EMPLOYEEID) > 1;
-
-CREATE TABLE STUDENT(
-S_ID NUMBER,
-S_NAME VARCHAR2(20),
-SCH_ID NUMBER);
-
-CREATE TABLE SCHOOL (
-SCH_ID NUMBER,
-SCH_NAME VARCHAR2(20));
-
-INSERT INTO SCHOOL VALUES (1,'USF');
-INSERT INTO SCHOOL VALUES (2,'UDFS');
-INSERT INTO SCHOOL VALUES (3,'DDDSF');
-
-INSERT INTO STUDENT VALUES (1,'AATT', 3);
-INSERT INTO STUDENT VALUES (2,'MATT', 1);
-INSERT INTO STUDENT VALUES (3,'MATTTTT', 2);
-
-SELECT * FROM SCHOOL 
-LEFT JOIN STUDENT 
-ON 
-SCHOOL.SCH_ID = STUDENT.SCH_ID;
-
-CREATE TABLE STUDENT2(
-ID NUMBER,
-NAME VARCHAR2(20),
-LAB_PARTNER NUMBER);
-
-commit;
-rollback;
-INSERT INTO STUDENT2 VALUES(1,'MATT',2);
-
-INSERT INTO STUDENT2 VALUES(2,'MATT',3);
-
-INSERT INTO STUDENT2 VALUES(3,'MATT',61);
-
-INSERT INTO STUDENT2 VALUES(4,'MATT',16);
-
-INSERT INTO STUDENT2 VALUES(5,'MATT',5);
-
-INSERT INTO STUDENT2 VALUES(6,'MATT',4);
-
-SELECT * FROM STUDENT2;
-
---self join
-SELECT A.NAME AS STUDENT, B.NAME AS LAB_PARTNER FROM STUDENT2 A JOIN STUDENT2 B
-ON A.LAB_PARTNER=B.ID;
-
-
-DESC STUDENT2;
-
+public static void registerUser(String userName, String password) {
+    
+		for (User user : users) {
+			if (userName.equals(user.getName())) {
+				System.out.println(
+						"The user you want to create already exists. Please chose another name and try again!");
+				View.registerView();
+			}
+		}
+		User newUser = new User(userName, password);
+		users.add(newUser);
+		// TODO Serialize the list (maybe extra method)
+		System.out.println("Your account was created, congratulations! ");
+		View.loginView();
+	}
