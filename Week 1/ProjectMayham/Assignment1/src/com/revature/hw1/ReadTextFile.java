@@ -7,6 +7,8 @@ import java.io.IOException;
 
 public class ReadTextFile {
 
+	
+	// Reads Data.txt and formats the output
 	public static String read() {
 		FileReader fr;
 		String output = "";
@@ -22,15 +24,15 @@ public class ReadTextFile {
 			int counter = 1;
 			int delimeter = 0;
 
+			// Reads to the end of the file
 			while ((str = br.readLine()) != null) {
 				for (int i = 0; i < str.length(); i++) {
-					if (str.charAt(i) == ':') {
-//						System.out.println("Entering Switch with following substring: " + Substring.substr(str, i));
-						switch (counter % 4) {
-						case 1:
+					if (str.charAt(i) == ':') {		// Data Delimeter ":"
+						switch (counter % 4) {		// Uses a modulo on counter to determine which data value(s) to grab
+						case 1:	// First Name
 							name1 = Substring.substr(str, i);
 							break;
-						case 2:
+						case 2: // Last Name
 							for (int j = delimeter + 1; j < str.length(); j++) {
 								if (str.charAt(j) == ':') {
 									break;
@@ -38,7 +40,7 @@ public class ReadTextFile {
 								name2 = name2 + str.charAt(j);
 							}
 							break;
-						case 3:
+						case 3: // Age and State
 							int k = 0;
 							for (int j = delimeter + 1; j < str.length(); j++) {
 								if (str.charAt(j) == ':') {
@@ -47,13 +49,12 @@ public class ReadTextFile {
 								}
 								age = age + str.charAt(j);
 							}
-//							age = Substring.substr(str, i);
 
 							for (int j = k + 1; j < str.length(); j++) {
 								state = state + str.charAt(j);
 							}
 							break;
-						default:
+						default:	// Should never Print
 							System.out.println("You messed up the switch case");
 							break;
 						}
@@ -61,12 +62,11 @@ public class ReadTextFile {
 						counter++;
 					}
 				}
+				
+				// Adding current data to output
 				output = output + "Name: " + name1 + " " + name2 + "\n";
 				output = output + "Age: " + age + " years\n";
 				output = output + "State: " + state + " State\n\n";
-//				System.out.println("Name: " + name1 + " " + name2);
-//				System.out.println("Age: " + age + " years");
-//				System.out.println("State: " + state + " State\n");
 
 				name1 = "";
 				name2 = "";

@@ -2,6 +2,8 @@ package com.revature.hw1;
 
 public class BubbleSort {
 
+	// Implementation of the bubble sort algorithm.
+	
 	public static String sort() {
 		int [] numbers = {1,0,5,6,3,2,3,7,9,8,4};
 		

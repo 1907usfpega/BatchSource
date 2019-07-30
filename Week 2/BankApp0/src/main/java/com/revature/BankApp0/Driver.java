@@ -1,6 +1,11 @@
 package com.revature.BankApp0;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Scanner;
+
+import daoimpl.AccountDaoImpl;
+import daoimpl.UserDaoImpl;
 
 public class Driver {
 
@@ -9,21 +14,99 @@ public class Driver {
 	static String password = "";
 
 	public static void main(String[] args) {
-		Util util = new Util();
-		Menu menu = new Menu();
-		menu.puar();
-		boolean newUser = newUser();
+		Menu.puar();
+		boolean newUser = false;
+		newUser = newUser();
 		boolean loginSuccessful = false;
-		
-		if(!newUser) {
+
+		if (!newUser) {
 			loginSuccessful = login();
 			if (!loginSuccessful) {
+				sc.close();
 				return;
 			}
-		} else {
-			// NEW USER, AUTOMATICALLY LOG THEM IN.
 		}
 
+		if (username.equals("Goku")) {
+
+		} else {
+			Menu.cls();
+			Menu.puar();
+			System.out.println("Welcome back " + username + "!");
+			int inToInt = 0;
+			String input = "";
+			while (inToInt != 6) {
+				Menu.mainMenu();
+				System.out.print("> ");
+				input = sc.nextLine();
+				if(Util.isInteger(input)) {
+					inToInt = Integer.parseInt(input);
+				} else {
+					Menu.cls();
+					Menu.puar();
+					System.out.println("Invalid Input: You must enter a number!");
+					continue;
+				}
+				switch(inToInt) {
+				case 1:
+					break;
+				case 2:
+					Menu.createAccountMenu();
+					System.out.print("> ");
+					input = sc.nextLine();
+					try {
+						AccountDaoImpl adi = new AccountDaoImpl();
+						UserDaoImpl udi = new UserDaoImpl();
+						adi.createAccount(input, udi.getUID(username));
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					Menu.cls();
+					Menu.puar();
+					System.out.println("Successfully Created Account!");
+					break;
+				case 3:
+					Menu.deleteAccountMenu();
+					System.out.print("> ");
+					input = sc.nextLine();
+					try {
+						AccountDaoImpl adi = new AccountDaoImpl();
+						UserDaoImpl udi = new UserDaoImpl();
+						adi.deleteAccount(input, udi.getUID(username));
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					Menu.cls();
+					Menu.puar();
+					System.out.println("Successfully Deleted Account!");
+					break;
+				case 4:
+					Menu.deposit1();
+					input = sc.nextLine();
+					// TODO: Check for Double Value (i.e., %#.##)
+					if(!Util.isValidDouble(input)) System.out.println("That is not a valid dollar amount.\n");
+					Menu.deposit2();
+					
+					break;
+				case 5:
+					break;
+				case 6:
+					Menu.cls();
+					Menu.puar();
+					break;
+				default:
+					Menu.cls();
+					Menu.puar();
+					System.out.println("Hey! Are you trying to push the odds in favor of Krillin!?\n");
+					break;
+				}
+			}
+
+		}
+
+		System.out.println("Goodbye " + username + "!");
 		sc.close();
 	}
 
@@ -37,15 +120,23 @@ public class Driver {
 		do {
 			newUser = sc.nextLine();
 			newUser = newUser.toLowerCase();
-			boolean available = true;
 			if (newUser.equals("y")) {
+				UserDaoImpl udi = new UserDaoImpl();
+				boolean unique = false;
 				do {
 					System.out.print("Please enter a username: ");
 					un = sc.nextLine();
-					if (userNameFound(un)) {
-						System.out.println("Username has already been taken.\n");
+					try {
+						if (!udi.uniqueUserName(un)) {
+							System.out.println("Username has already been taken.\n");
+						} else {
+							unique = true;
+						}
+					} catch (SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
-				} while (userNameFound(un));
+				} while (!unique);
 
 				System.out.print("Please enter a password: ");
 				pw = sc.nextLine();
@@ -57,11 +148,17 @@ public class Driver {
 					System.out.print("Please re-enter your password: ");
 					vpw = sc.nextLine();
 				}
-				// TODO: Add new user to SQL Database
-				
-				//
 				username = un;
 				password = pw;
+				try {
+					udi.createUser(username, password);
+				} catch (SQLIntegrityConstraintViolationException e) {
+					// TODO Auto-generated catch block
+					System.out.println("Username has already been taken, please try again.");
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println("Account has been created. Logging you in.\n\n");
 				return true;
 
@@ -75,22 +172,53 @@ public class Driver {
 		return false;
 	}
 
-	public static boolean userNameFound(String un) {
-		// TODO: Check SQL Database to see if user name exists.
-		return false;
-	}
-
 	public static boolean login() {
 		// TODO: Attempt to log user in to SQL database.
-		System.out.print("Enter your User Name: ");
-		username = sc.nextLine();
-		if(userNameFound(username)) {
-			
-		} else {
-			
+		UserDaoImpl udi = new UserDaoImpl();
+		boolean success = false;
+		int count = 0;
+		while (!success) {
+			try {
+				System.out.print("Enter your User Name: ");
+				username = sc.nextLine();
+				success = !udi.uniqueUserName(username);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (!success && count < 2) {
+				System.out.println("Username Not Found\n");
+				count += 1;
+			} else if (count == 2) {
+				System.out.println("Login Failed, Please Try Again Later.");
+				break;
+			}
 		}
-		
-		return false;
+		if (!success)
+			return success;
+
+		count = 0;
+		success = false;
+
+		while (!success) {
+			try {
+				System.out.print("Enter your Password: ");
+				password = sc.nextLine();
+				success = udi.correctPassword(username, password);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (!success && count < 2) {
+				System.out.println("Incorrect Password");
+				count += 1;
+			} else if (count == 2) {
+				System.out.println("Login Failed, Please Try Again Later.");
+				break;
+			}
+		}
+
+		return success;
 	}
-	
+
 }
