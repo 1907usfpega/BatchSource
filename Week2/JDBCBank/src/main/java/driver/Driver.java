@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 import admin.Admin;
-import daoimpl.LoginDaoImpl;
 import user.User;
 
 /**
@@ -19,9 +18,11 @@ public class Driver {
 	 * @param args
 	 */
 	public static void main(String[] args) {		
+		//starts the bank app
 		new Driver().start();
 	}
 	
+	//choose which route to go admin/user
 	public void start() {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Welcome to the Grand Simple Bank of Java!");
@@ -44,6 +45,7 @@ public class Driver {
 		}		
 	}
 	
+	//closing statement
 	public void stop() {
 		System.out.println("Well thank you for stopping by the Grand Simple Bank of Java. Have a nice day.");
 	}

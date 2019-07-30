@@ -22,6 +22,7 @@ public class LoginDaoImpl implements ILoginDao {
 
 	public static ConnFactory cf = ConnFactory.getInstance();
 	
+	//creates a login row
 	public void createLogin(String username, String password, int userid) throws SQLException {
 		Connection conn = cf.getConnection();
 		//String outputsql = "begin dbms_output.enable(); end;";
@@ -40,6 +41,7 @@ public class LoginDaoImpl implements ILoginDao {
 		System.out.println("Login Registered");
 	}
 	
+	// main purpose: checks if the user pass combo is right
 	public Login checkLogin(String username, String password) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "Select loginid,adminid,userid FROM login WHERE (username = ? AND password = ?)";
@@ -56,6 +58,7 @@ public class LoginDaoImpl implements ILoginDao {
 		return login;
 	}
 	
+	//returns the login id of a user will look over code to see if i still needed this
 	public int getLoginId(int userid) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "SELECT loginid FROM login WHERE userid = ?";
@@ -70,6 +73,7 @@ public class LoginDaoImpl implements ILoginDao {
 		return loginid;
 	}
 	
+	//checks if the given username is unique
 	public boolean usernameAvailable(String username) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "Select loginid FROM login WHERE username = ?";

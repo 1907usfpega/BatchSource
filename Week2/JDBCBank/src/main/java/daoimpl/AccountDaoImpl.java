@@ -23,6 +23,7 @@ public class AccountDaoImpl implements IAccountDao {
 	
 	public static ConnFactory cf = ConnFactory.getInstance();
 
+	//calls the procedure on db to create a new account row
 	public void createAccount(int userid, int loginid) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{call insertaccount(?,?)";
@@ -32,7 +33,8 @@ public class AccountDaoImpl implements IAccountDao {
 		call.execute();
 		System.out.println("Account Created");
 	}
-
+	
+	//fetches all the accounts associated with a specific user
 	public List<Account> getAccounts(int userid) throws SQLException {
 		List<Account> accountList = new ArrayList<Account>();
 		Connection conn = cf.getConnection();
@@ -50,6 +52,7 @@ public class AccountDaoImpl implements IAccountDao {
 		return accountList;
 	}
 
+	//sends the amount to add to the account balance to the db
 	public void deposit(int accountid, double balance) throws SQLException {
 		Connection conn = cf.getConnection();
 		balance *= -1;
@@ -62,6 +65,7 @@ public class AccountDaoImpl implements IAccountDao {
 
 	}
 
+	//sends the amount to be subtracted from the account balance to the db
 	public void withdraw(int accountid, double balance) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{call updateaccount(?,?)";
@@ -72,6 +76,7 @@ public class AccountDaoImpl implements IAccountDao {
 		System.out.println("Money Withdrawn");
 	}
 
+	//deletes a specific account
 	public void deleteAccount(int accountid) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{call deleteaccount(?)";
@@ -82,6 +87,7 @@ public class AccountDaoImpl implements IAccountDao {
 		System.out.println("Account Deleted");
 	}
 
+	//returns an account if the specified account belongs to the specified user
 	public Account checkAccount(int accountid, int userid) throws SQLException {
 		Account account = null;
 		Connection conn = cf.getConnection();

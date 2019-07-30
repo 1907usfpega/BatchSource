@@ -23,6 +23,7 @@ public class UserDaoImpl implements IUserDao {
 
 	public static ConnFactory cf = ConnFactory.getInstance();
 	
+	//creates a user
 	public void createUser(String firstname, String lastname) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{call insertuser(?,?)";
@@ -33,6 +34,7 @@ public class UserDaoImpl implements IUserDao {
 		System.out.println("User Created");
 	}
 
+	//returns the most recently created user
 	public User getCurrentUser() throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "Select * FROM bankuser WHERE userid = (SELECT MAX(userid) FROM bankuser)";
@@ -47,6 +49,7 @@ public class UserDaoImpl implements IUserDao {
 		return user;
 	}
 
+	//returns a specified user by its id
 	public User getUser(int id) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "Select * FROM bankuser WHERE userid = ?";
@@ -62,6 +65,7 @@ public class UserDaoImpl implements IUserDao {
 		return user;
 	}
 
+	//returns a list of every user in db
 	public List<User> getAllUsers() throws SQLException {
 		List<User> userList = new ArrayList<User>();
 		Connection conn = cf.getConnection();
@@ -78,6 +82,7 @@ public class UserDaoImpl implements IUserDao {
 		return userList;
 	}
 
+	//has the procedure update the name of a specified user
 	public void updateUser(int id, String firstname, String lastname) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{call updateuser(?,?,?)";
@@ -91,6 +96,7 @@ public class UserDaoImpl implements IUserDao {
 		System.out.println("User Updated");
 	}
 
+	//deletes a specified user from db
 	public void deleteUser(int id) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{call deleteuser(?)";

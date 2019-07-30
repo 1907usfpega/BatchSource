@@ -20,6 +20,7 @@ public class AdminDaoImpl implements IAdminDao {
 
 	public static ConnFactory cf = ConnFactory.getInstance();
 
+	//gets an admin from the db
 	public Admin getAdmin(int id) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "Select * FROM admin WHERE adminid = ?";
@@ -33,7 +34,6 @@ public class AdminDaoImpl implements IAdminDao {
 		}
 		
 		return a;
-		
 	}
 
 }
