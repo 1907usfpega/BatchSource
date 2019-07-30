@@ -1,0 +1,264 @@
+--CREATE SEQUENCE [Seq name]
+--MINVALUE[value]
+--MAXVALUE[value]
+--START WITH [value]
+--INCREMENT BY [value]
+--CACHE [value];
+
+CREATE SEQUENCE mytestseq
+MINVALUE 100
+MAXVALUE 10000
+START WITH 5000
+INCREMENT BY -5
+CACHE 20;
+
+SELECT mytestseq.NEXTVAL FROM dual;
+
+insert into school values(mytestseq.nextval, 'Harvard');
+
+select * from school;
+
+--A veiw is a saved select statement
+CREATE OR REPLACE VIEW myview
+AS
+SELECT title AS a_list_of_stuff FROM album 
+UNION SELECT NAME FROM artist;
+
+--CREATE OR REPLACE VIEW thisview AS
+SELECT * FROM myview WHERE a_list_of_stuff LIKE 'T%' AND NOT a_list_of_stuff LIKE 'The %'; 
+
+SELECT * FROM thisview;
+
+--Index
+CREATE INDEX myindex ON album(artistid);
+
+--Trigger
+CREATE OR REPLACE TRIGGER mytrig
+BEFORE INSERT ON student
+FOR EACH ROW
+BEGIN
+SELECT mytestseq.NEXTVAL INTO:new.s_id FROM dual; 
+END;
+/
+
+SELECT * FROM student;
+INSERT INTO student VALUES(67, 'Deonta', 15);
+INSERT INTO student (s_name, sch_id) VALUES('Kenny G',11);
+
+ALTER TABLE student ADD CONSTRAINT pkid PRIMARY KEY(s_id);
+
+INSERT INTO student (s_name, sch_id) VALUES('Danny McBride',14);
+
+--Functions
+-- user defined functions
+
+--CREATE OR REPLACE FUNCTION [function_name]
+--([parameter list] VarName VarType, )
+--RETURN [VarType] IS
+--BEGIN
+----logic;
+--RETURN ...;
+--END [opt function_name];
+--/
+
+CREATE OR REPLACE FUNCTION calc_tax
+(t_id IN NUMBER, tax IN NUMBER)
+RETURN NUMBER AS total_price NUMBER(10,2);
+BEGIN
+SELECT unitprice INTO total_price FROM track WHERE trackid = t_id;
+RETURN total_price + (total_price*tax);
+END;
+/
+
+--call and use calc_tax
+select calc_tax(568, .08) from dual;
+select trackID, name, calc_tax(trackID, .08) as total_price from Track where trackid between 560 and 570;
+
+
+CREATE OR REPLACE FUNCTION playlist_price
+(p_id IN NUMBER)
+RETURN NUMBER AS total_price NUMBER(10,2);
+BEGIN
+SELECT SUM(unitprice) INTO total_price FROM track WHERE trackid IN (SELECT trackid FROM playlisttrack WHERE playlistid=p_id);
+RETURN total_price;
+END;
+/
+
+CREATE OR REPLACE FUNCTION count_tracks
+(p_id IN NUMBER)
+RETURN NUMBER AS total_tracks NUMBER;
+BEGIN
+SELECT COUNT(track.NAME) INTO total_tracks FROM track 
+    WHERE trackid IN (SELECT trackid FROM playlisttrack WHERE playlistid=p_id);
+RETURN total_tracks;
+END;
+/
+
+select count_tracks(3) from dual;
+
+select playlist.playlistID, playlist.name, count(playlisttrack.trackid) as num_tracks, playlist_price(playlist.playlistid) as total_price
+from playlist 
+join playlisttrack on playlisttrack.playlistid = playlist.playlistid 
+--where playlist.playlistid between 0 and 4
+group by playlist.playlistid, playlist.name, playlist_price(playlist.playlistid)
+order by playlist.playlistid;
+
+select playlisttrack.playlistid, playlist.name, playlisttrack.trackid 
+from playlisttrack join playlist on playlisttrack.playlistid = playlist.playlistid
+where (playlist.playlistID = 1 OR playlist.playlistID = 8) 
+AND
+(not trackid in ((select trackId from playlisttrack where playlistID = 1) intersect (select trackId from playlisttrack where playlistID = 8) ))
+;
+
+select name, playlistid, count_tracks(playlistID) as num_tracks, 
+    playlist_price(playlistID) as total_price from playlist
+    order by playlistid;
+
+-- stored procedure
+CREATE OR REPLACE PROCEDURE mystopro
+(NAME IN VARCHAR2) AS 
+BEGIN 
+INSERT INTO school VALUES(mytestseq.NEXTVAL, NAME);
+COMMIT;
+END;
+/
+
+EXECUTE mystopro('MIT');
+
+select * from school;
+
+select * from student full outer join school on student.sch_ID = school.sch_ID;
+
+-- more complex structure
+CREATE TABLE bear(
+bear_id NUMBER PRIMARY KEY,
+bear_type_id NUMBER,
+bear_name VARCHAR2(100),
+bear_birthdate DATE,
+bear_weight NUMBER DEFAULT 200,
+cave_id NUMBER
+);
+CREATE TABLE bear_type(
+bear_type_id NUMBER PRIMARY KEY,
+bear_type_name VARCHAR2(100)
+);
+CREATE TABLE cave(
+cave_id NUMBER PRIMARY KEY,
+cave_name VARCHAR2(100),
+max_bears NUMBER DEFAULT 4
+);
+CREATE TABLE beehive(
+beehive_id NUMBER PRIMARY KEY,
+beehive_weight NUMBER DEFAULT 50
+);
+CREATE TABLE bear_beehive(
+bear_id NUMBER,
+beehive_id NUMBER
+);
+
+ALTER TABLE bear 
+ADD CONSTRAINT fk_bear_bear_type
+FOREIGN KEY (bear_type_id) REFERENCES bear_type(bear_type_id);
+
+ALTER TABLE bear
+ADD CONSTRAINT fk_bear_cave_id
+FOREIGN KEY (cave_id) REFERENCES cave(cave_id);
+
+ALTER TABLE bear_beehive
+ADD CONSTRAINT fk_bear_beehive_bear_id
+FOREIGN KEY (bear_id) REFERENCES bear(bear_id);
+
+ALTER TABLE bear_beehive
+ADD CONSTRAINT fk_bear_beehive_beehive_id
+FOREIGN KEY (beehive_id) REFERENCES beehive(beehive_id);
+
+ALTER TABLE bear
+ADD CONSTRAINT ck_bear_weight_positive
+CHECK (bear_weight > 0);
+
+ALTER TABLE beehive
+ADD CONSTRAINT ck_beehive_weight_positive
+CHECK(beehive_weight > 0);
+
+ALTER TABLE cave
+ADD CONSTRAINT uq_cave_name
+UNIQUE(cave_name);
+
+ALTER TABLE bear_type
+ADD CONSTRAINT uq_bear_type_name
+UNIQUE (bear_type_name);
+
+CREATE OR REPLACE PROCEDURE bearpro
+(cave_name IN VARCHAR2, bear_name IN VARCHAR2, bear_birthdate IN DATE)
+AS
+BEGIN
+INSERT INTO cave (cave_id, cave_name) VALUES(1, cave_name);
+INSERT INTO beehive VALUES(mytestseq.NEXTVAL, 50);
+INSERT INTO bear_type VALUES(1, 'black');
+
+INSERT INTO bear (bear_id,bear_type_id,bear_name,bear_birthdate,bear_weight,cave_id) 
+    VALUES (mytestseq.NEXTVAL, 1, bear_name, bear_birthdate, 2000, 1);
+COMMIT;
+END;
+/
+
+--create or replace procedure add_bear
+--(cave_name in varchar2, bear_name in varchar2, bear_birthdate in date, bear_weight in number)
+--AS
+--begin
+--if( cave_name not in (select cave_name from cave) ) then
+--cave_ID:= mytestseq.nextval;
+--insert into cave values (cave_ID, cave_name);
+--else
+--cave_ID:= select cave_ID from cave where cave.cave_name = cave_name;
+--end if;
+--insert into bear (bear_name, bear_birthdate,bear_weight,cave_ID) values (bear_name, bear_birthdate,bear_weight,cave_ID);
+--commit;
+--end;
+--/
+
+execute bearpro('Matt''s Cave', 'Matt Bonds', to_date('07-24-2013','MM-DD-YYYY'));
+
+
+
+select bear_type.bear_type_name, bear.bear_name, bear_weight, cave.cave_name, cave.max_bears, beehive.beehive_ID, beehive.beehive_weight
+from bear join bear_type on bear.bear_type_id = bear_type.bear_type_id
+join cave on bear.cave_ID =cave.cave_ID
+join bear_beehive on bear.bear_ID = bear_beehive.bear_ID
+join beehive on bear_beehive.beehive_ID = beehive.beehive_ID
+;
+
+select bear_type.bear_type_name, bear.bear_name, bear_weight, cave.cave_name, cave.max_bears, beehive.beehive_ID, beehive.beehive_weight 
+from bear full join bear_type on bear.bear_type_id = bear_type.bear_type_id
+full join cave on bear.cave_ID =cave.cave_ID
+full join bear_beehive on bear.bear_ID = bear_beehive.bear_ID
+full join beehive on bear_beehive.beehive_ID = beehive.beehive_ID
+;
+
+
+-- CURSORS
+-- Procedure with a cursor as an out parameter
+CREATE OR REPLACE PROCEDURE get_all_albums
+(S OUT SYS_REFCURSOR)
+IS
+BEGIN
+OPEN S FOR 
+SELECT albumid, title FROM album;
+END;
+/
+
+SET SERVEROUT ON;
+
+DECLARE S SYS_REFCURSOR;
+album_id album.albumid%TYPE; -- set album_id to whatever datatype albumID is
+album_name album.title%TYPE;
+BEGIN
+    get_all_albums(S);
+    LOOP
+        FETCH S INTO album_id, album_name;
+        EXIT WHEN S%notfound; -- break out of loop when no more rows available
+        dbms_output.put_line(album_id || ' is current ID, ''' ||album_name||''' is current name.');
+    END LOOP;
+    CLOSE S;
+END;
+/

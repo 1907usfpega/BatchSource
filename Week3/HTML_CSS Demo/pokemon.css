@@ -1,0 +1,32 @@
+.bug{color:lightgreen}
+.dark{color: black}
+.dragon{color: blueviolet}
+.electric{color: orange}
+.fairy{color: pink}
+.fighting{color: brown}
+.fire{color: red}
+.flying{color: blue}
+.ghost{color: darkblue}
+.grass{color: green}
+.ground{color: chocolate}
+.ice{color: lightblue}
+.ice{color: gray}
+.poison{color: purple}
+.psychic{color: hotpink}
+.rock{color: sandybrown}
+.steel{color: darkgray}
+.water{color: blue}
+
+body{
+    background-color: cornsilk;
+}
+
+img{
+    width: 30%;
+}
+
+
+
+
+
+
