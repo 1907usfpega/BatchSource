@@ -28,49 +28,87 @@ public class BankAccountDaoImpl implements BankAccountDao
 		call.setDouble(3, funds);
 		call.execute();
 	}
-	
-	public void depositFunds(int acctID) throws SQLException
+
+	public void depositFunds(int acctID, int userID) throws SQLException
 	{
 		double amount = 0;
+		boolean found = false;
 		Scanner s = new Scanner(System.in);
+		UserAccountDaoImpl userDao = new UserAccountDaoImpl();
+		BankAccount b = new BankAccount();
+		
+		
+		for(BankAccount current : userDao.getBankAccountList(userID))
+		{
+			if(current.getBankacctID() == acctID)
+			{
+				b = current;
+				found = true;
+			}
+		}
+		if(found == false)
+		{
+			System.out.println("User does not have access to that account ID");
+			return;
+		}
 		System.out.println("Enter the amount you wish to deposit: ");
 		amount = s.nextDouble();
 		s.nextLine();
-		Connection conn = cf.getConnection();
-		String sql = "{ call DEPOSIT(?, ?)";
-		CallableStatement call = conn.prepareCall(sql);
-		call.setInt(1, acctID);
-		call.setDouble(2, amount);
-		call.execute();
+		if(amount < 0)
+		{
+			System.out.println("Underdaft Exception: You attempted to deposit a negavite number into the "+b.getAccountName()+" account");
+		}
+		else
+		{
+			Connection conn = cf.getConnection();
+			String sql = "{ call DEPOSIT(?, ?)";
+			CallableStatement call = conn.prepareCall(sql);
+			call.setInt(1, acctID);
+			call.setDouble(2, amount);
+			call.execute();
+			System.out.println("New Balance for "+b.getAccountName()+": "+b.getFunds()+amount);
+		}
+		
 	}
 
-	public void withdrawFunds(int acctID) throws SQLException, OverdraftException
+	public void withdrawFunds(int acctID, int userID) throws SQLException, OverdraftException
 	{
 		double amount = 0;
+		boolean found = false;
 		Scanner s = new Scanner(System.in);
-		BankAccountDaoImpl bankDao = new BankAccountDaoImpl();
+		UserAccountDaoImpl userDao = new UserAccountDaoImpl();
 		BankAccount b = new BankAccount();
-		do
+				
+		for(BankAccount current : userDao.getBankAccountList(userID))
 		{
-			System.out.println("Enter the amount you wish to withdraw: ");
-			amount = s.nextDouble();
-			s.nextLine();
-			
-			for(BankAccount current : bankDao.getAccountsList())
+			if(current.getBankacctID() == acctID)
 			{
-				if(current.getBankacctID() == acctID)
-				{
-					b = current;
-				}
+				b = current;
+				found = true;
 			}
-		}while(amount > b.getFunds());
-		
-		Connection conn = cf.getConnection();
-		String sql = "{ call WITHDRAW(?, ?)";
-		CallableStatement call = conn.prepareCall(sql);
-		call.setInt(1, acctID);
-		call.setDouble(2, amount);
-		call.execute();
+		}
+		if(found == false)
+		{
+			System.out.println("User does not have access to that account ID");
+			return;
+		}
+		System.out.println("Enter the amount you wish to withdraw: ");
+		amount = s.nextDouble();
+		s.nextLine();
+		if(amount > b.getFunds())
+		{
+			System.out.println("OverdraftException: You attempted to withdraw more funds than were available in the "+b.getAccountName()+" account");
+		}
+		else
+		{
+			Connection conn = cf.getConnection();
+			String sql = "{ call WITHDRAW(?, ?)";
+			CallableStatement call = conn.prepareCall(sql);
+			call.setInt(1, acctID);
+			call.setDouble(2, amount);
+			call.execute();
+			System.out.println("New Balance for "+b.getAccountName()+": "+(b.getFunds()-amount));
+		}
 	}
 	
 	public void deleteAccount(int acctID) throws SQLException
