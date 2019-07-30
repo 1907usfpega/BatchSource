@@ -319,6 +319,9 @@ public class User {
 			a = Account.checkAccount(accountid, u.getUserid());
 			if(a != null && a.getBalance() == 0) {
 				Account.deleteAccount(accountid);
+			} else {
+				System.out.println("We either could not find an account under you with that id "
+						+ "or your account balance doesn't allow deletion.");
 			}
 		} 
 		//check if account == 0

@@ -58,7 +58,7 @@ public class LoginDaoImpl implements ILoginDao {
 		return login;
 	}
 	
-	//returns the login id of a user will look over code to see if i still needed this
+	//returns the login id of a user
 	public int getLoginId(int userid) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "SELECT loginid FROM login WHERE userid = ?";
