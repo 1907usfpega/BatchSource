@@ -95,7 +95,7 @@ public class Driver
 		System.out.println("Program Terminated, Have A Nice Day!");
 		//s.close();
 	}
-	
+
 	//Question Methods Section
 	
 	public static void question1()
