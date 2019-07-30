@@ -116,9 +116,13 @@ public class AccountMenu {
 
 	private static void cancelAcct(String user, String uniqueID) {
 		// TODO Auto-generated method stub
-		MO.adi.changeAStatus(Integer.parseInt(uniqueID), "Cancelled");
-		System.out.println("\nAccount Cancelled");
-		
+		if(MO.adi.getBalance(Integer.parseInt(uniqueID)) == 0) {
+			MO.adi.changeAStatus(Integer.parseInt(uniqueID), "Cancelled");
+			System.out.println("\nAccount Cancelled");
+		}
+		else {
+			System.out.println("\nSorry, balance must be zero.");
+		}
 	}
 
 	public static void withdraw(String user, String act) {
