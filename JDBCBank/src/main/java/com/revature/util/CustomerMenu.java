@@ -3,6 +3,7 @@ package com.revature.util;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import com.revature.beans.Account;
 import com.revature.beans.Customer;
@@ -10,6 +11,7 @@ import com.revature.beans.Transaction;
 import com.revature.daoimpl.AccountDaoImpl;
 import com.revature.daoimpl.TransactionDaoImpl;
 import com.revature.daoimpl.UserDaoImpl;
+import com.revature.exceptions.InvalidLoginException;
 
 /*
  * Extends Menu. For use for customer-enabled functionality.
@@ -32,10 +34,17 @@ public class CustomerMenu extends Menu {
 		System.out.println("Please enter your password.");
 		String password = in.next();
 		try {
+			boolean bool = udi.verifyPassword(username, password);
+			if (bool == false)
+			{
+				throw new InvalidLoginException();
+			}
 			cust = udi.getCustomer(username, password);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (InvalidLoginException e) {
+			throw new InvalidLoginException("Invalid password. Please try again.", e);
 		}
 		mainMenu(cust);
 			
@@ -100,6 +109,12 @@ public class CustomerMenu extends Menu {
 					e.printStackTrace();
 				}
 				System.out.println("Returning to top menu.");
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				transactionMenu(cust);
 			}
 			//Withdrawals
@@ -114,6 +129,12 @@ public class CustomerMenu extends Menu {
 					e.printStackTrace();
 				}
 				System.out.println("Don't spend it all in one place. :D \nReturning to top menu.");
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				transactionMenu(cust);
 			}
 			//Transfers
@@ -130,6 +151,12 @@ public class CustomerMenu extends Menu {
 					e.printStackTrace();
 				}
 				System.out.println("Transfer complete. Returning to top menu.");
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				transactionMenu(cust);
 			}
 			//Gets balance.
@@ -137,8 +164,20 @@ public class CustomerMenu extends Menu {
 			{
 				Double bal = acct.getBalance();
 				System.out.println("Your current balance is $" + bal);
+				try {
+					TimeUnit.SECONDS.sleep(3);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				System.out.println();
 				System.out.println("Returning to top menu.");
+				try {
+					TimeUnit.SECONDS.sleep(1);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				transactionMenu(cust);
 			}
 			//Returns transaction history.
@@ -157,6 +196,12 @@ public class CustomerMenu extends Menu {
 				}
 				finally
 				{
+					try {
+						TimeUnit.SECONDS.sleep(3);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					transactionMenu(cust);
 				}
 			}

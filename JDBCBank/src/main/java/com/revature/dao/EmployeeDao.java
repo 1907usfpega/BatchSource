@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.revature.beans.Customer;
 import com.revature.beans.Employee;
+import com.revature.exceptions.InvalidLoginException;
 
 public interface EmployeeDao {
 	/*
@@ -23,4 +24,5 @@ public interface EmployeeDao {
 	
 	public abstract List<Customer> getCustomerList() throws SQLException;
 
+	public abstract boolean verifyPassword(String username, String password) throws SQLException, InvalidLoginException;
 }

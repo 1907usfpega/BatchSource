@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.revature.beans.Customer;
+import com.revature.exceptions.InvalidLoginException;
 
 /*
  * Interface for all basic user account creation needs.
@@ -18,5 +19,7 @@ public interface UserDao {
 		public abstract void updateCustomer(Integer userid, String field, String newVal) throws SQLException;
 		
 		public abstract Customer getCustomer(String username, String password) throws SQLException;
+		
+		public abstract boolean verifyPassword(String username, String password) throws SQLException, InvalidLoginException;
 
 }

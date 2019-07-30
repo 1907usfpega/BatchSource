@@ -3,6 +3,7 @@ package com.revature.util;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import com.revature.beans.Account;
 import com.revature.beans.Customer;
@@ -12,6 +13,7 @@ import com.revature.daoimpl.AccountDaoImpl;
 import com.revature.daoimpl.EmployeeDaoImpl;
 import com.revature.daoimpl.TransactionDaoImpl;
 import com.revature.daoimpl.UserDaoImpl;
+import com.revature.exceptions.InvalidLoginException;
 
 /*
  * Menu specific to admin based functions. Should note that some functions available to Admins not available for other Employees.
@@ -40,10 +42,17 @@ public class AdminMenu extends Menu {
 		System.out.println("Please enter your password.");
 		String password = in.next();
 		try {
+			boolean bool = edi.verifyPassword(username, password);
+			if (bool == false)
+			{
+				throw new InvalidLoginException();
+			}
 			empl = edi.getEmployee(username, password);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (InvalidLoginException e) {
+			throw new InvalidLoginException("Invalid password. Please try again.", e);
 		}
 		mainMenu(empl);
 	}
@@ -446,10 +455,17 @@ public class AdminMenu extends Menu {
 		
 		switch (sel)
 		{
+			//Balance
 			case 1:
 			{
 				System.out.println(acct.getBalance());
 				System.out.println();
+				try {
+					TimeUnit.SECONDS.sleep(3);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 				accountMenu(employee, acct);
 				break;
 			}
@@ -468,6 +484,12 @@ public class AdminMenu extends Menu {
 				}
 				finally
 				{
+					try {
+						TimeUnit.SECONDS.sleep(1);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					accountMenu(employee, acct);
 				}
 				break;
@@ -487,6 +509,12 @@ public class AdminMenu extends Menu {
 				}
 				finally
 				{
+					try {
+						TimeUnit.SECONDS.sleep(1);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					accountMenu(employee, acct);
 				}
 				break;
@@ -507,6 +535,12 @@ public class AdminMenu extends Menu {
 				}
 				finally
 				{
+					try {
+						TimeUnit.SECONDS.sleep(1);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					accountMenu(employee, acct);
 				}
 				break;
@@ -527,6 +561,12 @@ public class AdminMenu extends Menu {
 				}
 				finally
 				{
+					try {
+						TimeUnit.SECONDS.sleep(3);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					accountMenu(employee, acct);
 				}
 			}

@@ -12,6 +12,7 @@ import java.util.List;
 import com.revature.beans.Customer;
 import com.revature.beans.Employee;
 import com.revature.dao.EmployeeDao;
+import com.revature.exceptions.InvalidLoginException;
 import com.revature.util.ConnFactory;
 
 /*
@@ -87,6 +88,27 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			customerList.add(s);
 		}
 		return customerList;
+	}
+
+	
+	public boolean verifyPassword(String username, String password) throws SQLException, InvalidLoginException {
+		Connection conn = cf.getConnection();
+		//Statement - compiles on SQL side. Generally terrible. Allows for SQL Injection. Headaches. DON'T DO IT.
+		String sql = "SELECT PASSWORD FROM EMPLOYEE WHERE USERNAME = ?";
+		String pw = null;
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, username);
+		ResultSet rs = ps.executeQuery();
+		while (rs.next())
+		{
+			//ResultSet columns start at 1.
+			pw = rs.getString(1);
+		}
+		if (password.equals(pw))
+		{
+			return true;
+		}
+		else return false;
 	}
 
 }
