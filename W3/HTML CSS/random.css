@@ -1,0 +1,35 @@
+body {
+    background-color: black;
+}
+
+div {
+    color: red;
+}
+
+/* .means class */
+.c1 {
+    background-color: seagreen;
+}
+
+.demo {
+    background-color: springgreen;
+    text-align: right;
+}
+
+/* # means id */
+
+#a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+#b {
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+div.c1 {
+    background: pink
+}
+
+#nuts {
+    float: center
+}
