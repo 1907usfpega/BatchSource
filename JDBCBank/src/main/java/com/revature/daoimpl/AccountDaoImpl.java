@@ -16,6 +16,8 @@ import com.revature.util.ConnFactory;
 
 /*
  * Implementation of bank account related things. Potential issues: Multiple account shared by same user ID when called. May look to address this later.
+ * AUTHOR: redc
+ * TODO: Resolve issues with users having multiple accounts. May need to handle this from Menu classes. Possibly a selector?
  */
 
 public class AccountDaoImpl implements AccountDao {
@@ -79,6 +81,23 @@ public class AccountDaoImpl implements AccountDao {
 		Statement stmt = conn.createStatement();
 		//SEMICOLON built into query. Nice. :D
 		ResultSet rs = stmt.executeQuery("SELECT * FROM ACCOUNT");
+		Account s = null;
+		while (rs.next())
+		{
+			//ResultSet columns start at 1.
+			s = new Account(rs.getInt(1), rs.getInt(2), rs.getDouble(3), rs.getString(4));
+			accountList.add(s);
+		}
+		return accountList;
+	}
+	
+	public List<Account> getAccountsByUser(int userID) throws SQLException {
+		List<Account> accountList = new ArrayList<Account>();
+		Connection conn = cf.getConnection();
+		String sql = "SELECT * FROM ACCOUNT WHERE USERID = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, userID);
+		ResultSet rs = ps.executeQuery();
 		Account s = null;
 		while (rs.next())
 		{

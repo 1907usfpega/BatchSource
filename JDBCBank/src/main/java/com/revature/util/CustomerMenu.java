@@ -14,7 +14,9 @@ import com.revature.daoimpl.UserDaoImpl;
 import com.revature.exceptions.InvalidLoginException;
 
 /*
- * Extends Menu. For use for customer-enabled functionality.
+ * Extends Menu. For use for customer-enabled functionality. Customer facing point of contact with program.
+ * AUTHOR: redc
+ * TODO: 
  * 
  */
 
@@ -54,7 +56,7 @@ public class CustomerMenu extends Menu {
 	public static void mainMenu(Customer cust)
 	{
 		System.out.println("Welcome, " + cust.getFirstname() + "!");
-		System.out.println("1. Make a transaction \n2. Update your info \n3. Log off");
+		System.out.println("1. Make a transaction \n2. Update your info \n3. Create new account \n4. Log off");
 		Scanner in = new Scanner(System.in);
 		int sel = in.nextInt();
 		switch (sel)
@@ -71,6 +73,10 @@ public class CustomerMenu extends Menu {
 			}
 			case 3:
 			{
+				newAccountMenu(cust);
+			}
+			case 4:
+			{
 				in.close();
 				System.out.println("Thank you for your patronage. Have a great day!");
 				System.exit(0);
@@ -78,19 +84,70 @@ public class CustomerMenu extends Menu {
 		}
 	}
 	
+	//Method for creating new accounts for existing users.
+	private static void newAccountMenu(Customer cust) {
+		AccountDaoImpl adi = new AccountDaoImpl();
+		Account acct = null;
+		Scanner in = new Scanner(System.in);
+		System.out.println("Will this be a checking or a savings account? (checking/savings)");
+		String type = in.next();
+		System.out.println("Finally, how much will you be depositing for your initial balance?");
+		double val = in.nextDouble();
+		if (val <= 0.00)
+		{
+			System.out.println("We're sorry, we require a deposit of any value to secure the account.");
+			mainMenu(cust);
+		}
+		else
+		{
+			System.out.println("Great, we'll get that set up!");
+			try {
+				adi.createAccount(cust.getUserId(), val, type);
+				acct = adi.getAccount(cust.getUserId());
+				System.out.println("Fantastic! Your account has been setup. Your account number is " + acct.getAcctNo());
+				System.out.println("Please keep it in a safe place. \n\nYou're all set! Please login again to get started. Have a great day!");
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			finally
+			{
+				mainMenu(cust);
+			}
+		}
+		
+	}
+
 	//Perhaps use this time to get account info?
 	public static void transactionMenu(Customer cust)
 	{
 		AccountDaoImpl adi = new AccountDaoImpl();
 		TransactionDaoImpl tdi = new TransactionDaoImpl();
+		
+		Scanner in = new Scanner(System.in);
+		
 		try {
-			acct = adi.getAccount(cust.getUserId());
+			ArrayList<Account> accounts = new ArrayList<Account>(adi.getAccountsByUser(cust.getUserId()));
+			for (int i = 0; i < accounts.size(); i++)
+			{
+				System.out.println("Account #" + accounts.get(i).getAcctNo() + "            Balance: $" + accounts.get(i).getBalance());
+			}
+			if (accounts.size() > 1)
+			{
+				System.out.println("Which account number would you like to access today?");
+				int acctNo = in.nextInt();
+				acct = adi.getAccountbyNo(acctNo);
+			}
+			else
+			{
+				acct = adi.getAccount(cust.getUserId());
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		Scanner in = new Scanner(System.in);
+		
 		System.out.println("Transaction menu");
 		System.out.println("1. Deposit \n2. Withdrawal \n3. Transfer \n4. Balance Inquiry \n5. Transaction history \n6. Close account \n7. Return to main menu");
 		int sel = in.nextInt();
