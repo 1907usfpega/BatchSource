@@ -61,21 +61,23 @@ public class Menu {
 				+ "1. View User\n"
 				+ "2. Create New User\n"
 				+ "3. Update User Password\n"
-				+ "4. Withdraw for User\n"
-				+ "5. Deposit for User\n"
-				+ "6. Remove User\n"
-				+ "7. Logout\n");
+				+ "4. Create New Account\n"
+				+ "5. Close Account\n"
+				+ "6. Withdraw for User\n"
+				+ "7. Deposit for User\n"
+				+ "8. Remove User\n"
+				+ "9. Logout\n");
 	}
 	
 	public static void viewUser() {
 		System.out.println("Enter the Username\n");
 	}
 	
-	public static void adminAcctCreation1() {
+	public static void adminUserCreation1() {
 		System.out.println("Enter Username\n");
 	}
 	
-	public static void adminAcctCreation2() {
+	public static void adminUserCreation2() {
 		System.out.println("Enter Password\n");
 	}
 	
@@ -113,6 +115,22 @@ public class Menu {
 	
 	public static void removeUser() {
 		System.out.println("Enter the name of the user to be deleted.");
+	}
+	
+	public static void adminAcctCreate1() {
+		System.out.println("Enter the name of the user you are creating this account for.");
+	}
+	
+	public static void adminAcctCreate2() {
+		System.out.println("Enter the nickname for the account.");
+	}
+	
+	public static void adminDelAcct1() {
+		System.out.println("Enter the name of the user whose account you are closing.");
+	}
+	
+	public static void adminDelAcct2() {
+		System.out.println("Enter the nickname for the account.");
 	}
 	
 	public static void puar() {

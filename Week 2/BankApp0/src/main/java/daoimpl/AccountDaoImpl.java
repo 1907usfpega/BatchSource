@@ -72,5 +72,27 @@ public class AccountDaoImpl implements AccountDao {
 			column = 1;
 		}
 	}
+
+	public double getBalance(int UID, String nickname) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "SELECT BALANCE FROM ACCOUNT WHERE USER_ID = ? AND ACCOUNT_NICKNAME = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, UID);
+		ps.setString(2, nickname);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) return rs.getDouble(1);
+		return -1.0;
+	}
+
+	public boolean accountExists(int UID, String nickname) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "SELECT * FROM ACCOUNT WHERE USER_ID = ? AND ACCOUNT_NICKNAME = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setInt(1, UID);
+		ps.setString(2, nickname);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) return true;
+		return false;
+	}
 	
 }

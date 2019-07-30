@@ -34,10 +34,11 @@ public class Driver {
 		if (username.equals("Goku")) {
 			int inToInt = 0;
 			double inToDouble = 0.0;
+			double balance = 0.0;
 			String input = "";
 			String un = "";
 			String pw = "";
-			while (inToInt != 7) {
+			while (inToInt != 9) {
 				Menu.adminMenu();
 				System.out.print("> ");
 				input = sc.nextLine();
@@ -46,7 +47,7 @@ public class Driver {
 				} else {
 					Menu.cls();
 					Menu.puar();
-					System.out.println("Invalid Input: You must enter a number!");
+					System.out.println("Invalid Input: You must enter a number and it must be positive!");
 					continue;
 				}
 				switch (inToInt) {
@@ -68,10 +69,10 @@ public class Driver {
 				case 2:
 					Menu.cls();
 					Menu.puar();
-					Menu.adminAcctCreation1();
+					Menu.adminUserCreation1();
 					System.out.print("> ");
 					un = sc.nextLine();
-					Menu.adminAcctCreation2();
+					Menu.adminUserCreation2();
 					System.out.print("> ");
 					pw = sc.nextLine();
 					try {
@@ -108,6 +109,52 @@ public class Driver {
 				case 4:
 					Menu.cls();
 					Menu.puar();
+					Menu.adminAcctCreate1();
+					System.out.print("> ");
+					un = sc.nextLine();
+					Menu.adminAcctCreate2();
+					System.out.print("> ");
+					input = sc.nextLine();
+					try {
+						UserDaoImpl udi = new UserDaoImpl();
+						AccountDaoImpl adi = new AccountDaoImpl();
+						if(adi.accountExists(udi.getUID(un), input)) {
+							Menu.cls();
+							Menu.puar();
+							System.out.println(un + " already has an account with that nickname.");
+							break;
+						}
+						adi.createAccount(input, udi.getUID(un));
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					Menu.cls();
+					Menu.puar();
+					System.out.println("Account " + input + " created for " + un);
+					break;
+				case 5:
+					Menu.cls();
+					Menu.puar();
+					Menu.adminDelAcct1();
+					System.out.print("> ");
+					un = sc.nextLine();
+					Menu.adminDelAcct2();
+					System.out.print("> ");
+					input = sc.nextLine();
+					try {
+						UserDaoImpl udi = new UserDaoImpl();
+						AccountDaoImpl adi = new AccountDaoImpl();
+						adi.deleteAccount(input, udi.getUID(un));
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					Menu.cls();
+					Menu.puar();
+					System.out.println("Account " + input + " closed for " + un);
+					break;
+				case 6:
+					Menu.cls();
+					Menu.puar();
 					Menu.withdrawForUser1();
 					System.out.print("> ");
 					un = sc.nextLine();
@@ -126,13 +173,24 @@ public class Driver {
 					try {
 						AccountDaoImpl adi = new AccountDaoImpl();
 						UserDaoImpl udi = new UserDaoImpl();
-						adi.withdraw(input, inToInt, udi.getUID(un));
+						balance = adi.getBalance(udi.getUID(un), input);
+						if(balance < inToDouble) {
+							Menu.cls();
+							Menu.puar();
+							System.out.println("This transaction cannot be completed as"
+									+ " it will cause an overdraft.");
+							break;
+						}
+						adi.withdraw(input, inToDouble, udi.getUID(un));
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					Menu.cls();
+					Menu.puar();
+					System.out.println("$" + inToDouble + " Withdrawn from " + un + "'s Account: " + input + "\n");
 					break;
-				case 5:
+				case 7:
 					Menu.cls();
 					Menu.puar();
 					Menu.depositForUser1();
@@ -153,13 +211,16 @@ public class Driver {
 					try {
 						AccountDaoImpl adi = new AccountDaoImpl();
 						UserDaoImpl udi = new UserDaoImpl();
-						adi.deposit(un, inToDouble, udi.getUID(un));
+						adi.deposit(input, inToDouble, udi.getUID(un));
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
+					Menu.cls();
+					Menu.puar();
+					System.out.println("$" + inToDouble + " Deposited into " + un + "'s Account: " + input +"\n");
 					break;
-				case 6:
+				case 8:
 					Menu.cls();
 					Menu.puar();
 					Menu.removeUser();
@@ -176,7 +237,7 @@ public class Driver {
 					Menu.puar();
 					System.out.println(un + " deleted from User Database");
 					break;
-				case 7:
+				case 9:
 					Menu.cls();
 					Menu.puar();
 					break;
@@ -190,6 +251,7 @@ public class Driver {
 		} else {
 			int inToInt = 0;
 			double inToDouble = 0.0;
+			double balance = 0.0;
 			String input = "";
 			while (inToInt != 6) {
 				Menu.mainMenu();
@@ -200,7 +262,7 @@ public class Driver {
 				} else {
 					Menu.cls();
 					Menu.puar();
-					System.out.println("Invalid Input: You must enter a number!");
+					System.out.println("Invalid Input: You must enter a number and it must be positive!");
 					continue;
 				}
 				switch (inToInt) {
@@ -222,6 +284,12 @@ public class Driver {
 					try {
 						AccountDaoImpl adi = new AccountDaoImpl();
 						UserDaoImpl udi = new UserDaoImpl();
+						if(adi.accountExists(udi.getUID(username), input)) {
+							Menu.cls();
+							Menu.puar();
+							System.out.println("You already have an account with that nickname.");
+							break;
+						}
 						adi.createAccount(input, udi.getUID(username));
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
@@ -239,6 +307,14 @@ public class Driver {
 					try {
 						AccountDaoImpl adi = new AccountDaoImpl();
 						UserDaoImpl udi = new UserDaoImpl();
+						balance = adi.getBalance(udi.getUID(username), input);
+						if(balance != 0.0) {
+							Menu.cls();
+							Menu.puar();
+							System.out.println("Your account must be empty before you can delete it\n"
+									+ "Please withdraw your funds or see a teller in person at the Saiyan Bank!");
+							break;
+						}
 						adi.deleteAccount(input, udi.getUID(username));
 					} catch (SQLException e) {
 						e.printStackTrace();
@@ -278,14 +354,21 @@ public class Driver {
 					if (!Util.isValidDouble(input)) {
 						System.out.println("That is not a valid dollar amount.\n");
 						break;
-					}
-					else
+					} else
 						inToDouble = Double.parseDouble(input);
 					Menu.deposit2();
 					input = sc.nextLine();
 					try {
 						AccountDaoImpl adi = new AccountDaoImpl();
 						UserDaoImpl udi = new UserDaoImpl();
+						balance = adi.getBalance(udi.getUID(username), input);
+						if(balance < inToDouble) {
+							Menu.cls();
+							Menu.puar();
+							System.out.println("This transaction cannot be completed as"
+									+ " it will cause an overdraft.");
+							break;
+						}
 						adi.withdraw(input, inToDouble, udi.getUID(username));
 					} catch (SQLException e) {
 						// TODO Auto-generated catch block
