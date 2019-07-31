@@ -35,15 +35,15 @@ public class BankingConsole
 			//userDao.createNewUser("Hello World", "hworld", "earthy");
 			//bankDao.createNewAccount(1, "Checking", 120.0);
 			currentUsers = userDao.getUserList();
-			System.out.println(userDao.getUserList());
-			System.out.println(bankDao.getAccountsList());
+			//System.out.println(userDao.getUserList());
+			//System.out.println(bankDao.getAccountsList());
 			prop.load(new FileReader("database.properties"));
 			adminUser = prop.getProperty("user");
 			adminPass = prop.getProperty("password");
 		}
 		catch(SQLException e)
 		{
-			System.out.println("damn that didnt work. ");
+			e.printStackTrace();
 		}
 		catch (FileNotFoundException e) 
 		{
@@ -260,7 +260,7 @@ public class BankingConsole
 			}
 		}
 	}
-		
+	
 	public static int promptForUserAcct()
 	{
 		int input = 0;
@@ -391,7 +391,7 @@ public class BankingConsole
 				switch(input)
 				{
 					case 1:
-						printUserAccounts();
+						//printUserAccounts();
 						userChoice = promptForUserAcct();
 						printBankAccounts(userChoice);
 						break;
@@ -411,13 +411,13 @@ public class BankingConsole
 						createBankAccount(userChoice);
 						break;
 					case 6:
-						printUserAccounts();
+						//printUserAccounts();
 						userChoice = promptForUserAcct();
 						userSecondChoice = promptForBankAcct(userChoice);
 						bankDao.depositFunds(userSecondChoice, userChoice);
 						break;
 					case 7:
-						printUserAccounts();
+						//printUserAccounts();
 						userChoice = promptForUserAcct();
 						userSecondChoice = promptForBankAcct(userChoice);
 						bankDao.withdrawFunds(userSecondChoice, userChoice);

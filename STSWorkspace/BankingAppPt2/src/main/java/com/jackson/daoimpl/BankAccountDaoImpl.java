@@ -66,7 +66,7 @@ public class BankAccountDaoImpl implements BankAccountDao
 			call.setInt(1, acctID);
 			call.setDouble(2, amount);
 			call.execute();
-			System.out.println("New Balance for "+b.getAccountName()+": "+b.getFunds()+amount);
+			System.out.println("New Balance for "+b.getAccountName()+": "+(b.getFunds()+amount));
 		}
 		
 	}
@@ -97,7 +97,7 @@ public class BankAccountDaoImpl implements BankAccountDao
 		s.nextLine();
 		if(amount > b.getFunds())
 		{
-			System.out.println("OverdraftException: You attempted to withdraw more funds than were available in the "+b.getAccountName()+" account");
+			System.out.println("Overdraft Exception: You attempted to withdraw more funds than were available in the "+b.getAccountName()+" account");
 		}
 		else
 		{
