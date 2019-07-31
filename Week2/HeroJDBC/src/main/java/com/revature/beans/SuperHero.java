@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.revature.beans;
 
 public class SuperHero {
@@ -27,4 +28,24 @@ public class SuperHero {
 	
 	
 	
+=======
+/**
+ * 
+ */
+package com.revature.beans;
+
+/**
+ * @author MajorKey
+ *
+ */
+public class SuperHero {
+
+	/**
+	 * 
+	 */
+	public SuperHero() {
+		// TODO Auto-generated constructor stub
+	}
+
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 }

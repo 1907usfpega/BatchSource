@@ -1,14 +1,18 @@
-create user admin identified by P4ssw0rd;
-GRANT CONNECT, RESOURCE TO week2db;
-GRANT DBA TO admin WITH admin OPTION;
+--To create a new user
+--and grant that user permissions
+
+/*CREATE USER jdbcbankdb IDENTIFIED BY p4ssw0rd;
+
+GRANT CONNECT, RESOURCE TO  jdbcbankdb;
+GRANT DBA TO jdbcbankdb WITH ADMIN OPTION;*/
 
 --Create the tables
 
 CREATE TABLE bankuser
 (
     userid NUMBER PRIMARY KEY,
-    firstname VARCHAR2(30) NOT NULL,
-    lastname VARCHAR2(30) NOT NULL
+    firstname VARCHAR2(50) NOT NULL,
+    lastname VARCHAR2(50) NOT NULL
 );
 
 CREATE TABLE account
@@ -22,8 +26,8 @@ CREATE TABLE account
 CREATE TABLE login
 (
     loginid NUMBER PRIMARY KEY,
-    username VARCHAR2(30) NOT NULL UNIQUE,
-    password VARCHAR2(30) NOT NULL,
+    username VARCHAR2(50) NOT NULL UNIQUE,
+    password VARCHAR2(50) NOT NULL,
     userid NUMBER,
     adminid NUMBER
 );
@@ -140,7 +144,7 @@ END insertuser;
 
 CREATE OR REPLACE PROCEDURE insertlogin(usernam VARCHAR2, passwor VARCHAR2, useri NUMBER, admini NUMBER)
 IS
-same_username VARCHAR2(30);
+same_username VARCHAR2(50);
 username_exception EXCEPTION;
 BEGIN
     INSERT INTO login(username,password,userid,adminid) VALUES(usernam,passwor,useri,admini);
@@ -192,9 +196,9 @@ BEGIN
     
     EXCEPTION
         WHEN overdraft
-        THEN DBMS_OUTPUT.PUT_LINE('Overdrafts not allowed');
+        THEN DBMS_OUTPUT.PUT_LINE('We don''t allow overdrafts');
 END updateaccount; 
 /
 
-INSERT INTO admin(firstname, lastname) VALUES('Justin' , 'Hua');
-INSERT INTO login(username,password,adminid) VALUES('Jhua','password', 1);
+INSERT INTO admin(firstname, lastname) VALUES('Deonta' , 'Kilpatrick');
+INSERT INTO login(username,password,adminid) VALUES('DeontaK','kilpatrick', 1);

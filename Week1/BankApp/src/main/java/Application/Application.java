@@ -1,4 +1,15 @@
+<<<<<<< HEAD
 
+=======
+/**
+ * If approved the information inside 
+ * the  application will be used to create an account
+ * or add to an account
+ * and gives a name to a new customer along with the foreign 
+ * key of an account_id to know which account he/she
+ * is connected to
+ */
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 package Application;
 
 import java.io.Serializable;
@@ -11,9 +22,21 @@ import java.util.Scanner;
 import Accounts.Account;
 import Driver.Test;
 
+<<<<<<< HEAD
 
 public class Application implements Serializable {
 
+=======
+/**
+ *  @author Deonta Kilpatrick
+ *  @author Justin Hua
+ */
+public class Application implements Serializable {
+
+	/**
+	 * 
+	 */
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	private static final long serialVersionUID = 4760524870134914257L;
 
 	private static List<Application> openApplications = new ArrayList<Application>();
@@ -42,7 +65,11 @@ public class Application implements Serializable {
 			do {
 				System.out.println("User Name(Will try again if username already exists): ");
 				user = keyboard.nextLine();
+<<<<<<< HEAD
 				       
+=======
+				// System.out.println();
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 			} while (checkUser(user));
 
 			String pass;
@@ -95,12 +122,26 @@ public class Application implements Serializable {
 		return true;
 	}
 
+<<<<<<< HEAD
 	
+=======
+	// static getters & setters
+
+	/**
+	 * @return the open
+	 */
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	public static List<Application> getOpenApplications() {
 		return openApplications;
 	}
 
+<<<<<<< HEAD
 	
+=======
+	/**
+	 * @param open the open to set
+	 */
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	public static void setOpenApplications(List<Application> open) {
 		Application.openApplications = open;
 	}
@@ -122,13 +163,26 @@ public class Application implements Serializable {
 		return null;
 	}
 
+<<<<<<< HEAD
 
+=======
+	// non-static getters & setters
+
+	/**
+	 * @return the login
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	 */
 	public Map<String, String> getLogin() {
 		return login;
 	}
 
+<<<<<<< HEAD
 	
+=======
+	/**
+	 * @param login the login to set
+	 */
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	public void setLogin(Map<String, String> login) {
 		this.login = login;
 	}
@@ -139,22 +193,46 @@ public class Application implements Serializable {
 		}
 	}
 
+<<<<<<< HEAD
 	
+=======
+	/**
+	 * @return the name
+	 */
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	public String getName() {
 		return name;
 	}
 
+<<<<<<< HEAD
 
+=======
+	/**
+	 * @param name the name to set
+	 */
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	public void setName(String name) {
 		this.name = name;
 	}
 
+<<<<<<< HEAD
 	
+=======
+	/**
+	 * @return the account_id
+	 */
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	public String getAccount_id() {
 		return account_id;
 	}
 
+<<<<<<< HEAD
 	
+=======
+	/**
+	 * @param account_id the account_id to set
+	 */
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	public void setAccount_id(String account_id) {
 		this.account_id = account_id;
 	}

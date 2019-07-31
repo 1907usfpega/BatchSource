@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.revature.classtypes;
 /*
  * specify what a class must do, but not how it does it(abstraction!)
@@ -9,6 +10,16 @@ package com.revature.classtypes;
  * interfaces can extend other interfaces 0+
  * All variables are implicitly static, public, and final (java8)
 
+=======
+/**
+ * 
+ */
+package com.revature.classtypes;
+
+/**
+ * @author MajorKey
+ *
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
  */
 public interface Hunt {
 	void findPrey();

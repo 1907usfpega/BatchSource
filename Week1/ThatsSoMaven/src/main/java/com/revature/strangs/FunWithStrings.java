@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.revature.strangs;
 
 public class FunWithStrings {
@@ -60,6 +61,25 @@ public class FunWithStrings {
 
 =======
 >>>>>>> 0a9b7f690da935daefecdbf30dfc932c8ec1af91
+=======
+/**
+ * 
+ */
+package com.revature.strangs;
+
+/**
+ * @author MajorKey
+ *
+ */
+public class FunWithStrings {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 	}
 
 }

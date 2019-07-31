@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <title>
+    Pokemons is the kewl
+    </title>
+</head>
+<body>
+    <input type="test" id="pkID" placeholder="Enter Pokemon Id"/>
+    <input type="submit" value="Get Pokemon Info" id= "pokesubmit">
+    <h3 id="name"></h3> 
+    <script type= "text/javascript" src="Ajax.JS"></script>
+</body>
+</html>
+
+
+<!--
+    AJAX 
+    Asynchronous JS and XML
+        xml is out, JSON is in
+        misleading since we use JSON instead of xml
+        AJAX is not a programmint lang
+        set of interactions between the XmLHttpRequest JS object in the browser and the HTML DOM
+        Asynch- because HTTP request dont need to wait for eachotherto complete
+            xN Periodocially reload sections of a page w/o affecting the rest
+            servers process request and return responses
+        AJAX workflow
+        1.create/open th XmLHttpRequest(XHR) object
+        2.define onreadystatechange function.
+        3. open our request (xhr.open(method, url, true or false))
+        4.send our request (with request body data if we want to)
+            a. Send/ Pass Data -xhr.send(...);
+            XmLHttpRequest (XHR) Object
+            Used to exchange data with a server
+            support by most modern business
+            IE 5 and 6 do not support XHR
+            We grab our XHR from the window object.
+        Methods
+            new XMLHttpRequest() - constructor 
+            abort() - cancel current request
+            getResponseHeader() - for response metadata (also getAll ResponseHeader() )
+            open (verb, url, async,)
+
+        XHR Properties
+            onreadystatechange - defines a fx to be executed when the readystate propery changes.
+            readystate - gives us the status of the XHR object. There are fice possible values, and you need to know them for life
+                0 - request not initialized 
+                1 - server connection est
+                2 - request received 
+                3 - server processing request
+                4 - response is ready (status code could be anything)
+                responseText - string containing the response contents
+                JSON.parse(xhr.responseText)
+                responseXML - for xml-formatted responses 
+                status, statusText - HTTP response code and message
+
+            Callback Function
+            passed as a parameter to another function
+            if we have nore than one AJAX request per page, we want to reuse our AJAX-specific
+            code as much as possible. We dont want to constancyly reuse
+
+-->

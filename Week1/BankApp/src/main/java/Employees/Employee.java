@@ -59,7 +59,11 @@ public class Employee {
 
 					do {
 						returningCustomer();
+<<<<<<< HEAD
 						System.out.println("Do you have anything else we can help you with? (yes/no)");
+=======
+						System.out.println("Do you have anything I can help you with? (yes/no)");
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 						response = keyboard.nextLine();
 					} while (response.equalsIgnoreCase("yes"));
 
@@ -72,7 +76,11 @@ public class Employee {
 
 					do {
 						returningCustomer();
+<<<<<<< HEAD
 						System.out.println("Do you have anything else we can help you with? (yes/no)");
+=======
+						System.out.println("Do you have anything I can help you with? (yes/no)");
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 						response = keyboard.nextLine();
 					} while (response.equalsIgnoreCase("yes"));
 
@@ -242,7 +250,11 @@ public class Employee {
 			} else if (response.equalsIgnoreCase("cancel account")) {
 				System.out.println("Okay, I'll have to send you to me manager for that....");
 				waiting();
+<<<<<<< HEAD
 				new Admin("Bob", this.test).cancelAccount(this.myCustomer,this.customerAccount);
+=======
+				new Admin("Bob", this.test).cancelAccount(this.customerAccount, this.myCustomer);
+>>>>>>> ec17887aa226515703225d76adef61fef521f005
 			} else {
 				stop();
 			}
