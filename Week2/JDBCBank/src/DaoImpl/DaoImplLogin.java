@@ -18,21 +18,26 @@ public class DaoImplLogin implements LoginDao {
 	
 	//creates a login row
 	public void createLogin(String username, String password, int userid) throws SQLException {
-		Connection conn = cf.getConnection();
-		//String outputsql = "begin dbms_output.enable(); end;";
-		String sql = "{call insertlogin(?,?,?,?)";
-		//PreparedStatement ps = conn.prepareStatement(outputsql);
-		//ps.executeUpdate();
-		CallableStatement call = conn.prepareCall(sql);
-		call.setString(1, username);
-		call.setString(2, password);
-		call.setInt(3, userid);
-		call.setNull(4, Types.INTEGER);
-		call.execute();
-		//outputsql.replace("enable", "disable");
-		//ps = conn.prepareStatement(outputsql);
-		//ps.executeUpdate();
-		System.out.println("Login Registered");
+		try {
+			Connection conn = cf.getConnection();
+			//String outputsql = "begin dbms_output.enable(); end;";
+			String sql = "{call insertlogin(?,?,?,?)";
+			//PreparedStatement ps = conn.prepareStatement(outputsql);
+			//ps.executeUpdate();
+			CallableStatement call = conn.prepareCall(sql);
+			call.setString(1, username);
+			call.setString(2, password);
+			call.setInt(3, userid);
+			call.setNull(4, Types.INTEGER);
+			call.execute();
+			//outputsql.replace("enable", "disable");
+			//ps = conn.prepareStatement(outputsql);
+			//ps.executeUpdate();
+			System.out.println("Login Registered");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	// main purpose: checks if the user pass combo is right

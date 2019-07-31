@@ -1,4 +1,4 @@
-create user admin identified by P4ssw0rd;
+create user admin identified by p4ssw0rd;
 GRANT CONNECT, RESOURCE TO week2db;
 GRANT DBA TO admin WITH admin OPTION;
 
