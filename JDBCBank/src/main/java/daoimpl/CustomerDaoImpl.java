@@ -12,17 +12,7 @@ public class CustomerDaoImpl implements CustomerDao{
 
 	public static ConnectionFactory cf = ConnectionFactory.getInstance();
 
-	public void updateCustomerName(String customerName, int customerID) throws SQLException {
-		Connection conn = cf.getConnection();
-		String sql = "{ call update_customer_name(?,?)";
-		CallableStatement call = conn.prepareCall(sql);
-		call.setString(1, customerName);
-		call.setInt(2, customerID);
-		call.execute();
-		
-	}//end updateCustomerName()
-
-	
+	//--------------------------------------Get CustomerID-----------------------------------------------------
 	public int getCustomerID(int userID) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "SELECT customer_id FROM customer WHERE fk_user_id = ?";
@@ -35,8 +25,9 @@ public class CustomerDaoImpl implements CustomerDao{
 		}
 		return testID;
 	}//end getCustomerID()
-
-
+	
+	
+	//--------------------------------------Get Customer Name-----------------------------------------------------
 	public String getCustomerName(int userID) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "SELECT customer_name FROM customer WHERE fk_user_id = ?";
@@ -50,4 +41,15 @@ public class CustomerDaoImpl implements CustomerDao{
 		return testName;
 	}//end getCustomerName()
 	
+	
+	//--------------------------------------Update Customer Name-----------------------------------------------------
+	public void updateCustomerName(String customerName, int userID) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "{ call update_customer_name(?,?)";
+		CallableStatement call = conn.prepareCall(sql);
+		call.setString(1, customerName);
+		call.setInt(2, userID);
+		call.execute();
+	}//end updateCustomerName()
+
 }//end CustomerDaoImpl class

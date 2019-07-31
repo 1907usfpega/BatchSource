@@ -16,7 +16,7 @@ public class UserActions {
 			e.printStackTrace();
 		}
 
-	}//end accountInfo()
+	}//end listAccounts()
 
 
 	//------------------------------------Create Account-------------------------------------------

@@ -120,7 +120,7 @@ public class Login{
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				CustomerScreen.customerMenu(username);  //<--Loads in a method to display the customer menu options
+				AdminScreen.adminMenu(username);  //<--Loads in a method to display the customer menu options
 			}
 
 		}//end Registration
@@ -185,7 +185,7 @@ public class Login{
 
 			//ADMIN
 			else {
-				//CustomerScreen.customerMenu(username);  //<--Loads in a method to display the admin menu options
+				AdminScreen.adminMenu(username);  //<--Loads in a method to display the admin menu options
 			}
 
 		}//end Login
