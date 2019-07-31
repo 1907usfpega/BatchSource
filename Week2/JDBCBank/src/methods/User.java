@@ -21,11 +21,7 @@ public class User {
 	private Scanner keyboard;
 	public static ConnFactory cf = ConnFactory.getInstance();
 
-	/**
-	 * @param userid
-	 * @param firstname
-	 * @param lastname
-	 */
+	
 	public User(int userid, String firstname, String lastname) {
 		super();
 		this.userid = userid;
@@ -33,61 +29,44 @@ public class User {
 		this.lastname = lastname;
 	}
 	
-	/**
-	 * @param firstname
-	 * @param lastname
-	 */
+	
 	public User(String firstname, String lastname) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
 
-	/**
-	 * 
-	 */
+	
 	public User() {
 		super();
 	}
 
-	/**
-	 * @return the userid
-	 */
+	
 	public int getUserid() {
 		return userid;
 	}
 
-	/**
-	 * @param userid the userid to set
-	 */
+	
 	public void setUserid(int userid) {
 		this.userid = userid;
 	}
 
-	/**
-	 * @return the firstname
-	 */
+	
 	public String getFirstname() {
 		return firstname;
 	}
 
-	/**
-	 * @param firstname the firstname to set
-	 */
+	
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
 
-	/**
-	 * @return the lastname
-	 */
+	
 	public String getLastname() {
 		return lastname;
 	}
 
-	/**
-	 * @param lastname the lastname to set
-	 */
+	
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
@@ -160,7 +139,7 @@ public class User {
 		keyboard = new Scanner(System.in);
 		try {
 			
-			System.out.println("Please fill out this form.");
+			System.out.println("Please provide your information.");
 			System.out.println("First Name: ");
 			String firstname = keyboard.nextLine();
 			System.out.println("Last Name: ");
@@ -172,16 +151,16 @@ public class User {
 				username = keyboard.nextLine();
 				
 				if(!Login.checkUsername(username))
-					System.out.println("Please try again that username is not available.");
+					System.out.println("username is not available.");
 				
 			}while(!Login.checkUsername(username));
 			
 			System.out.println("Password: ");
 			String password = keyboard.nextLine();
 			
-			System.out.println("End of form....\n");
+			System.out.println("End of processing:");
 			
-			System.out.println("One second while we set up everything for your account...");
+			System.out.println("Setting up your account...");
 			
 			User.createUser(firstname, lastname);
 			User user = User.viewCurrentUser();

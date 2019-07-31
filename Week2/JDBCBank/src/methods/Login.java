@@ -122,7 +122,7 @@ public class Login {
 				}
 			}
 				
-			System.out.println("That username password combination did not match anything in out records for any users.");
+			System.out.println("That username password combination does not match anything in our records for users.");
 			System.out.println("Do you want to try again?(yes/no)");
 			
 			String response = keyboard.nextLine();

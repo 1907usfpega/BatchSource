@@ -103,7 +103,6 @@ public class Account {
 	}
 	
 	public static Account checkAccount(int accountid, int userid) throws SQLException {
-		//returns an account account exists and belongs to user
 		DaoImplAccount acc = new DaoImplAccount();
 		return acc.checkAccount(accountid, userid);
 	}

@@ -19,7 +19,7 @@ public class DaoImplUser implements UserDao {
 
 	public static ConnFactory cf = ConnFactory.getInstance();
 	
-	//creates a user
+	
 	public void createUser(String firstname, String lastname) throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "{call insertuser(?,?)";
@@ -30,7 +30,7 @@ public class DaoImplUser implements UserDao {
 		System.out.println("User Created");
 	}
 
-	//returns the most recently created user
+	
 	public User getCurrentUser() throws SQLException {
 		Connection conn = cf.getConnection();
 		String sql = "Select * FROM bankuser WHERE userid = (SELECT MAX(userid) FROM bankuser)";

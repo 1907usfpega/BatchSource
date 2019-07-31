@@ -14,10 +14,11 @@ public class Driver {
 		new Driver().start();
 	}
 	
+	
 	public void start() {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Welcome to the New Bank of Java!");
-		System.out.println("Choices: ");
+		System.out.println("Choose an option: ");
 		System.out.println("1. Bank Admin");
 		System.out.println("2. User");
 		String response = keyboard.nextLine();
@@ -27,13 +28,12 @@ public class Driver {
 				new Admin().start();
 			} else if(response.equals("2")) {
 				new User().start();
-			
 			}
 			
 			keyboard.close();
 			new Driver().stop();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException se) {
+			se.printStackTrace();
 		}		
 	}
 	
