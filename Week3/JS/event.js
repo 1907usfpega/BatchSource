@@ -5,8 +5,8 @@ function bubble(event){
 }
 
 window.onload= function(){
-    document.getElementById("A").addEventListener("click",bubble,false);
-    document.getElementById("B").addEventListener("click",bubble,false);
-    document.getElementById("C").addEventListener("click",bubble,false);
-    document.getElementById("D").addEventListener("click",bubble,false);
+    document.getElementById("A").addEventListener("click",bubble,true);
+    document.getElementById("B").addEventListener("click",bubble,true);
+    document.getElementById("C").addEventListener("click",bubble,true);
+    document.getElementById("D").addEventListener("click",bubble,true);
 }
