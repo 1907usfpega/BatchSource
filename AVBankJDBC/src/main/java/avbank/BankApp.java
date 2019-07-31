@@ -90,7 +90,7 @@ public class BankApp {
 		
 		AwsConnection aws = AwsConnection.getInstance();
 		
-		boolean isAdmin = false;
+		
 		
 		String[] loginInfo = new String[2]; // {Username, Password}
 		Scanner consoleIn = new Scanner(System.in);
@@ -103,7 +103,9 @@ public class BankApp {
 		System.out.println();
 		
 		do {
+			boolean isAdmin = false;
 			do {
+				
 				// ask if new or existing user
 				System.out.println("Please type your selection below.\n");
 				System.out.println("Are you a new or existing user?");
@@ -250,7 +252,7 @@ public class BankApp {
 				adminConsole(new String[]{"admin", "admin"}); // TODO fix this garbage
 			} else {
 				// display user menu
-				//customerConsole(loginInfo);
+				customerConsole(loginInfo);
 			}
 			// logout has occurred
 		
@@ -329,16 +331,16 @@ public class BankApp {
 					} else if (mode.equals("help")) {
 						// TODO maybe just delete this option
 					} else if (mode.equals("list")) {
-						// TODO handle list customers
+						
 						try {
 							Statement stmt = aws.getConnection().createStatement();
 							ResultSet customerSet = stmt.executeQuery("SELECT * FROM CUSTOMER");
-							System.out.println("\n\n\n\n");
+							System.out.println("\n\n");
 							System.out.println("-------------------------------------------");
 							while(customerSet.next()) {
 								System.out.printf("Customer ID: %d%nUsername: %s Password: %s%nName: %s %s %nEmail: %s Phone: %s%n-------------------------------------------%n", customerSet.getInt(1), customerSet.getString(2), customerSet.getString(3), customerSet.getString(4), customerSet.getString(5), customerSet.getString(6), customerSet.getString(7));
 							}
-							System.out.println("\n\n\n\n");				
+							System.out.println("\n\n");				
 							
 						} catch (SQLException e) {
 							e.printStackTrace();
@@ -388,6 +390,35 @@ public class BankApp {
 		AwsConnection aws = AwsConnection.getInstance();
 		Scanner customerIn = new Scanner(System.in);
 		
+		Statement stmt;
+		ResultSet customerSet = null;
+		ResultSet accountsSet;
+		
+		try {
+			stmt = aws.getConnection().createStatement();
+			customerSet = stmt.executeQuery("SELECT CUSTOMERID FROM CUSTOMER WHERE USERNAME='"+loginInfo[0]+"'");
+			//accountsSet = stmt.executeQuery("SELECT * FROM MONEY_ACCOUNTS WHERE OWNERID="+customerSet.getString("CUSTOMERID"));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		String customerID = null;
+		if (customerSet != null) {
+			try {
+				if (customerSet.next()) {
+					customerID = customerSet.getString(1);
+				} else {
+					System.out.println("The database has refused our connection and the application must quit.");
+					System.exit(1);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("The database has refused our connection and the application must quit.");
+			System.exit(1);
+		}
+		
 		String inputLine;
 		while(true) {
 			do {
@@ -395,12 +426,12 @@ public class BankApp {
 			// print menu
 				System.out.println("Welcome to the Customer Accounts Console!\n");
 				System.out.println("Command List:");
-				System.out.println("create <ownerID> <startingBalance>");
-				System.out.println("delete <AccountID>");
-				System.out.println("deposit <AccountID> <dollarAmount>");
-				System.out.println("list");
-				System.out.println("logout");
-				System.out.println("withdraw <AccountID> <dollarAmount>");
+				System.out.println("create <startingBalance>\n -- Create a new ");
+				System.out.println("delete <AccountID> \n -- Deletes the account specified by <AccountID>");
+				System.out.println("deposit <AccountID> <dollarAmount>\n -- Deposits the <dollarAmount> <AccountID>");
+				System.out.println("list \n -- List all the accounts you own.");
+				System.out.println("logout \n -- End the session and go back to the login screen.");
+				System.out.println("withdraw <AccountID> <dollarAmount> \n -- Withdraw the dollarAmount for the specified account.");
 				
 				inputLine = customerIn.nextLine();
 				Scanner sc = new Scanner(inputLine);
@@ -409,14 +440,19 @@ public class BankApp {
 					
 					if (mode.equals("create")) {
 						ArrayList<String> argList = new ArrayList<String>();
+						while(sc.hasNext()) {
+							argList.add(sc.next());
+						}
 						
 						try {
 							CallableStatement createCall = aws.getConnection().prepareCall("{call insertNewMoneyAccount(?, ?)}");
 							for (int i = 0; i < 2 ; i++) {
-								createCall.setString(i+1, argList.get(i));
+								//createCall.setString(i+1, argList.get(i));
 							}
+							createCall.setString(1, customerID);
+							createCall.setString(2, argList.get(0));
 							createCall.execute();
-							System.out.println("Created new account owned by userID: "+ argList.get(0));
+							System.out.println("Created a new account for you.");
 							System.out.println();
 						} catch (SQLException e) {
 							// TODO Auto-generated catch block
@@ -448,7 +484,7 @@ public class BankApp {
 						if(argList.size() == 2) { // we are ready to construct the call
 							try {
 								CallableStatement updateCall = aws.getConnection().prepareCall("{call deposit(?, ?)}");
-								for (int i = 0; i < 5 ; i++) {
+								for (int i = 0; i < 2 ; i++) {
 									updateCall.setInt(i+1, Integer.valueOf(argList.get(i)));
 								}
 								updateCall.execute();
@@ -463,6 +499,24 @@ public class BankApp {
 							System.out.println("Invalid deposit arguments supplied\n");
 						}
 					} else if (mode.equals("list")) {
+						try {
+							Statement listStatement = aws.getConnection().createStatement();
+							ResultSet customerAccounts = listStatement.executeQuery("SELECT ACCOUNTID, BALANCE, FIRSTNAME, LASTNAME FROM MONEY_ACCOUNT INNER JOIN CUSTOMER ON CUSTOMER.CUSTOMERID=MONEY_ACCOUNT.OWNERID WHERE USERNAME='"+loginInfo[0]+"'");
+							System.out.println("\n\n");
+							System.out.println("-------------------------------------------");
+							while(customerAccounts.next()) {
+								int accountID = customerAccounts.getInt(1);
+								double accountBalance = customerAccounts.getDouble(2);
+								String firstName = customerAccounts.getString(3);
+								String lastName = customerAccounts.getString(4);
+								System.out.printf("Account ID: %d%nAccountBalance: $%,.2f%nOwner Name: %s %s%n-------------------------------------------%n", accountID, accountBalance, firstName, lastName);
+							}
+							System.out.println("\n\n");				
+							
+						} catch (SQLException e) {
+							e.printStackTrace();
+							System.exit(1);
+						}
 						
 					} else if (mode.equals("logout")) {
 						System.out.println("Logging out...\n\n");
@@ -477,7 +531,7 @@ public class BankApp {
 						if(argList.size() == 2) { // we are ready to construct the call
 							try {
 								CallableStatement updateCall = aws.getConnection().prepareCall("{call withdraw(?, ?)}");
-								for (int i = 0; i < 5 ; i++) {
+								for (int i = 0; i < 2 ; i++) {
 									updateCall.setInt(i+1, Integer.valueOf(argList.get(i)));
 								}
 								updateCall.execute();
@@ -500,7 +554,7 @@ public class BankApp {
 				
 				
 			// prompt for input
-			} while(false); // do while user has not entered good input
+			} while(true); // do while user has not entered good input
 			
 			
 		}
