@@ -7,11 +7,10 @@ public class User extends Account{
 	private int  userID;
 	
 	public User() {
-		super();
+
 	}
 	
-	public User(int userID, String firstName, String lastName, String address, String city, String state, String phoneNumber, String username, String password) {
-		super();
+	public User(int userID, String firstName, String lastName, String address, String city, String state, String phoneNumber, String username, String password, int accountNumber) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
@@ -21,6 +20,8 @@ public class User extends Account{
 		this.username = username;
 		this.password = password;
 		this.userID = userID;
+		setAccountNumber(accountNumber);
+		setBalance(500);
 	}
 
 	public String getFirstName() {
@@ -99,6 +100,6 @@ public class User extends Account{
 	public String toString() {
 		return "User [firstName=" + firstName + ", lastName=" + lastName + ", address=" + address + ", city=" + city
 				+ ", state=" + state + ", phoneNumber=" + phoneNumber + ", username=" + username + ", password="
-				+ password + ", userID=" + userID + "]";
+				+ password + ", userID=" + userID + " accountNumber=" + getAccountNumber() + "]";
 	}
 }

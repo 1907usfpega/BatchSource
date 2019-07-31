@@ -27,10 +27,38 @@ public class UserDAO implements DAO<User>{
 		call.execute();	
 	}
 	
-	public void athenticateUser(String username, String password) {
-		
+	public User athenticate(String username, String password) throws SQLException {
+		List<User> users = getAll();
+		boolean authenticated = false;
+		 User user = null;
+		for(int i = 0; i < users.size(); i++) {
+			if(users.get(i).getUsername().equals(username)) {
+				if(users.get(i).getPassword().equals(password)) {
+					System.out.println("Authenticated!");
+					user = users.get(i);
+					authenticated = true;
+					break;
+				} 
+			} 
+		}
+		if(authenticated == false) {
+			System.out.println("Invalid Credentials!");
+		}
+		return user;
 	}
-	
+	public boolean usernameAvailable(String username) throws SQLException {
+		List<User> users = getAll();
+		//boolean authenticated = false;
+		 boolean available = true;
+		for(int i = 0; i < users.size(); i++) {
+			if(users.get(i).getUsername().equals(username)) {
+				System.out.println("Username Is Already Taken, Choose A Different Username.");
+				available = false;
+				break;
+			} 
+		}
+		return available;
+	}
 	
 	//DAO Interface Methods
 	public List<User> getAll() throws SQLException {
@@ -40,7 +68,7 @@ public class UserDAO implements DAO<User>{
 		ResultSet rs = stmt.executeQuery("SELECT * FROM USERTABLE");
 		User u = null;
 		while(rs.next()) {
-			u = new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9));
+			u = new User(rs.getInt(1), rs.getString(2), rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10));
 			userList.add(u);
 		}
 		return userList;
@@ -50,5 +78,14 @@ public class UserDAO implements DAO<User>{
 	public void update(User user) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public void delete(int accountNumber) throws SQLException {
+		Connection conn = cf.getConnection();
+		String sql = "{ call DELETE_USER(?)";
+		CallableStatement call = conn.prepareCall(sql);
+		call.setInt(1, accountNumber);
+		call.execute();	
+		System.out.println("Account Number " + accountNumber + " Has Been Deleted!");
 	}
 }

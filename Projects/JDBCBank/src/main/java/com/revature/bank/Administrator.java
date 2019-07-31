@@ -2,10 +2,22 @@ package com.revature.bank;
 
 
 public class Administrator {
-
+	
 	private String firstName, lastName, username, password;
 	private int adminID;
 	
+	public Administrator() {
+			
+	}
+
+	public Administrator(int adminID, String firstName, String lastName, String username, String password) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.username = username;
+		this.password = password;
+		this.adminID = adminID;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
