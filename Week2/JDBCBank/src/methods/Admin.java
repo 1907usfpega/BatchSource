@@ -12,12 +12,7 @@ public class Admin {
 	private boolean loggedIn;
 	private Scanner keyboard;
 	
-	/**
-	 * @param adminid
-	 * @param firstname
-	 * @param lastname
-	 * @param loggedIn
-	 */
+	
 	public Admin(int adminid, String firstname, String lastname, boolean loggedIn) {
 		super();
 		this.adminid = adminid;
@@ -25,65 +20,44 @@ public class Admin {
 		this.lastname = lastname;
 		this.loggedIn = loggedIn;
 	}
-	/**
-	 * @param adminid
-	 * @param firstname
-	 * @param lastname
-	 */
+	
 	public Admin(int adminid, String firstname, String lastname) {
 		super();
 		this.adminid = adminid;
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
-	/**
-	 * @param firstname
-	 * @param lastname
-	 */
+	
 	public Admin(String firstname, String lastname) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
 	}
-	/**
-	 * 
-	 */
+	
 	public Admin() {
 		super();
 	}
-	/**
-	 * @return the adminid
-	 */
+	
 	public int getAdminid() {
 		return adminid;
 	}
-	/**
-	 * @param adminid the adminid to set
-	 */
+	
 	public void setAdminid(int adminid) {
 		this.adminid = adminid;
 	}
-	/**
-	 * @return the firstname
-	 */
+	
 	public String getFirstname() {
 		return firstname;
 	}
-	/**
-	 * @param firstname the firstname to set
-	 */
+	
 	public void setFirstname(String firstname) {
 		this.firstname = firstname;
 	}
-	/**
-	 * @return the lastname
-	 */
+	
 	public String getLastname() {
 		return lastname;
 	}
-	/**
-	 * @param lastname the lastname to set
-	 */
+	
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}

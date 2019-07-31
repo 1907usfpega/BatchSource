@@ -156,19 +156,10 @@ public class User {
 	}
 	
 	public void register() throws SQLException {
-		//enter name
-		//enter login
-		//check if username available
-		//create user
-		//getcurrentuser
-		//create login with current user userid
-		//get login obj
-		//create account using login.loginid and login.userid
-		//Connection conn = cf.getConnection();
+		
 		keyboard = new Scanner(System.in);
 		try {
-			//.setAutoCommit(false);
-			//conn.setSavepoint();
+			
 			System.out.println("Please fill out this form.");
 			System.out.println("First Name: ");
 			String firstname = keyboard.nextLine();
@@ -202,14 +193,12 @@ public class User {
 			
 			Account.createAccount(login.getUserId(), login.getLoginId());
 			
-			//conn.commit();
-			//conn.setAutoCommit(true);
 			
 			user.setLoggedIn(true);
 			whatToDo(user);
 		} catch (SQLException e) {
 			System.out.println("An issue occurred while setting up your account.");
-			//conn.rollback();
+			
 			e.printStackTrace();
 		}
 		

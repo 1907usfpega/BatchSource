@@ -17,35 +17,24 @@ public class Login {
 	public Login() {
 		super();
 	}
-	/**
-	 * @param userId
-	 * @param adminId
-	 */
+	
 	public Login(int adminId, int userId) {
 		super();
 		this.userId = userId;
 		this.adminId = adminId;
 	}
-	/**
-	 * @param loginId
-	 * @param userId
-	 * @param adminId
-	 */
+	
 	public Login(int loginId, int adminId, int userId) {
 		super();
 		this.loginId = loginId;
 		this.userId = userId;
 		this.adminId = adminId;
 	}
-	/**
-	 * @return the loginId
-	 */
+	
 	public int getLoginId() {
 		return loginId;
 	}
-	/**
-	 * @param loginId the loginId to set
-	 */
+	
 	public void setLoginId(int loginId) {
 		this.loginId = loginId;
 	}
