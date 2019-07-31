@@ -38,7 +38,7 @@ public class Login{
 			String username = UserInput.isString();  //<--Stores username into String
 
 			//Checks if they created a unique username, reprompted to enter a new one if not
-			UserDaoImpl newUser = new  UserDaoImpl();
+			UserDaoImpl newUser = new UserDaoImpl();
 			try {
 				while(!newUser.checkUsername(username)) {  
 					System.out.println("\n**************************");
