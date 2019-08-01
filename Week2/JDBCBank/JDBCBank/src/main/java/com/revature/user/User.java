@@ -1,17 +1,16 @@
-/**
- * 
- */
-package user;
+package com.revature.user;
+
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-import account.Account;
-import daoimpl.LoginDaoImpl;
-import daoimpl.UserDaoImpl;
-import login.Login;
-import util.ConnFactory;
+import com.revature.account.Account;
+import com.revature.connFactory.ConnFactory;
+import com.revature.daoimpl.LoginDaoImpl;
+import com.revature.daoimpl.UserDaoImpl;
+import com.revature.login.Login;
+
 
 
 public class User {

@@ -200,5 +200,5 @@ BEGIN
 END updateaccount; 
 /
 
-INSERT INTO admin(firstname, lastname) VALUES('Deonta' , 'Kilpatrick');
-INSERT INTO login(username,password,adminid) VALUES('DeontaK','kilpatrick', 1);
+INSERT INTO admin(firstname, lastname) VALUES('Justin' , 'Hua');
+INSERT INTO login(username,password,adminid) VALUES('Jhua','password', 1);

@@ -1,14 +1,12 @@
-/**
- * 
- */
-package admin;
+package com.revature.admin;
 
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
-import login.Login;
-import user.User;
+import com.revature.login.Login;
+import com.revature.user.User;
+
 
 
 public class Admin {
@@ -17,7 +15,7 @@ public class Admin {
 	private String firstname;
 	private String lastname;
 	private boolean loggedIn;
-	private Scanner keyboard;
+	private static Scanner keyboard;
 	
 	/**
 	 * @param adminid
@@ -104,7 +102,7 @@ public class Admin {
 	public String toString() {
 		return "Admin [adminid=" + adminid + ", firstname=" + firstname + ", lastname=" + lastname + "]";
 	}
-	public void start() throws SQLException {
+	public static void start() throws SQLException {
 		System.out.println("Please sign into the admin account: ");
 		Admin a = new Login().adminLogin();
 		
@@ -113,7 +111,7 @@ public class Admin {
 			whatToDo(a);
 		}
 	}
-	public void whatToDo(Admin a) throws SQLException {
+	public static void whatToDo(Admin a) throws SQLException {
 		while(a.isLoggedIn()) {
 			keyboard = new Scanner(System.in);
 			System.out.println("What would you like to do?");
@@ -201,3 +199,5 @@ public class Admin {
 	}
 	
 }
+
+

@@ -1,6 +1,5 @@
+package com.revature.connFactory;
 
-
-package util;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

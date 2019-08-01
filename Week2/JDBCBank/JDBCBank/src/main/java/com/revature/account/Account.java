@@ -1,12 +1,11 @@
-/**
- * 
- */
-package account;
+package com.revature.account;
+
 
 import java.sql.SQLException;
 import java.util.List;
 
-import daoimpl.AccountDaoImpl;
+import com.revature.daoimpl.AccountDaoImpl;
+
 
 public class Account {
 
@@ -115,3 +114,5 @@ public class Account {
 	
 	
 }
+
+

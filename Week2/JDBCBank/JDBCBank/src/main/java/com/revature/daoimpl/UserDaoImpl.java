@@ -1,7 +1,5 @@
-/**
- * 
- */
-package daoimpl;
+package com.revature.daoimpl;
+
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -11,12 +9,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.IUserDao;
-import user.User;
-import util.ConnFactory;
+import com.revature.connFactory.ConnFactory;
+import com.revature.dao.UserDao;
+import com.revature.user.User;
 
 
-public class UserDaoImpl implements IUserDao {
+public class UserDaoImpl implements UserDao {
 
 	public static ConnFactory cf = ConnFactory.getInstance();
 	

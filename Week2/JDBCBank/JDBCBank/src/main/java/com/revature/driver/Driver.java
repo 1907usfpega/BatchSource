@@ -1,13 +1,12 @@
-/**
- * 
- */
-package driver;
+package com.revature.driver;
+
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import admin.Admin;
-import user.User;
+import com.revature.admin.Admin;
+import com.revature.user.User;
+
 
 
 public class Driver {
@@ -16,11 +15,11 @@ public class Driver {
 	 */
 	public static void main(String[] args) {		
 		//starts the bank app
-		new Driver().start();
+		start();
 	}
 	
 	//choose which route to go admin/user
-	public void start() {
+	public static void start() {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Bank of Java1");
 		System.out.println("Are you a ");
@@ -36,14 +35,14 @@ public class Driver {
 			}
 			
 			keyboard.close();
-			new Driver().stop();
+			stop();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}		
 	}
 	
 	//closing statement
-	public void stop() {
+	public static void stop() {
 		System.out.println("Well thank you for stopping by the Grand Simple Bank of Java. Have a nice day.");
 	}
 
