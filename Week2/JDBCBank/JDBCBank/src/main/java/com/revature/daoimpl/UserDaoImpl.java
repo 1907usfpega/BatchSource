@@ -26,7 +26,7 @@ public class UserDaoImpl implements UserDao {
 		call.setString(1, firstname);
 		call.setString(2, lastname);
 		call.execute();
-		System.out.println("User Created");
+		System.out.println("Userid Created");
 	}
 
 	//returns the most recently created user
@@ -88,7 +88,7 @@ public class UserDaoImpl implements UserDao {
 		call.setString(3, lastname);
 		call.execute();
 
-		System.out.println("User Updated");
+		System.out.println("Userid Updated");
 	}
 
 	//deletes a specified user from db
@@ -100,7 +100,7 @@ public class UserDaoImpl implements UserDao {
 		call.setInt(1, id);
 		call.execute();
 		
-		System.out.println("User Deleted");
+		System.out.println("Userid Deleted");
 	}
 
 }

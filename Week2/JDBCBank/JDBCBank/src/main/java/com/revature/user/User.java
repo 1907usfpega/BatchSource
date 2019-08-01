@@ -169,7 +169,7 @@ public class User {
 		try {
 			//.setAutoCommit(false);
 			//conn.setSavepoint();
-			System.out.println("Please fill out this form.");
+			System.out.println("Please complete this form with your information.");
 			System.out.println("First Name: ");
 			String firstname = keyboard.nextLine();
 			System.out.println("Last Name: ");
@@ -181,16 +181,26 @@ public class User {
 				username = keyboard.nextLine();
 				
 				if(!Login.checkUsername(username))
-					System.out.println("Please try again that username is not available.");
+					System.out.println("Username is not available. Please try again");
 				
 			}while(!Login.checkUsername(username));
 			
 			System.out.println("Password: ");
 			String password = keyboard.nextLine();
 			
-			System.out.println("End of form....\n");
+			System.out.println("Completed...");
 			
-			System.out.println("One second while we set up everything for your account...");
+			System.out.println(
+					"      # ######  ######   #####     ######                                                 #                      \r\n" + 
+					"      # #     # #     # #     #    #     #   ##   #    # #    #     ####  ######          #   ##   #    #   ##   \r\n" + 
+					"      # #     # #     # #          #     #  #  #  ##   # #   #     #    # #               #  #  #  #    #  #  #  \r\n" + 
+					"      # #     # ######  #          ######  #    # # #  # ####      #    # #####           # #    # #    # #    # \r\n" + 
+					"#     # #     # #     # #          #     # ###### #  # # #  #      #    # #         #     # ###### #    # ###### \r\n" + 
+					"#     # #     # #     # #     #    #     # #    # #   ## #   #     #    # #         #     # #    #  #  #  #    # \r\n" + 
+					" #####  ######  ######   #####     ######  #    # #    # #    #     ####  #          #####  #    #   ##   #    #");
+			
+			
+			System.out.println("...Processing Request...");
 			
 			User.createUser(firstname, lastname);
 			User user = User.viewCurrentUser();
@@ -208,7 +218,7 @@ public class User {
 			user.setLoggedIn(true);
 			whatToDo(user);
 		} catch (SQLException e) {
-			System.out.println("An issue occurred while setting up your account.");
+			System.out.println("An error occurred while creating account.");
 			//conn.rollback();
 			e.printStackTrace();
 		}
@@ -218,12 +228,12 @@ public class User {
 	public void whatToDo(User user) throws SQLException {
 		while(user.isLoggedIn()) {
 			keyboard = new Scanner(System.in);
-			System.out.println("What would you like to do?");
-			System.out.println("1. View All your Accounts");
-			System.out.println("2. Create an Account");
-			System.out.println("3. Deposit into an Account");
-			System.out.println("4. Withdraw from an Account");
-			System.out.println("5. Delete an Account");
+			System.out.println("Select from menu:");
+			System.out.println("1. View your Accounts");
+			System.out.println("2. Create a new Account");
+			System.out.println("3. Deposit into Account");
+			System.out.println("4. Withdraw from Account");
+			System.out.println("5. Delete Account");
 			System.out.println("6. Logout");
 			String response = keyboard.nextLine();
 			
@@ -258,7 +268,7 @@ public class User {
 		Account.createAccount(u.getUserid(), loginid);
 	}
 	public void deposit(User u) throws SQLException {
-		System.out.println("Please enter the account id of the account you are trying to deposit to.");
+		System.out.println("Please enter the account id to deposit amount into.");
 		
 		keyboard = new Scanner(System.in);
 		
@@ -270,13 +280,13 @@ public class User {
 		if (accountid > 0) {
 			a = Account.checkAccount(accountid,u.getUserid());
 			if(a != null) {
-				System.out.println("How much would you like to deposit?");
+				System.out.println("Deposit amount?");
 				double amount = keyboard.nextDouble();
 				keyboard.nextLine();
 				if (amount > 0) {
 					Account.depositToAccount(accountid, amount);
 				} else {
-					System.out.println("You can't deposit a negative number. Go to withdraw.");
+					System.out.println("Error depositing negative amount. Go to withdraw.");
 				}
 			} else {
 				System.out.println("That account doesn't belong to you.");
@@ -287,7 +297,7 @@ public class User {
 		
 	}
 	public void withdraw(User u) throws SQLException {
-		System.out.println("Please enter the account id of the account you are trying to withdraw from.");
+		System.out.println("Please enter the account id to withdraw amount from.");
 		
 		keyboard = new Scanner(System.in);
 		
@@ -299,13 +309,13 @@ public class User {
 		if (accountid > 0) {
 			a = Account.checkAccount( accountid, u.getUserid());
 			if(a != null) {
-				System.out.println("How much would you like to withdraw?");
+				System.out.println("Withdraw amount?");
 				double amount = keyboard.nextDouble();
 				keyboard.nextLine();
 				if (amount >= 0 && amount <= a.getBalance()) {
 					Account.withdrawFromAccount(accountid, amount);
 				} else {
-					System.out.println("We don't allow withdrawing a negative number nor overdrafts.");
+					System.out.println("Bank does not allow overdrafting.");
 				}
 			} else {
 				System.out.println("That account doesn't belong to you.");
@@ -316,8 +326,8 @@ public class User {
 	}
 	public void delete(User u) throws SQLException {
 		//check if givenaccountid == dbaccountid && actualuserid==useridtothataccount
-		System.out.println("Please enter the account id of the account you are trying to delete.");
-		System.out.println("You can only delete empty accounts, so if you need to withdraw first enter 0 for the account id.");
+		System.out.println("Please enter the account id to delete account.");
+		System.out.println("Warning: You can only delete accounts with zero balance, to withdraw first enter the account id.");
 		
 		keyboard = new Scanner(System.in);
 		
@@ -330,7 +340,7 @@ public class User {
 			if(a != null && a.getBalance() == 0) {
 				Account.deleteAccount(accountid);
 			} else {
-				System.out.println("We either could not find an account under you with that id "
+				System.out.println("Cound not locate an account under you with that id "
 						+ "or your account balance doesn't allow deletion.");
 			}
 		} 

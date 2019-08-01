@@ -103,8 +103,8 @@ public class Login {
 				}
 			}
 				
-			System.out.println("That username password combination did not match anything in out records for an Admin.");
-			System.out.println("Do you want to try again?(yes/no)");
+			System.out.println("That username/password input did not match our records for an Admin.");
+			System.out.println("No matches were found, return to search? yes or no)");
 			
 			String response = keyboard.nextLine();
 			
@@ -138,8 +138,8 @@ public class Login {
 				}
 			}
 				
-			System.out.println("That username password combination did not match anything in out records for any users.");
-			System.out.println("Do you want to try again?(yes/no)");
+			System.out.println("That username/password input did not match our records for any Users.");
+			System.out.println("No matches were found, return to search? yes or no)");
 			
 			String response = keyboard.nextLine();
 			if (response.equalsIgnoreCase("yes")) {
@@ -149,5 +149,10 @@ public class Login {
 			}
 		}while(!finished);
 		return null;
+	}
+	@Override
+	public String toString() {
+		return "Login [loginId=" + loginId + ", userId=" + userId + ", adminId=" + adminId + ", keyboard=" + keyboard
+				+ "]";
 	}
 }

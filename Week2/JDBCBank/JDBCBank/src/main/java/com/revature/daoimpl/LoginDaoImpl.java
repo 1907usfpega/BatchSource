@@ -45,9 +45,11 @@ public class LoginDaoImpl implements LoginDao {
 		ps.setString(2, password);
 		ResultSet rs = ps.executeQuery();
 		Login login = null;
+		System.out.println(rs);
 		
 		while(rs.next()) {
 			login = new Login(rs.getInt(1), rs.getInt(2), rs.getInt(3));
+			System.out.println(login);
 		}
 		
 		return login;

@@ -103,7 +103,7 @@ public class Admin {
 		return "Admin [adminid=" + adminid + ", firstname=" + firstname + ", lastname=" + lastname + "]";
 	}
 	public static void start() throws SQLException {
-		System.out.println("Please sign into the admin account: ");
+		System.out.println("Please sign into your admin account: ");
 		Admin a = new Login().adminLogin();
 		
 		if(a != null) {
@@ -114,12 +114,12 @@ public class Admin {
 	public static void whatToDo(Admin a) throws SQLException {
 		while(a.isLoggedIn()) {
 			keyboard = new Scanner(System.in);
-			System.out.println("What would you like to do?");
+			System.out.println("Choose Admin options:");
 			System.out.println("1. View All Users");
-			System.out.println("2. View a User");
-			System.out.println("3. Create a User");
-			System.out.println("4. Update a User");
-			System.out.println("5. Delete a User");
+			System.out.println("2. View Users");
+			System.out.println("3. Create Users");
+			System.out.println("4. Update Users");
+			System.out.println("5. Delete Users");
 			System.out.println("6. Logout");
 			String response = keyboard.nextLine();
 			
@@ -150,7 +150,7 @@ public class Admin {
 	
 	public void view() throws SQLException {
 		keyboard = new Scanner(System.in);
-		System.out.println("What is the userid of the user you want to see?");
+		System.out.println("Please enter userid you want to view:");
 		int userid = keyboard.nextInt();
 		keyboard.nextLine();
 		
@@ -165,7 +165,7 @@ public class Admin {
 	
 	public void create() throws SQLException {
 		keyboard = new Scanner(System.in);
-		System.out.println("What will be this user's name?");
+		System.out.println("Enter the user's information:");
 		System.out.println("First Name: ");
 		String firstname = keyboard.nextLine();
 		System.out.println("Last Name: ");
@@ -175,7 +175,7 @@ public class Admin {
 	
 	public void update() throws SQLException {
 		keyboard = new Scanner(System.in);
-		System.out.println("What is the userid of the user you want to update.");
+		System.out.println("Please enter the userid you want to update:");
 		int userid = keyboard.nextInt();
 		keyboard.nextLine();
 		System.out.println("What will be this user's new name?");
@@ -188,7 +188,7 @@ public class Admin {
 	
 	public void delete() throws SQLException {
 		keyboard = new Scanner(System.in);
-		System.out.println("What is the userid of the user you want to delete.");
+		System.out.println("Please enter the userid you want to delete:");
 		int userid = keyboard.nextInt();
 		keyboard.nextLine();
 		User.deleteUser(userid);

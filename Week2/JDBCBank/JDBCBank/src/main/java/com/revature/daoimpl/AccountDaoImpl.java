@@ -57,7 +57,7 @@ public class AccountDaoImpl implements AccountDao {
 		call.setInt(1, accountid);
 		call.setDouble(2, balance);
 		call.execute();
-		System.out.println("Money depositted");
+		System.out.println("Amount Deposited");
 
 	}
 
@@ -69,7 +69,7 @@ public class AccountDaoImpl implements AccountDao {
 		call.setInt(1, accountid);
 		call.setDouble(2, balance);
 		call.execute();
-		System.out.println("Money Withdrawn");
+		System.out.println("Amount Withdrawn");
 	}
 
 	//deletes a specific account

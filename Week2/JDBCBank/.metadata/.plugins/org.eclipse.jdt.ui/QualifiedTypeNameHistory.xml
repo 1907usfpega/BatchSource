@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.revature.dao.AccountDao"/>
+<fullyQualifiedTypeName name="com.revature.dao.LoginDao"/>
+<fullyQualifiedTypeName name="com.revature.dao.UserDao"/>
+<fullyQualifiedTypeName name="com.revature.daoimpl.UserDaoImpl"/>
+<fullyQualifiedTypeName name="com.revature.daoimpl.LoginDaoImpl"/>
+<fullyQualifiedTypeName name="com.revature.connFactory.ConnFactory"/>
+<fullyQualifiedTypeName name="com.revature.daoimpl.AccountDaoImpl"/>
+<fullyQualifiedTypeName name="com.revature.user.User"/>
+<fullyQualifiedTypeName name="com.revature.account.Account"/>
+<fullyQualifiedTypeName name="com.revature.admin.Admin"/>
+<fullyQualifiedTypeName name="com.revature.login.Login"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+</qualifiedTypeNameHistroy>

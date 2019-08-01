@@ -14,17 +14,29 @@ public class Driver {
 	 * @param args
 	 */
 	public static void main(String[] args) {		
-		//starts the bank app
 		start();
 	}
 	
-	//choose which route to go admin/user
+	
 	public static void start() {
 		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Bank of Java1");
-		System.out.println("Are you a ");
-		System.out.println("1. Bank Admin");
-		System.out.println("2. User");
+		System.out.println(
+				"      # ######  ######   #####     ######                                                 #                      \r\n" + 
+				"      # #     # #     # #     #    #     #   ##   #    # #    #     ####  ######          #   ##   #    #   ##   \r\n" + 
+				"      # #     # #     # #          #     #  #  #  ##   # #   #     #    # #               #  #  #  #    #  #  #  \r\n" + 
+				"      # #     # ######  #          ######  #    # # #  # ####      #    # #####           # #    # #    # #    # \r\n" + 
+				"#     # #     # #     # #          #     # ###### #  # # #  #      #    # #         #     # ###### #    # ###### \r\n" + 
+				"#     # #     # #     # #     #    #     # #    # #   ## #   #     #    # #         #     # #    #  #  #  #    # \r\n" + 
+				" #####  ######  ######   #####     ######  #    # #    # #    #     ####  #          #####  #    #   ##   #    #");
+		
+		System.out.println("--------------------------------------------------------------------------------------------------------------------");
+		System.out.println("Your login choices: ");
+		System.out.println(" ");
+		System.out.println("1. I am a Bank Admin");
+		System.out.println("--------------------");
+		System.out.println("2. I am a New/Existing User");
+		System.out.println("----------------------------");
+		System.out.println("3. Exit");
 		String response = keyboard.nextLine();
 		
 		try {
@@ -41,9 +53,19 @@ public class Driver {
 		}		
 	}
 	
-	//closing statement
+	
 	public static void stop() {
-		System.out.println("Well thank you for stopping by the Grand Simple Bank of Java. Have a nice day.");
+		System.out.println("--------------------------------------------------------------------------------------------------------------------");
+		System.out.println("Thank you for your business and have a nice day.");
+		System.out.println(" ");
+		System.out.println(
+				"      # ######  ######   #####     ######                                                 #                      \r\n" + 
+				"      # #     # #     # #     #    #     #   ##   #    # #    #     ####  ######          #   ##   #    #   ##   \r\n" + 
+				"      # #     # #     # #          #     #  #  #  ##   # #   #     #    # #               #  #  #  #    #  #  #  \r\n" + 
+				"      # #     # ######  #          ######  #    # # #  # ####      #    # #####           # #    # #    # #    # \r\n" + 
+				"#     # #     # #     # #          #     # ###### #  # # #  #      #    # #         #     # ###### #    # ###### \r\n" + 
+				"#     # #     # #     # #     #    #     # #    # #   ## #   #     #    # #         #     # #    #  #  #  #    # \r\n" + 
+				" #####  ######  ######   #####     ######  #    # #    # #    #     ####  #          #####  #    #   ##   #    #");
 	}
 
 }
