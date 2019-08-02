@@ -135,12 +135,12 @@ crazy =function(at, least, three){
 //     }
 // }
 //with closure
-var add= (function(){
-    var count=0;
-    return function(){
-        count+=1;
-        return count;
+// var add= (function(){
+//     let count=0;
+//     return function(){
+//         count+=1;
+//         return count;
 
-    }
+//     }
 
-})
+// })
