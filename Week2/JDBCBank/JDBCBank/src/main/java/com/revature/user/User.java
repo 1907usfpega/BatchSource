@@ -229,12 +229,15 @@ public class User {
 		while(user.isLoggedIn()) {
 			keyboard = new Scanner(System.in);
 			System.out.println("Select from menu:");
+			System.out.println(" ");
 			System.out.println("1. View your Accounts");
 			System.out.println("2. Create a new Account");
 			System.out.println("3. Deposit into Account");
 			System.out.println("4. Withdraw from Account");
 			System.out.println("5. Delete Account");
 			System.out.println("6. Logout");
+			System.out.println("-------------------");
+
 			String response = keyboard.nextLine();
 			
 			if (response.equals("1")) {
@@ -280,24 +283,24 @@ public class User {
 		if (accountid > 0) {
 			a = Account.checkAccount(accountid,u.getUserid());
 			if(a != null) {
-				System.out.println("Deposit amount?");
+				System.out.println("Deposit what amount?:");
 				double amount = keyboard.nextDouble();
 				keyboard.nextLine();
 				if (amount > 0) {
 					Account.depositToAccount(accountid, amount);
 				} else {
-					System.out.println("Error depositing negative amount. Go to withdraw.");
+					System.out.println("Error depositing negative amount. Please return to menu.");
 				}
 			} else {
-				System.out.println("That account doesn't belong to you.");
+				System.out.println("Accountid does not match.");
 			}
 		} else {
 			System.out.println("Invalid account.");
-		}
+		} 
 		
 	}
 	public void withdraw(User u) throws SQLException {
-		System.out.println("Please enter the account id to withdraw amount from.");
+		System.out.println("Please enter the accountid to withdraw monies from:");
 		
 		keyboard = new Scanner(System.in);
 		
@@ -309,25 +312,25 @@ public class User {
 		if (accountid > 0) {
 			a = Account.checkAccount( accountid, u.getUserid());
 			if(a != null) {
-				System.out.println("Withdraw amount?");
+				System.out.println("Withdraw amount?:");
 				double amount = keyboard.nextDouble();
 				keyboard.nextLine();
 				if (amount >= 0 && amount <= a.getBalance()) {
 					Account.withdrawFromAccount(accountid, amount);
 				} else {
-					System.out.println("Bank does not allow overdrafting.");
+					System.out.println("Bank does not allow overdrafting. We apologize for the inconvenience");
 				}
 			} else {
-				System.out.println("That account doesn't belong to you.");
+				System.out.println("Accountid in question does not match.");
 			}
 		} else {
-			System.out.println("Invalid account.");
+			System.out.println("Invalid accountid.");
 		}
 	}
 	public void delete(User u) throws SQLException {
 		//check if givenaccountid == dbaccountid && actualuserid==useridtothataccount
-		System.out.println("Please enter the account id to delete account.");
-		System.out.println("Warning: You can only delete accounts with zero balance, to withdraw first enter the account id.");
+		System.out.println("Please enter the accountid to delete account.");
+		System.out.println("Warning: You can only delete zero balance accounts, to withdraw first enter the account id by pressing any key to return.");
 		
 		keyboard = new Scanner(System.in);
 		
@@ -340,8 +343,8 @@ public class User {
 			if(a != null && a.getBalance() == 0) {
 				Account.deleteAccount(accountid);
 			} else {
-				System.out.println("Cound not locate an account under you with that id "
-						+ "or your account balance doesn't allow deletion.");
+				System.out.println("We apologize, but the account was either not found "
+						+ "or the account balance does not match requirements to delete.");
 			}
 		} 
 		//check if account == 0

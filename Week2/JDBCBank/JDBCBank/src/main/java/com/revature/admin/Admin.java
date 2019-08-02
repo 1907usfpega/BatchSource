@@ -103,7 +103,7 @@ public class Admin {
 		return "Admin [adminid=" + adminid + ", firstname=" + firstname + ", lastname=" + lastname + "]";
 	}
 	public static void start() throws SQLException {
-		System.out.println("Please sign into your admin account: ");
+		System.out.println("Please sign into your own admin account: ");
 		Admin a = new Login().adminLogin();
 		
 		if(a != null) {
@@ -114,7 +114,9 @@ public class Admin {
 	public static void whatToDo(Admin a) throws SQLException {
 		while(a.isLoggedIn()) {
 			keyboard = new Scanner(System.in);
+			System.out.println(" ");
 			System.out.println("Choose Admin options:");
+			System.out.println("------------------------");
 			System.out.println("1. View All Users");
 			System.out.println("2. View Users");
 			System.out.println("3. Create Users");

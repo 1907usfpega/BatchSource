@@ -1,13 +1,3 @@
---To create a new user
---and grant that user permissions
-
-/*CREATE USER jdbcbankdb IDENTIFIED BY p4ssw0rd;
-
-GRANT CONNECT, RESOURCE TO  jdbcbankdb;
-GRANT DBA TO jdbcbankdb WITH ADMIN OPTION;*/
-
---Create the tables
-
 CREATE TABLE bankuser
 (
     userid NUMBER PRIMARY KEY,
@@ -138,7 +128,7 @@ end;
 CREATE OR REPLACE PROCEDURE insertuser(firstnam VARCHAR2, lastnam VARCHAR2)
 IS
 BEGIN
-    INSERT INTO bankuser(firstname,lastname) VALUES(firstnam,lastnam);
+    INSERT INTO bankuser(firstname,lastname,userid) VALUES(firstnam,lastnam,USERIDSEQ.nextval);
 END insertuser;
 /
 
@@ -147,14 +137,14 @@ IS
 same_username VARCHAR2(50);
 username_exception EXCEPTION;
 BEGIN
-    INSERT INTO login(username,password,userid,adminid) VALUES(usernam,passwor,useri,admini);
+    INSERT INTO login(loginid, username,password,userid,adminid) VALUES(loginidseq.nextval,usernam,passwor,useri,admini);
 END insertlogin;
 /
 
 CREATE OR REPLACE PROCEDURE insertaccount(logini NUMBER, useri NUMBER)
 IS
 BEGIN
-    INSERT INTO account(loginid,userid) VALUES(logini,useri);
+    INSERT INTO account(accountid, loginid,userid) VALUES(accountidseq.nextval, logini,useri);
 END insertaccount;
 /
 
@@ -200,5 +190,9 @@ BEGIN
 END updateaccount; 
 /
 
-INSERT INTO admin(firstname, lastname) VALUES('Justin' , 'Hua');
-INSERT INTO login(username,password,adminid) VALUES('Jhua','password', 1);
+Select loginid,adminid,userid FROM login WHERE (username = 'jhuaa' AND password = 'jhuaa');
+
+INSERT INTO admin(firstname, lastname, adminid) VALUES('Justin' , 'Hua',ADMINIDSEQ.nextval);
+INSERT INTO admin(firstname, lastname, adminid) VALUES('kabes' , 'j',998);
+INSERT INTO login(username, password, adminid, loginid) VALUES('','jha', 998,998);
+update login set password = '*****' where password = 'password';

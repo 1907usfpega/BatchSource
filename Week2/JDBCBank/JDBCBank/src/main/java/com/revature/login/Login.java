@@ -104,6 +104,7 @@ public class Login {
 			}
 				
 			System.out.println("That username/password input did not match our records for an Admin.");
+			System.out.println("------------------------------------------------------------------------");
 			System.out.println("No matches were found, return to search? yes or no)");
 			
 			String response = keyboard.nextLine();
@@ -139,6 +140,7 @@ public class Login {
 			}
 				
 			System.out.println("That username/password input did not match our records for any Users.");
+			System.out.println("---------------------------------------------------------------------");
 			System.out.println("No matches were found, return to search? yes or no)");
 			
 			String response = keyboard.nextLine();
