@@ -1,6 +1,5 @@
 package com.revature.login;
 
-
 import java.sql.SQLException;
 import java.util.Scanner;
 
@@ -9,8 +8,6 @@ import com.revature.daoimpl.AdminDaoImpl;
 import com.revature.daoimpl.LoginDaoImpl;
 import com.revature.daoimpl.UserDaoImpl;
 import com.revature.user.User;
-
-
 
 public class Login {
 
@@ -71,6 +68,7 @@ public class Login {
 		LoginDaoImpl log = new LoginDaoImpl();
 		return log.usernameAvailable(username);
 	}
+	
 	
 	public static void createLogin(String username, String password, int userid) throws SQLException {
 		LoginDaoImpl log = new LoginDaoImpl();

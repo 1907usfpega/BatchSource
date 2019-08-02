@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> EventStuff</title>
+</head>
+
+<body>
+    <div id="A">A
+        <div id="B">B
+            <div id="C">C
+                <div id="D">D
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="event.js"></script>
+</body>
+
+</html>
+
+
+
+
+<!-- DOM - Document Object Model
+Specifies how browsers should create a model of an HTML page and how JS can access and
+ update the contents of a web page while it is in the browser window.
+Structural elements of an HTML page.
+A tree of JS objects used to render the view.
+Each HTML tag is a JS object.
+Dom Parsing	
+Loads entire page into memory
+Creates tree with all tags
+Can read or edit
+Slow
+Uses Sax Parsing
+
+Sax Parsing
+Sequential API for XML Parsing
+Pulls 1 line at a time into memory
+Goes sequentially through file
+Cannot edit
+faster
+
+DOM Selection and Manipulation
+How to use JS to change the look and behavior of your webpage.
+To find elements, we need to use our document object. It is the object that has 
+all of the representations of our HTML elements. We can retrieve elements by
+ id names (attribute), tag names and class names (also an attribute).
+ document.getElementById(id)
+document.getElementsByTagName(name)
+document.getElementsByClassName(class)
+Interacting with elements
+[element].innerHTML          	[] not part of the notation
+[element].[attribute]
+[element].setAttribute([attribute], [value])
+[element].style
+Inline styling. Since JavaScript is usually at the bottom of your page, it’s usually the last thing that’s loaded, so it’ll have the highest precedence.
+This allows you to control elements dynamically, after the page loads.
+Adding/Removing elements
+We need to use our document and register the element with said document.
+document.createElement()
+[element].appendChild(element)
+[element].removeChild(element)
+[element].replaceChild
+
+Navigation:
+parentNode
+childNodes[index]
+firstChild
+lastChild
+previousSibling
+nextSibling
+
+Event
+Some occurrence in our client-side environment, which we can respond to programmatically.
+Types
+Input events
+    onchange
+    onfocus
+    onsubmit
+    onkeydown
+    onkeypress
+    etc.
+Mouse events
+    onmousemove
+    onmouseover
+    Etc.
+Click events
+    onclick
+    ondoubleclick
+Load events
+    onload
+    onrestore
+    onrefresh
+    Etc.
+
+Event Object -
+     a JS representation of the most recent event that has fired. 
+    Very dynamic - lots of events occur. Has a number of important properties.
+    type
+    srcElement
+clientX - where the event occurred
+clientY - where the event occurred
+altKey - boolean
+shiftKey - boolean
+ctrlKey - boolean
+keyCode - boolean. If any key was pressed.
+Among others
+Event Listeners (JavaScript)
+3 ways of doing event listeners
+Inline
+    <button onclick="someFunction">HI</button>
+    Couples structure and behavior unnecessarily
+ (views and scripts too tightly coupled). Generally not preferred, obtrusive.
+
+ Method
+[element].onclick = function(){ … };
+
+Long form
+[element].addEventListener(type, handler, useCapture)
+useCapture is an optional parameter that defaults to false.(bubbling)
+Type: “click”, “mouseover”, etc. Events without “on” in front of their names.
+Event handler function can (and should) be passed as a parameter.- no Parantheses
+
+Anonymous function for handler.
+The event handler object is global, but we pass it in as a parameter for readability.
+
+We don’t actually create the event. The event simply happens.
+We can add many event listeners to the same element.
+Events that interact with the DOM. Useful methods for controlling where the DOM will be affected.
+
+Event Propagation
+The order in which event handlers on nested elements will be called.
+event.stopPropagation
+event.target - nested elements that listen for the same type 
+of event won’t have their handlers fired as well.
+<html>
+   <body>
+       <div id="div1">
+           <div id="div2">
+               <p id="p1">
+                   Some stuff
+               </p>
+           </div>
+       </div>
+   </body>
+</html>
+In JS: div1, div2, p1 all have the “click” event.
+JS checks from the root to the target, then the target to the root.
+If we click on p1, JS will check from the root -> target then from target -> root, looking for relevant event listeners.
+useCapture determines on which leg of the traversal your handlers will be called.
+Bubbling: target to root. Typically used by convention.
+Capturing: root to target
+We can add many event listeners to the same element..
+Set bubbling or capturing
+[element].addEventListener(type, handler, useCapture)
+If it’s false (default), then the handler is set on the bubbling phase.
+If it’s true, then the handler is set on the capturing phase.
+
+
+https://javascript.info/bubbling-and-capturing --

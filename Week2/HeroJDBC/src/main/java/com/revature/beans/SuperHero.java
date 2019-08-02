@@ -1,9 +1,19 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a15aab9d093e1f080c0b12ad5656323dbb830291
 package com.revature.beans;
 
 public class SuperHero {
 	private int heroID;
 	private String heroName;
+<<<<<<< HEAD
+=======
+	public SuperHero() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+>>>>>>> a15aab9d093e1f080c0b12ad5656323dbb830291
 	public SuperHero(int heroID, String heroName) {
 		super();
 		this.heroID = heroID;
@@ -26,6 +36,7 @@ public class SuperHero {
 		return "SuperHero [heroID=" + heroID + ", heroName=" + heroName + "]";
 	}
 	
+<<<<<<< HEAD
 	
 	
 =======
@@ -48,4 +59,6 @@ public class SuperHero {
 	}
 
 >>>>>>> ec17887aa226515703225d76adef61fef521f005
+=======
+>>>>>>> a15aab9d093e1f080c0b12ad5656323dbb830291
 }

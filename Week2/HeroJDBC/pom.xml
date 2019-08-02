@@ -1,8 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 <<<<<<< HEAD
+<<<<<<< HEAD
   <groupId>comm.revature</groupId>
   <artifactId>JDBCBAnk</artifactId>
+=======
+  <groupId>com.revature</groupId>
+  <artifactId>HeroJDBC</artifactId>
+>>>>>>> a15aab9d093e1f080c0b12ad5656323dbb830291
   <version>0.0.1-SNAPSHOT</version>
   <dependencies>
   	<dependency>
@@ -12,6 +17,7 @@
   	</dependency>
   </dependencies>
   <properties>
+<<<<<<< HEAD
   <maven.compiler.sourece>1.8</maven.compiler.sourece>
   <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
@@ -20,4 +26,10 @@
   <artifactId>HeroJDBC</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 >>>>>>> ec17887aa226515703225d76adef61fef521f005
+=======
+  	<maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+  
+>>>>>>> a15aab9d093e1f080c0b12ad5656323dbb830291
 </project>

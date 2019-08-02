@@ -117,11 +117,11 @@ public class Admin {
 			System.out.println(" ");
 			System.out.println("Choose Admin options:");
 			System.out.println("------------------------");
-			System.out.println("1. View All Users");
-			System.out.println("2. View Users");
-			System.out.println("3. Create Users");
-			System.out.println("4. Update Users");
-			System.out.println("5. Delete Users");
+			System.out.println("1. View All Bank Users");
+			System.out.println("2. View Individual Bank Users");
+			System.out.println("3. Create Bank Users");
+			System.out.println("4. Update Bank Users");
+			System.out.println("5. Delete Bank Users");
 			System.out.println("6. Logout");
 			String response = keyboard.nextLine();
 			

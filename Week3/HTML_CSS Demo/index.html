@@ -1,0 +1,144 @@
+<!--
+    This is a comment. Can be 
+    Multi
+    Line
+    if
+    needed.
+-->
+<!DOCTYPE html>
+<!-- DOCTYPE element must be the first non-comment tag
+instruction for the browser about what version of html we are using-->
+<html><!--html is the root tag-->
+    <head>
+        <!--
+            Contains information about the page, rather than the content shown.
+                We can include some information, such as:
+                    - <style> tag to apply internal CSS styling to the web page
+                    - <link> tags for making use of external libraries or 
+                    resources
+                    - <script> tags to make use of JavaScript (JS), 
+                        we will use JS to make our web pages more dynamic
+                    - <meta> tags to include meta-information about the 
+                    content of the page for search engine optimization (SEO)
+                    - <title> provides a title for our web page (displays
+                         on the top of the browser window/tab)
+        -->
+        <title>HTML basics:Structure Roll Tide</title>
+        <style>
+        body{background-color: green}
+        h1{color:yellow}
+        </style>
+        <link rel="stylesheet" href="random.css">
+    </head>
+    <body>
+                <!-- 
+            <body>
+                Contains information/content that will be displayed to the user, 
+                when rendered by the browser.
+        -->
+
+        <!--
+            HTML tags/elements
+                Used to indicate how content should be displayed. Usually will require an opening 
+                and closing
+                tag, those that do not require closing tags are known as "self-closing" tags.
+                <p>         paragraph
+                <h#>        headings (range from 1 - 6, which 1 being the largest size)
+                <div>       division/divider; used to group related elements together
+                <img>       image (self-closing)
+                <a>         anchor; used to create links to others web pages, or to sections of the 
+                    current page
+                <br>        line break (self-closing)
+                <hr>        horizontal rule; puts a horizontal line on the page to separate
+                 content (self-closing)
+                <input>     creates a field for user input of some sort [text, checkbox, etc.] 
+                (self-closing)
+            Attributes
+                    HTML elements can have attributes. Attributes provide additional information
+                     about the contents
+                    of an element. They appear within the opening tag of an HTML element,
+                     and are made of two parts:
+                    a name and a value. The name and the value are separated by an equals 
+                    sign (=). The value of an
+                    attribute is wrapped in double quotes ("").
+        -->
+
+        <!-- 
+            Headings
+                h1 to h6 (smallest largest)
+        -->
+        <div>
+            <p>This is in a dumb div</p>
+        </div>
+        <h1 class="c1">This is a main heading</h1>
+        <p>
+            This text might be used to introduce the rest of the page. ROLL TIDE!
+        </p>
+        <!--html doesn't care about whitespace-->
+
+        <h2>This is not quite                        as important</h2>
+        <!--
+            Escape Characters
+                There are some characters that are used in and reserved for HTML code.
+                 If you want to use them
+                and have them appear on your page, then you need to use escape characters.
+                    <       -       Less-than       &lt;        &#60;
+                    >       -       Greater-than    &gt;        &#61;
+                    &       -       Ampersand       &amp;
+                    ""      -       quotation marks &quot;
+                            -       space           &nbsp;
+        -->
+        <p>Here is some text. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Here is some more.</p>
+        <!-- Element Attributes - a bunch depending on what youre trying to do!
+        class- can be used to identify multiple elements
+        id- identify a specific element
+        -->
+        <div id="a"class="c1">
+            <h1>I'm a header!</h1>
+             <!-- span tag is used to apply css in the middle of an element-->
+            <p>This is a really <span class="demo"> kewl </span>  p tag!</p>
+        </div>
+        <div id="b">
+            <div id="c">
+                <p>this is madness!</p>
+            </div>
+        </div>
+<!--CSS Cascading Style Sheet
+    3 ways to include:
+        inline- on the element itself
+        internal- style tag in head
+        external- separate .css file specified in the head. can be local or a url
+-->
+        <h1 style="color:bisque">BISQUE is an h1 tag</h1>
+        <h1> this is voodoo</h1>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
