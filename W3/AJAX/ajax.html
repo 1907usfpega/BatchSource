@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pookiemans</title>
+    </head>
+    <body>
+        <input type="test" id="pkID" placeholder="Enter Pokemon ID"/>
+        <input type="submit" ivalue="Get Pokemon info" id="pokesubmit"/>
+        <h3 id="name"></h3>
+        <script type="text/javascript" src="ajax.js"></script>
+
+    </body>
+
+    
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--AJAX asychronous js and xml, xml is out, json is in. misleading since we use json instead of xml. 
+ajax is not a programming language! it is a set of interactions between the XMLHttpRequest JS object in the browser and the HTML DOM
+Asychronous- because http requst don't need to wait for each other to complete. can periodically reload
+sections of a page w/o affecting the rest, allows out server to process request and return responses. 
+
+AJAX workflow, how do we use ajax?
+1. create/open the XmLHttpRequest (XHR) object
+2. define onreadystatechange function
+3.open our request(xhr.open(method, url,true or false))
+4. send our request (with request body data if we want to)
+    a. send/pass data-xhr.send(...);
+XmlHttpRequest(XHR) object
+Used to exchange data with a server, supported by the most modern business. IE 5 and 6 do not support XHR
+we grab our xhr from the window object
+Methods
+*properties of the XHR* readystates. responsetext, JSON.parse.
+
+callback function
+a function that is passed as a parameter to another function.
+-->
+

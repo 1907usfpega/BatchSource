@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:green;">
+
+<h2>JavaScript Event and Stuffs</h2>
+
+<p>Click on the time button to display current time! Color button to change colors!</p>
+
+<button id="myBtn">Time</button>
+
+<button id="myBtn1">Year</button>
+
+
+<p id="demo"></p>
+<script>
+document.getElementById("myBtn").addEventListener("click", displayDate);
+
+document.getElementById("myBtn1").addEventListener("click", curYear);
+
+
+function displayDate() {
+  document.getElementById("demo").innerHTML = Date();
+}
+
+function curYear() {
+  var d = new Date();
+  var n = d.getFullYear();
+  document.getElementById("demo").innerHTML = n;
+}
+</script>
+
+</body>
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- DOM PARSING - load the entire page into memory, can read or edit, very slow. Instead, it
+Uses Sax parsing, which pulls 1 line at a time into memory, goes sequentially through file, cannot edit. Faster.
+Dom Selection and manipulation.
+document.getElementByid(id),document.getElementByTagName(name),document.getElementByClassName(class).
+event listeners-some occurance in the client-side environment that we can respond to programmatically.
+Event Object- a js representation of the most recent events occurred, has a number of peoperties, very dynamics.
+Event listners-3 ways.
+1. Inline <button onClick="someFunction">Hi<button> - couples structure and behavior unneccesarily. obstrusive
+2. method div.onclick=function(){};
+3. Long form div.addEventListener(type,handler,useCapture)
+anonymous function for handler- the event handler object is global, but we pass it in as a parameter for readability.
+we do not create the event, we are listening and responding to it accordingly.
+
+js bubbling vs capturing-->
+
+
+
+
