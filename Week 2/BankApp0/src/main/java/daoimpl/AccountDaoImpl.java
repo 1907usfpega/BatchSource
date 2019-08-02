@@ -62,7 +62,6 @@ public class AccountDaoImpl implements AccountDao {
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, UID);
 		ResultSet rs = ps.executeQuery();
-//		String qresult = "";
 		int column = 1;
 		while(rs.next()) {
 			System.out.println("Account ID: " + rs.getString(column++));

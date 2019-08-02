@@ -1,0 +1,78 @@
+<!--
+  DOM - DOCUMENT OBJECT MODEL
+  SPECIFIES HOW BROWSERS SHOULD CREATE A MODEL OF AN HTML PAGE AND HOW JS CAN ACCESS AND UPDATE THE CONTENTS
+  OF A WEB PAGE WHILE IT IS IN THE BROWSER WINDOW.
+  STRUCTURAL ELEMENTS OF AN HTML PAGE.
+  A TREE OF JS OBJECTS USED TO RENDER THE VIEW.
+  EACH HTML TAG IS A JS OBJECT.
+
+  DOM PARSING
+  LOADS ENTIRE PAGE INTO MEMORY
+  CREATES TREE WITH ALL TAGS
+  CAN READ OR EDIT
+  SLOW
+  USES SAX PARSON
+
+  SAX PARSING
+  SEQUENTIAL API FOR XML PARSING
+  PULLS 1 LINE AT A TIME INTO MEMORY
+  GOES SEQUENTIALLY THROUGH FILE
+  CANNOT EDIT
+  FASTER
+
+  DOM SELECTION AND MANIPULATION
+  HOW TO USE JS TO CHANGE THE LOOK AND BEHAVIOR OF YOUR WEBPAGE.
+  TO FIND ELEMENTS, WE NEED TO USE OUR DOCUMENT OBJECT. IT IS THE OBJECT THAT HAS
+  ALL OF THE REPRESENTATIONS OF OUR HTML ELEMENTS. WE CAN RETRIEVE ELEMENTS BY
+    ID NAMES (ATTRIBUTE), TAG NAMES AND CLASS NAMES (ALSO AN ATTRIBUTE).
+    document.getElementById(id)
+    document.getElementByTagName(name)
+    document.getElementByClassName(class)
+
+    INTERACTING WITH ELEMENTS
+    [element].innerHTML         [] not part of the notation
+    [element].[attribute]
+    [element].setAttribute([attribute], [value])
+    [element].style
+
+    INLINE STYLING. SINCE JAVASCRIPT IS USUALLY AT THE BOTTOM OF YOUR PAGE, IT IS USUALLY THE LAST THING
+    THIS ALLOWS YOU TO CONTROL ELEMENTS DYNAMICALLY, AFTER THE PAGE LOADS.
+
+    ADDING/REMOVING ELEMENTS
+    WE NEED TO USE OUR DOCUMENT AND REGISTER THE ELEMENT WITH SAID DOCUMENT.
+    document.createElement()
+    [element].appendChild(element)
+    [element].removeChild(element)
+    [element].replaceChild
+
+    NAVIGATION:
+    parentNode
+    childNodes[index]
+    firstChild
+    lastChild
+    previousSibling
+    nextSibling
+
+    EVENT
+    SOME OCCURANCE IN OUR CLIENT-SIDE ENVIRONMENT, WHICH WE CAN RESPOND TO PROGRAMMATICALLY.
+
+  -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EventStuff</title>
+    </head>
+    <body>
+        <div id="A">A
+            <div id="B">B
+                <div id="C">C
+                  <div id="D">D
+
+                  </div>
+                </div>
+            </div>
+        </div>
+        <script type = "text/javascript" src="event.js"></script>
+    </body>
+</html>

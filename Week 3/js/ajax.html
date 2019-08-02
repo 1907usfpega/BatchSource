@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pookiemans is teh kewl</title>
+  </head>
+  <body>
+      <input type="test" id="pkID" placeholder="Enter Pokemon ID"/>
+      <input type="submit" value="Get Pokemon Info" id="pokesubmit"/>
+      <h3 id="name"></h3>
+      <script type="text/javascript" src="ajax.js"></script>
+  </body>
+</html>
+
+<!--
+  AJAX
+  ASYNCHRONOUS JAVASCRIPT AND XML
+      XML IS OUT, JSON IS IN
+      MISLEADING SINCE WE USE JSON INSTEAD OF XML
+      AJAX IS NOT A PROGRAMMING LANGUAGE
+      SET OF INTERACTIONS BETWEEN THE XmlHttpRequest JS OBJECT IN THE BROWSER AND THE HTML DOM
+
+      ASYNCHRONOUS
+      BECAUSE HTTP REQUEST DON'T NEED TO WAIT FOR EACH OTHER TO COMPLETE
+        CAN PERIODICALLY RELOAD SECTIONS OF OUR PAGE WITHOUT AFFECTING THE REST OF IT.
+      SERVERS PROCESS REQUESTS AND RETURN RESPONSES
+
+      AJAX WORKFLOW
+      1.) CREATE/OPEN THE XmlHttpRequest (XHR) Object.
+      2.) DEFINE onreadystatechange FUNCTION.
+      3.) OPEN OUR REQUEST (xhr.open(method, url, true or false))
+      4.) SEND OUR REQUEST (with request body data if we want to)
+        a. SEND/PASS DATA -xhr.send(...)
+
+      XHR OBJECT
+        USED TO EXCHANGE DATA WITH A SERVER
+        SUPPORTED BY MOST MODERN BUSINESSES
+        IE 5 AND 6 DO NOT SUPPORT XHR
+        WE GRAB OUR XHR FROM THE WINDOW OBJECT.
+
+      METHODS:
+        new XmlHttpRequest() - Constructor
+        abort() - Cancel current request
+        getResponseHeader() - for response metadata (also getAllResponseHeaders())
+        open(verb, url, async, username, password)
+          verb - HTTP Method
+          url - where request is going
+          async - boolean, generally true. True by default.
+          username and password - if requested resource requires credentials.
+        How we prepare a request.
+          send(content)
+          content - OPTIONAL AND FOR POST REQUESTS
+
+    XHR PROPERTIES
+      onreadystatechange - DEFINES A FUNCTION TO BE EXECTURED WHEN THE READYSTATE PROPERTY CHANGES.
+      readystate - GIVES US THE STATUS OF THE XHR OBJECT. THERE ARE FIVE POSSIBLE VAULUES,
+      AND YOU NEED TO KNOW THEM FOR LIFE.
+        0 - REQUEST CANNOT BE INITIALIZED
+        1 - SERVER CONNECTION ESTABLISHED
+        2 - REQUEST RECEIVED
+        3 - SERVER PROCESSING REQUEST
+        4 - RESPONSE IS READY (STATUS CODE COULD BE ANYTHING)
+
+      responseText - string containing the response contents
+        JSON.parse(Xhr.responseText)
+      responseXml - for XML-formatted RESPONSES
+      status, statusText - for HTTP resonse code and message
+
+   CALLBACK FUNCTION
+   PASSED AS A PARAMETER TO ANOTHER FUNCTION
+   IF WE HAVE MORE THAN ONE AJAX REQUEST PER PAGE, WE WANT TO REUSE OUR AJAX-SPECIFIC
+   CODE AS MUCH AS POSSIBLE. WE DON'T WANT TO CONSTANTLY REDEFINE OUR onreadystatechange.
+   DEFINE ONE FUNCTION FOR XHR AND A FUNCTION TO HANDLE EACH TASK PASSED AS A CALLBACK.
+
+-->
