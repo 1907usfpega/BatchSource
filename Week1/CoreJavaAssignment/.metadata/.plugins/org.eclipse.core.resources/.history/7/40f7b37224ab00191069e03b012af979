@@ -1,0 +1,28 @@
+package Assignment.Java;
+
+public class JavaQ7Comparator {
+
+	public static void question7()
+	 private int id = -1;
+    private String firstName = null;
+    private String lastName = null;
+    private int age = -1;
+ 
+    public JavaQ7Comparator(int id, String nameFirst, String nameLast, int age) {
+        this.id = id;
+        this.firstName = nameFirst;
+        this.lastName = nameLast;
+        this.age = age;
+    }
+ 
+    // get and set
+ 
+    @Override
+    public String toString() {
+        return "Employee : " + id + " - " + firstName + " - " + lastName
+        + " - " + age + "n";
+    }
+
+}
+
+

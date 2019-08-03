@@ -1,0 +1,10 @@
+package Assignment.Java;
+
+public class JavaQ6ModulusOperator {
+
+public static void isEven(int number) {
+	if((number & 1) == 0){
+		System.out.println("This number: "+ number + "is even");
+	}
+}
+}

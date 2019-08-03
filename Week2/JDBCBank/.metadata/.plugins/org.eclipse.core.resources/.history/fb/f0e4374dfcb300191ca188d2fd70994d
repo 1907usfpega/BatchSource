@@ -1,0 +1,7 @@
+#comment
+driver=oracle.jdbc.driver.OracleDriver
+url=jdbc:oracle:thin:@week2db.cfrr6rvcqfhh.us-east-2.rds.amazonaws.com:1521:ORCL
+user=jhua8837
+password=Hua9710495
+adminuser=admin
+adminpass=password

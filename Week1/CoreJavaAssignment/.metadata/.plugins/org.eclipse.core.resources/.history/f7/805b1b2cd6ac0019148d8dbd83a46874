@@ -1,0 +1,15 @@
+package Accounts;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TestAccount {
+private TestAccount account = new TestAccount ();
+	@Test
+	void test() {
+		TestAccount a= new TestAccount();  
+		fail("Not yet implemented");
+	}
+
+}

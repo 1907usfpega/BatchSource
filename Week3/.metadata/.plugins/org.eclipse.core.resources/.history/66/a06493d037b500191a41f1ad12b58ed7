@@ -1,0 +1,18 @@
+package snippet;
+
+public class Snippet {
+	public static void main(String[] args) {
+		<dependency>
+		            <groupId>javax.servlet</groupId>
+		            <artifactId>servlet-api</artifactId>
+		            <version>2.5</version>
+		            <scope>provided</scope>
+		        </dependency>
+		
+		<properties>
+		     <maven.compiler.source>1.8</maven.compiler.source>
+		     <maven.compiler.target>1.8</maven.compiler.target>
+		 </properties>
+	}
+}
+

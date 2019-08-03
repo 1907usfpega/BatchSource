@@ -1,0 +1,6 @@
+INDEX VERSION 1.131+C:\Users\Justin\Desktop\Git\BatchSource\Week1\CoreJavaAssignment\.metadata\.plugins\org.eclipse.jdt.core
+3316466471.index
+634298842.index
+3374793772.index
+604953191.index
+3523293318.index

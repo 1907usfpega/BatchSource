@@ -1,0 +1,14 @@
+package Assignment.Java;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class JavaQ7ComparatorTest {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

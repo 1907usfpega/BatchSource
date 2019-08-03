@@ -1,0 +1,25 @@
+package com.revature.generics;
+
+public class Gen1<T> {
+	/*
+	 * using a type as parameter
+	 */
+	public static void main(String[] args) {
+		T ob;
+		
+		//pass the constructor a ref to an object of type T
+		Gen1(T ) {
+			ob=o;
+		}
+		//return ob
+		T getOb() {
+		return ob;
+		}
+		//show the type of T
+		void showType() {
+			System.out.println("type of T is: "
+		+ ob.getClass().getName());
+		}
+	}
+
+}

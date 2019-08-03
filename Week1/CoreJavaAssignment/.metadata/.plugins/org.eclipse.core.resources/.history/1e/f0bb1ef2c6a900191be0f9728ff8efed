@@ -1,0 +1,19 @@
+package Assignment.Java;
+
+import java.util.Scanner;
+
+public class JavaQ6ModulusOperator {
+
+	public static void main(String args[]) {
+		int x;
+		System.out.println("Is this number even?");
+		Scanner in = new Scanner(System.in);
+		x = in.nextInt();
+		
+	}
+public static void isEven(int number) {
+	if((number & 1) == 0){
+		System.out.println("This number: "+ number + "is even");
+	}
+}
+}

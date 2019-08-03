@@ -1,0 +1,16 @@
+package Assignment.Java;
+
+public class JavaQ2Fibonacci {
+
+		public static void main(String[] args) {
+	int n = 1, x1 = 0, x2 = 1;
+	System.out.println("Upto" + 25 + ": ");
+	while (x1 <= n)
+	{
+		System.out.println(x1 + " +");
+		int sum= x1 + x2;
+		x1 =x2;
+		x2 =sum;
+	}
+		}
+}

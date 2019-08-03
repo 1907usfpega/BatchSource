@@ -1,0 +1,14 @@
+package Assignment.Java;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class Q7Test {
+
+	@Test
+	void testJavaQ7Comparator() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,150 @@
+package Assignment.Java;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class JavaQ7Comparator{
+	String name;
+
+	int age;
+
+	String department;
+	
+	 
+
+	void Employee(String name, int age, String department)
+
+	{
+
+	this.name = name;
+
+	this.age = age;
+
+	this.department = department;
+
+	}
+
+	  
+
+	public String toString() {
+
+	return "Employee- Name: " + name + ", Age: " + age + ", Department: " + department;
+
+	}
+
+	}
+
+	class SortByName implements Comparator<JavaQ7Comparator>
+
+	{
+
+	public int compare(JavaQ7Comparator first, JavaQ7Comparator second)
+
+	{
+
+	return first.name.compareTo(second.name);
+
+	}
+
+	}
+
+	class SortByAge implements Comparator<JavaQ7Comparator>
+
+	{
+
+	public int compare(JavaQ7Comparator first, JavaQ7Comparator second)
+
+	{
+
+	return first.age-second.age;
+
+	}
+
+	}
+
+	class SortByDepartment implements Comparator<JavaQ7Comparator>
+
+	{
+
+	public int compare(JavaQ7Comparator first, JavaQ7Comparator second)
+
+	{
+
+	return first.department.compareTo(second.department);
+
+	}
+
+	
+
+	
+
+	public static void main(String[] args) {
+
+	ArrayList<JavaQ7Comparator> empList = new ArrayList<JavaQ7Comparator>();
+
+	empList.add(new JavaQ7Comparator("John",20, "Computer"));
+
+	empList.add(new JavaQ7Comparator("Aston",25, "Math"));
+
+	empList.add(new JavaQ7Comparator("Tom",24, "Science"));
+
+	System.out.println("List before Sorting");
+
+	  
+
+	for (int emp=0; emp<empList.size(); emp++)
+
+	{
+
+	System.out.println(empList.get(emp));
+
+	}
+
+	System.out.println("\n*********************");  
+
+	System.out.println("Sorted list by name: ");
+
+	Collections.sort(empList, new SortByName());
+
+	for (int i=0; i<empList.size(); i++)
+
+	{
+
+	System.out.println(empList.get(i));
+
+	}
+
+	  
+
+	System.out.println("\n********************");  
+
+	System.out.println("Sorted list by age: ");
+
+	Collections.sort(empList, new SortByAge());
+
+	for (int i=0; i<empList.size(); i++)
+
+	{
+
+	System.out.println(empList.get(i));
+
+	}
+
+	System.out.println("***************************");  
+
+	System.out.println("\nSorted list by department: ");
+
+	Collections.sort(empList, new SortByDepartment());
+
+	for (int i=0; i<empList.size(); i++)
+
+	{
+
+	System.out.println(empList.get(i));
+
+	}
+
+	}
+
+	}

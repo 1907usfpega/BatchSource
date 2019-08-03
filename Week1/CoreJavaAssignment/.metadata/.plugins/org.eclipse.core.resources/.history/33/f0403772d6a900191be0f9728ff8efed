@@ -1,0 +1,18 @@
+package Assignment.Java;
+
+import java.util.Scanner;
+
+public class JavaQ6ModulusOperator {
+	
+	public static void main(String args[]) {
+		int number;
+		Scanner in= new Scanner(System.in);
+		number=in.nextInt();
+		if((number&1)==0){
+			System.out.println(number+"is even");}
+		else {
+			System.out.println(number+"is odd");
+	}
+}
+}
+

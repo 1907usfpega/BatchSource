@@ -1,0 +1,12 @@
+package Assignment.Java;
+
+public class JavaQ5Substring {
+
+	public void substring(int beginIndex) {
+		String str1="Go Revature";
+		System.out.println(str1.substring(beginIndex));
+		
+
+	}
+
+}

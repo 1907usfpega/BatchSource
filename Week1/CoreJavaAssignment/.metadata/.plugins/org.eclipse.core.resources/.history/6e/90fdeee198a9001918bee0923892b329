@@ -1,0 +1,10 @@
+package com.revature.compare;
+
+public class CompareMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

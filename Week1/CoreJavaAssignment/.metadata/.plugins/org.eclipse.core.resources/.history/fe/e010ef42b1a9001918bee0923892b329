@@ -1,0 +1,16 @@
+package Assignment.Java;
+
+import java.util.Arrays;
+
+public class JavaQ1BubbleSort {
+
+	public static void main(String[] args) {
+	int [] arr= {1,0,5,6,3,2,3,7,9,8,4};
+	System.out.println(arr[1]);
+	}				
+}
+
+	
+
+		
+	

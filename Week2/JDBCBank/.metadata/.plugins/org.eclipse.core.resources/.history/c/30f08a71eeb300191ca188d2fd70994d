@@ -1,0 +1,13 @@
+package com.revature.dao;
+
+
+
+import java.sql.SQLException;
+
+import admin.Admin;
+
+
+public interface AdminDao {
+	
+	Admin getAdmin(int id) throws SQLException;
+}

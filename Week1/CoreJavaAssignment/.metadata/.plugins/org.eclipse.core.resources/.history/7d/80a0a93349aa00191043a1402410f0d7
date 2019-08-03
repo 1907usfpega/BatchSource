@@ -1,0 +1,19 @@
+package com.revature.io;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
+public class IOWithCollections {
+	private static final String personFile="person.txt";
+	public static ArrayList<Person> personList=
+			new ArrayList<Person>();
+	
+	public static void writePersonFile() {
+		ObjectOutputStream objectOut=
+				new objectOutputStream( new FileOutputStream(personList));
+		objectOut.writeObject();
+		objectOut.close();
+	}
+	
+}

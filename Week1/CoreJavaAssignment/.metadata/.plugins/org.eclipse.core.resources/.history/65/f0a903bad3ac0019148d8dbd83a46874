@@ -1,0 +1,14 @@
+package bankingApp;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class TestAccount {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
+
+}

@@ -1,0 +1,15 @@
+package Assignment.Java;
+
+public class JavaQ6ModulusOperator {
+
+	static int numEven(int x) {
+		return(x & 1);
+	}
+	public static void main(String args[]) {
+		int x = 4;
+		if(numEven(x)==0);
+			System.out.println("is even");
+			System.out.println("is odd");
+	}
+}
+
