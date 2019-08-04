@@ -16,6 +16,7 @@ public class PowersDaoImpl implements PowersDao{
 		PreparedStatement ps= conn.prepareStatement(sql);
 		ps.setString(1, powerName);
 		ps.executeUpdate();
+	
 	}
 
 }

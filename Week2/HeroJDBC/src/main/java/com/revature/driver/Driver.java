@@ -8,6 +8,7 @@ import com.revature.daoimpl.SuperHeroDaoImpl;
 public class Driver {
 
 	public static void main(String[] args) {
+		System.out.println("roll tide");
 		SuperHeroDaoImpl shdi = new SuperHeroDaoImpl();
 		/*
 		 * try { System.out.println(shdi.getSuperHeroList()); 
