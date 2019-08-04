@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 !SESSION 2019-08-02 10:56:32.552 -----------------------------------------------
 eclipse.buildId=4.3.1.201907120711-RELEASE
 java.version=1.8.0_211
@@ -1900,3 +1901,21 @@ org.eclipse.core.runtime.CoreException: Could not load the Tomcat server configu
 !MESSAGE The project description file (.project) for 'Servers' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
 !SUBENTRY 1 org.eclipse.core.resources 2 234 2019-08-03 11:48:41.239
 !MESSAGE The project description file (.project) for 'SessionDemo' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+=======
+
+!ENTRY org.eclipse.core.resources 4 568 2019-08-03 11:53:41.703
+!MESSAGE Could not write metadata for '/'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\Justin\Desktop\Git\BatchSource\Week3\.metadata\.plugins\org.eclipse.core.resources\.root\.markers.snap (The system cannot find the path specified)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at java.io.FileOutputStream.<init>(Unknown Source)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:48)
+	at org.eclipse.core.internal.localstore.SafeChunkyOutputStream.<init>(SafeChunkyOutputStream.java:44)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSnap(SaveManager.java:1774)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1210)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1151)
+	at org.eclipse.core.internal.resources.DelayedSnapshotJob.run(DelayedSnapshotJob.java:55)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+>>>>>>> c1f2cc40c1bb24d2a44e2c4a8fd4fb06608d8377
