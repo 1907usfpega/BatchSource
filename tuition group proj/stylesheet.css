@@ -1,0 +1,48 @@
+#top {
+    display: flex;
+    margin: 0 auto;
+    padding: 20px;
+    /* Moves it down */
+}
+
+#top-left {
+    flex: 3 1 auto;
+}
+
+#top-center {
+    flex: 1 1 auto;
+}
+
+#top-right {
+    flex: 1 1 auto;
+}
+
+
+/* TOP DONE */
+
+#center-body {
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 1em;
+}
+
+#about {
+    flex: 3 1 auto;
+}
+
+#etc {
+    /* flex: 1 1 auto; */
+    float: right;
+}
+
+#pictures {
+    flex: 1 1 auto;
+    float: right;
+    float: bottom;
+}
+
+body {
+    background-color: dimgrey;
+}
