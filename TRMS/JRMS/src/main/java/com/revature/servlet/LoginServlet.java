@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("name", name);
 		} else {
-			request.getRequestDispatcher("home.html").forward(request, response);
+			request.getRequestDispatcher("registration.html").forward(request, response);
 		}
 		out.close();
 	}
