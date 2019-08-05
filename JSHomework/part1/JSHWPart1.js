@@ -62,7 +62,7 @@ var homework = {
 			console.log("Why are you doing this? Just give me a number in the second parameter.");
 			return null;
 		}
-		
+
 		while(rotNo > 0) {
 			temp = inArr[0];
 			i = 0;
@@ -115,22 +115,48 @@ var homework = {
 			}
 		}
 		return true;
+	},
+
+	trueOrFalse : function(i) {
+		if(i) {
+			return true;
+		} else {
+			return false;
+		}
+
+		// i = -1;
+		// if(i) {
+		// 	return true;
+		// } else {
+		// 	return false;
+		// }
+		//
+		// i = [];
+		// if(i) {
+		// 	return true;
+		// } else {
+		// 	return false;
+		// }
+		//
+		// i = 0;
+		// if(i) {
+		// 	return true;
+		// } else {
+		// 	return false;
+		// }
+		//
+		// i = null;
+		// if(i) {
+		// 	return true;
+		// } else {
+		// 	return false;
+		// }
+		//
+		// i = 17;
+		// if(i) {
+		// 	return true;
+		// } else {
+		// 	return false;
+		// }
 	}
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
