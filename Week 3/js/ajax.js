@@ -1,4 +1,4 @@
-function loadPokeman(pokeman) {
+  function loadPokeman(pokeman) {
   document.getElementById("name").innerHTML=pokeman.name;
 }
 

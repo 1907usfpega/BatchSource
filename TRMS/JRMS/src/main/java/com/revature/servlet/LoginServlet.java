@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
  * Servlet implementation class LoginServlet
  */
 public class LoginServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
        
 
 	/**
@@ -31,7 +31,7 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("name", name);
 		} else {
 			out.print("Sorry, username or password error!");
-			request.getRequestDispatcher("login.html").include(request, response);
+			request.getRequestDispatcher("registration.html").include(request, response);
 		}
 		out.close();
 	}
