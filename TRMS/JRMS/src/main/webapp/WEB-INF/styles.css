@@ -18,7 +18,7 @@ ul {
     text-decoration: none;
   }
   
-  li a:hover:not(.active) {
+  li a:hover {
     background-color:#4CAF50 ;
   }
   
