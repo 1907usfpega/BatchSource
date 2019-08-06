@@ -13,4 +13,5 @@
 <item elementID="=SessionDemo/target\/generated-test-sources\/test-annotations" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1564757902755_2" label="Window Working Set" name="Aggregate for window 1564757902755"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1565030329261_3" label="Window Working Set" name="Aggregate for window 1565030329261"/>
 </workingSetManager>
