@@ -22,7 +22,7 @@ public class Driver {
 
 		boolean q = false;
 
-		System.out.println("Welcome to Diemer & co. banking!\n");
+		System.out.println("Welcome to JDBC banking!\n");
 		while (!q) {
 			System.out.println("Please choose an option from the menu below:\n");
 			System.out.println(LOGIN + ".\t Login");
@@ -60,7 +60,7 @@ public class Driver {
 				} // catch
 			} // end else (not q)
 		} // end not q;
-		System.out.println("Thank You for banking with Diemer & co.");
+		System.out.println("Thank You for banking with JDBC.");
 		sc.close();
 		return;
 	}

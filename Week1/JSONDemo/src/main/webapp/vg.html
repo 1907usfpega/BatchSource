@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>VideoGame Library</title>
+</head>
+<body>
+	<div>
+		<h2>Welcome to the VideoGame Library Search</h2>
+	</div>
+	<div>
+		<input type="text" id="vgIdInput" placeholder="Enter Videogame Id"/>
+		<input type="submit" value="Get Video Game Info" id="vgSubmitGet"/>
+		<h2 id="vgname"></h2>
+		<h3 id="vgid"></h3>
+		<h3 id="vgscore"></h3> 
+	</div>
+	<form enctype="application/json" id="vgform">
+		Video Game Id:<input type="text" name="vgIdForm"/>
+		<br>
+		Video Game Name:<input type="text" name="vgNameForm"/>
+		<br>
+		Video Game MetaScore:<input type="text" name="vgMetaScoreForm"/>
+		<br>
+		<input type="submit" value="vgFormSubmit"/>
+	
+	</form>
+	<script type="text/javascript" src="vg.js"></script>
+</body>
+</html>
