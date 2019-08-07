@@ -33,5 +33,4 @@ public class VGDaoImpl {
 		ps.setString(2, vg.getVgName());
 		ps.setInt(3, vg.getVgMetaScore());
 		ps.executeUpdate();	}
-
 }
