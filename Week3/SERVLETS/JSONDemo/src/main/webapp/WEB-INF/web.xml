@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>JSONDemo</display-name>
+  <welcome-file-list>
+  <!--allows us to see this html file from http://localhost:8080/JSONDemo-->  
+    <welcome-file>index.html</welcome-file>
+
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>VGServlet</display-name>
+    <servlet-name>VGServlet</servlet-name>
+    <servlet-class>com.revature.servlet.VGServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VGServlet</servlet-name>
+    <url-pattern>/vg</url-pattern>
+  </servlet-mapping>
+</web-app>
