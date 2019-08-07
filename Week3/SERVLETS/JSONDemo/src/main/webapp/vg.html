@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Video Game Library</title>
+</head>
+<body>
+	<div>
+	<h2> Welcome to the Video Game Library Search</h2>
+	</div>
+	<div>
+	<input type="text" id= "vgIDInput" placeholder="enter Video Game ID"/>
+	<input type="submit" value= " Get Video Game Info" id="vgSubmitGet"/>
+	<h2 id="vgName"></h2>
+	<h3 id="vgID"></h3>
+	<h3 id="vgMetaScore"></h3>
+	</div>
+	
+	<div>
+	<form enctype="application/json" method ="POST" id="vgForm">
+		Video Game ID:<input type="text" name= "vgID">
+		<br>
+		Video Game Name: <input type="text" name="vgName">
+		<br>
+		Video Game MetaCritic Score: <input type="text" name="vgMetaScore">
+		<br>
+		<input type="submit" name="submitme" id="vgFormSubmit">
+	
+	</form>
+	
+	</div>
+
+	<script type="text/javascript" src="vg.js"></script>
+
+</body>
+</html>
