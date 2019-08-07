@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.beans.VideoGame;
 import com.revature.dao.VGDaoImpl;
 
 /**
@@ -45,8 +46,23 @@ public class VGServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		System.out.println("in doPost");
+		VideoGame vg=null;
+		ObjectMapper mapper= new ObjectMapper();
+		//convert JSON to Java Object
+		//YOU NEED A DEFAULT CONSTRUCTOR IN YOUR JAVA OBJECT CLASS IN ORDER TO USE THIS!!!
+		vg= mapper.readValue(request.getInputStream(),VideoGame.class);
+		System.out.println(vg);
+		VGDaoImpl vgdi= new VGDaoImpl();
+		try {
+			vgdi.insertVG(vg);
+			PrintWriter pw = response.getWriter();
+			pw.write("<h3>Added Video Game</h3>");
+			pw.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.revature.beans;
 
 public class VideoGame {
+	//NEED TO MATCH HTML FORM NAMES
 	private int vgID;
 	private String vgName;
 	private int vgMetaScore;
