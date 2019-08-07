@@ -956,3 +956,23 @@ org.eclipse.debug.core.DebugException: Launch configuration Tomcat v9.0 Server a
 2019-08-06 12:46:48,429 [Worker-139: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2019-08-06 12:46:48,438 [Worker-139: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
 2019-08-06 12:46:48,453 [Worker-139: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-08-06 16:23:55,453 [Worker-143: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-06 16:23:55,486 [Worker-143: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\main\resources
+2019-08-06 16:23:55,496 [Worker-143: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-06 16:23:55,517 [Worker-143: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\test\resources
+2019-08-06 16:26:47,753 [Worker-144: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-06 16:26:47,775 [Worker-144: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\main\resources
+2019-08-06 16:26:47,784 [Worker-144: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-06 16:26:47,813 [Worker-144: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\test\resources
+2019-08-06 19:23:22,840 [Worker-150: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-06 19:23:22,851 [Worker-150: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\main\resources
+2019-08-06 19:23:22,862 [Worker-150: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-06 19:23:22,875 [Worker-150: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\test\resources
+2019-08-07 09:10:02,281 [Worker-158: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-07 09:10:02,292 [Worker-158: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\main\resources
+2019-08-07 09:10:02,304 [Worker-158: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-07 09:10:02,325 [Worker-158: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\test\resources
+2019-08-07 09:10:03,214 [Worker-151: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-07 09:10:03,278 [Worker-151: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\main\resources
+2019-08-07 09:10:03,301 [Worker-151: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent!
+2019-08-07 09:10:03,334 [Worker-151: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Justin\Desktop\TRMS\TRMS\src\test\resources
