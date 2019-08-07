@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
 <head>
         <link rel="stylesheet" href="styles.css">
 </head>
@@ -18,11 +17,11 @@
                         <input type="text" name="name" placeholder="password">  
                      </div> 
                 </li>
-        <li  class="loader" > <input onclick="logIn()" type="submit" value="login"> </li>
+                <li  class="loader" > <input type="submit" value="login"> </li>
             </ul>
 <h1 class="text" >Tuition Reimbursement Form</h1>
-        <form action="/action_page.php">
-            Date: <input type="date" name="date"><br>
+        <form id= "formid" action="/action_page.php">
+            Date: <input type="date" id="date" name="date"><br>
             <h2>Employee info</h2>
             &nbsp; &nbsp; &nbsp;
             First name:
@@ -36,18 +35,6 @@
             &nbsp; &nbsp;
             Employee ID:
             <input type="text" name="employeeID">
-            <br><br>
-            Street Address:
-            <input type="text" name="employeeAddressCity">
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-            City:
-            <input type="text" name="employeeAddressCity">
-            &nbsp; &nbsp; &nbsp;
-            State:
-            <input type="text"name="employeeAddressState">
-            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-            Zip:
-            <input type="text" name="employeeAddressZip">
             <br><br>
             <h2>Course info</h2>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -80,19 +67,18 @@
             &nbsp;&nbsp;&nbsp;
             Type of Event:
             <select>
-                <option value="collegeCourse">College courseDescription</option>
-                <option value="recertification">Professional Recertification</option>
-                <option value="certification">Professional Certifications Course</option>
+                <option value="certification">Certification 100%</option>
+                <option value="technicalTraining">Technical Training 90%</option>
+                <option value="universityCourse">University Course 80%</option>
+                <option value="certPrepClasses">Certification Preparation Classes 75%</option>
+                <option value="seminars">Seminars 60%</option>
+                <option value="other">Other 30%</option>
             </select>
             <br> <br> 
-          
-            
-            
-            
             <br> <br>
             <input type="submit">
             </form>  
 </body>
-    <script src="index.js"></script>
+    <script src="form.js"></script>
 
 </html>

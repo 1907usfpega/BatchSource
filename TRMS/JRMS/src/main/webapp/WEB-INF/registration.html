@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
 <head>
         <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <script>
+     
+    </script>
         <ul>
                 <li><a class="active" href="index.html">Home</a></li>
                 <li><a href="news.html">News</a></li>
@@ -18,14 +20,27 @@
                         <input type="text" name="name" placeholder="password">  
                      </div> 
                 </li>
-        <li  class="loader" > <input onclick="logIn()" type="submit" value="login"> </li>
+                <li  class="loader" > <input onclick="logIn()" type="submit" value="login"> </li>
             </ul>
             <div>
-                <h1>
-                    **********UNDER CONSTRUCTION ************
-                </h1>
+                <h1 class="pe" style="background-color:lightskyblue;color:lightslategrey">Registration Form</h1>
+                
+               <form  class="center" style="background-color:lightgreen" ><br>
+                <div class="inp">
+                        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Employee Id:     <input class="inp" type="text" name="employeeID"><br><br>
+                        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;First Name:<input class="inp" type="text" name="employeeID"><br><br>
+                        &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;Last Name:<input class="inp" type="text" name="employeeLName"><br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; Email:<input type="email" name="employeeEmail"><br><br>
+                    City:<input class="inp" type="text" name="employeeName">
+                        &nbsp;  Create UserName: <input type="text" name="username1"><br><br>
+                    &nbsp; &nbsp; Create Password: <input type="text" name="password1"><br><br>
+                    &nbsp; Confirm Password:<input type="text" name="password2"><br><br>
+                    
+                    <input id="100" type="submit"> &nbsp;&nbsp; <button id="200" type="reset" value="Reset">Reset</button>
+                </div>
+            </form>  
             </div>
 </body>
-    <script src="index.js"></script>
+    <script src="registration.js"></script>
 
 </html>
