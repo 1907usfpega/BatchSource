@@ -73,6 +73,73 @@ function makeHuman2(name, age){
     return p;
 }
 
+//Arrays
+var arr = [10,20,30];
+arr[9] = 5;
+arr[100] = "why??";
+
+
+//Functions - 3 invocations
+//function form - "this" refers to the global object
+function divideByZero(kitty,kat){
+    console.log("hey, kitty kitty");
+    return (kitty+kat);
+}
+//constructor form - "this" refers to the object being created
+var conFunc = new function(a,b){
+    return a*b;
+}
+//method form - "this" refers to person
+person.getInfo = function(){
+    return this.age;
+}
+
+
+crazy = function(at, least, three){
+    console.log(at);
+    console.log(least);
+    console.log(three);
+    console.log(arguments[5]);
+}
+
+
+//Build a reusable counter
+/*
+var count = 0;
+function add(){
+    count++;
+    return count;
+}
+*/
+
+// function add(){
+//     var count =0;
+//     count++;
+//     return count;
+// }
+
+// function add(){
+//     var count = 0;
+//     function plus(){
+//         count+=1;
+//         return count;
+//     }
+// }
+
+//WITH CLOSURE!
+var add = (function(){
+    var count = 0;
+    return function(){
+        count+=1;
+        return count;
+    }
+}());
+
+
+
+
+
+
 
 
 

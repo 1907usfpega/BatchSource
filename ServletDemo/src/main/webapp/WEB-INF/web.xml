@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>ServletDemo</display-name>
+  <servlet>
+    <servlet-name>myFirstServlet</servlet-name>
+    <servlet-class>com.revature.servlet.MyFirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>myFirstServlet</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PrintWriterServer</display-name>
+    <servlet-name>PrintWriterServer</servlet-name>
+    <servlet-class>com.revature.servlet.PrintWriterServer</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PrintWriterServer</servlet-name>
+    <url-pattern>/print</url-pattern>
+  </servlet-mapping>
+</web-app>

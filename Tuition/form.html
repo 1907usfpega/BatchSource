@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<head>
+        <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <ul>
+                <li><a class="active" href="index.html">Home</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="form.html">Tuition Reimbursement Form</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="registration.html">Register</a></li>
+                <li class="loader" >
+                    <div>
+                        <input type="text" name="name" placeholder="username"> 
+                        <input type="text" name="name" placeholder="password">  
+                     </div> 
+                </li>
+                <li  class="loader" > <input type="submit" value="login"> </li>
+            </ul>
+<h1 class="text" >Tuition Reimbursement Form</h1>
+        <form action="/action_page.php">
+            Date: <input type="date" id="date" name="date"><br>
+            <h2>Employee info</h2>
+            &nbsp; &nbsp; &nbsp;
+            First name:
+            <input type="text" id="fname" name="firstname">
+            &nbsp; &nbsp; &nbsp;
+            Last name:
+            <input type="text" id="lname" name="lastname">
+            &nbsp; &nbsp; &nbsp;
+            Email:
+            <input type="email" id="email" name="email">
+            &nbsp; &nbsp;
+            Employee ID:
+            <input type="text" id="emplID"name="employeeID">
+            <br><br>
+            <h2>Course info</h2>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Date Course Begins
+            <input type="date" id="courseBeginDate" name="startDate">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Date Course Ends
+            <input type="date" id="courseEndDate" name="endDate"><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Location City:
+            <input type="text" id="courseCity" name="locationCity">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            State:
+            <input type="text" id="courseState" name="locationState">
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            Zip:
+            <input type="number" id="courseZip" name="zipcode">
+            <br><br>
+            Course Description:
+            <input type="text" name="courseDescription">
+            &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+            Cost: 
+            <input type="number" name="Cost"><br><br>
+            &nbsp;&nbsp;
+            Grading Format:
+            <select>
+                <option value="seventyPassing">70% Pass Passing Grade</option>
+                <option value="eightyPassing">80% Passing Grade</option>
+            </select>
+            &nbsp;&nbsp;&nbsp;
+            Type of Event:
+            <select>
+                <option value="certification">Certification 100%</option>
+                <option value="technicalTraining">Technical Training 90%</option>
+                <option value="universityCourse">University Course 80%</option>
+                <option value="certPrepClasses">Certification Preparation Classes 75%</option>
+                <option value="seminars">Seminars 60%</option>
+                <option value="other">Other 30%</option>
+            </select>
+            <br> <br> 
+            <br> <br>
+            <input type="submit"> &nbsp;&nbsp;&nbsp;<button id="button" type="reset" value="Reset">Reset</button> <br>
+            </form>  
+</body>
+</html>

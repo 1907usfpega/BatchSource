@@ -1,0 +1,16 @@
+img{
+   width: 50%;
+}
+
+body{
+    background-color: cornsilk;
+}
+
+#name{
+    /*font-family: 'Wingdings';*/
+    font-family: 'Comic Sans MS';
+}
+
+div{
+    float: left;
+}
