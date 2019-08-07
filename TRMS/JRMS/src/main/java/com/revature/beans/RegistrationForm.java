@@ -11,12 +11,13 @@ public class RegistrationForm {
 	private int zCode;
 	private String un;
 	private String pw;
+	private String cpw;
 	public RegistrationForm() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public RegistrationForm(String fName, String lName, String email, String aStreet, String aCity, String aState,
-			int zCode, String un, String pw) {
+			int zCode, String un, String pw, String cpw) {
 		super();
 		this.fName = fName;
 		this.lName = lName;
@@ -27,6 +28,7 @@ public class RegistrationForm {
 		this.zCode = zCode;
 		this.un = un;
 		this.pw = pw;
+		this.cpw = cpw;
 	}
 	public String getfName() {
 		return fName;
@@ -82,10 +84,16 @@ public class RegistrationForm {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	public String getCpw() {
+		return cpw;
+	}
+	public void setCpw(String cpw) {
+		this.cpw = cpw;
+	}
 	@Override
 	public String toString() {
 		return "RegistrationForm [fName=" + fName + ", lName=" + lName + ", email=" + email + ", aStreet=" + aStreet
-				+ ", aCity=" + aCity + ", aState=" + aState + ", zCode=" + zCode + ", un=" + un + ", pw=" + pw + "]";
+				+ ", aCity=" + aCity + ", aState=" + aState + ", zCode=" + zCode + ", un=" + un + ", pw=" + pw + ", cpw=" + cpw + "]";
 	}
 	
 	

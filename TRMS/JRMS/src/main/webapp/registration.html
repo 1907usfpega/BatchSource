@@ -28,30 +28,31 @@
                 
                 <div class="row">
 
-                    <span class="column" >
-                        <span>
-                            Employee Id:<input class="inp" type="text" name="employeeID"><br><br>
-                            City:<input class="inp" type="text" name="employeeCity"><br><br>
-                            Email:<input type="email" name="employeeEmail"><br><br><br>
-                            Create UserName: <input type="text" name="username"><br><br>
-                        </span>
-                    </span>
-                    <span class="column">
-                            <span>
-                                First Name:<input class="inp" type="text" name="employeeID"><br><br>
-                                State:<input class="inp" type="text" name="employeeState"><br><br><br><br><br>
-                                Create Password: <input type="password" name="password1"><br><br><br>
-                        </span>
-                            
-                        </span>
-                        <span class="column">
-                            <span>
-                                Last Name:<input class="inp" type="text" name="employeeLName"><br><br>
-                                Zip:<input class="inp" type="text" name="employeeZip"><br><br><br><br><br>
-                                &nbsp; Confirm Password:<input type="password" name="password2"><br><br>
-
-                            </span>
-                    </span>
+					<form enctype="application/json" method="post" id="regForm">
+	                    <span class="column" >
+	                        <span>
+	                        	First Name:<input class="inp" type="text" name="fName"><br><br>
+	                        	Last Name:<input class="inp" type="text" name="lName"><br><br>
+	                        	Email:<input type="email" name="email"><br><br>
+	                        </span>
+	                    </span>
+	                    <span class="column">
+	                            <span>
+	                            	Street:<input class="inp" type="text" name="aStreet"><br><br>
+	                            	City:<input class="inp" type="text" name="aCity"><br><br>
+	                            	State:<input class="inp" type="text" name="aState"><br><br>
+	                            	Zip:<input class="inp" type="number" name="zCode"><br><br>
+	                        </span>
+	                            
+	                        </span>
+	                        <span class="column">
+	                            <span>
+	                            	Create UserName: <input type="text" name="un"><br><br>
+	                            	Create Password: <input type="password" name="pw"><br><br>
+	                                &nbsp; Confirm Password:<input type="password" name="cpw"><br><br>
+	                            </span>
+	                    </span>
+                    </form>
                 </div>
 
 

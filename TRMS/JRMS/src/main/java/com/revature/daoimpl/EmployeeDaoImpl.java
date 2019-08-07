@@ -4,6 +4,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.revature.beans.RegistrationForm;
 import com.revature.dao.EmployeeDao;
 import com.revature.util.ConnFactory;
 
@@ -12,21 +13,20 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public static ConnFactory cf = ConnFactory.getInstance();
 	
 	@Override
-	public void registerEmployee(String fName, String lName, String email, String aStreet, String aCity, String aState,
-			int zCode, String un, String pw) throws SQLException
+	public void registerEmployee(RegistrationForm rf) throws SQLException
 	{
 		Connection conn = cf.getConnection();
 		String sql = "{ call REGISTER(?,?,?,?,?,?,?,?,?)";
 		CallableStatement call = conn.prepareCall(sql);
-		call.setString(1, fName);
-		call.setString(2, lName);
-		call.setString(3, email);
-		call.setString(4, aStreet);
-		call.setString(5, aCity);
-		call.setString(6, aState);
-		call.setInt(7, zCode);
-		call.setString(8, un);
-		call.setString(9, pw);
+		call.setString(1, rf.getfName());
+		call.setString(2, rf.getlName());
+		call.setString(3, rf.getEmail());
+		call.setString(4, rf.getaStreet());
+		call.setString(5, rf.getaCity());
+		call.setString(6, rf.getaState());
+		call.setInt(7, rf.getzCode());
+		call.setString(8, rf.getUn());
+		call.setString(9, rf.getPw());
 		call.execute();
 	}
 
