@@ -23,7 +23,7 @@ function getVG(){
 function postVG(){
 	console.log("in postVG");
 	
-	let vg=document.getElementById("vgForm").submit;
+	//let vg=document.getElementById("vgForm").submit;
 	 var xhr= new XMLHttpRequest();
 	xhr.onreadystatechange= function() {
 		console.log("in ORSC "+ xhr.readyState );
@@ -32,8 +32,8 @@ function postVG(){
 	}
 }
 xhr.open("POST","http://localhost:8080/JSONDemo/vg",true);
-	var trash=jsonBuilder();
-	xhr.send(trash);
+	var payload=jsonBuilder();
+	xhr.send(payload);
 
 }
 function jsonBuilder() {
@@ -42,9 +42,7 @@ function jsonBuilder() {
     for(var i = 0 ; i < elements.length-1; i++){
         var item = elements.item(i);
         obj[item.name] = item.value;
-        console.log(obj);
-       
-        
+        console.log(obj);   
     }
     var json= JSON.stringify(obj);
     console.log(json);

@@ -45,6 +45,7 @@ public class VGServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	//get a json from our ajax call and save it to the DB
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("in doPost");
 		VideoGame vg=null;
