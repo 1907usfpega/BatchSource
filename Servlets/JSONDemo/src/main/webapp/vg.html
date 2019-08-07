@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vidja Game Biblioteca</title>
+</head>
+<body>
+	<div>
+		<h2>Bienvenidos a la buscaria de la Biblioteca de los Videojuegos</h2>
+	</div>
+	<div>
+	<input type="text" id="vgIDInput" placeholder="Entra ID del Videojuego"/>
+	<input type="submit" value="Saca info del Videojuego" id="vgSubmitGet"/>
+	<h2 id="vgName"></h2>
+	<h3 id="vgID"></h3>
+	<h3 id="vgMetaScore"></h3>
+	</div>
+	<div>
+	<form enctype="application/json" id="vgForm">
+		ID del Videojuego:<input type="text" name="vgIDForm">
+		<br>
+		Nombre del Videojuego:<input type="text" name="vgNameForm">
+		<br>
+		Partitura del MetaCritic:<input type="text" name="vgMetaScoreForm">
+		<br>
+		<input type="submit" value="vgFormSubmit">
+	</form>
+	</div>
+	<script type="text/javascript" src="vg.js"></script>
+</body>
+</html>

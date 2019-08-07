@@ -18,18 +18,18 @@ ul {
     text-decoration: none;
   }
   
-  li a:hover {
+  li a:hover:not(.active) {
     background-color:#4CAF50 ;
   }
   
   .active {
-    background-color: gray;
+    background-color:gray;
   }
   .imageHome {
       object-fit: cover;
       object-position: 0 100%;
-  width: 1050px;
-  height: 350px;
+      width: 1050px;
+      height: 350px;
   }
   .construction{
 width: 150px;
@@ -80,4 +80,29 @@ height: 50px;
 }
 .right{
   float:right;
+}
+.center{
+  text-align: center;
+}
+.testing{
+  justify-content: right;
+  width: 50vw;
+  height: 50vw;
+  padding: 14px 16px;
+}
+.inp{
+  justify-content:right;
+}
+.pe {
+  border: 1px solid black; 
+  padding: 20px;
+}
+.column{
+  display: flex;
+flex-direction: column;
+align-items: center;
+  text-align: right;
+}
+body{
+  background-color:lightgreen;
 }
