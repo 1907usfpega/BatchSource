@@ -32,8 +32,8 @@ function postVG(){
 	}
 }
 xhr.open("POST","http://localhost:8080/JSONDemo/vg",true);
-	var trash=jsonBuilder();
-	xhr.send(trash);
+	var payload=jsonBuilder();
+	xhr.send(payload);
 
 }
 function jsonBuilder() {
